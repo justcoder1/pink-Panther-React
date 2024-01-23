@@ -14,12 +14,12 @@ const useAuthenticatedLayoutViewModel: ViewModelHook<
   const intl = useIntl();
 
   try {
-    const title = intl.formatMessage({
+    const title: string = intl.formatMessage({
       id: 'title',
       description: 'page title',
       defaultMessage: 'AuthenticatedLayout',
     });
-
+    
     return {
       title,
     };

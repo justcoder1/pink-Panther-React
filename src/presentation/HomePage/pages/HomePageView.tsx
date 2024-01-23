@@ -5,6 +5,7 @@ export interface HomePageViewProps {}
 
 const HomePageView: React.FC<React.PropsWithChildren<HomePageViewProps>> = () => {
   const vm = useHomeViewModel();
+  console.log(vm);  
 
   return (
     <Box>
