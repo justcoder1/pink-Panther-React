@@ -1,0 +1,61 @@
+#navBar-Main {
+    background-color: #fa8ab0;
+    border: 3px solid #b61588;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  #navBar-Left a {
+    font-family: "cooper black";
+    color: white;
+    text-decoration: none;
+    font-size: clamp(1.5rem, 8vw, 2.5rem);
+  }
+  
+  #navBar-Right a {
+    text-decoration: none;
+    color: white;
+    padding: 0.5em;
+  }
+  
+  #navBar-Right a:hover,
+  #navBar-Left a:hover {
+    color: #d372b7;
+  }
+  #navBar-Right a.active {
+    color: #b61588;
+  }
+  
+  #pawIcon {
+    font-size: 1.25em;
+    margin-left: 1.5em;
+    cursor: pointer;
+    color: white;
+  }
+  
+  #barsIcon {
+    font-size: 1.25em;
+    color: white;
+  }
+  
+  .hamburgerMenu {
+    display: none;
+  }
+  
+  .standardMenu {
+    display: inline;
+  }
+  
+  @media screen and (max-width: 900px) {
+    .hamburgerMenu {
+      display: inline;
+    }
+  
+    .standardMenu {
+      display: none;
+    }
+  
+    #pawIcon {
+      margin-left: 0em;
+    }
+  }

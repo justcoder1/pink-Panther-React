@@ -7,7 +7,7 @@ export interface HomeViewModel {
   title: string;  
 }
 
-const useHomeViewModel: ViewModelHook<
+const useHomePageViewModel: ViewModelHook<
 HomeViewModel
 > = () => {
   const handleError = useErrorHandler();
@@ -28,4 +28,4 @@ HomeViewModel
   }
 }
 
-export default useHomeViewModel;
+export default useHomePageViewModel;

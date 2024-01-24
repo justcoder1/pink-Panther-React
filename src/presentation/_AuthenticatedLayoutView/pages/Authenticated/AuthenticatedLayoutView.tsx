@@ -1,11 +1,11 @@
 import { Box } from "@mui/material";
-import Footer from "../components/Footer/Footer";
-import NavBar from "../components/NavBar/NavBar";
+import Footer from "../../components/Footer/Footer";
+import NavBar from "../../components/NavBar/NavBar";
 import useAuthenticatedLayoutViewModel from "./use-authenticated-layout.view-model";
 
-export interface HomePageViewProps {}
+export interface AuthenticatedLayoutViewProps {}
 
-const AuthenticatedLayoutView: React.FC<React.PropsWithChildren<HomePageViewProps>> = ({children}) => {
+const AuthenticatedLayoutView: React.FC<React.PropsWithChildren<AuthenticatedLayoutViewProps>> = ({children}) => {
   const vm = useAuthenticatedLayoutViewModel();
 
   return (

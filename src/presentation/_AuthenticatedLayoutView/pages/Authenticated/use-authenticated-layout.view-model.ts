@@ -1,8 +1,8 @@
 import { useErrorHandler } from 'react-error-boundary';
 import { useIntl } from 'react-intl';
-import { ViewModelHook } from '../../../_utils/types/index';
-import { useIntlCommon } from '../../../lang/intl-common';
-import { NavBarItemsProps } from '../components/NavBar/NavBar';
+import { ViewModelHook } from '../../../../_utils/types/index';
+import { useIntlCommon } from '../../../../lang/intl-common';
+import { NavBarItemsProps } from '../../components/NavBar/NavBar';
 
 export interface AuthenticatedLayoutViewModel {
   header: string;

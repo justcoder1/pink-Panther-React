@@ -1,0 +1,25 @@
+#container404 {
+  min-height: 100vh;
+}
+
+h3 {
+  color: #fa8ab0;
+}
+
+#textH6 {
+  margin: 5rem 0;
+}
+
+.logo404 {
+  height: 500px;
+  width: 500px;
+  padding: 2rem;
+}
+
+#homeBTN {
+  background-color: #b61588;
+}
+
+#homeBTN:hover {
+  background-color: #fa8ab0;
+}

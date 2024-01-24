@@ -8,6 +8,7 @@ import GalleryPageView from "./presentation/GalleryPage/pages/GalleryPageView";
 import HistoryPageView from "./presentation/HistoryPage/pages/HistoryPageView";
 import HomePageView from "./presentation/HomePage/pages/HomePageView";
 import UserPageView from "./presentation/User/pages/UserPageView";
+import PageNotFoundView from "./presentation/_AuthenticatedLayoutView/pages/PageNotFound/PageNotFoundView";
 
 const App: React.FC = () => {
   const { siteLabel } = useIntlCommon();
@@ -19,6 +20,7 @@ const App: React.FC = () => {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="*" element={<PageNotFoundView />} />
         <Route path="/" element={<HomePageView />} />
         <Route path="/about" element={<AboutPageView />} />
         <Route path="/appendix" element={<AppendixPageView />} />
