@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useIntlCommon } from "./lang/intl-common";
 
 import AboutPageView from "./presentation/AboutPage/pages/AboutPageView";
 import AppendixPageView from "./presentation/AppendixPage/pages/AppendixPageView";
@@ -8,6 +10,12 @@ import HomePageView from "./presentation/HomePage/pages/HomePageView";
 import UserPageView from "./presentation/User/pages/UserPageView";
 
 const App: React.FC = () => {
+  const { siteLabel } = useIntlCommon();
+
+  useEffect(() => {
+    document.title = siteLabel;
+  }, []);
+
   return (
     <BrowserRouter>
       <Routes>

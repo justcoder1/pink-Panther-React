@@ -14,7 +14,7 @@ const AuthenticatedLayoutView: React.FC<React.PropsWithChildren<HomePageViewProp
       gridTemplateRows: 'auto 1fr auto',
       height: '100dvh'
     }}>
-      <NavBar />
+      <NavBar header={vm.header} items={vm.headerItems}/>
       {children}
       <Footer footer={vm.footer} link={vm.footerLink}/>
     </Box>
