@@ -4,7 +4,8 @@ import { useIntl } from 'react-intl';
 
 
 export interface AuthenticatedLayoutViewModel {
-  title: string;  
+  footer: string;
+  footerLink: string;
 }
 
 const useAuthenticatedLayoutViewModel: ViewModelHook<
@@ -14,14 +15,15 @@ const useAuthenticatedLayoutViewModel: ViewModelHook<
   const intl = useIntl();
 
   try {
-    const title: string = intl.formatMessage({
-      id: 'title',
-      description: 'page title',
-      defaultMessage: 'AuthenticatedLayout',
+    const footer: string = intl.formatMessage({
+      id: 'footer',
+      description: 'footer label',
+      defaultMessage: `justCoder ${new Date().getFullYear()}`,
     });
     
     return {
-      title,
+      footer,
+      footerLink: 'http://www.justcoder.co.uk'
     };
   } catch (error) {
       handleError(error);

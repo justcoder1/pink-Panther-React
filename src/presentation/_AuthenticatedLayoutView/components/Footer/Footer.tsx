@@ -1,13 +1,15 @@
 import { Box } from "@mui/material";
+import './footer.css'
 
 export interface FooterProps {
-  reference?: string
+  link: string;
+  footer: string
 }
 
-const Footer: React.FC<FooterProps> = ({reference}) => {
+const Footer: React.FC<FooterProps> = ({footer, link}) => {
   return (
-    <Box>
-      {reference || 'Footer'}
+    <Box id='footer'>
+      Copyright &copy; <a href={link} rel="noreferrer" target="_blank">{footer || 'Footer'}</a> 
     </Box>
   );
 };
