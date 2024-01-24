@@ -1,6 +1,7 @@
-import { Box, Typography } from "@mui/material";
+import { Stack } from "@mui/material";
 import { NavLink } from 'react-router-dom';
-import './navBar.css'
+import PetsIcon from '@mui/icons-material/Pets';
+import './navBar.css';
 
 export interface NavBarItemsProps {
   title: string;
@@ -14,16 +15,21 @@ export interface NavBarProps {
 
 const NavBar: React.FC<NavBarProps> = ({header, items}) => {
   return (
-    <Box>
-      <Typography variant="h1">{header}</Typography>
+    <Stack id="navBar-Main" direction={'row'} justifyContent={'space-between'} alignItems={'center'}>
+      <NavLink id="navBar-Left" to={'/home'}>{header}</NavLink>
       {items && (
-        items.map((item) => (
-          <NavLink className={({ isActive }) => (isActive ? 'activeLink' : '')} to={item.link}>
-              {item.title}
-          </NavLink>
-        ))
+        <Stack id="navBar-Right" direction={'row'} alignItems={'center'}>
+          {items.map((item) => (
+            <NavLink className={({ isActive }) => (isActive ? 'activeLink' : '')} to={item.link}>
+                {item.title}
+            </NavLink>
+          ))}
+            <NavLink className={({ isActive }) => (isActive ? 'activeLink' : '')} to={'/user'}>
+              <PetsIcon id='pawIcon'/>
+            </NavLink>
+        </Stack>
       )}
-    </Box>
+    </Stack>
   );
 };
 
