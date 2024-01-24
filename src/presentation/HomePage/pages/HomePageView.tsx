@@ -7,7 +7,6 @@ const HomePageView: React.FC<
   React.PropsWithChildren<HomePageViewProps>
 > = () => {
   const vm = useHomePageViewModel();
-  console.log(vm);
 
   return <AuthenticatedLayoutView>{vm.title}</AuthenticatedLayoutView>;
 };

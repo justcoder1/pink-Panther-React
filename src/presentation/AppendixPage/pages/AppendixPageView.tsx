@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import AuthenticatedLayoutView from "../../_AuthenticatedLayoutView/pages/Authenticated/AuthenticatedLayoutView";
 import useAppendixViewModel from "./use-appendix-page.view-model";
 
 export interface AppendixPageViewProps {}
@@ -7,9 +7,7 @@ const AppendixPageView: React.FC<React.PropsWithChildren<AppendixPageViewProps>>
   const vm = useAppendixViewModel();
 
   return (
-    <Box>
-      {vm.title}
-    </Box>
+    <AuthenticatedLayoutView>{vm.title}</AuthenticatedLayoutView>
   );
 };
 
