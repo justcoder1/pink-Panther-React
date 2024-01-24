@@ -22,8 +22,6 @@ root.render(
      <Suspense fallback={<UncaughtSuspense />}>
         <IntlProvider locale={locale} key={locale} defaultLocale={DEFAULT_LOCALE}>
           <App />
-          Think about adding react query for api calls
-          <a href="https://tkdodo.eu/blog/why-you-want-react-query">react query</a>
         </IntlProvider>
       </Suspense>
   </React.StrictMode>
