@@ -12,6 +12,7 @@
 
 - Built out the authenticated layout component
 - footer and navbar styled and all links working
+- create pink panther icon for title tab
 _Challenge - Getting the tab 'title' to render correctly as change paths_
 
 ## outstanding jobs
