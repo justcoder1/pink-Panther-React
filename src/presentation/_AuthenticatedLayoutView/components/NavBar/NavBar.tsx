@@ -1,7 +1,8 @@
+import MenuIcon from "@mui/icons-material/Menu";
 import PetsIcon from "@mui/icons-material/Pets";
-import MenuIcon from '@mui/icons-material/Menu';
-import { Stack, useMediaQuery } from "@mui/material";
-import { NavLink } from "react-router-dom";
+import { Box, Button, List, ListItem, ListItemButton, ListItemText, Stack, SwipeableDrawer, useMediaQuery } from "@mui/material";
+import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import "./navBar.css";
 
 export interface NavBarItemsProps {
@@ -15,7 +16,7 @@ export interface NavBarProps {
 }
 
 const NavBar: React.FC<NavBarProps> = ({ header, items }) => {
-  const showMobile = useMediaQuery('(max-width: 900px)');
+  const showMobile = useMediaQuery("(max-width: 900px)");
 
   return (
     <Stack id="navBar-Main" direction={"row"} justifyContent={"space-between"} alignItems={"center"}>
@@ -37,7 +38,7 @@ export const NavFullScreen: React.FC<Partial<NavBarProps>> = ({ items }) => {
   return (
     <>
       {items.map((item) => (
-        <NavLink className={({ isActive }) => (isActive ? "activeLink" : "")} to={item.link}>
+        <NavLink key={`nav${item}`} className={({ isActive }) => (isActive ? "activeLink" : "")} to={item.link}>
           {item.title}
         </NavLink>
       ))}
@@ -46,14 +47,51 @@ export const NavFullScreen: React.FC<Partial<NavBarProps>> = ({ items }) => {
 };
 
 const NavMobile: React.FC<Partial<NavBarProps>> = ({ items }) => {
+  const [drawState, setDrawState] = useState(false);
+
+  const toggleDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
+    if (
+      event &&
+      event.type === "keydown" &&
+      ((event as React.KeyboardEvent).key === "Tab" || (event as React.KeyboardEvent).key === "Shift")
+    ) {
+      return;
+    }
+
+    setDrawState(() => open);
+  };
+
+  const list = 
+    <Box
+      sx={{ width: 250 }}
+      role="presentation"
+      onClick={toggleDrawer(false)}
+      onKeyDown={toggleDrawer(false)}
+    >
+      <List>
+        {items.map((item) => (
+          <ListItem key={`nav${item}`} disablePadding>
+             <ListItemButton component={Link} to={item.link}>
+              <ListItemText primary={item.title} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+
   return (
     <>
-      {/* {items.map((item) => (
-        <NavLink className={({ isActive }) => (isActive ? "activeLink" : "")} to={item.link}>
-          {item.title}
-        </NavLink>
-      ))} */}
-      <MenuIcon id='barsIcon' />
+      <Button onClick={toggleDrawer(true)}>
+        <MenuIcon id="barsIcon" />
+      </Button>
+      <SwipeableDrawer
+        anchor={"right"}
+        open={drawState}
+        onClose={toggleDrawer(false)}
+        onOpen={toggleDrawer(true)}
+      >
+        {list}
+      </SwipeableDrawer>
     </>
   );
 };
