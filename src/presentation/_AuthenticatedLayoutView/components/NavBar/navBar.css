@@ -2,7 +2,7 @@
   background-color: #fa8ab0;
   border: 3px solid #b61588;
   padding: 0 1rem;
-  height: 10vh;
+  height: 60px;
 }
 
 #navBar-Left {
@@ -20,12 +20,15 @@
   padding: 0 0.5em;
 }
 
-#navBar-Right a:hover, *,
+#navBar-Right a:hover,
+#navBar-Right a:hover > *,
 #navBar-Left:hover {
+  transition: all .4s ease;
   color: #d372b7;
 }
 
-#navBar-Right a.activeLink, * {
+#navBar-Right a.activeLink,
+#navBar-Right a.activeLink > * {
   color: #b61588;
 }
 
@@ -36,28 +39,11 @@
 }
 
 #barsIcon {
-  font-size: 1.25em;
+  font-size: 2em;
   color: white;
 }
 
-.hamburgerMenu {
-  display: none;
-}
-
-.standardMenu {
-  display: inline;
-}
-
-@media screen and (max-width: 900px) {
-  .hamburgerMenu {
-    display: inline;
-  }
-
-  .standardMenu {
-    display: none;
-  }
-
-  #pawIcon {
-    margin-left: 0em;
-  }
+#barsIcon:hover {
+  transition: all .4s ease;
+  color: #d372b7;
 }

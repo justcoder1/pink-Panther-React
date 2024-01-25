@@ -26,7 +26,6 @@ const App: React.FC = () => {
         <Route path="/appendix" element={<AppendixPageView />} />
         <Route path="/gallery" element={<GalleryPageView />} />
         <Route path="/history" element={<HistoryPageView />} />
-        <Route path="/home" element={<HomePageView />} />
         <Route path="/user" element={<UserPageView />} />
       </Routes>
     </BrowserRouter>

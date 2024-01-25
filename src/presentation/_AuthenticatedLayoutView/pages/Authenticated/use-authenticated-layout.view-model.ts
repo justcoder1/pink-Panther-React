@@ -20,7 +20,7 @@ const useAuthenticatedLayoutViewModel: ViewModelHook<
 
   // FIX - This needs changing to being collected from API
   const items = [
-    { title: homeLabel, link: '/home' },
+    { title: homeLabel, link: '/' },
     { title: galleryLabel, link: '/gallery' },
     { title: historyLabel, link: '/history' },
     { title: aboutLabel, link: '/about' },

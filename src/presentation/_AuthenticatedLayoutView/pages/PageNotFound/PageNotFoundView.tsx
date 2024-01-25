@@ -17,7 +17,7 @@ const PageNotFoundView: React.FC<PageNotFoundViewProps> = () => {
       <Box>
         <Typography variant="h3">404 - PAGE NOT FOUND</Typography>
         <Typography variant="h6" id="textH6">The page you are looking for cannot be found.</Typography>
-        <Button variant="contained" id="homeBTN" component={Link} to="/home">HomePage</Button>
+        <Button variant="contained" id="homeBTN" component={Link} to="/">HomePage</Button>
       </Box>
     </Stack>
   );
