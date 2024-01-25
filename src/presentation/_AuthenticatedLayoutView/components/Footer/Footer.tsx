@@ -9,8 +9,8 @@ export interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({footer, link}) => {
   return (
-    <Box key={`footer_${useId()}`} id='footer'>
-      Copyright &copy; <a href={link} rel="noreferrer" target="_blank">{footer || 'Footer'}</a> 
+    <Box key={`footer_${useId()}`} id='footer_box'>
+      Copyright &copy; <a href={link} id='footer_a' rel="noreferrer" target="_blank">{footer || 'Footer'}</a> 
     </Box>
   );
 };
