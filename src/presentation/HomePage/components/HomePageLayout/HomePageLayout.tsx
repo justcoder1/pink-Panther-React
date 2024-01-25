@@ -8,7 +8,7 @@ import './HomePageLayout.css';
 
 
 const HomePageLayout: React.FC<HomePageLayoutProps> = (props) => {
-  const {titleOne, titleTwo, imageDesktop, imageMobile, audioReference} = props
+  const {titleOne, titleTwo, imageDesktop, imageMobile} = props
   const showMobile = useMediaQuery("(max-width: 900px)");
 
   return (
@@ -21,7 +21,7 @@ const HomePageLayout: React.FC<HomePageLayoutProps> = (props) => {
           <a href="" target="_blank"></a>
         ))}
       </Stack> */}
-      <AudioWidget link={audioReference}/>
+      <AudioWidget />
     </Stack>
   );
 };

@@ -17,7 +17,6 @@ const HomePageView: React.FC<
       titleTwo={vm.titleTwo}
       imageDesktop={vm.imageDesktop}
       imageMobile={vm.imageMobile}
-      audioReference={vm.audioReference}
       socials={vm.socials}
     />
   </AuthenticatedLayoutView>

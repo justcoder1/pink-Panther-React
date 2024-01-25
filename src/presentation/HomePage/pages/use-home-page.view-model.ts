@@ -15,7 +15,6 @@ export interface HomePageLayoutProps {
   titleTwo: string;
   imageDesktop: string;
   imageMobile: string;
-  audioReference: string;
   socials: HomePageSocialsProps[];
 }
 
@@ -26,7 +25,6 @@ HomePageLayoutProps
   const intl = useIntl();
 
   try {
-    const audioReference = '../../../../assets/HomePage.mp3';
     const titleOne = intl.formatMessage({
       id: 'title.one',
       description: 'HomePage title One',
@@ -43,7 +41,6 @@ HomePageLayoutProps
       titleTwo,
       imageDesktop,
       imageMobile,
-      audioReference,
       socials: [{icon: 'icon', link: 'link'}]
     };
   } catch (error) {
