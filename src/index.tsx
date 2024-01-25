@@ -4,6 +4,11 @@ import { IntlProvider } from 'react-intl';
 import App from "./App";
 import "./index.css";
 import { DEFAULT_LOCALE } from './lang/locales';
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faVolumeUp, faPaw, faBars } from "@fortawesome/free-solid-svg-icons";
+import { faFacebookF,faYoutube,faWikipediaW,faTwitter } from '@fortawesome/free-brands-svg-icons'
+
+library.add(faVolumeUp, faPaw, faBars, faFacebookF,faYoutube,faWikipediaW,faTwitter);
 
 const UncaughtSuspense: React.FC = () => {
   console.error(`Uncaught suspense!!!

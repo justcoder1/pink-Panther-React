@@ -1,4 +1,4 @@
-import VolumeUpIcon from "@mui/icons-material/VolumeUp";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "@mui/material";
 import React, { useId, useRef, useState } from "react";
 import sound from "../../../../assets/HomePage.mp3";
@@ -18,10 +18,11 @@ const AudioWidget: React.FC = () => {
   return (
     <>
       <Button id="audioButton" key={`aw_${useId()}`} onClick={playSoundTrack} disableRipple>
-        <VolumeUpIcon
+        <FontAwesomeIcon
+          icon="volume-up"
           key={`aw_${useId()}`}
           id="audioIcon"
-          sx={{ color: audioState ? "#b61588" : "grey", opacity: audioState ? 1 : 0.5 }}
+          style={{ color: audioState ? "#b61588" : "grey", opacity: audioState ? 1 : 0.5 }}
         />
       </Button>
       <audio key={`aw_${useId()}`} ref={audioRef} src={sound} hidden />

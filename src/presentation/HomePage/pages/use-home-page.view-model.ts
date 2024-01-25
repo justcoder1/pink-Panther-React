@@ -4,6 +4,7 @@ import { ViewModelHook } from '../../../_utils/types/index';
 import imageDesktop from '../../../assets/PP_MainImage.png';
 import imageMobile from '../../../assets/PP_MainImage_Small.png';
 
+import data from './socialData.json'
 
 export interface HomePageSocialsProps {
   icon: string;
@@ -23,6 +24,9 @@ HomePageLayoutProps
 > = () => {
   const handleError = useErrorHandler();
   const intl = useIntl();
+
+  console.log(data);
+  
 
   try {
     const titleOne = intl.formatMessage({

@@ -1,6 +1,5 @@
 import React, { useId } from "react";
-import MenuIcon from "@mui/icons-material/Menu";
-import PetsIcon from "@mui/icons-material/Pets";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Box, Button, List, ListItem, ListItemButton, ListItemText, Stack, SwipeableDrawer, useMediaQuery } from "@mui/material";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
@@ -28,7 +27,7 @@ const NavBar: React.FC<NavBarProps> = ({ header, items }) => {
         {items && !showMobile && <NavFullScreen items={items} />}
         {items && showMobile && <NavMobile items={items} />}
         <NavLink key={`navBar_${useId()}`} className={({ isActive }) => (isActive ? "activeLink" : "")} to={"/user"}>
-          <PetsIcon key={`navBar_${useId()}`} id="pawIcon" />
+          <FontAwesomeIcon icon='paw' key={`navBar_${useId()}`} id="pawIcon" />
         </NavLink>
       </Stack>
     </Stack>
@@ -84,7 +83,7 @@ const NavMobile: React.FC<Partial<NavBarProps>> = ({ items }) => {
   return (
     <>
       <Button key={`navBarMob_button`} onClick={toggleDrawer(true)}>
-        <MenuIcon key={`navBarMob_icon`} id="barsIcon" />
+        <FontAwesomeIcon icon='bars' key={`navBarMob_icon`} id="barsIcon" />
       </Button>
       <SwipeableDrawer
         key={`navBarMob_SB`}
