@@ -1,3 +1,4 @@
+import React from "react";
 import AuthenticatedLayoutView from "../../_AuthenticatedLayoutView/pages/Authenticated/AuthenticatedLayoutView";
 import useUserViewModel from "./use-user-page.view-model";
 

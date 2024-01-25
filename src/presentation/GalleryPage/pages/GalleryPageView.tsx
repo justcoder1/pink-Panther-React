@@ -1,3 +1,4 @@
+import React from "react";
 import AuthenticatedLayoutView from "../../_AuthenticatedLayoutView/pages/Authenticated/AuthenticatedLayoutView";
 import useGalleryViewModel from "./use-gallery-page.view-model";
 

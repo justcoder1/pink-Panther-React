@@ -1,3 +1,4 @@
+import React, { useId } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import PetsIcon from "@mui/icons-material/Pets";
 import { Box, Button, List, ListItem, ListItemButton, ListItemText, Stack, SwipeableDrawer, useMediaQuery } from "@mui/material";
@@ -19,26 +20,26 @@ const NavBar: React.FC<NavBarProps> = ({ header, items }) => {
   const showMobile = useMediaQuery("(max-width: 900px)");
 
   return (
-    <Stack id="navBar-Main" direction={"row"} justifyContent={"space-between"} alignItems={"center"}>
-      <NavLink id="navBar-Left" to={"/"}>
+    <Stack key={`navBar_${useId()}`} id="navBar-Main" direction={"row"} justifyContent={"space-between"} alignItems={"center"}>
+      <NavLink key={`navBar_${useId()}`} id="navBar-Left" to={"/"}>
         {header}
       </NavLink>
-      <Stack id="navBar-Right" direction={"row"} alignItems={"center"}>
+      <Stack key={`navBar_${useId()}`} id="navBar-Right" direction={"row"} alignItems={"center"}>
         {items && !showMobile && <NavFullScreen items={items} />}
         {items && showMobile && <NavMobile items={items} />}
-        <NavLink className={({ isActive }) => (isActive ? "activeLink" : "")} to={"/user"}>
-          <PetsIcon id="pawIcon" />
+        <NavLink key={`navBar_${useId()}`} className={({ isActive }) => (isActive ? "activeLink" : "")} to={"/user"}>
+          <PetsIcon key={`navBar_${useId()}`} id="pawIcon" />
         </NavLink>
       </Stack>
     </Stack>
   );
 };
 
-export const NavFullScreen: React.FC<Partial<NavBarProps>> = ({ items }) => {
+const NavFullScreen: React.FC<Partial<NavBarProps>> = ({ items }) => {
   return (
     <>
       {items.map((item) => (
-        <NavLink key={`nav${item}`} className={({ isActive }) => (isActive ? "activeLink" : "")} to={item.link}>
+        <NavLink key={`navBarFull_${item.title}`} className={({ isActive }) => (isActive ? "activeLink" : "")} to={item.link}>
           {item.title}
         </NavLink>
       ))}
@@ -63,16 +64,17 @@ const NavMobile: React.FC<Partial<NavBarProps>> = ({ items }) => {
 
   const list = 
     <Box
-      sx={{ width: 250 }}
+      key={`navBarMob_1`}
       role="presentation"
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
-    >
-      <List>
+      sx={{ width: 250 }}
+      >
+      <List key={`navBarMob_2`}>
         {items.map((item) => (
-          <ListItem key={`nav${item}`} disablePadding>
-             <ListItemButton component={Link} to={item.link}>
-              <ListItemText primary={item.title} />
+          <ListItem key={`navBarMob_${item.title}l`} disablePadding>
+             <ListItemButton key={`navBarMob_${item.title}b`} component={Link} to={item.link}>
+              <ListItemText key={`navBarMob_${item.title}t`} primary={item.title} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -81,10 +83,11 @@ const NavMobile: React.FC<Partial<NavBarProps>> = ({ items }) => {
 
   return (
     <>
-      <Button onClick={toggleDrawer(true)}>
-        <MenuIcon id="barsIcon" />
+      <Button key={`navBarMob_button`} onClick={toggleDrawer(true)}>
+        <MenuIcon key={`navBarMob_icon`} id="barsIcon" />
       </Button>
       <SwipeableDrawer
+        key={`navBarMob_SB`}
         anchor={"right"}
         open={drawState}
         onClose={toggleDrawer(false)}

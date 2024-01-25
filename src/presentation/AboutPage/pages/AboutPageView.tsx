@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useIntlCommon } from "../../../lang/intl-common";
 import AuthenticatedLayoutView from "../../_AuthenticatedLayoutView/pages/Authenticated/AuthenticatedLayoutView";
 import useAboutViewModel from "./use-about-page.view-model";
@@ -12,7 +12,7 @@ const AboutPageView: React.FC<React.PropsWithChildren<AboutPageViewProps>> = () 
 
   useEffect(() => {
     document.title = `${siteLabel} - ${aboutLabel}`;
-  },[]);
+  });
 
   return (
     <AuthenticatedLayoutView>{vm.title}</AuthenticatedLayoutView>

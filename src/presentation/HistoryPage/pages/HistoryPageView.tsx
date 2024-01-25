@@ -1,5 +1,6 @@
-import useHistoryViewModel from "./use-history-page.view-model";
+import React from "react";
 import AuthenticatedLayoutView from "../../_AuthenticatedLayoutView/pages/Authenticated/AuthenticatedLayoutView";
+import useHistoryViewModel from "./use-history-page.view-model";
 
 export interface HistoryPageViewProps {}
 
