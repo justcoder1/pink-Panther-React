@@ -8,10 +8,11 @@ import './AudioWidget.css'
 const AudioWidget: React.FC = () => {
   const [audioState, setAudioState] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
-  
+  console.log(audioState);
+    
 
   const playSoundTrack = (): void => {
-    audioState ? audioRef.current.play() : audioRef.current.pause();
+    audioState ? audioRef.current.pause() : audioRef.current.play();
 
     setAudioState(!audioState);
   }
@@ -19,7 +20,7 @@ const AudioWidget: React.FC = () => {
   return (
     <>
       <Button id='audioButton' key={`aw_${useId()}`} onClick={playSoundTrack} disableRipple>
-        <VolumeUpIcon key={`aw_${useId()}`} id='audioIcon' sx={{color: audioState ? 'grey' : '#b61588', opacity: audioState ? 0.5 : 1}} />
+        <VolumeUpIcon key={`aw_${useId()}`} id='audioIcon' sx={{color: audioState ? '#b61588' : 'grey', opacity: audioState ? 1 : 0.5}} />
       </Button>
       <audio key={`aw_${useId()}`} ref={audioRef} src={sound} hidden/>
     </>

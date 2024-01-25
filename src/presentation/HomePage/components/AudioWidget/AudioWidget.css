@@ -3,16 +3,7 @@
   cursor: pointer;
 }
 
-.audioIconOn {
-  color: #b61588;
-}
-
-.audioIconOff {
-  color: grey;
-  opacity: 0.5;
-}
-
-.audioIconOff:hover {
+#audioIcon:hover {
   transition: all 0.4s ease;
   color: #b61588;
   opacity: 1;
