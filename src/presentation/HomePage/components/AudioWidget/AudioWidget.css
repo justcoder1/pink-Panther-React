@@ -1,0 +1,23 @@
+#audioIcon {
+  font-size: 5em;
+  cursor: pointer;
+}
+
+.audioIconOn {
+  color: #b61588;
+}
+
+.audioIconOff {
+  color: grey;
+  opacity: 0.5;
+}
+
+.audioIconOff:hover {
+  transition: all 0.4s ease;
+  color: #b61588;
+  opacity: 1;
+}
+
+#audioButton {
+  background-color: transparent;
+}
