@@ -10,16 +10,16 @@ const PageNotFoundView: React.FC<PageNotFoundViewProps> = () => {
   return (
     <Stack
       key={`pnf_${useId()}`}
-      id="container404"
+      id="pnf_stack"
       direction={"row"}
       alignItems={"center"}
       justifyContent={"center"}
     >
-      <img key={`pnf_${useId()}`} src={logo} className="logo404" alt="PinkPanther" />
+      <img key={`pnf_${useId()}`} id='pnf_img' src={logo} alt="PinkPanther" />
       <Box key={`pnf_${useId()}`}>
-        <Typography key={`pnf_${useId()}`} variant="h3">404 - PAGE NOT FOUND</Typography>
-        <Typography key={`pnf_${useId()}`} variant="h6" id="textH6">The page you are looking for cannot be found.</Typography>
-        <Button key={`pnf_${useId()}`} variant="contained" id="homeBTN" component={Link} to="/">HomePage</Button>
+        <Typography key={`pnf_${useId()}`} id='pnf_h3' variant="h3">404 - PAGE NOT FOUND</Typography>
+        <Typography key={`pnf_${useId()}`} id='pnf_h6' variant="h6">The page you are looking for cannot be found.</Typography>
+        <Button key={`pnf_${useId()}`} variant="contained" id="pnf_btn" component={Link} to="/">HomePage</Button>
       </Box>
     </Stack>
   );
