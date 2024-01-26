@@ -19,10 +19,16 @@ _Challenge - Getting the tab 'title' to render correctly as change paths_
 _Challenge - Audio took time as did not realise because of webpack I need to add .mp3 for importing_
 _Challenge - Lost time with 'brand' icons not working the same as others when passed as props_
 
+## 26-01-2024
+- get tab title working
+
 ## outstanding jobs
+- Get the title working, when change route tab title should change
 - Global themes for buttons, text, etc....
 - connect DB
 - add suspence
 - add error handling
 - fall back
 - authentication
+- Husky and precommits for linting
+- add github actions build
