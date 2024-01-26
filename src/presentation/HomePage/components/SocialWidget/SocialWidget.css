@@ -1,14 +1,14 @@
-.brandContainer {
-    min-width: 400px;
-  }
-  
-  .brandIcon {
-    color: #b61588;
-  
-    font-size: clamp(2em, 8vw, 4em);
-    padding: 0.5em;
-  }
-  
-  .brandIcon:hover {
-    color: #d372b7;
-  }
+#soc_container {
+  min-width: 400px;
+}
+
+.soc_Icon {
+  color: #b61588;
+
+  font-size: clamp(2em, 8vw, 4em);
+  padding: 0.5em;
+}
+
+.soc_Icon:hover {
+  color: #d372b7;
+}

@@ -4,6 +4,9 @@ import { ViewModelHook } from '../../../../_utils/types/index';
 import { useIntlCommon } from '../../../../lang/intl-common';
 import { NavBarItemsProps } from '../../components/NavBar/NavBar';
 
+// FIX - This needs changing to being collected from API
+import items from './navBarData.json'
+
 export interface AuthenticatedLayoutViewModel {
   header: string;
   headerItems: NavBarItemsProps[];
@@ -16,16 +19,13 @@ const useAuthenticatedLayoutViewModel: ViewModelHook<
 > = () => {
   const handleError = useErrorHandler();
   const intl = useIntl();
-  const { siteLabel, homeLabel, galleryLabel, historyLabel, aboutLabel, appendixLabel } = useIntlCommon();
+  const { siteLabel } = useIntlCommon();
 
-  // FIX - This needs changing to being collected from API
-  const items = [
-    { title: homeLabel, link: '/' },
-    { title: galleryLabel, link: '/gallery' },
-    { title: historyLabel, link: '/history' },
-    { title: aboutLabel, link: '/about' },
-    { title: appendixLabel, link: '/appendix' }
-  ]
+  items.map((item) => item.title = intl.formatMessage({
+    id: item.title,
+    description: item.title,
+    defaultMessage: item.title,
+  }))
 
   try {
     const footer: string = intl.formatMessage({

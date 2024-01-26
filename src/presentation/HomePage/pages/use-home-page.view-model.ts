@@ -3,8 +3,10 @@ import { useIntl } from 'react-intl';
 import { ViewModelHook } from '../../../_utils/types/index';
 import imageDesktop from '../../../assets/PP_MainImage.png';
 import imageMobile from '../../../assets/PP_MainImage_Small.png';
+import { useIntlCommon } from '../../../lang/intl-common';
 
-import data from './socialData.json'
+// FIX - This needs changing to being collected from API
+import socials from './socialData.json';
 
 export interface HomePageSocialsProps {
   icon: string;
@@ -24,9 +26,7 @@ HomePageLayoutProps
 > = () => {
   const handleError = useErrorHandler();
   const intl = useIntl();
-
-  console.log(data);
-  
+  const { siteLabel } = useIntlCommon();
 
   try {
     const titleOne = intl.formatMessage({
@@ -34,18 +34,13 @@ HomePageLayoutProps
       description: 'HomePage title One',
       defaultMessage: 'Site about the history of',
     });
-    const titleTwo = intl.formatMessage({
-      id: 'title.two',
-      description: 'HomePage title Two',
-      defaultMessage: 'The Pink Panther',
-    });
 
     return {
       titleOne,
-      titleTwo,
+      titleTwo: siteLabel,
       imageDesktop,
       imageMobile,
-      socials: [{icon: 'icon', link: 'link'}]
+      socials: socials
     };
   } catch (error) {
       handleError(error);
