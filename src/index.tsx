@@ -7,6 +7,9 @@ import { IntlProvider } from 'react-intl';
 import App from "./App";
 import "./index.css";
 import { DEFAULT_LOCALE } from './lang/locales';
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryClient = new QueryClient()
 
 library.add(faVolumeUp, faPaw, faBars, faFacebookF, faYoutube, faWikipediaW, faTwitter);
 
@@ -24,10 +27,12 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
+    <QueryClientProvider client={queryClient}>      
      <Suspense fallback={<UncaughtSuspense />}>
         <IntlProvider locale={locale} key={locale} defaultLocale={DEFAULT_LOCALE}>
           <App />
         </IntlProvider>
       </Suspense>
+    </QueryClientProvider>
   </React.StrictMode>
 );
