@@ -6,7 +6,7 @@ import imageMobile from '../../../assets/PP_MainImage_Small.png';
 import { useIntlCommon } from '../../../_utils/lang/intl-common';
 
 // FIX - This needs changing to being collected from API
-import socials from './socialData.json';
+import socialData from '../../../assets/localAppData.json';
 
 export interface HomePageSocialsProps {
   icon: string;
@@ -40,7 +40,7 @@ HomePageLayoutProps
       titleTwo: siteLabel,
       imageDesktop,
       imageMobile,
-      socials: socials
+      socials: socialData.social
     };
   } catch (error) {
       handleError(error);

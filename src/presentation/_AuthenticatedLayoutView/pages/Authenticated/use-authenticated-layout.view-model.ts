@@ -5,7 +5,7 @@ import { useIntlCommon } from '../../../../_utils/lang/intl-common';
 import { NavBarItemsProps } from '../../components/NavBar/NavBar';
 
 // FIX - This needs changing to being collected from API
-import items from './navBarData.json'
+import navBarData from '../../../../assets/localAppData.json'
 
 export interface AuthenticatedLayoutViewModel {
   header: string;
@@ -21,7 +21,7 @@ const useAuthenticatedLayoutViewModel: ViewModelHook<
   const intl = useIntl();
   const { siteLabel } = useIntlCommon();
 
-  items.map((item) => item.title = intl.formatMessage({
+  navBarData.navBar.map((item) => item.title = intl.formatMessage({
     id: item.title,
     description: item.title,
     defaultMessage: item.title,
@@ -36,7 +36,7 @@ const useAuthenticatedLayoutViewModel: ViewModelHook<
     
     return {
       header: siteLabel,
-      headerItems: items,
+      headerItems: navBarData.navBar,
       footer,
       footerLink: 'http://www.justcoder.co.uk'
     };

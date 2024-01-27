@@ -1,4 +1,33 @@
-[
+{
+  "navBar": [
+    {
+      "id": 1,
+      "title": "Home",
+      "link": "/"
+    },
+    {
+      "id": 2,
+      "title": "About",
+      "link": "/about"
+    },
+    {
+      "id": 3,
+      "title": "History",
+      "link": "/history"
+    },
+    {
+      "id": 4,
+      "title": "Gallery",
+      "link": "/gallery"
+    },
+    {
+      "id": 5,
+      "title": "Appendix",
+      "link": "/appendix"
+    }
+  ],
+
+  "social": [
     {
       "id": 1,
       "social": "Facebook",
@@ -24,3 +53,4 @@
       "icon": "faWikipediaW"
     }
   ]
+}

@@ -1,4 +1,5 @@
 /// <reference types="react-scripts" />
+declare module "*.json";
 declare module "*.png";
 declare module "*.svg";
 declare module "*.jpeg";
