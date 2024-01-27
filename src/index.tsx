@@ -6,7 +6,7 @@ import ReactDOM from "react-dom/client";
 import { IntlProvider } from 'react-intl';
 import App from "./App";
 import "./index.css";
-import { DEFAULT_LOCALE } from './lang/locales';
+import { DEFAULT_LOCALE } from './_utils/lang/locales';
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const queryClient = new QueryClient()

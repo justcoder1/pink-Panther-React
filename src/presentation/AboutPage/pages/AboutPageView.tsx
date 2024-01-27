@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useIntlCommon } from "../../../lang/intl-common";
+import { useIntlCommon } from "../../../_utils/lang/intl-common";
 import AuthenticatedLayoutView from "../../_AuthenticatedLayoutView/pages/Authenticated/AuthenticatedLayoutView";
 import AboutPageLayout from "../components/AboutPageLayout/AboutPageLayout";
 import useAboutViewModel from "./use-about-page.view-model";

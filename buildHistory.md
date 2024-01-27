@@ -28,7 +28,7 @@ _Challenge - Lost time with 'brand' icons not working the same as others when pa
 - connect DB
 - add suspence
 - add error handling
-- fall back
+- fall back - I think can use with react query i.e. loading property
 - authentication
 - Husky and precommits for linting
 - add github actions build

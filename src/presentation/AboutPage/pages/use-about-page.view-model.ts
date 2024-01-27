@@ -19,13 +19,12 @@ AboutProps
   const intl = useIntl();
   
   // API data
-  const aboutData = useQuery({
-    queryKey: ['about'],
-    queryFn: () => getWikiPedia()
-  }).data
+  // const aboutData = useQuery({
+  //   queryKey: ['about'],
+  //   queryFn: () => getWikiPedia()
+  // }).data
   
-  console.log(aboutData);
-  
+  // console.log(aboutData);
   
 
   try {
@@ -38,13 +37,13 @@ AboutProps
     const subTitle = intl.formatMessage({
       id: 'subTitle',
       description: 'page subTitle',
-      defaultMessage: aboutData.description,
+      defaultMessage: 'test',
     });
 
     const contents = intl.formatMessage({
       id: 'contents',
       description: 'page contents',
-      defaultMessage: aboutData.extract,
+      defaultMessage: 'tets',
     });
 
     return {

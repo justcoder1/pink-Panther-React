@@ -3,7 +3,7 @@ import { useIntl } from 'react-intl';
 import { ViewModelHook } from '../../../_utils/types/index';
 import imageDesktop from '../../../assets/PP_MainImage.png';
 import imageMobile from '../../../assets/PP_MainImage_Small.png';
-import { useIntlCommon } from '../../../lang/intl-common';
+import { useIntlCommon } from '../../../_utils/lang/intl-common';
 
 // FIX - This needs changing to being collected from API
 import socials from './socialData.json';

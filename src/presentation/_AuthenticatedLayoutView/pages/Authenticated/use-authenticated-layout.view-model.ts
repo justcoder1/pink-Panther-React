@@ -1,7 +1,7 @@
 import { useErrorHandler } from 'react-error-boundary';
 import { useIntl } from 'react-intl';
 import { ViewModelHook } from '../../../../_utils/types/index';
-import { useIntlCommon } from '../../../../lang/intl-common';
+import { useIntlCommon } from '../../../../_utils/lang/intl-common';
 import { NavBarItemsProps } from '../../components/NavBar/NavBar';
 
 // FIX - This needs changing to being collected from API

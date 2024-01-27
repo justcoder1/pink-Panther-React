@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useIntlCommon } from "./lang/intl-common";
+import { useIntlCommon } from "./_utils/lang/intl-common";
 
 import AboutPageView from "./presentation/AboutPage/pages/AboutPageView";
 import AppendixPageView from "./presentation/AppendixPage/pages/AppendixPageView";
