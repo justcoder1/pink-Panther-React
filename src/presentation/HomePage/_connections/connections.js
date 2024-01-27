@@ -1,11 +1,11 @@
 import axios from "axios";
-import { WIKIPEDIA_API } from "../../../_utils/connections/connections";
+import { LOCALDATA_URI } from "../../../_utils/connections/connections";
 
-const api = axios.create({ baseURL: WIKIPEDIA_API})
+const api = axios.create({ baseURL: LOCALDATA_URI})
 
-export const getWikiPedia = async () => {  
+export const getSocials = async () => {  
   try {
-    return await api.get('/The_Pink_Panther').then(res => res.data)
+    return await api.get('/socials').then(res => res.data)
   } catch (err) {
     return await err.response.status
   }

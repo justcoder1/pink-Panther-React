@@ -1,11 +1,10 @@
-import { useErrorHandler } from 'react-error-boundary';
-import { useIntl } from 'react-intl';
-import { ViewModelHook } from '../../../../_utils/types/index';
-import { useIntlCommon } from '../../../../_utils/lang/intl-common';
-import { NavBarItemsProps } from '../../components/NavBar/NavBar';
-
-// FIX - This needs changing to being collected from API
-import navBarData from '../../../../assets/localAppData.json'
+import { useQuery } from "@tanstack/react-query";
+import { useErrorHandler } from "react-error-boundary";
+import { useIntl } from "react-intl";
+import { useIntlCommon } from "../../../../_utils/lang/intl-common";
+import { ViewModelHook } from "../../../../_utils/types/index";
+import { getNavBar } from "../../_connections/connections";
+import { NavBarItemsProps } from "../../components/NavBar/NavBar";
 
 export interface AuthenticatedLayoutViewModel {
   header: string;
@@ -14,35 +13,44 @@ export interface AuthenticatedLayoutViewModel {
   footerLink: string;
 }
 
-const useAuthenticatedLayoutViewModel: ViewModelHook<
-  AuthenticatedLayoutViewModel
-> = () => {
+const useAuthenticatedLayoutViewModel: ViewModelHook<AuthenticatedLayoutViewModel> = () => {
   const handleError = useErrorHandler();
   const intl = useIntl();
   const { siteLabel } = useIntlCommon();
 
-  navBarData.navBar.map((item) => item.title = intl.formatMessage({
-    id: item.title,
-    description: item.title,
-    defaultMessage: item.title,
-  }))
+  // API data
+  const { status, data: navBarData } = useQuery({
+    queryKey: ["navBar"],
+    queryFn: getNavBar,
+  });
+
+  if (status !== "pending") {
+    navBarData.map(
+      (item) =>
+        (item.title = intl.formatMessage({
+          id: item.title,
+          description: item.title,
+          defaultMessage: item.title,
+        }))
+    );
+  }
 
   try {
     const footer: string = intl.formatMessage({
-      id: 'footer',
-      description: 'footer label',
+      id: "footer",
+      description: "footer label",
       defaultMessage: `justCoder ${new Date().getFullYear()}`,
     });
-    
+
     return {
       header: siteLabel,
-      headerItems: navBarData.navBar,
+      headerItems: navBarData || [],
       footer,
-      footerLink: 'http://www.justcoder.co.uk'
+      footerLink: "http://www.justcoder.co.uk",
     };
   } catch (error) {
-      handleError(error);
+    handleError(error);
   }
-}
+};
 
 export default useAuthenticatedLayoutViewModel;

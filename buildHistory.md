@@ -22,6 +22,12 @@ _Challenge - Lost time with 'brand' icons not working the same as others when pa
 ## 26-01-2024
 - get tab title working
 
+## 27-01-2024
+- move data to a local file ready for api calling
+- implemented fake api with 'https://www.npmjs.com/package/json-server'
+- move the start to a different port and create a script for json server
+_Challenge - I was getting an undefined returned from teh react query, realised I needed to handle the pending period i.e. I could add a loading text with this_
+
 ## outstanding jobs
 - Get the title working, when change route tab title should change
 - Global themes for buttons, text, etc....

@@ -1,12 +1,12 @@
-// import axios from "axios";
-// import { NAVBAR_URI } from "../../../_utils/connections/connections";
+import axios from "axios";
+import { LOCALDATA_URI } from "../../../_utils/connections/connections";
 
-// const api = axios.create({ baseURL: NAVBAR_URI})
+const api = axios.create({ baseURL: LOCALDATA_URI})
 
-// export const getNavBar = async () => {  
-//   try {
-//     return await api.get('').then(res => res.data)
-//   } catch (err) {
-//     return await err.response.status
-//   }
-// };
+export const getNavBar = async () => {  
+  try {
+    return await api.get('/navBar').then(res => res.data)
+  } catch (err) {
+    return await err.response.status
+  }
+};
