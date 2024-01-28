@@ -1,10 +1,14 @@
 import axios from "axios";
+import { DEVELOPMENT_URI } from "../../../_utils/connections/connections";
+// Need to control Environments
+// import { JSON_SERVER } from "../../../_utils/connections/connections";
+// import { MONGODB_URI } from "../../../_utils/connections/connections";
 
-const api = axios.create({ baseURL: 'https://en.wikipedia.org/api/rest_v1/page/summary'})
+const api = axios.create({ baseURL: DEVELOPMENT_URI})
 
-export const getWikiPedia = async () => {  
+export const getPictures = async () => {  
   try {
-    return await api.get('/The_Pink_Panther').then(res => res.data)
+    return await api.get('/picture').then(res => res.data.data)
   } catch (err) {
     return await err.response.status
   }

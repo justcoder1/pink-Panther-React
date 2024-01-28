@@ -23,7 +23,7 @@ const useAuthenticatedLayoutViewModel: ViewModelHook<AuthenticatedLayoutViewMode
     queryKey: ["navBar"],
     queryFn: getNavBar,
   });
-
+  
   if (status !== "pending") {
     navBarData.map(
       (item) =>

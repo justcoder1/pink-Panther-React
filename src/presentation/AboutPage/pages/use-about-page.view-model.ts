@@ -22,10 +22,7 @@ AboutProps
   const { status, data: aboutData } = useQuery({
     queryKey: ["about"],
     queryFn: getWikiPedia,
-  });
-
-  console.log(status, aboutData);  
-  
+  });  
 
   try {
     const title = intl.formatMessage({
