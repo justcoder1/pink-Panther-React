@@ -24,6 +24,9 @@ AboutProps
     queryFn: getWikiPedia,
   });  
 
+  console.log(status, aboutData);
+  
+
   try {
     const title = intl.formatMessage({
       id: 'title',
@@ -34,13 +37,13 @@ AboutProps
     const subTitle = intl.formatMessage({
       id: 'subTitle',
       description: 'page subTitle',
-      defaultMessage: `${aboutData.description || status}`,
+      defaultMessage: `${status === 'pending' ? 'loading' : aboutData.description}`,
     });
 
     const contents = intl.formatMessage({
       id: 'contents',
       description: 'page contents',
-      defaultMessage: `${aboutData.extract || status}`,
+      defaultMessage: `${status === 'pending' ? 'loading' : aboutData.extract}`,
     });
 
     return {
