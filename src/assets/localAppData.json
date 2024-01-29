@@ -28,7 +28,6 @@
       }
     ]
   },
-
   "socials": {
     "data": [
       {
@@ -54,6 +53,516 @@
         "social": "Wikipedia",
         "link": "https://en.wikipedia.org/wiki/The_Pink_Panther",
         "icon": "faWikipediaW"
+      }
+    ]
+  },
+  "appendix": {
+    "data": [
+      {
+        "id": 1,
+        "reference": "My GitHub Organisation of Repos",
+        "link": "https://github.com/JC-NC-Apprenticeship",
+        "comments": "List of my repos and course material from NorthCoders.",
+        "type": "Documentation",
+        "topic": "TypeScript"
+      },
+      {
+        "id": 2,
+        "reference": "TS Reference Video",
+        "link": "https://youtu.be/BCg4U1FzODs",
+        "comments": "Brad Video on TS really useful.",
+        "type": "Video",
+        "topic": "TypeScript"
+      },
+      {
+        "id": 3,
+        "reference": "TS another video",
+        "link": "https://youtu.be/RXZoCljqYOE",
+        "comments": "As always monster does a good job.",
+        "type": "Video",
+        "topic": "TypeScript"
+      },
+      {
+        "id": 4,
+        "reference": "Video on Testing (T.D.D.)",
+        "link": "https://youtu.be/MLTRHc5dk6s",
+        "comments": "Good reference, still not good at this but I hope to improve in the future",
+        "type": "Video",
+        "topic": "Testing"
+      },
+      {
+        "id": 5,
+        "reference": "Useful Video on NPM",
+        "link": "https://youtu.be/jHDhaSSKmB0",
+        "comments": "Great help for getting to understand Pack.json and what is actually happening",
+        "type": "Video",
+        "topic": "JavaScript"
+      },
+      {
+        "id": 6,
+        "reference": "ES6 vs CommonJS",
+        "link": "https://youtu.be/mK54Cn4ceac",
+        "comments": "Useful video on the changing landscape of JS",
+        "type": "Video",
+        "topic": "JavaScript"
+      },
+      {
+        "id": 7,
+        "reference": "Async Behaviour",
+        "link": "https://youtu.be/PoRJizFvM7s",
+        "comments": "Still getting my head around but getting there.",
+        "type": "Video",
+        "topic": "JavaScript"
+      },
+      {
+        "id": 8,
+        "reference": "Local Json file in Angular",
+        "link": "https://youtu.be/88b0hW6I9sk",
+        "type": "Video",
+        "topic": "Data"
+      },
+      {
+        "id": 9,
+        "reference": "Converting JSON to TS Interface",
+        "link": "https://marketplace.visualstudio.com/items?itemName=GregorBiswanger.json2ts",
+        "comments": "This works so well I can see me using it all the time!!!",
+        "type": "Documentation",
+        "topic": "TypeScript"
+      },
+      {
+        "id": 10,
+        "reference": "Create an API in 30 Seconds",
+        "link": "https://github.com/typicode/json-server",
+        "comments": "This is simply AWESOME.",
+        "type": "Documentation",
+        "topic": "Data"
+      },
+      {
+        "id": 11,
+        "reference": "TypeScript Documentation",
+        "link": "https://www.typescriptlang.org/",
+        "comments": "Not used these but will be useful in the future.",
+        "type": "Documentation",
+        "topic": "TypeScript"
+      },
+      {
+        "id": 12,
+        "reference": "Angular Material Docs",
+        "link": "https://material.angular.io/",
+        "type": "Documentation",
+        "topic": "Angular"
+      },
+      {
+        "id": 13,
+        "reference": "BootStrap",
+        "link": "https://getbootstrap.com/",
+        "type": "Documentation",
+        "topic": "Angular"
+      },
+      {
+        "id": 14,
+        "reference": "General filter for the whole table",
+        "link": "https://youtu.be/ZhcYPXLGr_E",
+        "type": "Video",
+        "topic": "Angular"
+      },
+      {
+        "id": 15,
+        "reference": "Angular Material Table column filtering",
+        "link": "https://www.freakyjolly.com/angular-material-table-custom-filter-using-select-box/",
+        "type": "Documentation",
+        "topic": "Angular"
+      },
+      {
+        "id": 16,
+        "reference": "Styling a Material table",
+        "link": "https://dev.to/jwp/angular-material-table-ii-in-20-minutes-32gg",
+        "type": "Documentation",
+        "topic": "Angular"
+      },
+      {
+        "id": 17,
+        "reference": "angular-responsive-carousel",
+        "link": "https://www.npmjs.com/package/angular-responsive-carousel",
+        "comments": "I have done an example of this in the gallary.  There is the creators website here too: http://ivylab.space/carousel#usage",
+        "type": "Documentation",
+        "topic": "Angular"
+      },
+      {
+        "id": 18,
+        "reference": "Angular Material Tabs with Routing",
+        "link": "https://youtu.be/Zk-2CBKiMtU",
+        "comments": "in this video you will see the syntax needed to do this as no longer on the site.",
+        "type": "Video",
+        "topic": "Angular"
+      },
+      {
+        "id": 19,
+        "reference": "Nesting Routs inside parent routs with child routs",
+        "link": "https://angular.io/guide/router#nesting-routes",
+        "comments": "Use this if you are not using material tabs",
+        "type": "Documentation",
+        "topic": "Angular"
+      },
+      {
+        "id": 20,
+        "reference": "Setting up a local json for HTTP requests",
+        "link": "https://stackoverflow.com/questions/44042223/load-json-from-local-file-with-http-get-in-angular-2",
+        "comments": "",
+        "type": "Documentation",
+        "topic": "Angular"
+      }
+    ]
+  },
+  "picture": {
+    "data": [
+      {
+        "title": "Pinky",
+        "url": "https://images.alphacoders.com/466/thumb-1920-466437.jpg",
+        "source": "Google",
+        "comments": "0",
+        "likes": "0"
+      },
+      {
+        "title": "pink panther and inspector clouseau",
+        "url": "https://theplaylist.net/wp-content/uploads/2014/03/the-pink-panther.jpg",
+        "source": "Google",
+        "comments": "0",
+        "likes": "0"
+      },
+      {
+        "title": "Pinky on his own",
+        "url": "https://wallpapercave.com/wp/wp4109949.jpg",
+        "source": "Google",
+        "comments": "0",
+        "likes": "0"
+      },
+      {
+        "title": "Pink Panthers Friends",
+        "url": "https://images-na.ssl-images-amazon.com/images/I/81V17v98E3L._RI_.jpg",
+        "source": "Google",
+        "comments": "0",
+        "likes": "0"
+      },
+      {
+        "title": "Pink Panther Season 1",
+        "url": "https://images-na.ssl-images-amazon.com/images/I/71fIZB2MGkL._RI_.jpg",
+        "source": "Google",
+        "comments": "0",
+        "likes": "0"
+      },
+      {
+        "title": "Which Pink Panther Are You?",
+        "url": "https://pbs.twimg.com/media/EYUl14LU0AACsgX?format=jpg&name=medium",
+        "source": "Twitter",
+        "comments": "25",
+        "likes": "102"
+      },
+      {
+        "title": "Pinky in 2020",
+        "url": "https://pbs.twimg.com/media/Eb3MhpfVcAAKBd9?format=jpg&name=medium",
+        "source": "Twitter",
+        "comments": "56",
+        "likes": "158"
+      },
+      {
+        "title": "Pinky calendar",
+        "url": "https://pbs.twimg.com/media/EewSMWOUYAAbHOW?format=jpg&name=medium",
+        "source": "Twitter",
+        "comments": "38",
+        "likes": "148"
+      },
+      {
+        "title": "Panther Xray",
+        "url": "https://pbs.twimg.com/media/EhAsqLsU0AAk7qM?format=jpg&name=medium",
+        "source": "Twitter",
+        "comments": "25",
+        "likes": "123"
+      },
+      {
+        "title": "Pinky through the years",
+        "url": "https://pbs.twimg.com/media/EjBjzVbVgAAnftw?format=jpg&name=medium",
+        "source": "Twitter",
+        "comments": "66",
+        "likes": "331"
+      },
+      {
+        "title": "Panther in London",
+        "url": "https://pbs.twimg.com/media/Ej5wR3AUYAA4f30?format=jpg&name=medium",
+        "source": "Twitter",
+        "comments": "21",
+        "likes": "102"
+      },
+      {
+        "title": "Spend a day with pinky",
+        "url": "https://pbs.twimg.com/media/EmeiZNzU8AAOg04?format=jpg&name=medium",
+        "source": "Twitter",
+        "comments": "17",
+        "likes": "118"
+      },
+      {
+        "title": "Panther Parade",
+        "url": "https://pbs.twimg.com/media/EnSjdrXVEAAjvH5?format=jpg&name=medium",
+        "source": "Twitter",
+        "comments": "30",
+        "likes": "144"
+      },
+      {
+        "title": "Compare the Pictures 2",
+        "url": "https://pbs.twimg.com/media/E0o4XM-VkAMP8bh?format=jpg&name=large",
+        "source": "Twitter",
+        "comments": "24",
+        "likes": "105"
+      },
+      {
+        "title": "Compare the Pictures 1",
+        "url": "https://pbs.twimg.com/media/E0o4XM9UcAMiHfz?format=jpg&name=large",
+        "source": "Twitter",
+        "comments": "24",
+        "likes": "105"
+      },
+      {
+        "title": "PinkPanther painting his car",
+        "url": "https://scontent-lhr8-1.xx.fbcdn.net/v/t1.18169-9/10472740_10152287303282965_2899676364152462094_n.png?_nc_cat=103&ccb=1-5&_nc_sid=9267fe&_nc_ohc=Qb6Gvji3RRMAX-5sP8a&_nc_ht=scontent-lhr8-1.xx&oh=73847f643192d3d7cb69c36d4ec3d94f&oe=61487C56",
+        "source": "FaceBook",
+        "comments": "55",
+        "likes": "2800"
+      },
+      {
+        "title": "PinkPanther reading the star",
+        "url": "https://scontent-lhr8-1.xx.fbcdn.net/v/t1.6435-9/91007487_10157314061857965_2933149336713822208_n.png?_nc_cat=100&ccb=1-5&_nc_sid=cdbe9c&_nc_ohc=TogcKH1k-q4AX8JZdNU&_nc_ht=scontent-lhr8-1.xx&oh=a1ed689993bf5cf7a0269e3cf07b99ee&oe=61462707",
+        "source": "FaceBook",
+        "comments": "3",
+        "likes": "67"
+      },
+      {
+        "title": "The PinkPanther loves his chocolate ice cream",
+        "url": "https://scontent-lhr8-1.xx.fbcdn.net/v/t1.6435-9/34861633_10155669527362965_5451294198571466752_n.png?_nc_cat=108&ccb=1-5&_nc_sid=730e14&_nc_ohc=2CG4id2BbEMAX8Fs1rD&tn=IMSOQ4RND47M4zgz&_nc_ht=scontent-lhr8-1.xx&oh=021afa19c4161c7c1aa525dc6d65409e&oe=61453D58",
+        "source": "FaceBook",
+        "comments": "80",
+        "likes": "2400"
+      },
+      {
+        "title": "Inspector Clouseau is lost in a sea of pink",
+        "url": "https://scontent-lhr8-1.xx.fbcdn.net/v/t1.6435-9/37592857_10155760875297965_6582077122452389888_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=730e14&_nc_ohc=JBnGaJ1N0KYAX93JqTR&_nc_ht=scontent-lhr8-1.xx&oh=ce45c12472a123974a131e99b555bd79&oe=6144AADD",
+        "source": "FaceBook",
+        "comments": "80",
+        "likes": "1800"
+      },
+      {
+        "title": "Pinky's lost in a sea of red",
+        "url": "https://scontent-lhr8-1.xx.fbcdn.net/v/t1.6435-9/60410234_10156419092262965_1801859013986484224_n.png?_nc_cat=103&ccb=1-5&_nc_sid=730e14&_nc_ohc=XlfkdRygLSEAX8W9BTs&_nc_ht=scontent-lhr8-1.xx&oh=97ea8567c9f80cec92194223950546b2&oe=6147D2D5",
+        "source": "FaceBook",
+        "comments": "104",
+        "likes": "1200"
+      }
+    ]
+  },
+  "video": {
+    "data": [
+      {
+        "title": "Pink Suds",
+        "url": "https://www.youtube.com/embed/xRPAGHdt3kc",
+        "episode": "5",
+        "season": "4",
+        "likes": "11000",
+        "source": "YouTube"
+      },
+      {
+        "title": "Pink S.W.A.T.",
+        "url": "https://www.youtube.com/embed/E4NoWCKlE3A",
+        "episode": "4",
+        "season": "4",
+        "likes": "12000",
+        "source": "YouTube"
+      },
+      {
+        "title": "Pink Arcade",
+        "url": "https://www.youtube.com/embed/5r9vdqAFCY4",
+        "episode": "3",
+        "season": "4",
+        "likes": "95000",
+        "source": "YouTube"
+      },
+      {
+        "title": "Pink-Tails for Two",
+        "url": "https://www.youtube.com/embed/Yp6_9VuqLyQ",
+        "episode": "2",
+        "season": "4",
+        "likes": "43000",
+        "source": "YouTube"
+      },
+      {
+        "title": "Pink Bananas",
+        "url": "https://www.youtube.com/embed/w-RfCLW7ASk",
+        "episode": "1",
+        "season": "4",
+        "likes": "38000",
+        "source": "YouTube"
+      },
+      {
+        "title": "Pink Piper",
+        "url": "https://www.youtube.com/embed/vi28PPLecYA",
+        "episode": "5",
+        "season": "3",
+        "likes": "9100",
+        "source": "YouTube"
+      },
+      {
+        "title": "Pink Campaign",
+        "url": "https://www.youtube.com/embed/IkEk7gw71bM",
+        "episode": "4",
+        "season": "3",
+        "likes": "18000",
+        "source": "YouTube"
+      },
+      {
+        "title": "Pink Plasma",
+        "url": "https://www.youtube.com/embed/s_rfja8KTLw",
+        "episode": "3",
+        "season": "3",
+        "likes": "27000",
+        "source": "YouTube"
+      },
+      {
+        "title": "Pink Streaker",
+        "url": "https://www.youtube.com/embed/h7AP55CA1KA",
+        "episode": "2",
+        "season": "3",
+        "likes": "22000",
+        "source": "YouTube"
+      },
+      {
+        "title": "Salmon Pink",
+        "url": "https://www.youtube.com/embed/En22uR0GaxY",
+        "episode": "1",
+        "season": "3",
+        "likes": "11000",
+        "source": "YouTube"
+      },
+      {
+        "title": "PSST Pink",
+        "url": "https://www.youtube.com/embed/o53xMlpIhbg",
+        "episode": "5",
+        "season": "2",
+        "likes": "8100",
+        "source": "YouTube"
+      },
+      {
+        "title": "Pink-In",
+        "url": "https://www.youtube.com/embed/mq8kTMrcjtc",
+        "episode": "4",
+        "season": "2",
+        "likes": "38000",
+        "source": "YouTube"
+      },
+      {
+        "title": "Pink Tuba-Dore",
+        "url": "https://www.youtube.com/embed/BUOPdqTl69M",
+        "episode": "3",
+        "season": "2",
+        "likes": "19000",
+        "source": "YouTube"
+      },
+      {
+        "title": "Pink Blue Plate",
+        "url": "https://www.youtube.com/embed/m-6ir-gFpbA",
+        "episode": "2",
+        "season": "2",
+        "likes": "43000",
+        "source": "YouTube"
+      },
+      {
+        "title": "A Fly in the Pink",
+        "url": "https://www.youtube.com/embed/FCuRs91niXU",
+        "episode": "1",
+        "season": "2",
+        "likes": "24000",
+        "source": "YouTube"
+      },
+      {
+        "title": "Jet Pink",
+        "url": "https://www.youtube.com/embed/MxEXJ6G-0j4",
+        "episode": "5",
+        "season": "1",
+        "likes": "34000",
+        "source": "YouTube"
+      },
+      {
+        "title": "In the Pink",
+        "url": "https://www.youtube.com/embed/2eX2TCfiFuY",
+        "episode": "4",
+        "season": "1",
+        "likes": "65000",
+        "source": "YouTube"
+      },
+      {
+        "title": "Pinto Pink",
+        "url": "https://www.youtube.com/embed/N9irl60bduk",
+        "episode": "3",
+        "season": "1",
+        "likes": "143000",
+        "source": "YouTube"
+      },
+      {
+        "title": "The Pink Tail Fly",
+        "url": "https://www.youtube.com/embed/FnTWLxS-lGQ",
+        "episode": "2",
+        "season": "1",
+        "likes": "26000",
+        "source": "YouTube"
+      },
+      {
+        "title": "The Pink Blueprint",
+        "url": "https://www.youtube.com/embed/umM9Ls0SaiU?list=PLtS1NoNTpe8Cm_dgGZMe5hAUpPCemj1Uz",
+        "episode": "1",
+        "season": "1",
+        "likes": "120000",
+        "source": "YouTube"
+      }
+    ]
+  },
+  "user": {
+    "data": [
+      {
+        "firstName": "Justin",
+        "lastName": "Heath",
+        "phoneNumber": "123456",
+        "emailAddress": "krish.lee@learningcontainer.com",
+        "job": "Developer",
+        "type": "User"
+      },
+      {
+        "firstName": "Steve",
+        "lastName": "Potts",
+        "phoneNumber": "123456",
+        "emailAddress": "racks.jacson@learningcontainer.com",
+        "job": "Manager",
+        "type": "Administrator"
+      },
+      {
+        "firstName": "Sandra",
+        "lastName": "Awesome",
+        "phoneNumber": "111111111111",
+        "emailAddress": "sa@aol.com",
+        "job": "Engineer",
+        "type": "User"
+      },
+      {
+        "firstName": "Jenny",
+        "lastName": "Green",
+        "phoneNumber": "222222222",
+        "emailAddress": "devid.neo@learningcontainer.com",
+        "job": "Developer",
+        "type": "Administrator"
+      },
+      {
+        "firstName": "Hugh",
+        "lastName": "Legend",
+        "phoneNumber": "111111111",
+        "emailAddress": "jone.mac@learningcontainer.com",
+        "job": "Engineer",
+        "type": "Administrator"
       }
     ]
   }
