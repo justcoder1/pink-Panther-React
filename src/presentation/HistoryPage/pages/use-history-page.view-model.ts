@@ -5,7 +5,7 @@ import { ViewModelHook } from "../../../_utils/types/index";
 import { getWikiPediaHistory } from "../_connections/connections";
 
 export interface HistoryDataProps {
-  headers: [];
+  columns: [];
   rows: [][];
 }
 
@@ -21,7 +21,7 @@ export interface HistoryProps {
 
 const useHistoryViewModel: ViewModelHook<HistoryProps> = () => {
   const handleError = useErrorHandler();
-  const content: HistoryContentProps = {title: 'test', data: {headers: [], rows: []}};
+  const content: HistoryContentProps = {title: 'test', data: {columns: [], rows: []}};
 
   // API data
   const { status, data: historyData } = useQuery({
@@ -33,21 +33,24 @@ const useHistoryViewModel: ViewModelHook<HistoryProps> = () => {
     // workings needed to delimite text string from Wikipedia
     const hData = historyData.topics[11];
     content.title = SetIntlText('subTitle', hData.html);
-    content.data.headers = hData.replies[0].html.split('<br>').filter((n, i) => n && i < 6);
-    content.data.headers.map((h) => SetIntlText(h, h));
+    content.data.columns = hData.replies[0].html.split('<br>').filter((n, i) => n && i < 6);
+    content.data.columns.map((h) => SetIntlText(h, h));
 
     const tempWorkings = hData.replies[0].html.split('<br>').filter((n, i) => n && i > 5)  
     let start = 0;
     let end = 7;
 
     while (end < 27) {
-      const chunk = tempWorkings.slice(start, end);
+      let chunk = tempWorkings.slice(start, end);
       start = end;
       end = start === 7 ? 14 : (start + 6);
+      if (chunk.length > 6) {
+        chunk.splice(4, 1)
+      }
+      
       content.data.rows.push(chunk);
     }    
-  } 
-  
+  }   
 
   try {
     const title = SetIntlText('title', 'History Page - WikiPedia API with destructure');
