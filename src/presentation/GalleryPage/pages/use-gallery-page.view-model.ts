@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useErrorHandler } from "react-error-boundary";
-import { useIntl } from "react-intl";
+import { useIntlCommon } from "../../../_utils/lang/intl-common";
 import { ViewModelHook } from "../../../_utils/types/index";
 import { getPictures, getVideos } from "../_connections/connections";
 
@@ -10,7 +10,7 @@ export interface GalleryViewModel {
 
 const useGalleryViewModel: ViewModelHook<GalleryViewModel> = () => {
   const handleError = useErrorHandler();
-  const intl = useIntl();
+  const { galleryLabel } = useIntlCommon();
 
   // API data
   const { status: pictureStatus, data: picturesData } = useQuery({
@@ -28,14 +28,8 @@ const useGalleryViewModel: ViewModelHook<GalleryViewModel> = () => {
   
 
   try {
-    const title = intl.formatMessage({
-      id: "title",
-      description: "page title",
-      defaultMessage: "Gallery",
-    });
-
     return {
-      title,
+      title: galleryLabel,
     };
   } catch (error) {
     handleError(error);

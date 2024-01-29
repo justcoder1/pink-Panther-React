@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import { ViewModelHook } from "../../../_utils/types/index";
 import { useErrorHandler } from "react-error-boundary";
-import { useIntl } from "react-intl";
+import { useIntlCommon } from "../../../_utils/lang/intl-common";
+import { ViewModelHook } from "../../../_utils/types/index";
 import { getAppendixs } from "../_connections/connections";
 
 export interface AppendixViewModel {
@@ -10,7 +10,7 @@ export interface AppendixViewModel {
 
 const useAppendixViewModel: ViewModelHook<AppendixViewModel> = () => {
   const handleError = useErrorHandler();
-  const intl = useIntl();
+  const { appendixLabel } = useIntlCommon();
 
   // API data
   const { status, data: appendixsData } = useQuery({
@@ -21,14 +21,8 @@ const useAppendixViewModel: ViewModelHook<AppendixViewModel> = () => {
   console.log(status, appendixsData);
 
   try {
-    const title = intl.formatMessage({
-      id: "title",
-      description: "page title",
-      defaultMessage: "Appendix",
-    });
-
     return {
-      title,
+      title: appendixLabel,
     };
   } catch (error) {
     handleError(error);
