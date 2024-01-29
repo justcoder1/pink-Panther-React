@@ -17,17 +17,14 @@ import "./HistoryPageLayout.css";
 
 const HistoryPageLayout: React.FC<HistoryProps> = ({ title, content }) => {
   // FIX: Need to make the content HTMl not a string
-  // content.data.rows.map((row) => (
-  //   row.map((r) => new DOMParser().parseFromString('<span>test</span>', 'text/html'))
-  // ))
-
+  
   return (
-    <Stack key={`about_${useId()}`} justifyContent={"center"} alignItems={"center"}>
-      <Box key={`about_${useId()}`} maxWidth={1000} margin={10} sx={{ textAlign: "center" }}>
-        <Typography key={`about_${useId()}`} variant="h2" id="about_h2">
+    <Stack key={`history_${useId()}`} justifyContent={"center"} alignItems={"center"}>
+      <Box key={`history_${useId()}`} maxWidth={1000} margin={10} sx={{ textAlign: "center" }}>
+        <Typography key={`history_${useId()}`} variant="h2" id="history_h2">
           {title}
         </Typography>
-        <Typography key={`about_${useId()}`} variant="h3" id="about_h3">
+        <Typography key={`history_${useId()}`} variant="h3" id="history_h3">
           {content.title}
         </Typography>
         {content.data.columns.length && (
@@ -35,16 +32,16 @@ const HistoryPageLayout: React.FC<HistoryProps> = ({ title, content }) => {
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
               <TableHead>
                 <TableRow>
-                  {content.data.columns.map((col) => (
-                    <TableCell>{col}</TableCell>
+                  {content.data.columns.map((col, i) => (
+                    <TableCell key={`history_th_${i}`}>{col}</TableCell>
                   ))}
                 </TableRow>
               </TableHead>
               <TableBody>
                 {content.data.rows.map((row, i) => (
                   <TableRow key={`historyTable_${i}`} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
-                    {row.map((r) => (                      
-                      <TableCell>{r}</TableCell>
+                    {row.map((r, id) => (                      
+                      <TableCell key={`history_td_${i}_£{id}`}>{r}</TableCell>
                     ))}
                   </TableRow>
                 ))}
