@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { useErrorHandler } from "react-error-boundary";
+import { useIntl } from "react-intl";
 import { useIntlCommon } from "../../../../_utils/lang/intl-common";
 import { ViewModelHook } from "../../../../_utils/types/index";
 import { getNavBar } from "../../_connections/connections";
 import { NavBarItemsProps } from "../../components/NavBar/NavBar";
-import { SetIntlText } from './../../../../_utils/lang/locales';
 
 export interface AuthenticatedLayoutViewModel {
   header: string;
@@ -16,20 +16,20 @@ export interface AuthenticatedLayoutViewModel {
 const useAuthenticatedLayoutViewModel: ViewModelHook<AuthenticatedLayoutViewModel> = () => {
   const handleError = useErrorHandler();
   const { siteLabel } = useIntlCommon();
+  const intl = useIntl();
 
   // API data
-  const { status, data: navBarData } = useQuery({
+  const { data: navBarData } = useQuery({
     queryKey: ["navBar"],
     queryFn: getNavBar,
   });
   
-  if (status !== "pending") {
-    navBarData.map((item) => item.title = SetIntlText(item.title, item.title));
-  }
-
-  try {
-    const footer: string = SetIntlText("footer", `justCoder ${new Date().getFullYear()}`);
-
+  
+  try {    
+    navBarData?.map((item) => item.title = intl.formatMessage({ id: item.title, defaultMessage: item.title}));
+    
+    const footer: string = intl.formatMessage({ id: 'footer', defaultMessage: `justCoder ${new Date().getFullYear()}`});
+    
     return {
       header: siteLabel,
       headerItems: navBarData || [],

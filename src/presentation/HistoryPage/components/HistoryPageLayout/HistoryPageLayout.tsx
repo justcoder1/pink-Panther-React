@@ -41,7 +41,7 @@ const HistoryPageLayout: React.FC<HistoryProps> = ({ title, content }) => {
                 {content.data.rows.map((row, i) => (
                   <TableRow key={`historyTable_${i}`} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
                     {row.map((r, id) => (                      
-                      <TableCell key={`history_td_${i}_£{id}`}>{r}</TableCell>
+                      <TableCell key={`history_td_${i}_${id}`}>{r}</TableCell>
                     ))}
                   </TableRow>
                 ))}

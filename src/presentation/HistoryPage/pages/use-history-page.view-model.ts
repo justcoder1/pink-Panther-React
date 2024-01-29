@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useErrorHandler } from "react-error-boundary";
-import { SetIntlText } from "../../../_utils/lang/locales";
+import { useIntl } from "react-intl";
+import { SetIntlText } from "../../../_utils/lang/localHelpers";
 import { ViewModelHook } from "../../../_utils/types/index";
 import { getWikiPediaHistory } from "../_connections/connections";
 
@@ -21,6 +22,7 @@ export interface HistoryProps {
 
 const useHistoryViewModel: ViewModelHook<HistoryProps> = () => {
   const handleError = useErrorHandler();
+  const intl = useIntl();
   const content: HistoryContentProps = {title: 'test', data: {columns: [], rows: []}};
 
   // API data
@@ -29,12 +31,15 @@ const useHistoryViewModel: ViewModelHook<HistoryProps> = () => {
     queryFn: getWikiPediaHistory,
   });
 
-  if (status === 'success') {
+  try {
+    const title = intl.formatMessage({ id: 'title', defaultMessage: 'History Page - WikiPedia API with destructure'});
+
+    if (status === 'success') {
     // workings needed to delimite text string from Wikipedia
     const hData = historyData.topics[11];
-    content.title = SetIntlText('subTitle', hData.html);
+    content.title = intl.formatMessage({ id: 'subTitle', defaultMessage: hData.html});
     content.data.columns = hData.replies[0].html.split('<br>').filter((n, i) => n && i < 6);
-    content.data.columns.map((h) => SetIntlText(h, h));
+    content.data.columns.map((h) => intl.formatMessage({ id: h, defaultMessage: h}));
 
     const tempWorkings = hData.replies[0].html.split('<br>').filter((n, i) => n && i > 5)  
     let start = 0;
@@ -51,9 +56,6 @@ const useHistoryViewModel: ViewModelHook<HistoryProps> = () => {
       content.data.rows.push(chunk);
     }    
   }   
-
-  try {
-    const title = SetIntlText('title', 'History Page - WikiPedia API with destructure');
 
     return {
       title,

@@ -1,8 +1,7 @@
-import { useErrorHandler } from 'react-error-boundary';
-import { ViewModelHook } from '../../../_utils/types/index';
-
 import { useQuery } from '@tanstack/react-query';
-import { SetIntlText } from '../../../_utils/lang/locales';
+import { useErrorHandler } from 'react-error-boundary';
+import { useIntl } from "react-intl";
+import { ViewModelHook } from '../../../_utils/types/index';
 import { getWikiPedia } from '../_connections/connections';
 
 
@@ -16,7 +15,8 @@ const useAboutViewModel: ViewModelHook<
 AboutProps
 > = () => {
   const handleError = useErrorHandler();
-  
+  const intl = useIntl();
+
   // API data
   const { status, data: aboutData } = useQuery({
     queryKey: ["about"],
@@ -24,9 +24,9 @@ AboutProps
   });    
 
   try {
-    const title = SetIntlText('title','About Page - WikiPedia API');
-    const subTitle = SetIntlText('subTitle',`${status === 'pending' ? 'loading' : aboutData.description}`);
-    const contents = SetIntlText('contents',`${status === 'pending' ? 'loading' : aboutData.extract}`);
+    const title = intl.formatMessage({ id: 'title', defaultMessage: 'About Page - WikiPedia API'});
+    const subTitle = intl.formatMessage({ id: 'subTitle', defaultMessage: `${status === 'pending' ? 'loading' : aboutData.description}`});
+    const contents = intl.formatMessage({ id: 'contents', defaultMessage: `${status === 'pending' ? 'loading' : aboutData.extract}`});
 
     return {
       title,
