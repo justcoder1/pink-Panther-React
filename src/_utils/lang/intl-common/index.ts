@@ -39,6 +39,12 @@ export const useIntlCommon = () => {
     defaultMessage: 'Appendix',
   });
 
+  const userLabel = intl.formatMessage({
+    id: 'common.intl.user.label',
+    description: 'internationalised label for user',
+    defaultMessage: 'User',
+  });
+
   
   return {
     siteLabel,
@@ -46,6 +52,7 @@ export const useIntlCommon = () => {
     galleryLabel,
     historyLabel,
     aboutLabel,
-    appendixLabel
+    appendixLabel,
+    userLabel
   };
 };

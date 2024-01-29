@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useErrorHandler } from "react-error-boundary";
-import { useIntl } from "react-intl";
+import { useIntlCommon } from "../../../_utils/lang/intl-common";
 import { ViewModelHook } from "../../../_utils/types/index";
 import { getUsers } from "../_connections/connections";
 
@@ -10,7 +10,7 @@ export interface UserViewModel {
 
 const useUserViewModel: ViewModelHook<UserViewModel> = () => {
   const handleError = useErrorHandler();
-  const intl = useIntl();
+  const { userLabel } = useIntlCommon();
 
   // API data
   const { status, data: usersData } = useQuery({
@@ -22,14 +22,8 @@ const useUserViewModel: ViewModelHook<UserViewModel> = () => {
   
 
   try {
-    const title = intl.formatMessage({
-      id: "title",
-      description: "page title",
-      defaultMessage: "User",
-    });
-
     return {
-      title,
+      title: userLabel,
     };
   } catch (error) {
     handleError(error);
