@@ -1,6 +1,6 @@
 import { faFacebookF, faTwitter, faWikipediaW, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Stack } from "@mui/material";
+import { Link, Stack } from "@mui/material";
 import React, { useId } from "react";
 import { HomePageSocialsProps } from "../../pages/use-home-page.view-model";
 
@@ -15,7 +15,7 @@ const SocialWidget: React.FC<SocialsProps> = ({ socials }) => {
     <Stack key={`soc_${useId()}`} id="soc_container" direction={"row"}>
       {socials.length > 0 &&
         socials.map((s, i) => (
-          <a key={`soc_${i}`} href={s.link} rel="noreferrer" target="_blank">
+          <Link key={`soc_${i}`} href={s.link} rel="noreferrer" target="_blank">
             {/* FIX - Brand Icons will not work like the others */}
             <FontAwesomeIcon
               icon={
@@ -30,7 +30,7 @@ const SocialWidget: React.FC<SocialsProps> = ({ socials }) => {
               key={`soc_${i}_i`}
               className="soc_Icon"
             />
-          </a>
+          </Link>
         ))}
     </Stack>
   );

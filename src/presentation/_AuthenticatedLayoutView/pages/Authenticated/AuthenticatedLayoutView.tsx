@@ -17,16 +17,13 @@ const AuthenticatedLayoutView: React.FC<React.PropsWithChildren<AuthenticatedLay
         gridTemplateRows: "auto 1fr auto",
         height: "100dvh",
         maxHeight: "100dvh",
+        minHeight: 0
       }}
     >
       <NavBar header={vm.header} items={vm.headerItems} />
       <Stack
         key={`authCont`}
         justifyContent={"center"}
-        sx={{
-          height: "100%",
-          overflowY: "auto",
-        }}
       >
         {children}
       </Stack>

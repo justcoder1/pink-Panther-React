@@ -1,0 +1,18 @@
+#appendix_h2 {
+  font-size: 4em;
+  font-family: 'cooper black';
+  color: #fa8ab0;
+  -webkit-text-stroke: 2.5px #b61588;
+}
+
+.tableIcon {
+  font-size: 1rem;
+  padding-left: 0.5rem;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.tableIcon:hover {
+  transition: all .4s ease;
+  opacity: 1;
+}

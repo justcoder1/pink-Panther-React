@@ -5,8 +5,8 @@ import { ViewModelHook } from "../../../_utils/types/index";
 import { getWikiPediaHistory } from "../_connections/connections";
 
 export interface HistoryDataProps {
-  columns: [];
-  rows: [][];
+  columns: string[];
+  rows: string[][];
 }
 
 export interface HistoryContentProps {
