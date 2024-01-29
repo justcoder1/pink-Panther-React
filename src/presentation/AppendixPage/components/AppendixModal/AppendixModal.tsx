@@ -6,17 +6,18 @@ import { Box, Button, Modal, Typography } from '@mui/material';
 
 interface AppendixModalProps {
   buttonVariant?: 'text' | 'contained';
+  buttonColor?: 'success' | 'primary'
   data?: AppendixDataProps;
 }
 
-const AppendixModal: React.FC<React.PropsWithChildren<AppendixModalProps>> = ({children, buttonVariant, data}) => {
+const AppendixModal: React.FC<React.PropsWithChildren<AppendixModalProps>> = ({children, buttonVariant, buttonColor, data}) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
     <div>
-      <Button key={`appendix_${useId()}`} onClick={handleOpen} variant={buttonVariant ?? 'contained'} color="success" id="appendixBTN">
+      <Button key={`appendix_${useId()}`} onClick={handleOpen} variant={buttonVariant ?? 'contained'} color={buttonColor} id="appendixBTN">
         {children}
       </Button>
       <Modal

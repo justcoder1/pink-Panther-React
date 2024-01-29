@@ -11,23 +11,27 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Typography,
+  Typography
 } from '@mui/material';
 import React, { useId } from 'react';
 import { AppendixProps } from '../../pages/use-appendix-page.view-model';
 
-import './AppendixPageLayout.css';
 import AppendixModal from '../AppendixModal/AppendixModal';
+import './AppendixPageLayout.css';
 
 
 const AppendixPageLayout: React.FC<AppendixProps> = ({ title, columns, rows }) => {
+  const handleDelete = () => {
+
+  }
+
   return (
     <Stack key={`appendix_${useId()}`} justifyContent={'center'} alignItems={'center'}>
       <Box key={`appendix_${useId()}`} margin={10} sx={{ textAlign: 'center' }}>
         <Typography key={`appendix_${useId()}`} variant="h2" id="appendix_h2">
           {title}
         </Typography>
-        <Stack alignItems={'end'}><AppendixModal>Add Reference</AppendixModal></Stack>
+        <Stack alignItems={'end'}><AppendixModal buttonColor='success'>Add Reference</AppendixModal></Stack>
         {rows.length && (
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -50,8 +54,8 @@ const AppendixPageLayout: React.FC<AppendixProps> = ({ title, columns, rows }) =
                       )
                     )}
                     <TableCell key={`appendix_td_${i}_end`}>
-                      <FontAwesomeIcon icon="trash" key={`navBar_t_${i}`} title='delete' id="trashIcon" className="tableIcon" />
-                      <AppendixModal buttonVariant='text'><FontAwesomeIcon icon="pencil" key={`navBar_p_${i}`} title='edit' id="pencilIcon" className="tableIcon" /></AppendixModal>
+                    <Button key={`appendix_t_btn_${i}`} onClick={handleDelete} variant={'text'}><FontAwesomeIcon icon="trash" key={`appendix_t_${i}`} title='delete' id="trashIcon" className="tableIcon" /></Button>
+                      <AppendixModal buttonVariant='text'><FontAwesomeIcon icon="pencil" key={`appendix_p_${i}`} title='edit' id="pencilIcon" className="tableIcon" /></AppendixModal>
                     </TableCell>
                   </TableRow>
                 ))}
