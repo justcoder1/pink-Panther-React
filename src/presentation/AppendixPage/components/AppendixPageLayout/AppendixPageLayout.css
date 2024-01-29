@@ -16,3 +16,7 @@
   transition: all .4s ease;
   opacity: 1;
 }
+
+#appendixBTN {
+  margin-bottom: 1rem;
+}

@@ -36,9 +36,12 @@
 
 ## 29-01-2024
 - Finished off all connections 
-<r>Merged issue 3 into main - coonect BE</r>
+<r>Merged issue 3 into main - connect BE</r>
 - Implemented History Page
-<c>Investigating wikipedia api docs to bring in formation I wanted into app</c>
+<r>Merged issue 11 into main - history Page</r>
+- Structured out the appendix page
+- There are jobs left on the ticket before can be merged into main
+<c>Investigating wikipedia api docs to bring in data I wanted into app</c>
 
 ## outstanding jobs
 - Moved to GITHub Issues

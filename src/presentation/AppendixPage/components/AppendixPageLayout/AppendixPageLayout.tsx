@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   Box,
+  Button,
   Link,
   Paper,
   Stack,
@@ -16,16 +17,17 @@ import React, { useId } from 'react';
 import { AppendixProps } from '../../pages/use-appendix-page.view-model';
 
 import './AppendixPageLayout.css';
+import AppendixModal from '../AppendixModal/AppendixModal';
+
 
 const AppendixPageLayout: React.FC<AppendixProps> = ({ title, columns, rows }) => {
-  console.log(title, columns, rows);
-
   return (
     <Stack key={`appendix_${useId()}`} justifyContent={'center'} alignItems={'center'}>
       <Box key={`appendix_${useId()}`} margin={10} sx={{ textAlign: 'center' }}>
         <Typography key={`appendix_${useId()}`} variant="h2" id="appendix_h2">
           {title}
         </Typography>
+        <Stack alignItems={'end'}><AppendixModal>Add Reference</AppendixModal></Stack>
         {rows.length && (
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -49,7 +51,7 @@ const AppendixPageLayout: React.FC<AppendixProps> = ({ title, columns, rows }) =
                     )}
                     <TableCell key={`appendix_td_${i}_end`}>
                       <FontAwesomeIcon icon="trash" key={`navBar_t_${i}`} title='delete' id="trashIcon" className="tableIcon" />
-                      <FontAwesomeIcon icon="pencil" key={`navBar_p_${i}`} title='edit' id="pencilIcon" className="tableIcon" />
+                      <AppendixModal buttonVariant='text'><FontAwesomeIcon icon="pencil" key={`navBar_p_${i}`} title='edit' id="pencilIcon" className="tableIcon" /></AppendixModal>
                     </TableCell>
                   </TableRow>
                 ))}
