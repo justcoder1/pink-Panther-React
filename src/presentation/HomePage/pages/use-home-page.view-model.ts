@@ -29,8 +29,7 @@ const useHomePageViewModel: ViewModelHook<HomePageLayoutProps> = () => {
   const {data: socialsData} = useQuery({
     queryKey: ["socials"],
     queryFn: getSocials,
-  });
-  
+  });  
 
   try {
     const titleOne = intl.formatMessage({

@@ -28,13 +28,10 @@ _Challenge - Lost time with 'brand' icons not working the same as others when pa
 - move the start to a different port and create a script for json server
 _Challenge - I was getting an undefined returned from teh react query, realised I needed to handle the pending period i.e. I could add a loading text with this_
 
+## 28-01-2024
+- connected FE to BE - much bigger job than these words describe.
+- Moved issues and jobs to GITHub issues
+_Challenge - Mongodb have changed they authencation process so had to fix_
+
 ## outstanding jobs
-- Get the title working, when change route tab title should change
-- Global themes for buttons, text, etc....
-- connect DB
-- add suspence
-- add error handling
-- fall back - I think can use with react query i.e. loading property
-- authentication
-- Husky and precommits for linting
-- add github actions build
+- Moved to GITHub Issues
