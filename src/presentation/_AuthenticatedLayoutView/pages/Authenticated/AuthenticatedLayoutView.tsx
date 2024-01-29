@@ -1,5 +1,5 @@
+import { Box, Stack } from "@mui/material";
 import React, { useId } from "react";
-import { Box } from "@mui/material";
 import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/NavBar/NavBar";
 import useAuthenticatedLayoutViewModel from "./use-authenticated-layout.view-model";
@@ -16,10 +16,18 @@ const AuthenticatedLayoutView: React.FC<React.PropsWithChildren<AuthenticatedLay
         display: "grid",
         gridTemplateRows: "auto 1fr auto",
         height: "100dvh",
+        maxHeight: "100dvh",
       }}
     >
       <NavBar header={vm.header} items={vm.headerItems} />
-      {children}
+      <Stack
+      key={`authCont_${useId()}`}
+      justifyContent={'center'}
+      sx={{
+        height: "100%",
+        overflowY: 'auto'
+      }}
+      >{children}</Stack>
       <Footer footer={vm.footer} link={vm.footerLink} />
     </Box>
   );
