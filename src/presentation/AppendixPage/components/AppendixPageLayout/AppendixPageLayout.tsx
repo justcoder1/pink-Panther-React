@@ -20,11 +20,7 @@ import AppendixModal from '../AppendixModal/AppendixModal';
 import './AppendixPageLayout.css';
 
 
-const AppendixPageLayout: React.FC<AppendixProps> = ({ title, columns, rows }) => {
-  const handleDelete = (id: number): void => {
-    console.log(id);    
-  }
-
+const AppendixPageLayout: React.FC<AppendixProps> = ({ title, columns, rows, onDeleteClick }) => {
   return (
     <Stack key={`appendix_${useId()}`} justifyContent={'center'} alignItems={'center'}>
       <Box key={`appendix_${useId()}`} margin={10} sx={{ textAlign: 'center' }}>
@@ -47,14 +43,14 @@ const AppendixPageLayout: React.FC<AppendixProps> = ({ title, columns, rows }) =
                 {rows.map((row, i) => (
                   <TableRow key={`appendixTable_${i}`} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                     {row.map((r, id) =>
-                      id === 1 ? (
+                      id === 2 ? (
                         <TableCell key={`appendix_td_${i}_${id}`}><Link href={r.link} rel="noreferrer" target="_blank">{r.reference}</Link></TableCell>
-                      ) : (
+                      ) : id !== 0 ? (
                         <TableCell key={`appendix_td_${i}_${id}`}>{r}</TableCell>
-                      )
+                      ) : ('')
                     )}
                     <TableCell key={`appendix_td_${i}_end`}>
-                    <Button key={`appendix_t_btn_${i}`} onClick={() => handleDelete(row[0])} variant={'text'}><FontAwesomeIcon icon="trash" key={`appendix_t_${i}`} title='delete' id="trashIcon" className="tableIcon" /></Button>
+                    <Button key={`appendix_t_btn_${i}`} onClick={() => onDeleteClick(row[0])} variant={'text'}><FontAwesomeIcon icon="trash" key={`appendix_t_${i}`} title='delete' id="trashIcon" className="tableIcon" /></Button>
                       <AppendixModal buttonVariant='text'><FontAwesomeIcon icon="pencil" key={`appendix_p_${i}`} title='edit' id="pencilIcon" className="tableIcon" /></AppendixModal>
                     </TableCell>
                   </TableRow>

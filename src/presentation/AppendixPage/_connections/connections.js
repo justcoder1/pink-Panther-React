@@ -12,7 +12,7 @@ export const getAppendixs = async () => {
 
 export const createAppendix = async (data) => {  
   try {
-    return await api.post('/createAppendix', data)
+    return await api.post('/appendix', data)
   } catch (err) {
     return await err.response.status
   }
@@ -20,15 +20,15 @@ export const createAppendix = async (data) => {
 
 export const updateAppendix = async (data) => {  
   try {
-    return await api.put('/updateAppendix', data)
+    return await api.put('/appendix', data)
   } catch (err) {
     return await err.response.status
   }
 };
 
-export const deleteAppendix = async (id) => {  
+export const deleteAppendix = async (id) => {
   try {
-    return await api.delete(`/deleteAppendix/${id}`)
+    return await api.delete(`/appendix?id=${id}`)
   } catch (err) {
     return await err.response.status
   }

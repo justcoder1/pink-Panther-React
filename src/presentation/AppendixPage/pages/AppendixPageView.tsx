@@ -10,7 +10,7 @@ const AppendixPageView: React.FC<React.PropsWithChildren<AppendixPageViewProps>>
 
   return (
     <AuthenticatedLayoutView>
-      <AppendixPageLayout title={vm.title} columns={vm.columns} rows={vm.rows} />
+      <AppendixPageLayout title={vm.title} columns={vm.columns} rows={vm.rows} onDeleteClick={vm.onDeleteClick}/>
     </AuthenticatedLayoutView>
   );
 };
