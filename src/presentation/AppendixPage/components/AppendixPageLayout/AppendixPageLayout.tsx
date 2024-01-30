@@ -21,8 +21,8 @@ import './AppendixPageLayout.css';
 
 
 const AppendixPageLayout: React.FC<AppendixProps> = ({ title, columns, rows }) => {
-  const handleDelete = () => {
-
+  const handleDelete = (id: number): void => {
+    console.log(id);    
   }
 
   return (
@@ -54,7 +54,7 @@ const AppendixPageLayout: React.FC<AppendixProps> = ({ title, columns, rows }) =
                       )
                     )}
                     <TableCell key={`appendix_td_${i}_end`}>
-                    <Button key={`appendix_t_btn_${i}`} onClick={handleDelete} variant={'text'}><FontAwesomeIcon icon="trash" key={`appendix_t_${i}`} title='delete' id="trashIcon" className="tableIcon" /></Button>
+                    <Button key={`appendix_t_btn_${i}`} onClick={() => handleDelete(row[0])} variant={'text'}><FontAwesomeIcon icon="trash" key={`appendix_t_${i}`} title='delete' id="trashIcon" className="tableIcon" /></Button>
                       <AppendixModal buttonVariant='text'><FontAwesomeIcon icon="pencil" key={`appendix_p_${i}`} title='edit' id="pencilIcon" className="tableIcon" /></AppendixModal>
                     </TableCell>
                   </TableRow>
