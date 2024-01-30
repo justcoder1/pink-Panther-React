@@ -16,13 +16,17 @@ import {
 import React, { useId } from 'react';
 import { AppendixProps } from '../../pages/use-appendix-page.view-model';
 
+import ConfirmDialog from '../../../../_utils/globals/forms/ConfirmDialog/ConfirmDialog';
 import AppendixModal from '../AppendixModal/AppendixModal';
 import './AppendixPageLayout.css';
 
 
 const AppendixPageLayout: React.FC<AppendixProps> = ({ title, columns, rows, onDeleteClick, onFormClick }) => {
+  
+  
   return (
     <Stack key={`appendix_${useId()}`} justifyContent={'center'} alignItems={'center'}>
+      <ConfirmDialog onClick={() => true}/>
       <Box key={`appendix_${useId()}`} margin={10} sx={{ textAlign: 'center' }}>
         <Typography key={`appendix_${useId()}`} variant="h2" id="appendix_h2">
           {title}
