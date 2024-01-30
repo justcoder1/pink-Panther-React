@@ -1,5 +1,0 @@
-export const FRONTEND_URI='http://localhost:4200'
-export const MONGODB_URI='mongodb+srv://pink-panther-admin:VtOxX9ehsVcl25w1@devenvironment.vwoam6e.mongodb.net'
-export const WIKIPEDIA_API='https://en.wikipedia.org/api/rest_v1'
-export const DEVELOPMENT_URI='http://localhost:3000'
-export const JSON_SERVER='http://localhost:3200'

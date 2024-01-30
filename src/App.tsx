@@ -12,6 +12,7 @@ import PageNotFoundView from "./presentation/_AuthenticatedLayoutView/pages/Page
 
 const App: React.FC = () => {
   const { siteLabel } = useIntlCommon();
+  console.log(process.env);
 
   useEffect(() => {
     document.title = siteLabel;
