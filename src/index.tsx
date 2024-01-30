@@ -1,6 +1,6 @@
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faFacebookF, faTwitter, faWikipediaW, faYoutube } from '@fortawesome/free-brands-svg-icons';
-import { faBars, faPaw, faVolumeUp } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faPaw, faVolumeUp, faTrash, faPencil } from "@fortawesome/free-solid-svg-icons";
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { IntlProvider } from 'react-intl';
@@ -11,7 +11,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const queryClient = new QueryClient()
 
-library.add(faVolumeUp, faPaw, faBars, faFacebookF, faYoutube, faWikipediaW, faTwitter);
+library.add(faVolumeUp, faPaw, faBars, faTrash, faPencil, faFacebookF, faYoutube, faWikipediaW, faTwitter);
 
 const UncaughtSuspense: React.FC = () => {
   console.error(`Uncaught suspense!!!

@@ -15,7 +15,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     document.title = siteLabel;
-  }, []);
+  });
 
   return (
     <BrowserRouter>

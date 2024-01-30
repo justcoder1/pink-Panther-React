@@ -1,6 +1,7 @@
 import React from "react";
 import AuthenticatedLayoutView from "../../_AuthenticatedLayoutView/pages/Authenticated/AuthenticatedLayoutView";
 import useGalleryViewModel from "./use-gallery-page.view-model";
+import GalleryPageLayout from '../components/GalleryPageLayout/GalleryPageLayout';
 
 export interface GalleryPageViewProps {}
 
@@ -8,7 +9,13 @@ const GalleryPageView: React.FC<React.PropsWithChildren<GalleryPageViewProps>> =
   const vm = useGalleryViewModel();
 
   return (
-    <AuthenticatedLayoutView>{vm.title}</AuthenticatedLayoutView>
+    <AuthenticatedLayoutView>
+      <GalleryPageLayout 
+        title={vm.title}
+        pictures={vm.pictures}
+        videos={vm.videos}
+      />
+    </AuthenticatedLayoutView>
   );
 };
 
