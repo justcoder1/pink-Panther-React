@@ -1,7 +1,6 @@
 import axios from "axios";
-import { WIKIPEDIA_API } from "../../../_utils/connections/connections";
 
-const api = axios.create({ baseURL: WIKIPEDIA_API})
+const api = axios.create({ baseURL: process.env.REACT_APP_WIKIPEDIA_API})
 
 export const getWikiPediaHistory = async () => {  
   try {

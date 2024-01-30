@@ -1,10 +1,6 @@
 import axios from "axios";
-import { DEVELOPMENT_URI } from "../../../_utils/connections/connections";
-// Need to control Environments
-// import { JSON_SERVER } from "../../../_utils/connections/connections";
-// import { MONGODB_URI } from "../../../_utils/connections/connections";
 
-const api = axios.create({ baseURL: DEVELOPMENT_URI})
+const api = axios.create({ baseURL: process.env.REACT_APP_BASE_URL})
 
 export const getAppendixs = async () => {  
   try {
