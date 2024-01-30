@@ -5,12 +5,13 @@ import { ViewModelHook } from "../../../_utils/types/index";
 import { getAppendixs } from "../_connections/connections";
 
 export interface AppendixDataProps {
+  _id: string;
   id: Number;
-  reference: String;
-  link: String;
-  comments: String;
-  type: String;
-  topic: String;
+  reference: string;
+  link: string;
+  comments: string;
+  type: string;
+  topic: string;
 }
 
 export interface AppendixProps {
@@ -37,8 +38,6 @@ const useAppendixViewModel: ViewModelHook<AppendixProps> = () => {
     columns.map((c) => intl.formatMessage({ id: c, defaultMessage: c }));
 
     if (status === 'success') {
-      appendixsData.sort((a,b) => a.id - b.id);
-
       appendixsData.forEach((a) => {
         rows.push([
           a.id,

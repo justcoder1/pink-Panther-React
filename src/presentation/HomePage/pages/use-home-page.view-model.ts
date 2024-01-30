@@ -8,6 +8,8 @@ import imageMobile from "../../../assets/PP_MainImage_Small.png";
 import { getSocials } from "../_connections/connections";
 
 export interface HomePageSocialsProps {
+  _id: string;
+  social?: string;
   icon: string;
   link: string;
 }

@@ -16,6 +16,7 @@ import { Link, NavLink } from "react-router-dom";
 import "./navBar.css";
 
 export interface NavBarItemsProps {
+  _id: string;
   title: string;
   link: string;
 }
