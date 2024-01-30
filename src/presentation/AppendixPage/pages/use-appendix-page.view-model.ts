@@ -2,10 +2,10 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useErrorHandler } from "react-error-boundary";
 import { useIntl } from "react-intl";
 import { ViewModelHook } from "../../../_utils/types/index";
-import { deleteAppendix, getAppendixs } from "../_connections/connections";
+import { createAppendix, deleteAppendix, getAppendixs, updateAppendix } from "../_connections/connections";
 
 export interface AppendixDataProps {
-  _id: string;
+  _id?: string;
   id: Number;
   reference: string;
   link: string;
@@ -19,6 +19,7 @@ export interface AppendixProps {
   columns: string[];
   rows: any;
   onDeleteClick: (id: string) => void;
+  onFormClick: (data: AppendixDataProps) => void;
 }
 
 const useAppendixViewModel: ViewModelHook<AppendixProps> = () => {
@@ -39,13 +40,22 @@ const useAppendixViewModel: ViewModelHook<AppendixProps> = () => {
     }
   })
 
+  const { mutate: onFormClick } = useMutation({
+    mutationFn: (data: AppendixDataProps) => (      
+      data._id ? updateAppendix(data) : createAppendix(data)
+    ),
+    onSuccess: () => {
+      queryClient.invalidateQueries({queryKey: ['appendix'], exact: true})
+    }
+  })
+
   try {
     const title = intl.formatMessage({ id: "title", defaultMessage: "Appendix Page - Demonstration in CRUD" });
+    
+    // ---- Restructure to display in table ---- \\
     const columns = ["id", "Reference", "Topic", 'type', "Comments"];
     const rows = [];
-
     columns.map((c) => intl.formatMessage({ id: c, defaultMessage: c }));
-
     if (status === 'success') {
       appendixsData.forEach((a) => {
         rows.push([
@@ -58,12 +68,14 @@ const useAppendixViewModel: ViewModelHook<AppendixProps> = () => {
         ]);
       });
     }
+    // ------------------------------------------- \\
 
     return {
       title: title,
       columns: columns,
       rows: rows,
-      onDeleteClick
+      onDeleteClick,
+      onFormClick
     };
   } catch (error) {
     handleError(error);
