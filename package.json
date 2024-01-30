@@ -1,6 +1,6 @@
 {
   "name": "03-PinkPantherReact",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "env-cmd -e development react-scripts start",
@@ -66,5 +66,9 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@tanstack/eslint-plugin-query": "^5.17.20"
+  },
+  "engines": {
+    "node": "~18.17.1",
+    "npm": "~9.6.7"
   }
 }
