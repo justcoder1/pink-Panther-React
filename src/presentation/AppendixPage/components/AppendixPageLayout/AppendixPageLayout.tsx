@@ -16,17 +16,13 @@ import {
 import React, { useId } from 'react';
 import { AppendixProps } from '../../pages/use-appendix-page.view-model';
 
-import ConfirmDialog from '../../../../_utils/globals/forms/ConfirmDialog/ConfirmDialog';
 import AppendixModal from '../AppendixModal/AppendixModal';
 import './AppendixPageLayout.css';
 
 
 const AppendixPageLayout: React.FC<AppendixProps> = ({ title, columns, rows, onDeleteClick, onFormClick }) => {
-  
-  
   return (
     <Stack key={`appendix_${useId()}`} justifyContent={'center'} alignItems={'center'}>
-      <ConfirmDialog onClick={() => true}/>
       <Box key={`appendix_${useId()}`} margin={10} sx={{ textAlign: 'center' }}>
         <Typography key={`appendix_${useId()}`} variant="h2" id="appendix_h2">
           {title}
@@ -51,10 +47,10 @@ const AppendixPageLayout: React.FC<AppendixProps> = ({ title, columns, rows, onD
                         <TableCell key={`appendix_td_${i}_${id}`}><Link href={r.link} rel="noreferrer" target="_blank">{r.reference}</Link></TableCell>
                       ) : id !== 0 ? (
                         <TableCell key={`appendix_td_${i}_${id}`}>{r}</TableCell>
-                      ) : ('')
+                      ) : (null)
                     )}
                     <TableCell key={`appendix_td_${i}_end`}>
-                    <Button key={`appendix_t_btn_${i}`} onClick={() => onDeleteClick(row[0])} variant={'text'}><FontAwesomeIcon icon="trash" key={`appendix_t_${i}`} title='delete' id="trashIcon" className="tableIcon" /></Button>
+                    <Button key={`appendix_t_btn_${i}`} onClick={() => onDeleteClick(row[0], row[1])} variant={'text'}><FontAwesomeIcon icon="trash" key={`appendix_t_${i}`} title='delete' id="trashIcon" className="tableIcon" /></Button>
                       <AppendixModal buttonVariant='text' onFormClick={onFormClick}><FontAwesomeIcon icon="pencil" key={`appendix_p_${i}`} title='edit' id="pencilIcon" className="tableIcon" /></AppendixModal>
                     </TableCell>
                   </TableRow>
