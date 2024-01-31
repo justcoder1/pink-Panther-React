@@ -15,9 +15,7 @@ import { HistoryProps } from "../../pages/use-history-page.view-model";
 
 import "./HistoryPageLayout.css";
 
-const HistoryPageLayout: React.FC<HistoryProps> = ({ title, content }) => {
-  // FIX: Need to make the content HTMl not a string
-  
+const HistoryPageLayout: React.FC<HistoryProps> = ({ title, content }) => {  
   return (
     <Stack key={`history_${useId()}`} justifyContent={"center"} alignItems={"center"}>
       <Box key={`history_${useId()}`} maxWidth={1000} margin={10} sx={{ textAlign: "center" }}>
@@ -41,7 +39,10 @@ const HistoryPageLayout: React.FC<HistoryProps> = ({ title, content }) => {
                 {content.data.rows.map((row, i) => (
                   <TableRow key={`historyTable_${i}`} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
                     {row.map((r, id) => (                      
-                      <TableCell key={`history_td_${i}_${id}`}>{r}</TableCell>
+                      <TableCell key={`history_td_${i}_${id}`}>
+                        {/* converting string to html */}
+                        {r.type === 'string' ? r.value : <div dangerouslySetInnerHTML={{ __html: r.value }} />}
+                        </TableCell>
                     ))}
                   </TableRow>
                 ))}
