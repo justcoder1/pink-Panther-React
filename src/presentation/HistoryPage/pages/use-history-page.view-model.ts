@@ -1,12 +1,18 @@
-import { useQuery } from "@tanstack/react-query";
-import { useErrorHandler } from "react-error-boundary";
-import { useIntl } from "react-intl";
-import { ViewModelHook } from "../../../_utils/types/index";
-import { getWikiPediaHistory } from "../_connections/connections";
+import { useQuery } from '@tanstack/react-query';
+import { useErrorHandler } from 'react-error-boundary';
+import { useIntl } from 'react-intl';
+import { ViewModelHook } from '../../../_utils/types/index';
+import { getWikiPediaHistory } from '../_connections/connections';
+import { tableTypes } from '../../../_utils/types/index';
 
 export interface HistoryDataProps {
   columns: string[];
-  rows: string[][];
+  rows: [
+    {
+      type?: tableTypes;
+      value?: tableTypes;
+    }[]?
+  ];
 }
 
 export interface HistoryContentProps {
@@ -22,43 +28,50 @@ export interface HistoryProps {
 const useHistoryViewModel: ViewModelHook<HistoryProps> = () => {
   const handleError = useErrorHandler();
   const intl = useIntl();
-  const content: HistoryContentProps = {title: 'test', data: {columns: [], rows: []}};
+  const content: HistoryContentProps = { title: 'test', data: { columns: [], rows: [] } };
 
   // API data
   const { status, data: historyData } = useQuery({
-    queryKey: ["history"],
+    queryKey: ['history'],
     queryFn: getWikiPediaHistory,
   });
 
   try {
-    const title = intl.formatMessage({ id: 'title', defaultMessage: 'History Page - WikiPedia API with destructure'});
+    const title = intl.formatMessage({ id: 'title', defaultMessage: 'History Page - WikiPedia API with destructure' });
 
     if (status === 'success') {
-    // workings needed to delimite text string from Wikipedia
-    const hData = historyData.topics[11];
-    content.title = intl.formatMessage({ id: 'subTitle', defaultMessage: hData.html});
-    content.data.columns = hData.replies[0].html.split('<br>').filter((n, i) => n && i < 6);
-    content.data.columns.map((h) => intl.formatMessage({ id: h, defaultMessage: h}));
+      // ---- workings needed to delimite text string from Wikipedia ---- \\
+      const hData = historyData.topics[11];
+      content.title = intl.formatMessage({ id: 'subTitle', defaultMessage: hData.html });
+      content.data.columns = hData.replies[0].html.split('<br>').filter((n, i) => n && i < 6);
+      content.data.columns.map((h) => intl.formatMessage({ id: h, defaultMessage: h }));
 
-    const tempWorkings = hData.replies[0].html.split('<br>').filter((n, i) => n && i > 5)  
-    let start = 0;
-    let end = 7;
+      const tempWorkings = hData.replies[0].html.split('<br>').filter((n, i) => n && i > 5);
+      let start = 0;
+      let end = 7;
 
-    while (end < 27) {
-      let chunk = tempWorkings.slice(start, end);
-      start = end;
-      end = start === 7 ? 14 : (start + 6);
-      if (chunk.length > 6) {
-        chunk.splice(4, 1)
+      while (end < 27) {
+        let chunk = tempWorkings.slice(start, end);
+        start = end;
+        end = start === 7 ? 14 : start + 6;
+        if (chunk.length > 6) {
+          chunk.splice(4, 1);
+        }
+
+        // refactor for global table rows
+        const finalChunk = [];
+        chunk.forEach((c, i) => {
+          finalChunk.push({ type: `${i === 1 || i === 3 ? 'html' : 'string'}`, value: c });
+        });
+
+        content.data.rows.push(finalChunk);
       }
-      
-      content.data.rows.push(chunk);
-    }    
-  }   
+    }
+    // -------------------------------------------------------------------- \\
 
     return {
       title,
-      content
+      content,
     };
   } catch (error) {
     handleError(error);
