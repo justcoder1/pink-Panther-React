@@ -54,7 +54,7 @@ const useAppendixViewModel: ViewModelHook<AppendixProps> = () => {
   // -------------------- \\
 
   const onDeleteClick = (_id: string, id: string): void => {
-    confirm({ description: `Please confirm deletion of Appendix ${id}?` })
+    confirm({ title: 'Delete', description: `Please confirm removal of Appendix ${id}?` })
       .then(() => {
         deleteFunc(_id);
         enqueueSnackbar(`Appendix ${id} Deleted`, { variant: 'success' });

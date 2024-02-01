@@ -16,7 +16,7 @@ import {
 import React, { useId } from 'react';
 import { AppendixProps } from '../../pages/use-appendix-page.view-model';
 
-import AppendixModal from '../AppendixModal/AppendixModal';
+import FormModal from '../../../../_utils/globals/forms/Modal/Modal';
 import './AppendixPageLayout.css';
 
 
@@ -27,7 +27,7 @@ const AppendixPageLayout: React.FC<AppendixProps> = ({ title, columns, rows, onD
         <Typography key={`appendix_${useId()}`} variant="h2" id="appendix_h2">
           {title}
         </Typography>
-        <Stack alignItems={'end'}><AppendixModal buttonColor='success' onFormClick={onFormClick}>Add Reference</AppendixModal></Stack>
+        <Stack alignItems={'end'} sx={{margin: '20px 0px'}}><FormModal buttonColor='success' modalButton='Add Reference'></FormModal></Stack>
         {rows.length && (
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -51,7 +51,7 @@ const AppendixPageLayout: React.FC<AppendixProps> = ({ title, columns, rows, onD
                     )}
                     <TableCell key={`appendix_td_${i}_end`}>
                     <Button key={`appendix_t_btn_${i}`} onClick={() => onDeleteClick(row[0], row[1])} variant={'text'}><FontAwesomeIcon icon="trash" key={`appendix_t_${i}`} title='delete' id="trashIcon" className="tableIcon" /></Button>
-                      <AppendixModal buttonVariant='text' onFormClick={onFormClick}><FontAwesomeIcon icon="pencil" key={`appendix_p_${i}`} title='edit' id="pencilIcon" className="tableIcon" /></AppendixModal>
+                      {/* <AppendixModal buttonVariant='text' onFormClick={onFormClick}><FontAwesomeIcon icon="pencil" key={`appendix_p_${i}`} title='edit' id="pencilIcon" className="tableIcon" /></AppendixModal> */}
                     </TableCell>
                   </TableRow>
                 ))}

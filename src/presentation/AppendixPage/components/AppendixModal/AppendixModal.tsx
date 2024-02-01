@@ -1,9 +1,9 @@
+import { Box, Button, Modal } from '@mui/material';
 import React, { useId } from 'react';
 import { useForm } from 'react-hook-form';
 import { AppendixDataProps } from '../../pages/use-appendix-page.view-model';
 
 import './AppendixModal.css';
-import { Box, Button, Modal, Typography } from '@mui/material';
 
 interface AppendixModalProps {
   buttonVariant?: 'text' | 'contained';
@@ -47,20 +47,9 @@ const AppendixModal: React.FC<React.PropsWithChildren<AppendixModalProps>> = ({
         aria-describedby="modal-modal-description"
       >
         <Box id="appendixModalBox">
-          {/* <form onSubmit={handleSubmit(onFormClick)}>
-            <div className="form-control">
-              <label>Email</label>
-              <input type="text" name="email" {...register('email')} />
-            </div>
-            <div className="form-control">
-              <label>Password</label>
-              <input type="password" name="password" {...register('password')} />
-            </div>
-            <div className="form-control">
-              <label></label>
-              <button type="submit">Login</button>
-            </div>
-          </form> */}
+          
+        {/* <form onSubmit={handleSubmit(onFormClick)}> */}
+          
         </Box>
       </Modal>
     </div>
