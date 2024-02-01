@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   IconButton,
   Link,
   Paper,
@@ -15,21 +16,23 @@ import {
 import React, { useState } from 'react';
 import { FaTrash } from 'react-icons/fa';
 
-import FormModal from '../../../../_utils/globals/forms/Modal/Modal';
+import AppModal from '../../../../_utils/globals/forms/Modal/Modal';
 import { AppendixProps } from '../../pages/use-appendix-page.view-model';
 import './AppendixPageLayout.css';
 
 const AppendixPageLayout: React.FC<AppendixProps> = ({ title, columns, rows, onDeleteClick, onFormClick }) => {
   const [showIconId, setshowIconId] = useState(-1);
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <Stack justifyContent={'center'} alignItems={'center'}>
+      <AppModal show={showModal} hide={() => setShowModal(false)} title='some test text'>test text</AppModal>
       <Box margin={10} sx={{ textAlign: 'center' }}>
         <Typography variant="h2" id="appendix_h2">
           {title}
         </Typography>
         <Stack alignItems={'end'} sx={{ margin: '20px 0px' }}>
-          <FormModal buttonColor="secondary" modalButton="Add Reference"></FormModal>
+          <Button color='secondary' variant='contained' onClick={() => setShowModal(!showModal)}>Add Reference</Button>
         </Stack>
         {rows.length && (
           <TableContainer component={Paper}>
