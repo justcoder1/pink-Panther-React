@@ -1,7 +1,7 @@
 
 import {
   Box,
-  Button,
+  IconButton,
   Link,
   Paper,
   Stack,
@@ -51,7 +51,7 @@ const AppendixPageLayout: React.FC<AppendixProps> = ({ title, columns, rows, onD
                       ) : (null)
                     )}
                     <TableCell key={`appendix_td_${i}_end`}>
-                    <Button key={`appendix_t_btn_${i}`} onClick={() => onDeleteClick(row[0], row[1])} variant={'text'}><span className="tableIcon"><FaTrash title='delete' id="trashIcon" /></span></Button>
+                    <IconButton onClick={() => onDeleteClick(row[0], row[1])} className="tableIcon"><FaTrash title='delete' id="trashIcon" /></IconButton>
                       {/* <AppendixModal buttonVariant='text' onFormClick={onFormClick}><FontAwesomeIcon icon="pencil" key={`appendix_p_${i}`} title='edit' id="pencilIcon" className="tableIcon" /></AppendixModal> */}
                     </TableCell>
                   </TableRow>

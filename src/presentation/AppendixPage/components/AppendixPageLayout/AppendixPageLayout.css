@@ -6,13 +6,18 @@
 }
 
 .tableIcon {
-  font-size: 1rem;
+  padding: 0 !important;
+}
+
+.tableIcon svg {
+  font-size: 1.4rem;
   padding-left: 0.5rem;
   opacity: 0.5;
   cursor: pointer;
+  color: #fa8ab0;
 }
 
-.tableIcon:hover {
+.tableIcon svg:hover {
   transition: all .4s ease;
   opacity: 1;
 }
