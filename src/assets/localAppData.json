@@ -40,28 +40,28 @@
         "id": 1,
         "social": "Facebook",
         "link": "https://www.facebook.com/officialpinkpanther/",
-        "icon": "faFacebookF"
+        "icon": "FaFacebookF"
       },
       {
         "_id": "2",
         "id": 2,
         "social": "Twitter",
         "link": "https://twitter.com/thepinkpanther?lang=en",
-        "icon": "faTwitter"
+        "icon": "FaTwitter"
       },
       {
         "_id": "3",
         "id": 3,
         "social": "Youtube",
         "link": "https://www.youtube.com/channel/UCFeUyPY6W8qX8w2o6oSiRmw",
-        "icon": "faYoutube"
+        "icon": "FaYoutube"
       },
       {
         "_id": "4",
         "id": 4,
         "social": "Wikipedia",
         "link": "https://en.wikipedia.org/wiki/The_Pink_Panther",
-        "icon": "faWikipediaW"
+        "icon": "FaWikipediaW"
       }
     ]
   },

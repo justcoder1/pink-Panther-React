@@ -1,5 +1,5 @@
 import React, { useId } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FaPaw, FaBars } from "react-icons/fa";
 import {
   Box,
   Button,
@@ -44,7 +44,7 @@ const NavBar: React.FC<NavBarProps> = ({ header, items }) => {
         {items.length && !showMobile && <NavFullScreen items={items} />}
         {items.length && showMobile && <NavMobile items={items} />}
         <NavLink key={`navBar_${useId()}`} className={({ isActive }) => (isActive ? "activeLink" : "")} to={"/user"}>
-          <FontAwesomeIcon icon="paw" key={`navBar_${useId()}`} id="pawIcon" />
+          <FaPaw id="pawIcon"/>
         </NavLink>
       </Stack>
     </Stack>
@@ -105,7 +105,7 @@ const NavMobile: React.FC<Partial<NavBarProps>> = ({ items }) => {
   return (
     <>
       <Button key={`navBarMob_button`} onClick={toggleDrawer(true)}>
-        <FontAwesomeIcon icon="bars" key={`navBarMob_icon`} id="barsIcon" />
+        <FaBars id="barsIcon"/>
       </Button>
       <SwipeableDrawer
         key={`navBarMob_SB`}
