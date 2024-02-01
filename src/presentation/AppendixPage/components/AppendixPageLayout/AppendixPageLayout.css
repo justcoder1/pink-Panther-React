@@ -1,10 +1,20 @@
+#appendix_h2 {
+  font-size: 4em !important;
+  font-family: 'cooper black' !important;
+  color: #fa8ab0;
+  -webkit-text-stroke: 2.5px #b61588;
+}
+
 .tableIcon {
   padding: 0 !important;
 }
 
+.tableIcon {
+  padding-left: 0.75rem !important;
+}
+
 .tableIcon svg {
-  font-size: 1.4rem;
-  padding-left: 0.5rem;
+  font-size: 1rem;
   opacity: 0.75;
 }
 
