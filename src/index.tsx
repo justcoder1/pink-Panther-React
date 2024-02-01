@@ -7,6 +7,8 @@ import { IntlProvider } from 'react-intl';
 import App from './App';
 import { DEFAULT_LOCALE } from './_utils/lang/locales';
 import './index.css';
+import { ThemeProvider } from '@mui/material/styles';
+import themeOverides from './_utils/globals/themes/muiOverides'
 
 const queryClient = new QueryClient();
 
@@ -24,16 +26,18 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <Suspense fallback={<UncaughtSuspense />}>
-        <IntlProvider locale={locale} key={locale} defaultLocale={DEFAULT_LOCALE}>
-          <ConfirmProvider defaultOptions={{ confirmationButtonProps: { autoFocus: true } }}>
-            <SnackbarProvider>
-              <App />
-            </SnackbarProvider>
-          </ConfirmProvider>
-        </IntlProvider>
-      </Suspense>
-    </QueryClientProvider>
+    <ThemeProvider theme={themeOverides}>
+      <QueryClientProvider client={queryClient}>
+        <Suspense fallback={<UncaughtSuspense />}>
+          <IntlProvider locale={locale} key={locale} defaultLocale={DEFAULT_LOCALE}>
+            <ConfirmProvider defaultOptions={{ confirmationButtonProps: { autoFocus: true } }}>
+              <SnackbarProvider>
+                <App />
+              </SnackbarProvider>
+            </ConfirmProvider>
+          </IntlProvider>
+        </Suspense>
+      </QueryClientProvider>
+    </ThemeProvider>
   </React.StrictMode>
 );

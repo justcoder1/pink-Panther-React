@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 export interface ModalProps {
   buttonVariant?: 'text' | 'contained';
-  buttonColor?: 'success' | 'primary';
+  buttonColor?: 'primary' | 'secondary';
   modalButton: string;
   modalMinWidth?: number;
   modalMaxWidth?: number;

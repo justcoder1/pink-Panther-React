@@ -7,3 +7,15 @@
 body {
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 }
+
+h2 {
+  font-size: 4em !important;
+  font-family: 'cooper black' !important;
+  color: #fa8ab0;
+  -webkit-text-stroke: 2.5px #b61588;
+}
+
+/* a {
+  color: #fa8ab0 !important;
+  text-decoration: none !important;
+} */
