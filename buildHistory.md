@@ -40,8 +40,24 @@
 - Implemented History Page
 <r>Merged issue 11 into main - history Page</r>
 - Structured out the appendix page
-- There are jobs left on the ticket before can be merged into main
-<c>Investigating wikipedia api docs to bring in data I wanted into app</c>
+- There are jobs left on the appendix ticket before can be merged into main
+- BIG refactor of the BE to be more inline with previous use.
+<r>BE - Merged issue 5 into main - Refactored app</r>
+- Created all the HTTP actions for the appendix page on the BE
+<r>BE - Merged issue 7 into main - appendix HTTP Actions</r>
+<r>FE - Merged issue 14 into main - string formatted as html</r>
+
+## 31-01-2024
+- refactored the GITHub issues and created projects for FE and BE to track work easier.
+- fixed the WikiPedia API returning html as string to correctly render in the table.
+<r>FE - Merged issue 14 into main - string formatted as html</r>
+- Implemented 'confirm-provider' by mui to the app so it can be used throughout the app.
+- Implemented Toast notifications.
+<c>I had to research and learn how to implement the confirm provider</c>
+
+## 01-02-2024
+- refactored modal to a global component.
+- removed font-awesome and replaced with react icons
 
 ## outstanding jobs
 - Moved to GITHub Issues
