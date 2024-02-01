@@ -12,7 +12,7 @@ import {
   TableRow,
   Typography,
 } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import { FaTrash } from 'react-icons/fa';
 
 import FormModal from '../../../../_utils/globals/forms/Modal/Modal';
@@ -20,6 +20,8 @@ import { AppendixProps } from '../../pages/use-appendix-page.view-model';
 import './AppendixPageLayout.css';
 
 const AppendixPageLayout: React.FC<AppendixProps> = ({ title, columns, rows, onDeleteClick, onFormClick }) => {
+  const [showIconId, setshowIconId] = useState(-1);
+
   return (
     <Stack justifyContent={'center'} alignItems={'center'}>
       <Box margin={10} sx={{ textAlign: 'center' }}>
@@ -27,7 +29,7 @@ const AppendixPageLayout: React.FC<AppendixProps> = ({ title, columns, rows, onD
           {title}
         </Typography>
         <Stack alignItems={'end'} sx={{ margin: '20px 0px' }}>
-          <FormModal buttonColor="success" modalButton="Add Reference"></FormModal>
+          <FormModal buttonColor="secondary" modalButton="Add Reference"></FormModal>
         </Stack>
         {rows.length && (
           <TableContainer component={Paper}>
@@ -42,7 +44,15 @@ const AppendixPageLayout: React.FC<AppendixProps> = ({ title, columns, rows, onD
               </TableHead>
               <TableBody>
                 {rows.map((row, i) => (
-                  <TableRow key={`appendixTable_${i}`} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                  <TableRow 
+                    key={`appendixTable_${i}`} 
+                    onMouseEnter={() => {
+                      setshowIconId(row[0])
+                    }}
+                    onMouseLeave={() => setshowIconId(-1)}
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                    className='appendixTable_row'
+                  >
                     {row.map((r, id) =>
                       id === 2 ? (
                         <TableCell key={`appendix_td_${i}_${id}`}>
@@ -59,6 +69,8 @@ const AppendixPageLayout: React.FC<AppendixProps> = ({ title, columns, rows, onD
                         key={`appendix_t_${i}`}
                         onClick={() => onDeleteClick(row[0], row[1])}
                         className="tableIcon"
+                        color="primary"
+                        sx={{ display: row[0] === showIconId ? 'inherit' : 'none' }}
                       >
                         <FaTrash title="delete" id="trashIcon" />
                       </IconButton>
