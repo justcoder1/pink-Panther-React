@@ -1,5 +1,5 @@
 import { Box, Button, Modal } from '@mui/material';
-import React, { useId } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { AppendixDataProps } from '../../pages/use-appendix-page.view-model';
 
@@ -31,13 +31,7 @@ const AppendixModal: React.FC<React.PropsWithChildren<AppendixModalProps>> = ({
 
   return (
     <div>
-      <Button
-        key={`appendix_${useId()}`}
-        onClick={handleOpen}
-        variant={buttonVariant ?? 'contained'}
-        color={buttonColor}
-        id="appendixBTN"
-      >
+      <Button onClick={handleOpen} variant={buttonVariant ?? 'contained'} color={buttonColor} id="appendixBTN">
         {children}
       </Button>
       <Modal
@@ -46,11 +40,7 @@ const AppendixModal: React.FC<React.PropsWithChildren<AppendixModalProps>> = ({
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box id="appendixModalBox">
-          
-        {/* <form onSubmit={handleSubmit(onFormClick)}> */}
-          
-        </Box>
+        <Box id="appendixModalBox">{/* <form onSubmit={handleSubmit(onFormClick)}> */}</Box>
       </Modal>
     </div>
   );

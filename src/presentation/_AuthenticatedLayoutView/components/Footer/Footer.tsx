@@ -1,16 +1,19 @@
-import React, { useId } from "react";
-import { Box, Link } from "@mui/material";
-import './footer.css'
+import { Box, Link } from '@mui/material';
+import React from 'react';
+import './footer.css';
 
 export interface FooterProps {
   link: string;
-  footer: string
+  footer: string;
 }
 
-const Footer: React.FC<FooterProps> = ({footer, link}) => {
+const Footer: React.FC<FooterProps> = ({ footer, link }) => {
   return (
-    <Box key={`footer_${useId()}`} id='footer_box'>
-      Copyright &copy; <Link href={link} id='footer_a' rel="noreferrer" target="_blank">{footer || 'Footer'}</Link> 
+    <Box id="footer_box">
+      Copyright &copy;{' '}
+      <Link href={link} id="footer_a" rel="noreferrer" target="_blank">
+        {footer || 'Footer'}
+      </Link>
     </Box>
   );
 };

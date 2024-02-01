@@ -4,9 +4,9 @@ import { SnackbarProvider } from 'notistack';
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
 import { IntlProvider } from 'react-intl';
-import App from "./App";
+import App from './App';
 import { DEFAULT_LOCALE } from './_utils/lang/locales';
-import "./index.css";
+import './index.css';
 
 const queryClient = new QueryClient();
 

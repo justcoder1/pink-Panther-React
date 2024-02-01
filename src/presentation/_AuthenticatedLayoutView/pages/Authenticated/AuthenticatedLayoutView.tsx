@@ -1,8 +1,8 @@
-import { Box, Stack } from "@mui/material";
-import React from "react";
-import Footer from "../../components/Footer/Footer";
-import NavBar from "../../components/NavBar/NavBar";
-import useAuthenticatedLayoutViewModel from "./use-authenticated-layout.view-model";
+import { Box, Stack } from '@mui/material';
+import React from 'react';
+import Footer from '../../components/Footer/Footer';
+import NavBar from '../../components/NavBar/NavBar';
+import useAuthenticatedLayoutViewModel from './use-authenticated-layout.view-model';
 
 export interface AuthenticatedLayoutViewProps {}
 
@@ -11,22 +11,16 @@ const AuthenticatedLayoutView: React.FC<React.PropsWithChildren<AuthenticatedLay
 
   return (
     <Box
-      key={`auth`}
       sx={{
-        display: "grid",
-        gridTemplateRows: "auto 1fr auto",
-        height: "100dvh",
-        maxHeight: "100dvh",
-        minHeight: 0
+        display: 'grid',
+        gridTemplateRows: 'auto 1fr auto',
+        height: '100dvh',
+        maxHeight: '100dvh',
+        minHeight: 0,
       }}
     >
       <NavBar header={vm.header} items={vm.headerItems} />
-      <Stack
-        key={`authCont`}
-        justifyContent={"center"}
-      >
-        {children}
-      </Stack>
+      <Stack justifyContent={'center'}>{children}</Stack>
       <Footer footer={vm.footer} link={vm.footerLink} />
     </Box>
   );

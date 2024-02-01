@@ -1,9 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import { useErrorHandler } from 'react-error-boundary';
 import { useIntl } from 'react-intl';
-import { ViewModelHook } from '../../../_utils/types/index';
+import { ViewModelHook, tableTypes } from '../../../_utils/types/index';
 import { getWikiPediaHistory } from '../_connections/connections';
-import { tableTypes } from '../../../_utils/types/index';
 
 export interface HistoryDataProps {
   columns: string[];

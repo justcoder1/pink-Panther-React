@@ -1,7 +1,7 @@
 import { Link, Stack } from '@mui/material';
-import React, { useId } from 'react';
+import React from 'react';
+import { FaFacebookF, FaTwitter, FaWikipediaW, FaYoutube } from 'react-icons/fa';
 import { HomePageSocialsProps } from '../../pages/use-home-page.view-model';
-import { FaWikipediaW, FaYoutube, FaTwitter, FaFacebookF } from 'react-icons/fa';
 
 import './SocialWidget.css';
 
@@ -11,7 +11,7 @@ interface SocialsProps {
 
 const SocialWidget: React.FC<SocialsProps> = ({ socials }) => {
   return (
-    <Stack key={`soc_${useId()}`} id="soc_container" direction={'row'}>
+    <Stack id="soc_container" direction={'row'}>
       {socials.length > 0 &&
         socials.map((s, i) => (
           <Link key={`soc_${i}`} href={s.link} rel="noreferrer" target="_blank">
@@ -19,7 +19,7 @@ const SocialWidget: React.FC<SocialsProps> = ({ socials }) => {
               {s.icon === 'FaFacebookF' ? (
                 <FaFacebookF key={`soc_${i}_i`} />
               ) : s.icon === 'FaYoutube' ? (
-                <FaYoutube key={`soc_${i}_i`}  />
+                <FaYoutube key={`soc_${i}_i`} />
               ) : s.icon === 'FaWikipediaW' ? (
                 <FaWikipediaW key={`soc_${i}_i`} />
               ) : (

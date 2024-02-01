@@ -9,20 +9,20 @@ import {
   TableHead,
   TableRow,
   Typography,
-} from "@mui/material";
-import React, { useId } from "react";
-import { HistoryProps } from "../../pages/use-history-page.view-model";
+} from '@mui/material';
+import React from 'react';
+import { HistoryProps } from '../../pages/use-history-page.view-model';
 
-import "./HistoryPageLayout.css";
+import './HistoryPageLayout.css';
 
-const HistoryPageLayout: React.FC<HistoryProps> = ({ title, content }) => {  
+const HistoryPageLayout: React.FC<HistoryProps> = ({ title, content }) => {
   return (
-    <Stack key={`history_${useId()}`} justifyContent={"center"} alignItems={"center"}>
-      <Box key={`history_${useId()}`} maxWidth={1000} margin={10} sx={{ textAlign: "center" }}>
-        <Typography key={`history_${useId()}`} variant="h2" id="history_h2">
+    <Stack justifyContent={'center'} alignItems={'center'}>
+      <Box maxWidth={1000} margin={10} sx={{ textAlign: 'center' }}>
+        <Typography variant="h2" id="history_h2">
           {title}
         </Typography>
-        <Typography key={`history_${useId()}`} variant="h3" id="history_h3">
+        <Typography variant="h3" id="history_h3">
           {content.title}
         </Typography>
         {content.data.columns.length && (
@@ -37,12 +37,11 @@ const HistoryPageLayout: React.FC<HistoryProps> = ({ title, content }) => {
               </TableHead>
               <TableBody>
                 {content.data.rows.map((row, i) => (
-                  <TableRow key={`historyTable_${i}`} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
-                    {row.map((r, id) => (                      
+                  <TableRow key={`historyTable_${i}`} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                    {row.map((r, id) => (
                       <TableCell key={`history_td_${i}_${id}`}>
-                        {/* converting string to html */}
                         {r.type === 'string' ? r.value : <div dangerouslySetInnerHTML={{ __html: r.value }} />}
-                        </TableCell>
+                      </TableCell>
                     ))}
                   </TableRow>
                 ))}
