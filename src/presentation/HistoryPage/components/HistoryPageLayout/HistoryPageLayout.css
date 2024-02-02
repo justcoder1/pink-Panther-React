@@ -10,3 +10,8 @@
   font-weight: bold;
   margin: 1em 0;
 }
+
+a {
+  color: #fa8ab0;
+  text-decoration: none;
+}

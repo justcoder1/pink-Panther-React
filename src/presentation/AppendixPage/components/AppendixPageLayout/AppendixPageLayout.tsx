@@ -67,7 +67,7 @@ const AppendixPageLayout: React.FC<AppendixProps> = ({ title, columns, rows, onD
                     {row.map((r, id) =>
                       id === 2 ? (
                         <TableCell key={`appendix_td_${i}_${id}`}>
-                          <Link href={r.link} rel="noreferrer" target="_blank">
+                          <Link href={r.link} rel="noreferrer" target="_blank" className='linkStyle'>
                             {r.reference}
                           </Link>
                         </TableCell>

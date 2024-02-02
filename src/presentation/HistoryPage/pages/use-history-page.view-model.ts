@@ -60,14 +60,15 @@ const useHistoryViewModel: ViewModelHook<HistoryProps> = () => {
         // refactor for global table rows
         const finalChunk = [];
         chunk.forEach((c, i) => {
-          finalChunk.push({ type: `${i === 1 || i === 3 ? 'html' : 'string'}`, value: c });
+          // Workings for links in data to work working when rendered
+          finalChunk.push({ type: `${i === 1 || i === 3 ? 'html' : 'string'}`, value: (i === 1 || i === 3) ? c.replace('./', 'https://en.wikipedia.org/wiki/').replace('">', '" target="_blank">') : c });
         });
-
+        
         content.data.rows.push(finalChunk);
       }
     }
     // -------------------------------------------------------------------- \\
-
+    
     return {
       title,
       content,
