@@ -36,6 +36,15 @@ const AppendixPageLayout: React.FC<AppendixProps> = ({ title, columns, rows, typ
     setShowModal(true);
   };
 
+  const onFormSubmit = (data) => {
+    if (formType === 'Create') {
+      setNextId(data.id + 1)
+    }
+    setShowModal(false)
+    setFormData(null)
+    onFormClick(data)
+  }
+
   useEffect(() => {
     if (rows.length) {
       setNextId(rows[rows.length - 1][2] + 1);
@@ -44,7 +53,7 @@ const AppendixPageLayout: React.FC<AppendixProps> = ({ title, columns, rows, typ
 
   return (
     <Stack justifyContent={'center'} alignItems={'center'}>
-      <AppModal show={showModal} hide={() => setShowModal(false)} title={`${formType} Reference`}><AppendixForm type={formType} nextId={nextId} types={types} topics={topics} formData={formData} onFormClick={onFormClick}/></AppModal>
+      <AppModal show={showModal} hide={() => setShowModal(false)} title={`${formType} Reference`}><AppendixForm type={formType} nextId={nextId} types={types} topics={topics} formData={formData} onFormSubmit={onFormSubmit}/></AppModal>
       <Box margin={10} sx={{ textAlign: 'center' }}>
         <Typography variant="h2" id="appendix_h2">
           {title}

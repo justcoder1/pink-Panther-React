@@ -47,15 +47,12 @@ const useAppendixViewModel: ViewModelHook<AppendixProps> = () => {
     },
   });
 
-  const onFormClick = (data) => {
-    console.log('form', data);
-  }
-  // const { mutate: onFormClick } = useMutation({
-  //   mutationFn: (data: AppendixDataProps) => (data._id ? updateAppendix(data) : createAppendix(data)),
-  //   onSuccess: () => {
-  //     queryClient.invalidateQueries({ queryKey: ['appendix'], exact: true });
-  //   },
-  // });
+  const { mutate: onFormClick } = useMutation({
+    mutationFn: (data: AppendixDataProps) => (data._id ? updateAppendix(data) : createAppendix(data)),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['appendix'], exact: true });
+    },
+  });
   // -------------------- \\
 
   const onDeleteClick = (_id: string, id: string): void => {

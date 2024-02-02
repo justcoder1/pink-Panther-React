@@ -13,10 +13,10 @@ interface AppendixFormProps {
   topics: string[];
   types: string[];
   formData?: AppendixDataProps;
-  onFormClick?: (data: AppendixDataProps) => void;
+  onFormSubmit?: (data: AppendixDataProps) => void;
 }
 
-const AppendixForm: React.FC<AppendixFormProps> = ({ type, nextId, types, topics, formData, onFormClick }) => {
+const AppendixForm: React.FC<AppendixFormProps> = ({ type, nextId, types, topics, formData, onFormSubmit }) => {
   // Styles ---------------------
   const inputLeft = { width: '300px', margin: '10px 10px 10px 0px' };
   const inputRight = { width: '300px', margin: '10px 0px' };
@@ -41,8 +41,12 @@ const AppendixForm: React.FC<AppendixFormProps> = ({ type, nextId, types, topics
   });
   // ----------------------------
 
-  const onSubmit = (data) => {
-    onFormClick({ ...data, id: 1 });
+  const onSubmit = (data): void => {
+    if (type === 'Update') {
+      onFormSubmit({ ...data, id: formData.id, _id: formData._id });
+    } else {
+      onFormSubmit({ ...data, id: nextId });
+    }
   };
 
   return (
