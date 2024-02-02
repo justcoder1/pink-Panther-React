@@ -12,9 +12,9 @@ export interface AppendixDataProps {
   id: Number;
   reference: string;
   link: string;
-  comments: string;
   type: 'Documentation' | 'Video' | 'Reference';
   topic: 'TypeScript' | 'Testing' | 'JavaScript' | 'Data' | 'Angular' | 'React' | 'Node' | 'SQL' | 'MongoDB';
+  comments?: string;
 }
 
 export interface AppendixProps {
@@ -47,12 +47,15 @@ const useAppendixViewModel: ViewModelHook<AppendixProps> = () => {
     },
   });
 
-  const { mutate: onFormClick } = useMutation({
-    mutationFn: (data: AppendixDataProps) => (data._id ? updateAppendix(data) : createAppendix(data)),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['appendix'], exact: true });
-    },
-  });
+  const onFormClick = (data) => {
+    console.log('form', data);
+  }
+  // const { mutate: onFormClick } = useMutation({
+  //   mutationFn: (data: AppendixDataProps) => (data._id ? updateAppendix(data) : createAppendix(data)),
+  //   onSuccess: () => {
+  //     queryClient.invalidateQueries({ queryKey: ['appendix'], exact: true });
+  //   },
+  // });
   // -------------------- \\
 
   const onDeleteClick = (_id: string, id: string): void => {
@@ -80,6 +83,7 @@ const useAppendixViewModel: ViewModelHook<AppendixProps> = () => {
     if (status === 'success') {
       appendixsData.forEach((a) => {
         rows.push([
+          a,
           a._id,
           a.id,
           { reference: intl.formatMessage({ id: a.reference, defaultMessage: a.reference }), link: a.link },
@@ -90,7 +94,7 @@ const useAppendixViewModel: ViewModelHook<AppendixProps> = () => {
       });
     }
     // ------------------------------------------- \\
-
+    
     return {
       title: title,
       columns: columns,
