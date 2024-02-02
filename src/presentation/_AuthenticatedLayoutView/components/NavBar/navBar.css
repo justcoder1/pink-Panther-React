@@ -6,7 +6,7 @@
 }
 
 #navBar-Left {
-  font-family: "cooper black";
+  font-family: 'cooper black';
   color: white;
   text-decoration: none;
   font-size: clamp(1.5rem, 8vw, 2.5rem);
@@ -23,7 +23,7 @@
 #navBar-Right a:hover,
 #navBar-Right a:hover > *,
 #navBar-Left:hover {
-  transition: all .4s ease;
+  transition: all 0.4s ease;
   color: #d372b7;
 }
 
@@ -44,6 +44,6 @@
 }
 
 #barsIcon:hover {
-  transition: all .4s ease;
+  transition: all 0.4s ease;
   color: #d372b7;
 }

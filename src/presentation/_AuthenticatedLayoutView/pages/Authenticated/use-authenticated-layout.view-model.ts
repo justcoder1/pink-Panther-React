@@ -1,10 +1,10 @@
-import { useQuery } from "@tanstack/react-query";
-import { useErrorHandler } from "react-error-boundary";
-import { useIntl } from "react-intl";
-import { useIntlCommon } from "../../../../_utils/lang/intl-common";
-import { ViewModelHook } from "../../../../_utils/types/index";
-import { getNavBar } from "../../_connections/connections";
-import { NavBarItemsProps } from "../../components/NavBar/NavBar";
+import { useQuery } from '@tanstack/react-query';
+import { useErrorHandler } from 'react-error-boundary';
+import { useIntl } from 'react-intl';
+import { useIntlCommon } from '../../../../_utils/lang/intl-common';
+import { ViewModelHook } from '../../../../_utils/types/index';
+import { getNavBar } from '../../_connections/connections';
+import { NavBarItemsProps } from '../../components/NavBar/NavBar';
 
 export interface AuthenticatedLayoutViewModel {
   header: string;
@@ -20,21 +20,23 @@ const useAuthenticatedLayoutViewModel: ViewModelHook<AuthenticatedLayoutViewMode
 
   // API data
   const { data: navBarData } = useQuery({
-    queryKey: ["navBar"],
+    queryKey: ['navBar'],
     queryFn: getNavBar,
   });
-  
-  
-  try {    
-    navBarData?.map((item) => item.title = intl.formatMessage({ id: item.title, defaultMessage: item.title}));
-    
-    const footer: string = intl.formatMessage({ id: 'footer', defaultMessage: `justCoder ${new Date().getFullYear()}`});
-    
+
+  try {
+    navBarData?.map((item) => (item.title = intl.formatMessage({ id: item.title, defaultMessage: item.title })));
+
+    const footer: string = intl.formatMessage({
+      id: 'footer',
+      defaultMessage: `justCoder ${new Date().getFullYear()}`,
+    });
+
     return {
       header: siteLabel,
       headerItems: navBarData || [],
       footer,
-      footerLink: "http://www.justcoder.co.uk",
+      footerLink: 'http://www.justcoder.co.uk',
     };
   } catch (error) {
     handleError(error);

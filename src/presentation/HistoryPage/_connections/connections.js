@@ -1,12 +1,12 @@
-import axios from "axios";
+import axios from 'axios';
 
-const api = axios.create({ baseURL: process.env.REACT_APP_WIKIPEDIA_API})
+const api = axios.create({ baseURL: process.env.REACT_APP_WIKIPEDIA_API });
 
-export const getWikiPediaHistory = async () => {  
+export const getWikiPediaHistory = async () => {
   try {
     // By passing in the revission this will keep the response stable
-    return await api.get('/page/talk/Pink_Panther_(character)/1196918442').then(res => res.data)
+    return await api.get('/page/talk/Pink_Panther_(character)/1196918442').then((res) => res.data);
   } catch (err) {
-    return await err.response.status
+    return await err.response.status;
   }
 };

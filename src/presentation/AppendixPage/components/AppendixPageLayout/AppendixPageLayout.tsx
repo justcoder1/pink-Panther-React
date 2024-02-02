@@ -1,6 +1,7 @@
-
 import {
   Box,
+  Button,
+  IconButton,
   Link,
   Paper,
   Stack,
@@ -10,27 +11,58 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-  Typography
+  Typography,
 } from '@mui/material';
-import React, { useId } from 'react';
-import { AppendixProps } from '../../pages/use-appendix-page.view-model';
+import React, { useEffect, useState } from 'react';
+import { FaTrash, FaPencilAlt } from 'react-icons/fa';
 
-import AppendixModal from '../AppendixModal/AppendixModal';
+import AppModal from '../../../../_utils/globals/forms/Modal/Modal'
+import AppendixForm from '../AppendixForm/AppendixForm';
+import { AppendixProps, AppendixDataProps } from '../../pages/use-appendix-page.view-model';
 import './AppendixPageLayout.css';
 
+const AppendixPageLayout: React.FC<AppendixProps> = ({ title, columns, rows, types, topics, onDeleteClick, onFormClick }) => {
+  const [showIconId, setshowIconId] = useState(-1);
+  const [showModal, setShowModal] = useState(false);
+  const [formType, setformType] = useState<'Create' | 'Update'>('Create');
+  const [nextId, setNextId] = useState(0);
+  const [formData, setFormData] = useState<AppendixDataProps>(null);
+  
+  const openModal = (type, rowData) => {
+    if (type === 'Update') {      
+      setFormData(rowData)
+    }
+    setformType(type);
+    setShowModal(true);
+  };
 
-const AppendixPageLayout: React.FC<AppendixProps> = ({ title, columns, rows }) => {
-  const handleDelete = (id: number): void => {
-    console.log(id);    
+  const onFormSubmit = (data) => {
+    if (formType === 'Create') {
+      setNextId(data.id + 1)
+    }
+    setShowModal(false)
+    setFormData(null)
+    onFormClick(data)
   }
 
+  useEffect(() => {
+    if (rows.length) {
+      setNextId(rows[rows.length - 1][2] + 1);
+    }
+  }, [rows]);
+
   return (
-    <Stack key={`appendix_${useId()}`} justifyContent={'center'} alignItems={'center'}>
-      <Box key={`appendix_${useId()}`} margin={10} sx={{ textAlign: 'center' }}>
-        <Typography key={`appendix_${useId()}`} variant="h2" id="appendix_h2">
+    <Stack justifyContent={'center'} alignItems={'center'}>
+      <AppModal show={showModal} hide={() => setShowModal(false)} title={`${formType} Reference`}><AppendixForm type={formType} nextId={nextId} types={types} topics={topics} formData={formData} onFormSubmit={onFormSubmit}/></AppModal>
+      <Box margin={10} sx={{ textAlign: 'center' }}>
+        <Typography variant="h2" id="appendix_h2">
           {title}
         </Typography>
-        <Stack alignItems={'end'}><AppendixModal buttonColor='success'>Add Reference</AppendixModal></Stack>
+        <Stack alignItems={'end'} sx={{ margin: '20px 0px' }}>
+          <Button color="secondary" variant="contained" onClick={() => openModal('Create', null)}>
+            Add Reference
+          </Button>
+        </Stack>
         {rows.length && (
           <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -39,22 +71,50 @@ const AppendixPageLayout: React.FC<AppendixProps> = ({ title, columns, rows }) =
                   {columns.map((col, i) => (
                     <TableCell key={`appendix_th_${i}`}>{col}</TableCell>
                   ))}
-                  <TableCell key={`appendix_th_end`}></TableCell>
+                  <TableCell width={75}></TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
                 {rows.map((row, i) => (
-                  <TableRow key={`appendixTable_${i}`} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                  <TableRow
+                    key={`appendixTable_${i}`}
+                    onMouseEnter={() => {
+                      setshowIconId(row[1]);
+                    }}
+                    onMouseLeave={() => setshowIconId(-1)}
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                    className="appendixTable_row"
+                  >
                     {row.map((r, id) =>
-                      id === 1 ? (
-                        <TableCell key={`appendix_td_${i}_${id}`}><Link href={r.link} rel="noreferrer" target="_blank">{r.reference}</Link></TableCell>
-                      ) : (
+                      id === 3 ? (
+                        <TableCell key={`appendix_td_${i}_${id}`}>
+                          <Link key={`appendix_a_${i}_${id}`} href={r.link} rel="noreferrer" target="_blank" className='linkStyle'>
+                            {r.reference}
+                          </Link>
+                        </TableCell>
+                      ) : id > 1  ? (
                         <TableCell key={`appendix_td_${i}_${id}`}>{r}</TableCell>
-                      )
+                      ) : null
                     )}
                     <TableCell key={`appendix_td_${i}_end`}>
-                    {/* <Button key={`appendix_t_btn_${i}`} onClick={() => onDeleteClick(row[0], row[1])} variant={'text'}><FaTrash title='delete' id="trashIcon" className="tableIcon"/></Button> */}
-                      {/* <AppendixModal buttonVariant='text' onFormClick={onFormClick}><FaPencilAlt title='edit' id="pencilIcon" className="tableIcon"/></AppendixModal> */}
+                      <IconButton
+                        key={`appendix_t_btn_${i}`}
+                        onClick={() => onDeleteClick(row[1], row[2])}
+                        className="tableIcon"
+                        color="primary"
+                        sx={{ display: row[1] === showIconId ? 'inline' : 'none' }}
+                      >
+                        <FaTrash key={`appendix_t_${i}`} title="delete" id="trashIcon" />
+                      </IconButton>
+                      <IconButton
+                        key={`appendix_e_btn_${i}`}
+                        onClick={() => openModal('Update', row[0])}
+                        className="tableIcon"
+                        color="primary"
+                        sx={{ display: row[1] === showIconId ? 'inline' : 'none' }}
+                      >
+                        <FaPencilAlt key={`appendix_e_${i}`} title="edit" id="pencilIcon" />
+                      </IconButton>
                     </TableCell>
                   </TableRow>
                 ))}

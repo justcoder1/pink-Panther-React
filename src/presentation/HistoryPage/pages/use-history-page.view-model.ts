@@ -1,9 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import { useErrorHandler } from 'react-error-boundary';
 import { useIntl } from 'react-intl';
-import { ViewModelHook } from '../../../_utils/types/index';
+import { ViewModelHook, tableTypes } from '../../../_utils/types/index';
 import { getWikiPediaHistory } from '../_connections/connections';
-import { tableTypes } from '../../../_utils/types/index';
 
 export interface HistoryDataProps {
   columns: string[];
@@ -61,14 +60,15 @@ const useHistoryViewModel: ViewModelHook<HistoryProps> = () => {
         // refactor for global table rows
         const finalChunk = [];
         chunk.forEach((c, i) => {
-          finalChunk.push({ type: `${i === 1 || i === 3 ? 'html' : 'string'}`, value: c });
+          // Workings for links in data to work working when rendered
+          finalChunk.push({ type: `${i === 1 || i === 3 ? 'html' : 'string'}`, value: (i === 1 || i === 3) ? c.replace('./', 'https://en.wikipedia.org/wiki/').replace('">', '" target="_blank">') : c });
         });
-
+        
         content.data.rows.push(finalChunk);
       }
     }
     // -------------------------------------------------------------------- \\
-
+    
     return {
       title,
       content,

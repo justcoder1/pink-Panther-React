@@ -36,9 +36,18 @@
 
 ## 29-01-2024
 - Finished off all connections 
-<r>Merged issue 3 into main - connect BE</r>
+<r>FE - Merged issue 3 into main - connect BE</r>
 - Implemented History Page
 <r>Merged issue 11 into main - history Page</r>
+- Structured out the appendix page
+- There are jobs left on the appendix ticket before can be merged into main
+- BIG refactor of the BE to be more inline with previous use.
+<r>BE - Merged issue 5 into main - Refactored app</r>
+- Created all the HTTP actions for the appendix page on the BE
+<r>BE - Merged issue 7 into main - appendix HTTP Actions</r>
+<r>FE - Merged issue 14 into main - string formatted as html</r>
+
+## 30-01-2024
 - Structured out the appendix page
 - There are jobs left on the appendix ticket before can be merged into main
 - BIG refactor of the BE to be more inline with previous use.
@@ -57,7 +66,10 @@
 
 ## 01-02-2024
 - refactored modal to a global component.
-- removed font-awesome and replaced with react icons
+- removed font-awesome and replaced with react icons.
+- removed excessive use of the key on elements.
+- Got the modal working through the appendix.
+<c>building out the modal was complicated and learnt about controlled and uncontrolled components in the process</c>
 
 ## outstanding jobs
 - Moved to GITHub Issues

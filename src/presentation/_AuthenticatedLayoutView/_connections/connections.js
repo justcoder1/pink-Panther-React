@@ -1,11 +1,11 @@
-import axios from "axios";
+import axios from 'axios';
 
-const api = axios.create({ baseURL: process.env.REACT_APP_BASE_URL})
+const api = axios.create({ baseURL: process.env.REACT_APP_BASE_URL });
 
-export const getNavBar = async () => {  
+export const getNavBar = async () => {
   try {
-    return await api.get('/navBar').then(res => res.data.data)
+    return await api.get('/navBar').then((res) => res.data.data);
   } catch (err) {
-    return await err.response.status
+    return await err.response.status;
   }
 };
