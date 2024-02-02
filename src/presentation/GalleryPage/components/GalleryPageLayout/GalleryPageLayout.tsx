@@ -11,6 +11,9 @@ const GalleryPageLayout: React.FC<GalleryProps> = ({ title, pictures, videos }) 
         <Typography variant="h2" id="history_h2">
           {title}
         </Typography>
+        <Typography variant="h5" id="history_h3" sx={{color: 'firebrick', fontStyle: 'italic'}}>
+          Not started this page yet
+        </Typography>
         <img src={pictures[0].url} alt={pictures[0].title} className="galleryPicture" />
       </Box>
     </Stack>

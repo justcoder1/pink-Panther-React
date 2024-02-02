@@ -51,7 +51,8 @@ const useGalleryViewModel: ViewModelHook<GalleryProps> = () => {
 
     return {
       title: title,
-      pictures: picturesData,
+      // this is just a placeholder until I get to building this page out.
+      pictures: picturesData || [{title: "pink panther and inspector clouseau", url: "https://theplaylist.net/wp-content/uploads/2014/03/the-pink-panther.jpg"}] ,
       videos: videosData,
     };
   } catch (error) {
