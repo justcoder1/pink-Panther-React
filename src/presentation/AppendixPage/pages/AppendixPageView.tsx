@@ -14,6 +14,8 @@ const AppendixPageView: React.FC<React.PropsWithChildren<AppendixPageViewProps>>
         title={vm.title}
         columns={vm.columns}
         rows={vm.rows}
+        types={vm.types}
+        topics={vm.topics}
         onDeleteClick={vm.onDeleteClick}
         onFormClick={vm.onFormClick}
       />

@@ -13,14 +13,16 @@ export interface AppendixDataProps {
   reference: string;
   link: string;
   comments: string;
-  type: string;
-  topic: string;
+  type: 'Documentation' | 'Video' | 'Reference';
+  topic: 'TypeScript' | 'Testing' | 'JavaScript' | 'Data' | 'Angular' | 'React' | 'Node' | 'SQL' | 'MongoDB';
 }
 
 export interface AppendixProps {
   title: string;
   columns: string[];
   rows: any;
+  types: string[];
+  topics: string[];
   onDeleteClick: (_id: string, id: string) => void;
   onFormClick: (data: AppendixDataProps) => void;
 }
@@ -62,11 +64,17 @@ const useAppendixViewModel: ViewModelHook<AppendixProps> = () => {
       .catch(noop);
   };
 
+  // FIX - change this to a hook - Issue 27
+  const intlStrings = (list: string[]) => list.map((l) => intl.formatMessage({ id: l, defaultMessage: l }))
+
   try {
     const title = intl.formatMessage({ id: 'title', defaultMessage: 'Appendix Page - Demonstration in CRUD' });
+    const types = intlStrings(['Documentation', 'Reference', 'Video']);
+    const topics = intlStrings(['Angular', 'Data', 'JavaScript', 'MongoDB', 'Node', 'React', 'SQL', 'Testing', 'TypeScript']);
 
     // ---- Restructure to display in table ---- \\
-    const columns = ['id', 'Reference', 'Topic', 'type', 'Comments'];
+    const columns = intlStrings(['id', 'Reference', 'Topic', 'type', 'Comments']);
+    
     const rows = [];
     columns.map((c) => intl.formatMessage({ id: c, defaultMessage: c }));
     if (status === 'success') {
@@ -87,6 +95,8 @@ const useAppendixViewModel: ViewModelHook<AppendixProps> = () => {
       title: title,
       columns: columns,
       rows: rows,
+      types: types,
+      topics: topics,
       onDeleteClick,
       onFormClick,
     };

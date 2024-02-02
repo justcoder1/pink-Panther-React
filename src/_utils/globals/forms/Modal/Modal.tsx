@@ -23,12 +23,12 @@ const AppModal: React.FC<React.PropsWithChildren<ModalProps>> = ({
   return (
     <>
       {show ? (
-        <Stack justifyContent={'center'} alignItems={'center'} id="modalBackground" onClick={hide}>
+        <Stack justifyContent={'center'} alignItems={'center'} id="modalBackground">
           <Stack
             id="modalPanel"
             sx={{
-              minWidth: modalMinWidth | 400,
-              maxWidth: modalMaxWidth | 400,
+              minWidth: modalMinWidth,
+              maxWidth: modalMaxWidth,
             }}
           >
             <Stack direction={'row'} justifyContent={'space-between'} alignItems={'center'} sx={{ height: 40}}>
