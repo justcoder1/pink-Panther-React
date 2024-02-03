@@ -77,7 +77,10 @@
 
 ## 03-02-2024
 - built out Gallery page
+- Added routing to the galley and used this to reference the page
+<r>FE - Merged issue 10 into main - Gallery Page</r>
 <c>Complicated getting all the state to work in hardmany with each other and track the ID correctly</c>
+<c>Bug - on the back and next buttons that I added to ticket</c>
 
 ## outstanding jobs
 - Moved to GITHub Issues
