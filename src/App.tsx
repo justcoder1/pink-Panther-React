@@ -24,7 +24,8 @@ const App: React.FC = () => {
         <Route path="/" element={<HomePageView />} />
         <Route path="/about" element={<AboutPageView />} />
         <Route path="/appendix" element={<AppendixPageView />} />
-        <Route path="/gallery" element={<GalleryPageView />} />
+        <Route path="/gallery/picture" element={<GalleryPageView />} />
+        <Route path="/gallery/video" element={<GalleryPageView />} />
         <Route path="/history" element={<HistoryPageView />} />
         <Route path="/user" element={<UserPageView />} />
       </Routes>
