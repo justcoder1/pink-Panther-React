@@ -71,5 +71,16 @@
 - Got the modal working through the appendix.
 <c>building out the modal was complicated and learnt about controlled and uncontrolled components in the process</c>
 
+## 02-02-2024
+- finished off the Appendix page
+- got all HTTP processes working
+
+## 03-02-2024
+- built out Gallery page
+- Added routing to the galley and used this to reference the page
+<r>FE - Merged issue 10 into main - Gallery Page</r>
+<c>Complicated getting all the state to work in hardmany with each other and track the ID correctly</c>
+<c>Bug - on the back and next buttons that I added to ticket</c>
+
 ## outstanding jobs
 - Moved to GITHub Issues

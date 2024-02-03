@@ -5,6 +5,6 @@
   -webkit-text-stroke: 2.5px #b61588;
 }
 
-.galleryPicture {
-  height: 350px;
+#history_h5 {
+  text-transform:capitalize;
 }
