@@ -27,7 +27,7 @@ export interface HistoryProps {
 const useHistoryViewModel: ViewModelHook<HistoryProps> = () => {
   const handleError = useErrorHandler();
   const intl = useIntl();
-  const content: HistoryContentProps = { title: 'test', data: { columns: [], rows: [] } };
+  const content: HistoryContentProps = { title: '', data: { columns: [], rows: [] } };
 
   // API data
   const { status, data: historyData } = useQuery({
