@@ -9,15 +9,17 @@ const LandingPageLayout: React.FC<LandingPageProps> = ({ title, subTitle, landin
   return (
     <Stack justifyContent={'center'} alignItems={'center'} id="landingPage">
       <Box id="landingPageInner">
-        <Stack alignItems={'center'} id='landingPageLeft'>
+        <Box id="landingPageLeft">
           <Typography id="lp_h2" variant="h2">
             {title}
           </Typography>
-          <img id="lp_img" src={landingImage} alt="PinkPanther" />
-          <Typography id="lp_h5" variant="h5">
+          <Stack alignItems={'end'}>
+            <img id="lp_img" src={landingImage} alt="PinkPanther" />
+          </Stack>
+          <Typography id="lp_h6" variant="h6">
             {subTitle}
           </Typography>
-        </Stack>
+        </Box>
         <UserLogin {...LoginProps} />
       </Box>
     </Stack>
