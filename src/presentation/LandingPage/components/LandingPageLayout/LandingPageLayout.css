@@ -7,8 +7,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   background-color: white;
-  width: 75dvw;
-  height: 75dvh;
+  width: 50dvw;
+  height: 65dvh;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 11px 15px -7px, rgba(0, 0, 0, 0.14) 0px 24px 38px 3px,rgba(0, 0, 0, 0.12) 0px 9px 46px 8px;
 }
 
@@ -19,7 +19,7 @@
 }
 
 #lp_h2 {
-  font-size: clamp(2rem, 8vw, 3rem);
+  font-size: clamp(1.25rem, 50vw, 2.5rem);
   font-family: 'cooper black';
   color: #fa8ab0;
   text-align: center;
@@ -28,9 +28,14 @@
 }
 
 #lp_h6 {
+  font-size: clamp(0.75rem, 50vw, 1.25rem);
   text-align: center;
   font-weight: bold;
-  width: 80%;
+  width: 95%;
   margin: auto;
   padding: 1.5rem;
+}
+
+#lp_img {
+  height: 40dvh;
 }

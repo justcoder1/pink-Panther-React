@@ -82,5 +82,10 @@
 <c>Complicated getting all the state to work in hardmany with each other and track the ID correctly</c>
 <c>Bug - on the back and next buttons that I added to ticket</c>
 
+## 04-02-2024
+- built the landing page
+- installed yup password schema
+<r>FE - Merged issue 32 into main - Landing Page</r>
+
 ## outstanding jobs
 - Moved to GITHub Issues
