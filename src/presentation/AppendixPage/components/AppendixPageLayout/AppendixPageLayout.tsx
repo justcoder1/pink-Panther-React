@@ -16,7 +16,7 @@ import {
 import React, { useEffect, useState } from 'react';
 import { FaTrash, FaPencilAlt } from 'react-icons/fa';
 
-import AppModal from '../../../../_utils/globals/forms/Modal/Modal'
+import AppModal from '../../../../_utils/globals/components/Modal/Modal'
 import AppendixForm from '../AppendixForm/AppendixForm';
 import { AppendixProps, AppendixDataProps } from '../../pages/use-appendix-page.view-model';
 import './AppendixPageLayout.css';

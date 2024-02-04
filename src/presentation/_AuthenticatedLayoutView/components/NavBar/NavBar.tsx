@@ -9,10 +9,11 @@ import {
   SwipeableDrawer,
   useMediaQuery,
 } from '@mui/material';
-import React, { useState } from 'react';
+import React, { Suspense, useState } from 'react';
 import { FaBars, FaPaw } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
 import './navBar.css';
+import { SkeletonNavBar } from '../../../../_utils/globals/components/Fallbacks/Fallbacks';
 
 export interface NavBarItemsProps {
   _id: string;
@@ -30,16 +31,18 @@ const NavBar: React.FC<NavBarProps> = ({ header, items }) => {
 
   return (
     <Stack id="navBar-Main" direction={'row'} justifyContent={'space-between'} alignItems={'center'}>
-      <NavLink id="navBar-Left" to={'/'}>
-        {header}
-      </NavLink>
-      <Stack id="navBar-Right" direction={'row'} alignItems={'center'}>
-        {items.length && !showMobile && <NavFullScreen items={items} />}
-        {items.length && showMobile && <NavMobile items={items} />}
-        <NavLink className={({ isActive }) => (isActive ? 'activeLink' : '')} to={'/user'}>
-          <FaPaw id="pawIcon" />
+      <Suspense fallback={<SkeletonNavBar />}>
+        <NavLink id="navBar-Left" to={'/'}>
+          {header}
         </NavLink>
-      </Stack>
+        <Stack id="navBar-Right" direction={'row'} alignItems={'center'}>
+          {!showMobile && <NavFullScreen items={items} />}
+          {showMobile && <NavMobile items={items} />}
+          <NavLink className={({ isActive }) => (isActive ? 'activeLink' : '')} to={'/user'}>
+            <FaPaw id="pawIcon" />
+          </NavLink>
+        </Stack>
+      </Suspense>
     </Stack>
   );
 };
