@@ -11,7 +11,9 @@ const LandingPageView: React.FC<React.PropsWithChildren<LandingPageViewProps>> =
     <>
       <LandingPageLayout 
         title={vm.title}
+        subTitle={vm.subTitle}
         landingImage={vm.landingImage}
+        LoginProps={vm.LoginProps}
       />
     </>
   );

@@ -45,6 +45,30 @@ export const useIntlCommon = () => {
     defaultMessage: 'User',
   });
 
+  const emailLabel = intl.formatMessage({
+    id: 'common.intl.email.label',
+    description: 'internationalised label for email',
+    defaultMessage: 'Email',
+  });
+
+  const passwordLabel = intl.formatMessage({
+    id: 'common.intl.password.label',
+    description: 'internationalised label for password',
+    defaultMessage: 'Password',
+  });
+
+  const loginLabel = intl.formatMessage({
+    id: 'common.intl.login.label',
+    description: 'internationalised label for login',
+    defaultMessage: 'Login',
+  });
+
+  const registerLabel = intl.formatMessage({
+    id: 'common.intl.register.label',
+    description: 'internationalised label for register',
+    defaultMessage: 'Register',
+  });
+
   
   return {
     siteLabel,
@@ -53,6 +77,10 @@ export const useIntlCommon = () => {
     historyLabel,
     aboutLabel,
     appendixLabel,
-    userLabel
+    userLabel,
+    emailLabel,
+    passwordLabel,
+    loginLabel,
+    registerLabel
   };
 };
