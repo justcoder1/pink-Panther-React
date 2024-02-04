@@ -1,0 +1,5 @@
+#landingPageRight {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    padding: 50px !important;
+}

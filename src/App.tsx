@@ -7,6 +7,7 @@ import AppendixPageView from './presentation/AppendixPage/pages/AppendixPageView
 import GalleryPageView from './presentation/GalleryPage/pages/GalleryPageView';
 import HistoryPageView from './presentation/HistoryPage/pages/HistoryPageView';
 import HomePageView from './presentation/HomePage/pages/HomePageView';
+import LandingPageView from './presentation/LandingPage/pages/LandingPageView';
 import UserPageView from './presentation/User/pages/UserPageView';
 import PageNotFoundView from './presentation/_AuthenticatedLayoutView/pages/PageNotFound/PageNotFoundView';
 
@@ -21,7 +22,8 @@ const App: React.FC = () => {
     <BrowserRouter>
       <Routes>
         <Route path="*" element={<PageNotFoundView />} />
-        <Route path="/" element={<HomePageView />} />
+        <Route path="/" element={<LandingPageView />} />
+        <Route path="/home" element={<HomePageView />} />
         <Route path="/about" element={<AboutPageView />} />
         <Route path="/appendix" element={<AppendixPageView />} />
         <Route path="/gallery/picture" element={<GalleryPageView />} />
