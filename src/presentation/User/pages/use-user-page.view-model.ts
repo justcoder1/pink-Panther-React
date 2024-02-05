@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { useSuspenseQuery } from '@tanstack/react-query';
 import { useErrorHandler } from 'react-error-boundary';
 import { useIntlCommon } from '../../../_utils/lang/intl-common';
 import { ViewModelHook } from '../../../_utils/types/index';
@@ -13,7 +13,7 @@ const useUserModel: ViewModelHook<I_UserModel> = () => {
   const { userLabel } = useIntlCommon();
 
   // API data
-  const { status, data: usersData } = useQuery({
+  const { status, data: usersData } = useSuspenseQuery ({
     queryKey: ['users'],
     queryFn: getUsers,
   });

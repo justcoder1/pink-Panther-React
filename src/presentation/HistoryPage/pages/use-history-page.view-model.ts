@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { useSuspenseQuery } from '@tanstack/react-query';
 import { useErrorHandler } from 'react-error-boundary';
 import { useIntl } from 'react-intl';
 import { ViewModelHook, tableTypes } from '../../../_utils/types/index';
@@ -30,14 +30,14 @@ const useHistoryModel: ViewModelHook<I_HistoryModel> = () => {
   const content: I_HistoryContent = { title: '', data: { columns: [], rows: [] } };
   
   // API data
-  const { status, data: historyData } = useQuery({
+  const { data: historyData } = useSuspenseQuery ({
     queryKey: ['history'],
     queryFn: getHistory,
   });  
 
   try {
-    const title = intl.formatMessage({ id: 'title', defaultMessage: `${status === 'pending' ? 'loading' : historyData.title}` });
-    if (status === 'success') {
+    const title = intl.formatMessage({ id: 'title', defaultMessage: `${historyData ? 'loading' : historyData.title}` });
+    if (historyData) {
       content.title = intl.formatMessage({ id: 'subTitle', defaultMessage: historyData.content.title });
       historyData.content.data.columns.forEach((h) => {
         content.data.columns.push(intl.formatMessage({ id: h, defaultMessage: h }))

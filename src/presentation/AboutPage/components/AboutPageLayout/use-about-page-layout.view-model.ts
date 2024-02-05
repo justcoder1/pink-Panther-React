@@ -1,8 +1,8 @@
-import { useQuery } from '@tanstack/react-query';
+import { useSuspenseQuery } from '@tanstack/react-query';
 import { useErrorHandler } from 'react-error-boundary';
 import { useIntl } from 'react-intl';
-import { ViewModelHook } from '../../../_utils/types/index';
-import { getAbout } from '../_connections/connections';
+import { ViewModelHook } from '../../../../_utils/types/index';
+import { getAbout } from '../../_connections/connections';
 
 export interface I_AboutModel {
   title: string;
@@ -10,28 +10,31 @@ export interface I_AboutModel {
   contents: string;
 }
 
-const useAboutModel: ViewModelHook<I_AboutModel> = () => {
+const useAboutPageLayoutModel: ViewModelHook<I_AboutModel> = () => {
   const handleError = useErrorHandler();
   const intl = useIntl();
 
   // API data
-  const { status, data: aboutData } = useQuery({
+  const { data: aboutData } = useSuspenseQuery({
     queryKey: ['about'],
     queryFn: getAbout,
-  });  
+  });
+
+  console.log(aboutData);
+  
 
   try {
     const title = intl.formatMessage({
       id: 'title',
-      defaultMessage: `${status === 'pending' ? 'loading' : aboutData.title}`,
+      defaultMessage: `${aboutData ? aboutData.title : 'loading'}`,
     });
     const subTitle = intl.formatMessage({
       id: 'subTitle',
-      defaultMessage: `${status === 'pending' ? 'loading' : aboutData.subTitle}`,
+      defaultMessage: `${aboutData ? aboutData.subTitle : 'loading'}`,
     });
     const contents = intl.formatMessage({
       id: 'contents',
-      defaultMessage: `${status === 'pending' ? 'loading' : aboutData.contents}`,
+      defaultMessage: `${aboutData ? aboutData.contents : 'loading'}`,
     });
 
     return {
@@ -44,4 +47,4 @@ const useAboutModel: ViewModelHook<I_AboutModel> = () => {
   }
 };
 
-export default useAboutModel;
+export default useAboutPageLayoutModel;

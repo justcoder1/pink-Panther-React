@@ -1,4 +1,4 @@
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQueryClient, useSuspenseQuery } from '@tanstack/react-query';
 import { useConfirm } from 'material-ui-confirm';
 import { useSnackbar } from 'notistack';
 import { useErrorHandler } from 'react-error-boundary';
@@ -35,7 +35,7 @@ const useAppendixModel: ViewModelHook<I_AppendixModel> = () => {
   const { enqueueSnackbar } = useSnackbar();
 
   // ---- API data ---- \\
-  const { status, data: appendixsData } = useQuery({
+  const { data: appendixsData } = useSuspenseQuery ({
     queryKey: ['appendix'],
     queryFn: getAppendixs,
   });
@@ -77,7 +77,7 @@ const useAppendixModel: ViewModelHook<I_AppendixModel> = () => {
     
     const rows = [];
     columns.map((c) => intl.formatMessage({ id: c, defaultMessage: c }));
-    if (status === 'success') {
+    if (appendixsData) {
       appendixsData.forEach((a) => {
         rows.push([
           a,

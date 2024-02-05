@@ -1,12 +1,16 @@
 import { CircularProgress, Skeleton, Stack } from '@mui/material';
 import React from 'react';
 
-export const Spinner: React.FC = () => {
+interface I_Spinner {
+  height?: string
+}
+
+export const Spinner: React.FC<I_Spinner> = ({height}) => {
   return (
     <Stack
       justifyContent={'center'}
       alignItems={'center'}
-      sx={{ height: '100%', backgroundColor: 'rgba(249,241,241, 0.75)' }}
+      sx={{ height: height ?? '100%'}}
     >
       <CircularProgress color="secondary" />
     </Stack>
@@ -19,7 +23,7 @@ export const SkeletonMain: React.FC = () => {
       justifyContent={'center'}
       alignItems={'center'}
       spacing={1}
-      sx={{ height: '100%', backgroundColor: 'rgba(249,241,241, 0.75)' }}
+      sx={{ height: '100%' }}
     >
       <Skeleton key='SM_1' variant="text" width={610} sx={{ fontSize: '5rem' }} />
       <Skeleton key='SM_2' variant="rounded" width={710} height={400} />

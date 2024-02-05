@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { useSuspenseQuery } from '@tanstack/react-query';
 import { useErrorHandler } from 'react-error-boundary';
 import { useIntl } from 'react-intl';
 import { useIntlCommon } from '../../../_utils/lang/intl-common';
@@ -28,7 +28,7 @@ const useHomePageModel: ViewModelHook<I_HomePageModel> = () => {
   const { siteLabel } = useIntlCommon();
 
   // API data
-  const { data: socialsData } = useQuery({
+  const { data: socialsData } = useSuspenseQuery ({
     queryKey: ['socials'],
     queryFn: getSocials,
   });

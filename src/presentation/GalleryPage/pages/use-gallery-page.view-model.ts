@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
+import { useSuspenseQuery } from '@tanstack/react-query';
 import { useErrorHandler } from 'react-error-boundary';
 import { useIntl } from 'react-intl';
 import { ViewModelHook } from '../../../_utils/types/index';
@@ -33,12 +33,12 @@ const useGalleryModel: ViewModelHook<I_GalleryModel> = () => {
   const intl = useIntl();
 
   // API data
-  const { data: picturesData } = useQuery({
+  const { data: picturesData } = useSuspenseQuery ({
     queryKey: ['pictures'],
     queryFn: getPictures,
   });
 
-  const { data: videosData } = useQuery({
+  const { data: videosData } = useSuspenseQuery ({
     queryKey: ['videos'],
     queryFn: getVideos,
   });
