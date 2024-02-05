@@ -19,7 +19,7 @@ const AuthenticatedLayoutView: React.FC<React.PropsWithChildren<AuthenticatedLay
         minHeight: 0,
       }}
     >
-      <NavBar header={vm.header} items={vm.headerItems} />
+      <NavBar />
       <Stack justifyContent={'center'}>{children}</Stack>
       <Footer footer={vm.footer} link={vm.footerLink} />
     </Box>
