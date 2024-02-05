@@ -97,7 +97,7 @@
   
 - Implemented Suspense and Error boundary
   - Because React Suspense & Error are declarifitve I had to restructure the app to contain the API calls inside the suspense
-
+<r>FE - Merged issue 37 into main - Fallback & Suspence</r>
 
 ## outstanding jobs
 - Moved to GITHub Issues
