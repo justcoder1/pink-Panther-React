@@ -4,7 +4,7 @@ import { useIntl } from 'react-intl';
 import { ViewModelHook, tableTypes } from '../../../_utils/types/index';
 import { getWikiPediaHistory } from '../_connections/connections';
 
-export interface HistoryDataProps {
+interface I_HistoryData {
   columns: string[];
   rows: [
     {
@@ -14,20 +14,20 @@ export interface HistoryDataProps {
   ];
 }
 
-export interface HistoryContentProps {
+interface I_HistoryContent {
   title: string;
-  data: HistoryDataProps;
+  data: I_HistoryData;
 }
 
-export interface HistoryProps {
+interface I_HistoryModel {
   title: string;
-  content: HistoryContentProps;
+  content: I_HistoryContent;
 }
 
-const useHistoryViewModel: ViewModelHook<HistoryProps> = () => {
+const useHistoryModel: ViewModelHook<I_HistoryModel> = () => {
   const handleError = useErrorHandler();
   const intl = useIntl();
-  const content: HistoryContentProps = { title: '', data: { columns: [], rows: [] } };
+  const content: I_HistoryContent = { title: '', data: { columns: [], rows: [] } };
 
   // API data
   const { status, data: historyData } = useQuery({
@@ -78,4 +78,4 @@ const useHistoryViewModel: ViewModelHook<HistoryProps> = () => {
   }
 };
 
-export default useHistoryViewModel;
+export default useHistoryModel;

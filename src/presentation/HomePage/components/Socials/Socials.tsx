@@ -1,15 +1,15 @@
 import { Link, Stack } from '@mui/material';
 import React from 'react';
 import { FaFacebookF, FaTwitter, FaWikipediaW, FaYoutube } from 'react-icons/fa';
-import { HomePageSocialsProps } from '../../pages/use-home-page.view-model';
+import { I_SocialData } from '../../pages/use-home-page.view-model';
 
-import './SocialWidget.css';
+import './Socials.css';
 
-interface SocialsProps {
-  socials: HomePageSocialsProps[];
+interface I_Social {
+  socials: I_SocialData[];
 }
 
-const SocialWidget: React.FC<SocialsProps> = ({ socials }) => {
+const Socials: React.FC<I_Social> = ({ socials }) => {
   return (
     <Stack id="soc_container" direction={'row'}>
       
@@ -32,4 +32,4 @@ const SocialWidget: React.FC<SocialsProps> = ({ socials }) => {
   );
 };
 
-export default SocialWidget;
+export default Socials;

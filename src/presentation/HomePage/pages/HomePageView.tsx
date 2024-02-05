@@ -1,12 +1,12 @@
 import React from 'react';
-import AuthenticatedLayoutView from '../../_AuthenticatedLayoutView/pages/Authenticated/AuthenticatedLayoutView';
+import AuthenticatedLayoutView from '../../_AuthenticatedLayout/pages/Authenticated/AuthenticatedLayoutView';
 import HomePageLayout from '../components/HomePageLayout/HomePageLayout';
-import useHomePageViewModel from './use-home-page.view-model';
+import useHomePageModel from './use-home-page.view-model';
 
-export interface HomePageViewProps {}
+interface I_HomePage {}
 
-const HomePageView: React.FC<React.PropsWithChildren<HomePageViewProps>> = () => {
-  const vm = useHomePageViewModel();
+const HomePage: React.FC<React.PropsWithChildren<I_HomePage>> = () => {
+  const vm = useHomePageModel();
 
   return (
     <AuthenticatedLayoutView>
@@ -21,4 +21,4 @@ const HomePageView: React.FC<React.PropsWithChildren<HomePageViewProps>> = () =>
   );
 };
 
-export default HomePageView;
+export default HomePage;

@@ -4,11 +4,11 @@ import { useIntlCommon } from '../../../_utils/lang/intl-common';
 import { ViewModelHook } from '../../../_utils/types/index';
 import { getUsers } from '../_connections/connections';
 
-export interface UserViewModel {
+interface I_UserModel {
   title: string;
 }
 
-const useUserViewModel: ViewModelHook<UserViewModel> = () => {
+const useUserModel: ViewModelHook<I_UserModel> = () => {
   const handleError = useErrorHandler();
   const { userLabel } = useIntlCommon();
 
@@ -29,4 +29,4 @@ const useUserViewModel: ViewModelHook<UserViewModel> = () => {
   }
 };
 
-export default useUserViewModel;
+export default useUserModel;

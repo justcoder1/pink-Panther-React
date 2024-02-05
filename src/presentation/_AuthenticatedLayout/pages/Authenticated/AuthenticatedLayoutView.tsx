@@ -1,13 +1,14 @@
 import { Box, Stack } from '@mui/material';
 import React from 'react';
+
 import Footer from '../../components/Footer/Footer';
 import NavBar from '../../components/NavBar/NavBar';
-import useAuthenticatedLayoutViewModel from './use-authenticated-layout.view-model';
+import useAuthenticatedLayoutModel from './use-authenticated-layout.view-model';
 
-export interface AuthenticatedLayoutViewProps {}
+interface I_AuthenticatedLayout {}
 
-const AuthenticatedLayoutView: React.FC<React.PropsWithChildren<AuthenticatedLayoutViewProps>> = ({ children }) => {
-  const vm = useAuthenticatedLayoutViewModel();
+const AuthenticatedLayout: React.FC<React.PropsWithChildren<I_AuthenticatedLayout>> = ({ children }) => {
+  const vm = useAuthenticatedLayoutModel();
 
   return (
     <Box
@@ -26,4 +27,4 @@ const AuthenticatedLayoutView: React.FC<React.PropsWithChildren<AuthenticatedLay
   );
 };
 
-export default AuthenticatedLayoutView;
+export default AuthenticatedLayout;

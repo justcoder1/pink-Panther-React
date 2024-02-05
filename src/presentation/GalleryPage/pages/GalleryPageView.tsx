@@ -1,12 +1,12 @@
 import React from 'react';
-import AuthenticatedLayoutView from '../../_AuthenticatedLayoutView/pages/Authenticated/AuthenticatedLayoutView';
+import AuthenticatedLayoutView from '../../_AuthenticatedLayout/pages/Authenticated/AuthenticatedLayoutView';
 import GalleryPageLayout from '../components/GalleryPageLayout/GalleryPageLayout';
-import useGalleryViewModel from './use-gallery-page.view-model';
+import useGalleryModel from './use-gallery-page.view-model';
 
-export interface GalleryPageViewProps {}
+interface I_GalleryPage {}
 
-const GalleryPageView: React.FC<React.PropsWithChildren<GalleryPageViewProps>> = () => {
-  const vm = useGalleryViewModel();
+const GalleryPage: React.FC<React.PropsWithChildren<I_GalleryPage>> = () => {
+  const vm = useGalleryModel();
 
   return (
     <AuthenticatedLayoutView>
@@ -15,4 +15,4 @@ const GalleryPageView: React.FC<React.PropsWithChildren<GalleryPageViewProps>> =
   );
 };
 
-export default GalleryPageView;
+export default GalleryPage;

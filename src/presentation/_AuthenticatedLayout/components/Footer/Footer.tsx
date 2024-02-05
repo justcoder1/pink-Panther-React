@@ -2,12 +2,12 @@ import { Box, Link } from '@mui/material';
 import React from 'react';
 import './footer.css';
 
-export interface FooterProps {
+interface I_Footer {
   link: string;
   footer: string;
 }
 
-const Footer: React.FC<FooterProps> = ({ footer, link }) => {
+const Footer: React.FC<I_Footer> = ({ footer, link }) => {
   return (
     <Box id="footer_box">
       Copyright &copy;{' '}

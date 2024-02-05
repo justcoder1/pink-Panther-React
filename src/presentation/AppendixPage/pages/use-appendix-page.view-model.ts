@@ -7,7 +7,7 @@ import { noop } from '../../../_utils/hooks/functions';
 import { ViewModelHook } from '../../../_utils/types/index';
 import { createAppendix, deleteAppendix, getAppendixs, updateAppendix } from '../_connections/connections';
 
-export interface AppendixDataProps {
+interface I_AppendixData {
   _id?: string;
   id: Number;
   reference: string;
@@ -17,17 +17,17 @@ export interface AppendixDataProps {
   comments?: string;
 }
 
-export interface AppendixProps {
+interface I_AppendixModel {
   title: string;
   columns: string[];
   rows: any;
   types: string[];
   topics: string[];
   onDeleteClick: (_id: string, id: string) => void;
-  onFormClick: (data: AppendixDataProps) => void;
+  onFormClick: (data: I_AppendixData) => void;
 }
 
-const useAppendixViewModel: ViewModelHook<AppendixProps> = () => {
+const useAppendixModel: ViewModelHook<I_AppendixModel> = () => {
   const handleError = useErrorHandler();
   const intl = useIntl();
   const queryClient = useQueryClient();
@@ -48,7 +48,7 @@ const useAppendixViewModel: ViewModelHook<AppendixProps> = () => {
   });
 
   const { mutate: onFormClick } = useMutation({
-    mutationFn: (data: AppendixDataProps) => (data._id ? updateAppendix(data) : createAppendix(data)),
+    mutationFn: (data: I_AppendixData) => (data._id ? updateAppendix(data) : createAppendix(data)),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['appendix'], exact: true });
     },
@@ -106,4 +106,4 @@ const useAppendixViewModel: ViewModelHook<AppendixProps> = () => {
   }
 };
 
-export default useAppendixViewModel;
+export default useAppendixModel;

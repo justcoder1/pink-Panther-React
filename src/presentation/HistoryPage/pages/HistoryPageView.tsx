@@ -1,12 +1,12 @@
 import React from 'react';
-import AuthenticatedLayoutView from '../../_AuthenticatedLayoutView/pages/Authenticated/AuthenticatedLayoutView';
+import AuthenticatedLayoutView from '../../_AuthenticatedLayout/pages/Authenticated/AuthenticatedLayoutView';
 import HistoryPageLayout from '../components/HistoryPageLayout/HistoryPageLayout';
-import useHistoryViewModel from './use-history-page.view-model';
+import useHistoryModel from './use-history-page.view-model';
 
-export interface HistoryPageViewProps {}
+interface I_HistoryPage {}
 
-const HistoryPageView: React.FC<React.PropsWithChildren<HistoryPageViewProps>> = () => {
-  const vm = useHistoryViewModel();
+const HistoryPage: React.FC<React.PropsWithChildren<I_HistoryPage>> = () => {
+  const vm = useHistoryModel();
 
   return (
     <AuthenticatedLayoutView>
@@ -15,4 +15,4 @@ const HistoryPageView: React.FC<React.PropsWithChildren<HistoryPageViewProps>> =
   );
 };
 
-export default HistoryPageView;
+export default HistoryPage;

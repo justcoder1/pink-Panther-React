@@ -7,22 +7,22 @@ import imageDesktop from '../../../assets/PP_MainImage.png';
 import imageMobile from '../../../assets/PP_MainImage_Small.png';
 import { getSocials } from '../_connections/connections';
 
-export interface HomePageSocialsProps {
+export interface I_SocialData {
   _id: string;
   social?: string;
   icon: string;
   link: string;
 }
 
-export interface HomePageLayoutProps {
+interface I_HomePageModel {
   titleOne: string;
   titleTwo: string;
   imageDesktop: string;
   imageMobile: string;
-  socials: HomePageSocialsProps[];
+  socials: I_SocialData[];
 }
 
-const useHomePageViewModel: ViewModelHook<HomePageLayoutProps> = () => {
+const useHomePageModel: ViewModelHook<I_HomePageModel> = () => {
   const handleError = useErrorHandler();
   const intl = useIntl();
   const { siteLabel } = useIntlCommon();
@@ -52,4 +52,4 @@ const useHomePageViewModel: ViewModelHook<HomePageLayoutProps> = () => {
   }
 };
 
-export default useHomePageViewModel;
+export default useHomePageModel;

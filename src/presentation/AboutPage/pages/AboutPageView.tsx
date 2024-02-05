@@ -1,12 +1,12 @@
 import React from 'react';
-import AuthenticatedLayoutView from '../../_AuthenticatedLayoutView/pages/Authenticated/AuthenticatedLayoutView';
+import AuthenticatedLayoutView from '../../_AuthenticatedLayout/pages/Authenticated/AuthenticatedLayoutView';
 import AboutPageLayout from '../components/AboutPageLayout/AboutPageLayout';
-import useAboutViewModel from './use-about-page.view-model';
+import useAboutModel from './use-about-page.view-model';
 
-export interface AboutPageViewProps {}
+interface I_AboutPage {}
 
-const AboutPageView: React.FC<React.PropsWithChildren<AboutPageViewProps>> = () => {
-  const vm = useAboutViewModel();
+const AboutPage: React.FC<React.PropsWithChildren<I_AboutPage>> = () => {
+  const vm = useAboutModel();
 
   return (
     <AuthenticatedLayoutView>
@@ -15,4 +15,4 @@ const AboutPageView: React.FC<React.PropsWithChildren<AboutPageViewProps>> = () 
   );
 };
 
-export default AboutPageView;
+export default AboutPage;

@@ -4,7 +4,7 @@ import { MdClose } from 'react-icons/md';
 
 import './Modal.css';
 
-export interface ModalProps {
+interface I_Modal {
   show: boolean;
   hide?: () => void;
   title?: string;
@@ -12,7 +12,7 @@ export interface ModalProps {
   modalMaxWidth?: number;
 }
 
-const AppModal: React.FC<React.PropsWithChildren<ModalProps>> = ({
+const AppModal: React.FC<React.PropsWithChildren<I_Modal>> = ({
   show,
   hide,
   title,

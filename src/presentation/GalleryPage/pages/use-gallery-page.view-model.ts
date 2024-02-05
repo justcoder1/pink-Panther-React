@@ -4,7 +4,7 @@ import { useIntl } from 'react-intl';
 import { ViewModelHook } from '../../../_utils/types/index';
 import { getPictures, getVideos } from '../_connections/connections';
 
-export interface GalleryPictureProps {
+interface I_GalleryPicture {
   _id: string;
   title: string;
   url: string;
@@ -13,7 +13,7 @@ export interface GalleryPictureProps {
   likes?: string;
 }
 
-export interface GalleryVideoProps {
+interface I_GalleryVideo {
   _id: string;
   title: string;
   episode?: string;
@@ -22,13 +22,13 @@ export interface GalleryVideoProps {
   source: string;
 }
 
-export interface GalleryProps {
+interface I_GalleryModel {
   title: string;
-  pictures?: GalleryPictureProps[];
-  videos?: GalleryVideoProps[];
+  pictures?: I_GalleryPicture[];
+  videos?: I_GalleryVideo[];
 }
 
-const useGalleryViewModel: ViewModelHook<GalleryProps> = () => {
+const useGalleryModel: ViewModelHook<I_GalleryModel> = () => {
   const handleError = useErrorHandler();
   const intl = useIntl();
 
@@ -56,4 +56,4 @@ const useGalleryViewModel: ViewModelHook<GalleryProps> = () => {
   }
 };
 
-export default useGalleryViewModel;
+export default useGalleryModel;

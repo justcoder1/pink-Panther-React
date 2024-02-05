@@ -3,12 +3,12 @@ import { useIntl } from 'react-intl';
 
 import { ViewModelHook } from '../../../../_utils/types/index';
 
-export interface AuthenticatedLayoutViewModel {
+interface I_AuthenticatedLayoutModel {
   footer: string;
   footerLink: string;
 }
 
-const useAuthenticatedLayoutViewModel: ViewModelHook<AuthenticatedLayoutViewModel> = () => {
+const useAuthenticatedLayoutModel: ViewModelHook<I_AuthenticatedLayoutModel> = () => {
   const handleError = useErrorHandler();
   const intl = useIntl();
 
@@ -27,4 +27,4 @@ const useAuthenticatedLayoutViewModel: ViewModelHook<AuthenticatedLayoutViewMode
   }
 };
 
-export default useAuthenticatedLayoutViewModel;
+export default useAuthenticatedLayoutModel;

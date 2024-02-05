@@ -7,7 +7,7 @@ import { AppendixDataProps } from '../../pages/use-appendix-page.view-model';
 
 import './AppendixForm.css';
 
-interface AppendixFormProps {
+interface I_AppendixForm {
   type: 'Create' | 'Update';
   nextId?: number;
   topics: string[];
@@ -16,7 +16,7 @@ interface AppendixFormProps {
   onFormSubmit?: (data: AppendixDataProps) => void;
 }
 
-const AppendixForm: React.FC<AppendixFormProps> = ({ type, nextId, types, topics, formData, onFormSubmit }) => {
+const AppendixForm: React.FC<I_AppendixForm> = ({ type, nextId, types, topics, formData, onFormSubmit }) => {
   // Styles ---------------------
   const inputLeft = { width: '300px', margin: '10px 10px 10px 0px' };
   const inputRight = { width: '300px', margin: '10px 0px' };

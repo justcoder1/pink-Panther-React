@@ -1,10 +1,10 @@
 import { Box, Stack, Typography } from '@mui/material';
 import React from 'react';
-import { AboutProps } from '../../pages/use-about-page.view-model';
+import { I_AboutModel } from '../../pages/use-about-page.view-model';
 
 import './AboutPageLayout.css';
 
-const AboutPageLayout: React.FC<AboutProps> = ({ title, subTitle, contents }) => {
+const AboutPageLayout: React.FC<I_AboutModel> = ({ title, subTitle, contents }) => {
   return (
     <Stack justifyContent={'center'} alignItems={'center'}>
       <Box maxWidth={1000} margin={10} sx={{ textAlign: 'center' }}>

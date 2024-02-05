@@ -1,15 +1,15 @@
 import React from 'react';
-import AuthenticatedLayoutView from '../../_AuthenticatedLayoutView/pages/Authenticated/AuthenticatedLayoutView';
+import AuthenticatedLayout from '../../_AuthenticatedLayout/pages/Authenticated/AuthenticatedLayoutView';
 import AppendixPageLayout from '../components/AppendixPageLayout/AppendixPageLayout';
-import useAppendixViewModel from './use-appendix-page.view-model';
+import useAppendixModel from './use-appendix-page.view-model';
 
-export interface AppendixPageViewProps {}
+interface I_AppendixPage {}
 
-const AppendixPageView: React.FC<React.PropsWithChildren<AppendixPageViewProps>> = () => {
-  const vm = useAppendixViewModel();
+const AppendixPage: React.FC<React.PropsWithChildren<I_AppendixPage>> = () => {
+  const vm = useAppendixModel();
 
   return (
-    <AuthenticatedLayoutView>
+    <AuthenticatedLayout>
       <AppendixPageLayout
         title={vm.title}
         columns={vm.columns}
@@ -19,8 +19,8 @@ const AppendixPageView: React.FC<React.PropsWithChildren<AppendixPageViewProps>>
         onDeleteClick={vm.onDeleteClick}
         onFormClick={vm.onFormClick}
       />
-    </AuthenticatedLayoutView>
+    </AuthenticatedLayout>
   );
 };
 
-export default AppendixPageView;
+export default AppendixPage;

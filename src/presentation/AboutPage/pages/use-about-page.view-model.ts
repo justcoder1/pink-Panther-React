@@ -4,13 +4,13 @@ import { useIntl } from 'react-intl';
 import { ViewModelHook } from '../../../_utils/types/index';
 import { getWikiPedia } from '../_connections/connections';
 
-export interface AboutProps {
+export interface I_AboutModel {
   title: string;
   subTitle: string;
   contents: string;
 }
 
-const useAboutViewModel: ViewModelHook<AboutProps> = () => {
+const useAboutModel: ViewModelHook<I_AboutModel> = () => {
   const handleError = useErrorHandler();
   const intl = useIntl();
 
@@ -41,4 +41,4 @@ const useAboutViewModel: ViewModelHook<AboutProps> = () => {
   }
 };
 
-export default useAboutViewModel;
+export default useAboutModel;
