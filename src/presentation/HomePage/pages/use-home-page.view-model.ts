@@ -45,7 +45,7 @@ const useHomePageViewModel: ViewModelHook<HomePageLayoutProps> = () => {
       titleTwo: siteLabel,
       imageDesktop,
       imageMobile,
-      socials: socialsData || [],
+      socials: socialsData,
     };
   } catch (error) {
     handleError(error);

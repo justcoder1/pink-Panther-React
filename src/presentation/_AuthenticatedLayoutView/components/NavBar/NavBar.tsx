@@ -50,7 +50,7 @@ const NavBar: React.FC<NavBarProps> = ({ header, items }) => {
 const NavFullScreen: React.FC<Partial<NavBarProps>> = ({ items }) => {
   return (
     <>
-      {items.map((item) => (
+      {items?.map((item) => (
         <NavLink
           key={`navBarFull_${item.title}`}
           className={({ isActive }) => (isActive ? 'activeLink' : '')}
@@ -81,7 +81,7 @@ const NavMobile: React.FC<Partial<NavBarProps>> = ({ items }) => {
   const list = (
     <Box role="presentation" onClick={toggleDrawer(false)} onKeyDown={toggleDrawer(false)} sx={{ width: 250 }}>
       <List>
-        {items.map((item) => (
+        {items?.map((item) => (
           <ListItem key={`navBarMob_${item.title}l`} disablePadding>
             <ListItemButton key={`navBarMob_${item.title}b`} component={Link} to={item.link}>
               <ListItemText key={`navBarMob_${item.title}t`} primary={item.title} />

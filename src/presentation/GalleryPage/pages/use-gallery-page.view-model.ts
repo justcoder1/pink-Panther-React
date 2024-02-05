@@ -48,8 +48,8 @@ const useGalleryViewModel: ViewModelHook<GalleryProps> = () => {
 
     return {
       title: title,
-      pictures: picturesData || [],
-      videos: videosData || [],
+      pictures: picturesData,
+      videos: videosData,
     };
   } catch (error) {
     handleError(error);

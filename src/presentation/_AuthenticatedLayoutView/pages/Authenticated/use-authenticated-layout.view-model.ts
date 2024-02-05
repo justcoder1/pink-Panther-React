@@ -34,7 +34,7 @@ const useAuthenticatedLayoutViewModel: ViewModelHook<AuthenticatedLayoutViewMode
 
     return {
       header: siteLabel,
-      headerItems: navBarData || [],
+      headerItems: navBarData,
       footer,
       footerLink: 'http://www.justcoder.co.uk',
     };

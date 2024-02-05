@@ -12,8 +12,8 @@ interface SocialsProps {
 const SocialWidget: React.FC<SocialsProps> = ({ socials }) => {
   return (
     <Stack id="soc_container" direction={'row'}>
-      {socials.length > 0 &&
-        socials.map((s, i) => (
+      
+        {socials?.map((s, i) => (
           <Link key={`soc_${i}`} href={s.link} rel="noreferrer" target="_blank">
             <span className="soc_Icon">
               {s.icon === 'FaFacebookF' ? (
