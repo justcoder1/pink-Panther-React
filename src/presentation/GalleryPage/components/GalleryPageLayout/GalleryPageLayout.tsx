@@ -82,7 +82,7 @@ const GalleryPageLayout: React.FC<I_GalleryModel> = ({ title }) => {
         <Typography variant="h2" id="history_h2">
           {title}
         </Typography>
-        {imageDetails ? (
+        {imageDetails && (
           <>
             <Typography variant="h3" id="history_h3">
               {imageDetails.title}
@@ -98,8 +98,6 @@ const GalleryPageLayout: React.FC<I_GalleryModel> = ({ title }) => {
               {`${imageType} Number ${imageDetails.imageId}`}
             </Typography>
           </>
-        ) : (
-          <Typography>Loading....</Typography>
         )}
       </Box>
     </Stack>

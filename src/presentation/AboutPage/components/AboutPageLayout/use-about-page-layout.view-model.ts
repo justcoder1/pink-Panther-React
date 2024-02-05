@@ -4,13 +4,13 @@ import { useIntl } from 'react-intl';
 import { ViewModelHook } from '../../../../_utils/types/index';
 import { getAbout } from '../../_connections/connections';
 
-export interface I_AboutModel {
+export interface I_AboutPageLayout {
   title: string;
   subTitle: string;
   contents: string;
 }
 
-const useAboutPageLayoutModel: ViewModelHook<I_AboutModel> = () => {
+const useAboutPageLayoutModel: ViewModelHook<I_AboutPageLayout> = () => {
   const handleError = useErrorHandler();
   const intl = useIntl();
 
@@ -18,10 +18,7 @@ const useAboutPageLayoutModel: ViewModelHook<I_AboutModel> = () => {
   const { data: aboutData } = useSuspenseQuery({
     queryKey: ['about'],
     queryFn: getAbout,
-  });
-
-  console.log(aboutData);
-  
+  });  
 
   try {
     const title = intl.formatMessage({

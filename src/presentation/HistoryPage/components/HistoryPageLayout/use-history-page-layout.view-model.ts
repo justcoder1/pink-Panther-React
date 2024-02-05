@@ -1,8 +1,8 @@
 import { useSuspenseQuery } from '@tanstack/react-query';
 import { useErrorHandler } from 'react-error-boundary';
 import { useIntl } from 'react-intl';
-import { ViewModelHook, tableTypes } from '../../../_utils/types/index';
-import { getHistory } from '../_connections/connections';
+import { ViewModelHook, tableTypes } from '../../../../_utils/types/index';
+import { getHistory } from '../../_connections/connections';
 
 interface I_HistoryData {
   columns: string[];
@@ -19,12 +19,12 @@ interface I_HistoryContent {
   data: I_HistoryData;
 }
 
-export interface I_HistoryModel {
+export interface I_HistoryPageLayoutModel {
   title: string;
   content: I_HistoryContent;
 }
 
-const useHistoryModel: ViewModelHook<I_HistoryModel> = () => {
+const useHistoryPageLayoutModel: ViewModelHook<I_HistoryPageLayoutModel> = () => {
   const handleError = useErrorHandler();
   const intl = useIntl();
   const content: I_HistoryContent = { title: '', data: { columns: [], rows: [] } };
@@ -36,7 +36,7 @@ const useHistoryModel: ViewModelHook<I_HistoryModel> = () => {
   });  
 
   try {
-    const title = intl.formatMessage({ id: 'title', defaultMessage: `${historyData ? 'loading' : historyData.title}` });
+    const title = intl.formatMessage({ id: 'title', defaultMessage: `${historyData ? historyData.title: 'loading'}` });
     if (historyData) {
       content.title = intl.formatMessage({ id: 'subTitle', defaultMessage: historyData.content.title });
       historyData.content.data.columns.forEach((h) => {
@@ -54,4 +54,4 @@ const useHistoryModel: ViewModelHook<I_HistoryModel> = () => {
   }
 };
 
-export default useHistoryModel;
+export default useHistoryPageLayoutModel;
