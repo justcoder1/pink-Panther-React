@@ -1,18 +1,24 @@
-import React from 'react';
-import AuthenticatedLayoutView from '../../_AuthenticatedLayoutView/pages/Authenticated/AuthenticatedLayoutView';
+import React, { Suspense } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
+import { ErrorHandler, SkeletonMain } from '../../../_utils/globals/components/Fallbacks/Fallbacks';
+import AuthenticatedLayout from '../../_AuthenticatedLayout/pages/Authenticated/AuthenticatedLayoutView';
 import GalleryPageLayout from '../components/GalleryPageLayout/GalleryPageLayout';
-import useGalleryViewModel from './use-gallery-page.view-model';
+import useGalleryModel from './use-gallery-page.view-model';
 
-export interface GalleryPageViewProps {}
+interface I_GalleryPage {}
 
-const GalleryPageView: React.FC<React.PropsWithChildren<GalleryPageViewProps>> = () => {
-  const vm = useGalleryViewModel();
+const GalleryPage: React.FC<React.PropsWithChildren<I_GalleryPage>> = () => {
+  const vm = useGalleryModel();
 
   return (
-    <AuthenticatedLayoutView>
-      <GalleryPageLayout title={vm.title} pictures={vm.pictures} videos={vm.videos} />
-    </AuthenticatedLayoutView>
+    <AuthenticatedLayout>
+      <ErrorBoundary fallback={<ErrorHandler />}>
+        <Suspense fallback={<SkeletonMain />}>
+          <GalleryPageLayout title={vm.title} />
+        </Suspense>
+      </ErrorBoundary>
+    </AuthenticatedLayout>
   );
 };
 
-export default GalleryPageView;
+export default GalleryPage;

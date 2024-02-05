@@ -1,22 +1,22 @@
+import { yupResolver } from '@hookform/resolvers/yup';
 import { Button, MenuItem, Stack, TextField, Typography } from '@mui/material';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { object, string } from 'yup';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { AppendixDataProps } from '../../pages/use-appendix-page.view-model';
+import { I_AppendixData } from '../../components/AppendixTable/use-appendix-table.view-model';
 
 import './AppendixForm.css';
 
-interface AppendixFormProps {
+interface I_AppendixForm {
   type: 'Create' | 'Update';
   nextId?: number;
   topics: string[];
   types: string[];
-  formData?: AppendixDataProps;
-  onFormSubmit?: (data: AppendixDataProps) => void;
+  formData?: I_AppendixData;
+  onFormSubmit?: (data: I_AppendixData) => void;
 }
 
-const AppendixForm: React.FC<AppendixFormProps> = ({ type, nextId, types, topics, formData, onFormSubmit }) => {
+const AppendixForm: React.FC<I_AppendixForm> = ({ type, nextId, types, topics, formData, onFormSubmit }) => {
   // Styles ---------------------
   const inputLeft = { width: '300px', margin: '10px 10px 10px 0px' };
   const inputRight = { width: '300px', margin: '10px 0px' };

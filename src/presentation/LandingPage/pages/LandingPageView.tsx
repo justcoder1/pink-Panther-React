@@ -1,11 +1,11 @@
 import React from 'react';
 import LandingPageLayout from '../components/LandingPageLayout/LandingPageLayout';
-import useLandingPageViewModel from './use-landing-page.view-model';
+import useLandingPageModel from './use-landing-page.view-model';
 
-export interface LandingPageViewProps {}
+interface I_LandingPage {}
 
-const LandingPageView: React.FC<React.PropsWithChildren<LandingPageViewProps>> = () => {
-  const vm = useLandingPageViewModel();
+const LandingPage: React.FC<React.PropsWithChildren<I_LandingPage>> = () => {
+  const vm = useLandingPageModel();
 
   return (
     <>
@@ -13,10 +13,10 @@ const LandingPageView: React.FC<React.PropsWithChildren<LandingPageViewProps>> =
         title={vm.title}
         subTitle={vm.subTitle}
         landingImage={vm.landingImage}
-        LoginProps={vm.LoginProps}
+        LoginData={vm.LoginData}
       />
     </>
   );
 };
 
-export default LandingPageView;
+export default LandingPage;

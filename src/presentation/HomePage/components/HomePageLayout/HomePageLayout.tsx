@@ -1,13 +1,12 @@
 import { Stack, Typography, useMediaQuery } from '@mui/material';
 import React from 'react';
-import { HomePageLayoutProps } from '../../pages/use-home-page.view-model';
-import AudioWidget from '../AudioWidget/AudioWidget';
-import SocialWidget from '../SocialWidget/SocialWidget';
 
+import { I_HomePageModel } from '../../pages/use-home-page.view-model';
+import AudioWidget from '../AudioWidget/AudioWidget';
+import Socials from '../Socials/Socials';
 import './HomePageLayout.css';
 
-const HomePageLayout: React.FC<HomePageLayoutProps> = (props) => {
-  const { titleOne, titleTwo, imageDesktop, imageMobile, socials } = props;
+const HomePageLayout: React.FC<I_HomePageModel> = ({ titleOne, titleTwo, imageDesktop, imageMobile }) => {
   const showMobile = useMediaQuery('(max-width: 900px)');
 
   return (
@@ -19,7 +18,7 @@ const HomePageLayout: React.FC<HomePageLayoutProps> = (props) => {
         {titleTwo}
       </Typography>
       <img id="hpl_img" src={showMobile ? imageMobile : imageDesktop} alt={titleTwo} />
-      <SocialWidget socials={socials} />
+      <Socials />
       <AudioWidget />
     </Stack>
   );

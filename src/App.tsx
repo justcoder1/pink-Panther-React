@@ -9,7 +9,7 @@ import HistoryPageView from './presentation/HistoryPage/pages/HistoryPageView';
 import HomePageView from './presentation/HomePage/pages/HomePageView';
 import LandingPageView from './presentation/LandingPage/pages/LandingPageView';
 import UserPageView from './presentation/User/pages/UserPageView';
-import PageNotFoundView from './presentation/_AuthenticatedLayoutView/pages/PageNotFound/PageNotFoundView';
+import PageNotFoundView from './presentation/_AuthenticatedLayout/pages/PageNotFound/PageNotFoundView';
 
 const App: React.FC = () => {
   const { siteLabel } = useIntlCommon();

@@ -1,26 +1,25 @@
-import React from 'react';
-import AuthenticatedLayoutView from '../../_AuthenticatedLayoutView/pages/Authenticated/AuthenticatedLayoutView';
+import React, { Suspense } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
+
+import { ErrorHandler, SkeletonMain } from '../../../_utils/globals/components/Fallbacks/Fallbacks';
+import AuthenticatedLayout from '../../_AuthenticatedLayout/pages/Authenticated/AuthenticatedLayoutView';
 import AppendixPageLayout from '../components/AppendixPageLayout/AppendixPageLayout';
-import useAppendixViewModel from './use-appendix-page.view-model';
+import useAppendixModel from './use-appendix-page.view-model';
 
-export interface AppendixPageViewProps {}
+interface I_AppendixPage {}
 
-const AppendixPageView: React.FC<React.PropsWithChildren<AppendixPageViewProps>> = () => {
-  const vm = useAppendixViewModel();
+const AppendixPage: React.FC<React.PropsWithChildren<I_AppendixPage>> = () => {
+  const vm = useAppendixModel();
 
   return (
-    <AuthenticatedLayoutView>
-      <AppendixPageLayout
-        title={vm.title}
-        columns={vm.columns}
-        rows={vm.rows}
-        types={vm.types}
-        topics={vm.topics}
-        onDeleteClick={vm.onDeleteClick}
-        onFormClick={vm.onFormClick}
-      />
-    </AuthenticatedLayoutView>
+    <AuthenticatedLayout>
+      <ErrorBoundary fallback={<ErrorHandler />}>
+        <Suspense fallback={<SkeletonMain />}>
+          <AppendixPageLayout title={vm.title} />
+        </Suspense>
+      </ErrorBoundary>
+    </AuthenticatedLayout>
   );
 };
 
-export default AppendixPageView;
+export default AppendixPage;

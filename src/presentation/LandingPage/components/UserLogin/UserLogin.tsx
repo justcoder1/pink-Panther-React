@@ -5,10 +5,10 @@ import { NavLink } from 'react-router-dom';
 import * as yup from 'yup';
 import YupPassword from 'yup-password';
 
-import { UserLoginProps } from '../../pages/use-landing-page.view-model';
+import { I_UserLogin } from '../../pages/use-landing-page.view-model';
 import './UserLogin.css';
 
-const UserLogin: React.FC<UserLoginProps> = ({
+const UserLogin: React.FC<I_UserLogin> = ({
   title,
   email,
   password,

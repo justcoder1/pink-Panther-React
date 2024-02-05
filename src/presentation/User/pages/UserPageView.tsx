@@ -1,13 +1,13 @@
 import React from 'react';
-import AuthenticatedLayoutView from '../../_AuthenticatedLayoutView/pages/Authenticated/AuthenticatedLayoutView';
-import useUserViewModel from './use-user-page.view-model';
+import AuthenticatedLayout from '../../_AuthenticatedLayout/pages/Authenticated/AuthenticatedLayoutView';
+import useUserModel from './use-user-page.view-model';
 
-export interface UserPageViewProps {}
+interface I_UserPage {}
 
-const UserPageView: React.FC<React.PropsWithChildren<UserPageViewProps>> = () => {
-  const vm = useUserViewModel();
+const UserPage: React.FC<React.PropsWithChildren<I_UserPage>> = () => {
+  const vm = useUserModel();
 
-  return <AuthenticatedLayoutView>{vm.title}</AuthenticatedLayoutView>;
+  return <AuthenticatedLayout>{vm.title}</AuthenticatedLayout>;
 };
 
-export default UserPageView;
+export default UserPage;

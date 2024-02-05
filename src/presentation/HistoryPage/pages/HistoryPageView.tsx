@@ -1,18 +1,21 @@
-import React from 'react';
-import AuthenticatedLayoutView from '../../_AuthenticatedLayoutView/pages/Authenticated/AuthenticatedLayoutView';
+import React, { Suspense } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
+import { ErrorHandler, SkeletonMain } from '../../../_utils/globals/components/Fallbacks/Fallbacks';
+import AuthenticatedLayout from '../../_AuthenticatedLayout/pages/Authenticated/AuthenticatedLayoutView';
 import HistoryPageLayout from '../components/HistoryPageLayout/HistoryPageLayout';
-import useHistoryViewModel from './use-history-page.view-model';
 
-export interface HistoryPageViewProps {}
+interface I_HistoryPage {}
 
-const HistoryPageView: React.FC<React.PropsWithChildren<HistoryPageViewProps>> = () => {
-  const vm = useHistoryViewModel();
-
+const HistoryPage: React.FC<React.PropsWithChildren<I_HistoryPage>> = () => {
   return (
-    <AuthenticatedLayoutView>
-      <HistoryPageLayout title={vm.title} content={vm.content} />
-    </AuthenticatedLayoutView>
+    <AuthenticatedLayout>
+      <ErrorBoundary fallback={<ErrorHandler />}>
+        <Suspense fallback={<SkeletonMain />}>
+          <HistoryPageLayout />
+        </Suspense>
+      </ErrorBoundary>
+    </AuthenticatedLayout>
   );
 };
 
-export default HistoryPageView;
+export default HistoryPage;

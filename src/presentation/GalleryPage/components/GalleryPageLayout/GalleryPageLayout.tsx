@@ -2,17 +2,20 @@ import { Box, Button, Stack, Typography } from '@mui/material';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { GalleryProps } from '../../pages/use-gallery-page.view-model';
+import { I_GalleryModel } from '../../pages/use-gallery-page.view-model';
 import GalleryCarousel from '../GalleryCarousel/GalleryCarousel';
 import './GalleryPageLayout.css';
+import useGalleryPageLayoutModel, { I_GalleryPageLayoutModel } from './use-gallery-page-layout.view-model';
 
-const GalleryPageLayout: React.FC<GalleryProps> = ({ title, pictures, videos }) => {
+const GalleryPageLayout: React.FC<I_GalleryModel> = ({ title }) => {
   const [imageType, setImageType] = useState(
     `${window.location.href.substring(window.location.href.lastIndexOf('/') + 1)}`
   );
   const [imageId, setImageId] = useState(0);
   const [imageMaxId, setImageMaxId] = useState(0);
   const [imageDetails, setImageDetails] = useState(null);
+
+  const vm: I_GalleryPageLayoutModel = useGalleryPageLayoutModel();
 
   const navigate = useNavigate();
 
@@ -25,17 +28,17 @@ const GalleryPageLayout: React.FC<GalleryProps> = ({ title, pictures, videos }) 
   };
 
   const handleNextButton = useCallback(() => {
-    if (pictures.length) {
+    if (vm.pictures.length) {
       setImageId(imageMaxId < 0 ? 0 : imageId + 1 > imageMaxId ? 0 : imageId + 1);
-      updateDetails({ ...(imageType === 'picture' ? pictures[imageId] : videos[imageId]), id: imageId + 1 });
+      updateDetails({ ...(imageType === 'picture' ? vm.pictures[imageId] : vm.videos[imageId]), id: imageId + 1 });
     } else {
       setImageMaxId(imageMaxId - 1);
     }
   }, [imageId, imageMaxId]);
 
-  const handleBackButton = () => {    
+  const handleBackButton = () => {
     setImageId(imageId - 1 < 0 ? imageMaxId : imageId - 1);
-    updateDetails({ ...(imageType === 'picture' ? pictures[imageId] : videos[imageId]), id: imageId + 1 });
+    updateDetails({ ...(imageType === 'picture' ? vm.pictures[imageId] : vm.videos[imageId]), id: imageId + 1 });
   };
 
   const handleRoute = () => {
@@ -48,7 +51,7 @@ const GalleryPageLayout: React.FC<GalleryProps> = ({ title, pictures, videos }) 
   };
 
   useEffect(() => {
-    setImageMaxId((imageType === 'picture' ? pictures.length : videos.length) - 1);
+    setImageMaxId((imageType === 'picture' ? vm.pictures.length : vm.videos.length) - 1);
     if (imageType === 'picture') {
       const interval = setTimeout(
         () => {
@@ -63,7 +66,7 @@ const GalleryPageLayout: React.FC<GalleryProps> = ({ title, pictures, videos }) 
           handleNextButton();
         },
         imageDetails ? 100000000 : 0
-      );      
+      );
       return () => clearTimeout(interval);
     }
   }, [handleNextButton]);
@@ -79,7 +82,7 @@ const GalleryPageLayout: React.FC<GalleryProps> = ({ title, pictures, videos }) 
         <Typography variant="h2" id="history_h2">
           {title}
         </Typography>
-        {imageDetails ? (
+        {imageDetails && (
           <>
             <Typography variant="h3" id="history_h3">
               {imageDetails.title}
@@ -95,8 +98,6 @@ const GalleryPageLayout: React.FC<GalleryProps> = ({ title, pictures, videos }) 
               {`${imageType} Number ${imageDetails.imageId}`}
             </Typography>
           </>
-        ) : (
-          <Typography>Loading....</Typography>
         )}
       </Box>
     </Stack>

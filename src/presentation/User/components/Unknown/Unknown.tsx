@@ -1,10 +1,10 @@
 import { Box } from '@mui/material';
 
-export interface UnknownProps {
+interface I_Unknown {
   reference?: string;
 }
 
-const Unknown: React.FC<UnknownProps> = ({ reference }) => {
+const Unknown: React.FC<I_Unknown> = ({ reference }) => {
   return <Box>{reference || 'NavBar'}</Box>;
 };
 

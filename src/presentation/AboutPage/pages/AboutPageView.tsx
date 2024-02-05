@@ -1,18 +1,22 @@
-import React from 'react';
-import AuthenticatedLayoutView from '../../_AuthenticatedLayoutView/pages/Authenticated/AuthenticatedLayoutView';
+import React, { Suspense } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
+
+import { ErrorHandler, SkeletonMain } from '../../../_utils/globals/components/Fallbacks/Fallbacks';
+import AuthenticatedLayout from '../../_AuthenticatedLayout/pages/Authenticated/AuthenticatedLayoutView';
 import AboutPageLayout from '../components/AboutPageLayout/AboutPageLayout';
-import useAboutViewModel from './use-about-page.view-model';
 
-export interface AboutPageViewProps {}
+interface I_AboutPage {}
 
-const AboutPageView: React.FC<React.PropsWithChildren<AboutPageViewProps>> = () => {
-  const vm = useAboutViewModel();
-
+const AboutPage: React.FC<React.PropsWithChildren<I_AboutPage>> = () => {
   return (
-    <AuthenticatedLayoutView>
-      <AboutPageLayout title={vm.title} subTitle={vm.subTitle} contents={vm.contents} />
-    </AuthenticatedLayoutView>
+    <AuthenticatedLayout>
+      <ErrorBoundary fallback={<ErrorHandler />}>
+        <Suspense fallback={<SkeletonMain />}>
+          <AboutPageLayout />
+        </Suspense>
+      </ErrorBoundary>
+    </AuthenticatedLayout>
   );
 };
 
-export default AboutPageView;
+export default AboutPage;
