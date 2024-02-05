@@ -13,7 +13,7 @@ const LandingPage: React.FC<React.PropsWithChildren<I_LandingPage>> = () => {
         title={vm.title}
         subTitle={vm.subTitle}
         landingImage={vm.landingImage}
-        LoginProps={vm.LoginProps}
+        LoginData={vm.LoginData}
       />
     </>
   );

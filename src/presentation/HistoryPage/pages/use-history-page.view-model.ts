@@ -19,7 +19,7 @@ interface I_HistoryContent {
   data: I_HistoryData;
 }
 
-interface I_HistoryModel {
+export interface I_HistoryModel {
   title: string;
   content: I_HistoryContent;
 }

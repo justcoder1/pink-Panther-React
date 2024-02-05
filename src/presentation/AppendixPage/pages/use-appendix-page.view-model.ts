@@ -7,7 +7,7 @@ import { noop } from '../../../_utils/hooks/functions';
 import { ViewModelHook } from '../../../_utils/types/index';
 import { createAppendix, deleteAppendix, getAppendixs, updateAppendix } from '../_connections/connections';
 
-interface I_AppendixData {
+export interface I_AppendixData {
   _id?: string;
   id: Number;
   reference: string;
@@ -17,7 +17,7 @@ interface I_AppendixData {
   comments?: string;
 }
 
-interface I_AppendixModel {
+export interface I_AppendixModel {
   title: string;
   columns: string[];
   rows: any;

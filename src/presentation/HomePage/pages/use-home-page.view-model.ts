@@ -14,7 +14,7 @@ export interface I_SocialData {
   link: string;
 }
 
-interface I_HomePageModel {
+export interface I_HomePageModel {
   titleOne: string;
   titleTwo: string;
   imageDesktop: string;

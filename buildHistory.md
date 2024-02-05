@@ -87,5 +87,15 @@
 - installed yup password schema
 <r>FE - Merged issue 32 into main - Landing Page</r>
 
+## 05-02-2024
+- released app for feedback
+  - removed unneeded exports
+  - Centralised the connection to the BE
+  - Made the connections type safe
+  
+- Implemented Suspense and Error boundary
+  - Because React Suspense & Error are declarifitve I had to restructure the app to contain the API calls inside the suspense
+
+
 ## outstanding jobs
 - Moved to GITHub Issues

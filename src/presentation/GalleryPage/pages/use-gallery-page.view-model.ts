@@ -22,7 +22,7 @@ interface I_GalleryVideo {
   source: string;
 }
 
-interface I_GalleryModel {
+export interface I_GalleryModel {
   title: string;
   pictures?: I_GalleryPicture[];
   videos?: I_GalleryVideo[];

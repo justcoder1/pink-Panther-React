@@ -14,14 +14,14 @@ import {
   Typography,
 } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { FaTrash, FaPencilAlt } from 'react-icons/fa';
+import { FaPencilAlt, FaTrash } from 'react-icons/fa';
 
 import AppModal from '../../../../_utils/globals/components/Modal/Modal';
+import { I_AppendixData, I_AppendixModel } from '../../pages/use-appendix-page.view-model';
 import AppendixForm from '../AppendixForm/AppendixForm';
-import { AppendixProps, AppendixDataProps } from '../../pages/use-appendix-page.view-model';
 import './AppendixPageLayout.css';
 
-const AppendixPageLayout: React.FC<AppendixProps> = ({
+const AppendixPageLayout: React.FC<I_AppendixModel> = ({
   title,
   columns,
   rows,
@@ -34,7 +34,7 @@ const AppendixPageLayout: React.FC<AppendixProps> = ({
   const [showModal, setShowModal] = useState(false);
   const [formType, setformType] = useState<'Create' | 'Update'>('Create');
   const [nextId, setNextId] = useState(0);
-  const [formData, setFormData] = useState<AppendixDataProps>(null);
+  const [formData, setFormData] = useState<I_AppendixData>(null);
 
   const openModal = (type, rowData) => {
     if (type === 'Update') {

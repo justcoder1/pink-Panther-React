@@ -2,11 +2,11 @@ import { Box, Button, Stack, Typography } from '@mui/material';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { GalleryProps } from '../../pages/use-gallery-page.view-model';
+import { I_GalleryModel } from '../../pages/use-gallery-page.view-model';
 import GalleryCarousel from '../GalleryCarousel/GalleryCarousel';
 import './GalleryPageLayout.css';
 
-const GalleryPageLayout: React.FC<GalleryProps> = ({ title, pictures, videos }) => {
+const GalleryPageLayout: React.FC<I_GalleryModel> = ({ title, pictures, videos }) => {
   const [imageType, setImageType] = useState(
     `${window.location.href.substring(window.location.href.lastIndexOf('/') + 1)}`
   );

@@ -7,7 +7,7 @@ import { useIntlCommon } from '../../../_utils/lang/intl-common';
 import { ViewModelHook } from '../../../_utils/types/index';
 
 
-interface I_UserLogin {
+export interface I_UserLogin {
   title: string;
   email: string;
   password: string;
@@ -17,11 +17,11 @@ interface I_UserLogin {
   onLoginClick: (email: string, password: string) => void;
 }
 
-interface I_LandingPageModel {
+export interface I_LandingPageModel {
   title: string;
   subTitle: string;
   landingImage: string;
-  LoginProps: I_UserLogin;
+  LoginData: I_UserLogin;
 }
 
 const useLandingPageModel: ViewModelHook<I_LandingPageModel> = () => {
@@ -43,7 +43,7 @@ const useLandingPageModel: ViewModelHook<I_LandingPageModel> = () => {
       title: siteLabel,
       subTitle: subTitle,
       landingImage,
-      LoginProps: {
+      LoginData: {
         title: loginTitle,
         email: emailLabel,
         password: passwordLabel,

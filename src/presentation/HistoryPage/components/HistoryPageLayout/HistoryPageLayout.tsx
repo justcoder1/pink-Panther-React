@@ -11,11 +11,11 @@ import {
   Typography,
 } from '@mui/material';
 import React from 'react';
-import { HistoryProps } from '../../pages/use-history-page.view-model';
+import { I_HistoryModel } from '../../pages/use-history-page.view-model';
 
 import './HistoryPageLayout.css';
 
-const HistoryPageLayout: React.FC<HistoryProps> = ({ title, content }) => {
+const HistoryPageLayout: React.FC<I_HistoryModel> = ({ title, content }) => {
   return (
     <Stack justifyContent={'center'} alignItems={'center'}>
       <Box maxWidth={1000} margin={10} sx={{ textAlign: 'center' }}>

@@ -3,7 +3,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { object, string } from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { AppendixDataProps } from '../../pages/use-appendix-page.view-model';
+import { I_AppendixData } from '../../pages/use-appendix-page.view-model';
 
 import './AppendixForm.css';
 
@@ -12,8 +12,8 @@ interface I_AppendixForm {
   nextId?: number;
   topics: string[];
   types: string[];
-  formData?: AppendixDataProps;
-  onFormSubmit?: (data: AppendixDataProps) => void;
+  formData?: I_AppendixData;
+  onFormSubmit?: (data: I_AppendixData) => void;
 }
 
 const AppendixForm: React.FC<I_AppendixForm> = ({ type, nextId, types, topics, formData, onFormSubmit }) => {
