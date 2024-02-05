@@ -1,5 +1,5 @@
 import React from 'react';
-import AuthenticatedLayoutView from '../../_AuthenticatedLayout/pages/Authenticated/AuthenticatedLayoutView';
+import AuthenticatedLayout from '../../_AuthenticatedLayout/pages/Authenticated/AuthenticatedLayoutView';
 import HomePageLayout from '../components/HomePageLayout/HomePageLayout';
 import useHomePageModel from './use-home-page.view-model';
 
@@ -9,7 +9,7 @@ const HomePage: React.FC<React.PropsWithChildren<I_HomePage>> = () => {
   const vm = useHomePageModel();
 
   return (
-    <AuthenticatedLayoutView>
+    <AuthenticatedLayout>
       <HomePageLayout
         titleOne={vm.titleOne}
         titleTwo={vm.titleTwo}
@@ -17,7 +17,7 @@ const HomePage: React.FC<React.PropsWithChildren<I_HomePage>> = () => {
         imageMobile={vm.imageMobile}
         socials={vm.socials}
       />
-    </AuthenticatedLayoutView>
+    </AuthenticatedLayout>
   );
 };
 

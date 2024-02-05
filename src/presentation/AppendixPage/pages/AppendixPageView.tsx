@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { Suspense } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
+
+import { ErrorHandler, SkeletonMain } from '../../../_utils/globals/components/Fallbacks/Fallbacks';
 import AuthenticatedLayout from '../../_AuthenticatedLayout/pages/Authenticated/AuthenticatedLayoutView';
 import AppendixPageLayout from '../components/AppendixPageLayout/AppendixPageLayout';
 import useAppendixModel from './use-appendix-page.view-model';
@@ -10,15 +13,11 @@ const AppendixPage: React.FC<React.PropsWithChildren<I_AppendixPage>> = () => {
 
   return (
     <AuthenticatedLayout>
-      <AppendixPageLayout
-        title={vm.title}
-        columns={vm.columns}
-        rows={vm.rows}
-        types={vm.types}
-        topics={vm.topics}
-        onDeleteClick={vm.onDeleteClick}
-        onFormClick={vm.onFormClick}
-      />
+      <ErrorBoundary fallback={<ErrorHandler />}>
+        <Suspense fallback={<SkeletonMain />}>
+          <AppendixPageLayout title={vm.title} />
+        </Suspense>
+      </ErrorBoundary>
     </AuthenticatedLayout>
   );
 };

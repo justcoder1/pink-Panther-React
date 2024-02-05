@@ -1,9 +1,9 @@
+import { yupResolver } from '@hookform/resolvers/yup';
 import { Button, MenuItem, Stack, TextField, Typography } from '@mui/material';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { object, string } from 'yup';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { I_AppendixData } from '../../pages/use-appendix-page.view-model';
+import { I_AppendixData } from '../../components/AppendixTable/use-appendix-table.view-model';
 
 import './AppendixForm.css';
 
