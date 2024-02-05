@@ -1,12 +1,6 @@
-import axios from 'axios';
-
-const api = axios.create({ baseURL: process.env.REACT_APP_BASE_URL });
+import { db_API } from '../../../_utils/hooks/functions';
 
 // FIX - Not created yet
 export const getSignIn = async () => {
-  try {
-    return await api.get('/').then((res) => res.data.data);
-  } catch (err) {
-    return await err.response.status;
-  }
+  return await db_API.get('/').then((res) => res.data.data);
 };
