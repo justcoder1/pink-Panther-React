@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useErrorHandler } from 'react-error-boundary';
 import { useIntl } from 'react-intl';
 import { ViewModelHook, tableTypes } from '../../../_utils/types/index';
-import { getWikiPediaHistory } from '../_connections/connections';
+import { getHistory } from '../_connections/connections';
 
 interface I_HistoryData {
   columns: string[];
@@ -28,50 +28,26 @@ const useHistoryModel: ViewModelHook<I_HistoryModel> = () => {
   const handleError = useErrorHandler();
   const intl = useIntl();
   const content: I_HistoryContent = { title: '', data: { columns: [], rows: [] } };
-
+  
   // API data
   const { status, data: historyData } = useQuery({
     queryKey: ['history'],
-    queryFn: getWikiPediaHistory,
-  });
+    queryFn: getHistory,
+  });  
 
   try {
-    const title = intl.formatMessage({ id: 'title', defaultMessage: 'History Page - WikiPedia API with destructure' });
-
+    const title = intl.formatMessage({ id: 'title', defaultMessage: `${status === 'pending' ? 'loading' : historyData.title}` });
     if (status === 'success') {
-      // ---- workings needed to delimite text string from Wikipedia ---- \\
-      const hData = historyData.topics[11];
-      content.title = intl.formatMessage({ id: 'subTitle', defaultMessage: hData.html });
-      content.data.columns = hData.replies[0].html.split('<br>').filter((n, i) => n && i < 6);
-      content.data.columns.map((h) => intl.formatMessage({ id: h, defaultMessage: h }));
-
-      const tempWorkings = hData.replies[0].html.split('<br>').filter((n, i) => n && i > 5);
-      let start = 0;
-      let end = 7;
-
-      while (end < 27) {
-        let chunk = tempWorkings.slice(start, end);
-        start = end;
-        end = start === 7 ? 14 : start + 6;
-        if (chunk.length > 6) {
-          chunk.splice(4, 1);
-        }
-
-        // refactor for global table rows
-        const finalChunk = [];
-        chunk.forEach((c, i) => {
-          // Workings for links in data to work working when rendered
-          finalChunk.push({ type: `${i === 1 || i === 3 ? 'html' : 'string'}`, value: (i === 1 || i === 3) ? c.replace('./', 'https://en.wikipedia.org/wiki/').replace('">', '" target="_blank">') : c });
-        });
-        
-        content.data.rows.push(finalChunk);
-      }
+      content.title = intl.formatMessage({ id: 'subTitle', defaultMessage: historyData.content.title });
+      historyData.content.data.columns.forEach((h) => {
+        content.data.columns.push(intl.formatMessage({ id: h, defaultMessage: h }))
+      });
+      historyData.content.data.rows.forEach((r) => content.data.rows.push(r));
     }
-    // -------------------------------------------------------------------- \\
     
     return {
       title,
-      content,
+      content
     };
   } catch (error) {
     handleError(error);

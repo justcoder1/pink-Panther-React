@@ -91,6 +91,8 @@
 - released app for feedback
   - removed unneeded exports
   - Centralised the connection to the BE
+    - Moved WikiPedia to the BE
+    - Move refactor logic to the BE
   - Made the connections type safe
   
 - Implemented Suspense and Error boundary
