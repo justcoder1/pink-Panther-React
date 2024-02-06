@@ -34,7 +34,7 @@ const GalleryPageLayout: React.FC<I_GalleryModel> = ({ title }) => {
     } else {
       setImageMaxId(imageMaxId - 1);
     }
-  }, [imageId, imageMaxId]);
+  }, [imageId, imageMaxId, imageType, vm.pictures, vm.videos]);
 
   const handleBackButton = () => {
     setImageId(imageId - 1 < 0 ? imageMaxId : imageId - 1);
@@ -69,7 +69,7 @@ const GalleryPageLayout: React.FC<I_GalleryModel> = ({ title }) => {
       );
       return () => clearTimeout(interval);
     }
-  }, [handleNextButton]);
+  }, [handleNextButton, imageDetails, imageType, vm.pictures.length, vm.videos.length]);
 
   return (
     <Stack justifyContent={'center'} alignItems={'center'}>

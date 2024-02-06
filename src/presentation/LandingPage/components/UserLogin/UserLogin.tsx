@@ -32,7 +32,7 @@ const UserLogin: React.FC<I_UserLogin> = ({
   const {
     register,
     handleSubmit,
-    formState: { isValid, errors },
+    formState: { errors },
   } = useForm({
     resolver: yupResolver(appendixSchema),
   });
