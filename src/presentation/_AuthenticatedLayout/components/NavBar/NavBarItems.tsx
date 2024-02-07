@@ -22,7 +22,7 @@ export const NavBarItems: React.FC = () => {
 
   return (
     <>
-      <NavLink id="navBar-Left" to={'/'}>
+      <NavLink id="navBar-Left" to={'/home'}>
         {vm.header}
       </NavLink>
       <Stack id="navBar-Right" direction={'row'} alignItems={'center'}>
