@@ -75,7 +75,7 @@ const UserLogin: React.FC<I_UserLogin> = ({
       </form>
       <Typography>
         {`${createText} `}
-        <NavLink to={'/user'} id="lp_register">
+        <NavLink to={'/home'} id="lp_register">
           {registerLabel}
         </NavLink>
       </Typography>
