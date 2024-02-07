@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "env-cmd -e development react-scripts start",
-    "start:local": "env-cmd -e local react-scripts start",
-    "start:production": "env-cmd -e production react-scripts start",
+    "dev": "env-cmd -e development react-scripts start",
+    "local": "env-cmd -e local react-scripts start",
+    "production": "env-cmd -e production react-scripts start",
     "build": "react-scripts build",
     "build:production": "env-cmd -e production react-scripts build",
     "server": "npx json-server --watch src/assets/localAppData.json --port 3400",
