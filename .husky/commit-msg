@@ -1,7 +1,0 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-echo
-echo Linting commit message...
-echo
-npm commitlint --edit "$1"
