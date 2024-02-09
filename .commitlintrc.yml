@@ -1,7 +1,6 @@
 ---
 extends:
   - '@commitlint/config-conventional'
-  - '@commitlint/config-nx-scopes'
 rules:
   references-empty:
     - 2
