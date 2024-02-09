@@ -19,7 +19,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   <React.StrictMode>
-    <Suspense fallback={<Spinner height='100dvh'/>}>
+    <Suspense fallback={<Spinner height="100dvh" />}>
       <ThemeProvider theme={themeOverides}>
         <QueryClientProvider client={queryClient}>
           <IntlProvider locale={locale} key={locale} defaultLocale={DEFAULT_LOCALE}>

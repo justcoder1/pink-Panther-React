@@ -4,16 +4,16 @@ import { useIntlCommon } from '../../../_utils/lang/intl-common';
 import { ViewModelHook } from '../../../_utils/types/index';
 import { getUsers } from '../_connections/connections';
 
-interface I_UserModel {
+interface IntUserModel {
   title: string;
 }
 
-const useUserModel: ViewModelHook<I_UserModel> = () => {
+const useUserModel: ViewModelHook<IntUserModel> = () => {
   const handleError = useErrorHandler();
   const { userLabel } = useIntlCommon();
 
   // API data
-  const { status, data: usersData } = useSuspenseQuery ({
+  const { status, data: usersData } = useSuspenseQuery({
     queryKey: ['users'],
     queryFn: getUsers,
   });

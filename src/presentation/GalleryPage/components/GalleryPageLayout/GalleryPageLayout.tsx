@@ -2,12 +2,12 @@ import { Box, Button, Stack, Typography } from '@mui/material';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { I_GalleryModel } from '../../pages/use-gallery-page.view-model';
+import { IntGalleryModel } from '../../pages/use-gallery-page.view-model';
 import GalleryCarousel from '../GalleryCarousel/GalleryCarousel';
 import './GalleryPageLayout.css';
-import useGalleryPageLayoutModel, { I_GalleryPageLayoutModel } from './use-gallery-page-layout.view-model';
+import useGalleryPageLayoutModel, { IntGalleryPageLayoutModel } from './use-gallery-page-layout.view-model';
 
-const GalleryPageLayout: React.FC<I_GalleryModel> = ({ title }) => {
+const GalleryPageLayout: React.FC<IntGalleryModel> = ({ title }) => {
   const [imageType, setImageType] = useState(
     `${window.location.href.substring(window.location.href.lastIndexOf('/') + 1)}`
   );
@@ -15,7 +15,7 @@ const GalleryPageLayout: React.FC<I_GalleryModel> = ({ title }) => {
   const [imageMaxId, setImageMaxId] = useState(0);
   const [imageDetails, setImageDetails] = useState(null);
 
-  const vm: I_GalleryPageLayoutModel = useGalleryPageLayoutModel();
+  const vm: IntGalleryPageLayoutModel = useGalleryPageLayoutModel();
 
   const navigate = useNavigate();
 

@@ -4,18 +4,18 @@ import { useErrorHandler } from 'react-error-boundary';
 import { ViewModelHook } from '../../../../_utils/types/index';
 import { getSocials } from '../../_connections/connections';
 
-export interface I_SocialData {
+export interface IntSocialData {
   _id: string;
   social?: string;
   icon: string;
   link: string;
 }
 
-export interface I_SocialsModel {
-  socials: I_SocialData[];
+export interface IntSocialsModel {
+  socials: IntSocialData[];
 }
 
-const useSocialsModel: ViewModelHook<I_SocialsModel> = () => {
+const useSocialsModel: ViewModelHook<IntSocialsModel> = () => {
   const handleError = useErrorHandler();
 
   // API data

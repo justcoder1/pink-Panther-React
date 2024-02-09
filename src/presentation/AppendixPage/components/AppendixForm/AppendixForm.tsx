@@ -3,20 +3,20 @@ import { Button, MenuItem, Stack, TextField, Typography } from '@mui/material';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { object, string } from 'yup';
-import { I_AppendixData } from '../../components/AppendixTable/use-appendix-table.view-model';
+import { IntAppendixData } from '../../components/AppendixTable/use-appendix-table.view-model';
 
 import './AppendixForm.css';
 
-interface I_AppendixForm {
+interface IntAppendixForm {
   type: 'Create' | 'Update';
   nextId?: number;
   topics: string[];
   types: string[];
-  formData?: I_AppendixData;
-  onFormSubmit?: (data: I_AppendixData) => void;
+  formData?: IntAppendixData;
+  onFormSubmit?: (data: IntAppendixData) => void;
 }
 
-const AppendixForm: React.FC<I_AppendixForm> = ({ type, nextId, types, topics, formData, onFormSubmit }) => {
+const AppendixForm: React.FC<IntAppendixForm> = ({ type, nextId, types, topics, formData, onFormSubmit }) => {
   // Styles ---------------------
   const inputLeft = { width: '300px', margin: '10px 10px 10px 0px' };
   const inputRight = { width: '300px', margin: '10px 0px' };
@@ -86,8 +86,8 @@ const AppendixForm: React.FC<I_AppendixForm> = ({ type, nextId, types, topics, f
           error={errors.hasOwnProperty('type')}
           helperText={errors.hasOwnProperty('type') ? errors.type.message : ''}
         >
-          {types.map((type) => (
-            <MenuItem key={`form_type_${type}`} value={type}>
+          {types.map((mItem) => (
+            <MenuItem key={`form_type_${mItem}`} value={mItem}>
               {type}
             </MenuItem>
           ))}

@@ -5,14 +5,14 @@ import { ViewModelHook } from '../../../_utils/types/index';
 import imageDesktop from '../../../assets/PP_MainImage.png';
 import imageMobile from '../../../assets/PP_MainImage_Small.png';
 
-export interface I_HomePageModel {
+export interface IntHomePageModel {
   titleOne: string;
   titleTwo: string;
   imageDesktop: string;
   imageMobile: string;
 }
 
-const useHomePageModel: ViewModelHook<I_HomePageModel> = () => {
+const useHomePageModel: ViewModelHook<IntHomePageModel> = () => {
   const handleError = useErrorHandler();
   const intl = useIntl();
   const { siteLabel } = useIntlCommon();

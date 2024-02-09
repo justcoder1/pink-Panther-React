@@ -5,24 +5,24 @@ import { useIntlCommon } from '../../../../_utils/lang/intl-common';
 import { ViewModelHook } from '../../../../_utils/types/index';
 import { getNavBar } from '../../_connections/connections';
 
-export interface I_NavBarItem {
+export interface IntNavBarItem {
   _id: string;
   title: string;
   link: string;
 }
 
-export interface I_NavBar {
+export interface IntNavBar {
   header: string;
-  headerItems: I_NavBarItem[];
+  headerItems: IntNavBarItem[];
 }
 
-const useNavBarViewModel: ViewModelHook<I_NavBar> = () => {
+const useNavBarViewModel: ViewModelHook<IntNavBar> = () => {
   const handleError = useErrorHandler();
   const { siteLabel } = useIntlCommon();
   const intl = useIntl();
 
   // API data
-  const { data: navBarData } = useSuspenseQuery ({
+  const { data: navBarData } = useSuspenseQuery({
     queryKey: ['navBar'],
     queryFn: getNavBar,
   });

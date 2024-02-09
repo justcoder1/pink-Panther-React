@@ -4,7 +4,7 @@ import { MdClose } from 'react-icons/md';
 
 import './Modal.css';
 
-interface I_Modal {
+interface IntModal {
   show: boolean;
   hide?: () => void;
   title?: string;
@@ -12,7 +12,7 @@ interface I_Modal {
   modalMaxWidth?: number;
 }
 
-const AppModal: React.FC<React.PropsWithChildren<I_Modal>> = ({
+const AppModal: React.FC<React.PropsWithChildren<IntModal>> = ({
   show,
   hide,
   title,
@@ -31,8 +31,8 @@ const AppModal: React.FC<React.PropsWithChildren<I_Modal>> = ({
               maxWidth: modalMaxWidth,
             }}
           >
-            <Stack direction={'row'} justifyContent={'space-between'} alignItems={'center'} sx={{ height: 40}}>
-              <Typography variant='h6'>{title}</Typography>
+            <Stack direction={'row'} justifyContent={'space-between'} alignItems={'center'} sx={{ height: 40 }}>
+              <Typography variant="h6">{title}</Typography>
               <IconButton onClick={hide}>
                 <MdClose />
               </IconButton>

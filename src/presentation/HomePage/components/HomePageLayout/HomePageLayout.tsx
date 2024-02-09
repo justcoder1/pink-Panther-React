@@ -1,12 +1,12 @@
 import { Stack, Typography, useMediaQuery } from '@mui/material';
 import React from 'react';
 
-import { I_HomePageModel } from '../../pages/use-home-page.view-model';
+import { IntHomePageModel } from '../../pages/use-home-page.view-model';
 import AudioWidget from '../AudioWidget/AudioWidget';
 import Socials from '../Socials/Socials';
 import './HomePageLayout.css';
 
-const HomePageLayout: React.FC<I_HomePageModel> = ({ titleOne, titleTwo, imageDesktop, imageMobile }) => {
+const HomePageLayout: React.FC<IntHomePageModel> = ({ titleOne, titleTwo, imageDesktop, imageMobile }) => {
   const showMobile = useMediaQuery('(max-width: 900px)');
 
   return (

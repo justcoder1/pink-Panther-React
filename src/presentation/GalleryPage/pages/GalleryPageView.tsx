@@ -5,9 +5,9 @@ import AuthenticatedLayout from '../../_AuthenticatedLayout/pages/Authenticated/
 import GalleryPageLayout from '../components/GalleryPageLayout/GalleryPageLayout';
 import useGalleryModel from './use-gallery-page.view-model';
 
-interface I_GalleryPage {}
+interface IntGalleryPage {}
 
-const GalleryPage: React.FC<React.PropsWithChildren<I_GalleryPage>> = () => {
+const GalleryPage: React.FC<React.PropsWithChildren<IntGalleryPage>> = () => {
   const vm = useGalleryModel();
 
   return (

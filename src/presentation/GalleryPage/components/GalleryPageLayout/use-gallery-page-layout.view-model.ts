@@ -3,7 +3,7 @@ import { useErrorHandler } from 'react-error-boundary';
 import { ViewModelHook } from '../../../../_utils/types/index';
 import { getPictures, getVideos } from '../../_connections/connections';
 
-export interface I_GalleryPicture {
+export interface IntGalleryPicture {
   _id: string;
   title: string;
   url: string;
@@ -12,7 +12,7 @@ export interface I_GalleryPicture {
   likes?: string;
 }
 
-export interface I_GalleryVideo {
+export interface IntGalleryVideo {
   _id: string;
   title: string;
   episode?: string;
@@ -21,21 +21,21 @@ export interface I_GalleryVideo {
   source: string;
 }
 
-export interface I_GalleryPageLayoutModel {
-  pictures?: I_GalleryPicture[];
-  videos?: I_GalleryVideo[];
+export interface IntGalleryPageLayoutModel {
+  pictures?: IntGalleryPicture[];
+  videos?: IntGalleryVideo[];
 }
 
-const useGalleryPageLayoutModel: ViewModelHook<I_GalleryPageLayoutModel> = () => {
+const useGalleryPageLayoutModel: ViewModelHook<IntGalleryPageLayoutModel> = () => {
   const handleError = useErrorHandler();
 
   // API data
-  const { data: picturesData } = useSuspenseQuery ({
+  const { data: picturesData } = useSuspenseQuery({
     queryKey: ['pictures'],
     queryFn: getPictures,
   });
 
-  const { data: videosData } = useSuspenseQuery ({
+  const { data: videosData } = useSuspenseQuery({
     queryKey: ['videos'],
     queryFn: getVideos,
   });
