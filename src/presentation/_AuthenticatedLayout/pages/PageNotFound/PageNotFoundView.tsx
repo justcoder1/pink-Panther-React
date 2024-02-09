@@ -6,13 +6,16 @@ import { Link } from 'react-router-dom';
 import logo from '../../../../assets/PP_404.png';
 import './PageNotFoundView.css';
 
-interface I_PageNotFound {}
+interface IntPageNotFound {}
 
-const PageNotFoundView: React.FC<I_PageNotFound> = () => {
+const PageNotFoundView: React.FC<IntPageNotFound> = () => {
   const intl = useIntl();
-  const header: string = intl.formatMessage({ id: 'header', defaultMessage: `404 - PAGE NOT FOUND`});
-  const message: string = intl.formatMessage({ id: 'message', defaultMessage: `The page you are looking for cannot be found.`});
-  const button: string = intl.formatMessage({ id: 'button', defaultMessage: `HomePage`});
+  const header: string = intl.formatMessage({ id: 'header', defaultMessage: '404 - PAGE NOT FOUND' });
+  const message: string = intl.formatMessage({
+    id: 'message',
+    defaultMessage: 'The page you are looking for cannot be found.',
+  });
+  const button: string = intl.formatMessage({ id: 'button', defaultMessage: 'HomePage' });
 
   return (
     <Stack id="pnf_stack" direction={'row'} alignItems={'center'} justifyContent={'center'}>

@@ -1,0 +1,31 @@
+{
+    "branchNameLinter": {
+        "prefixes": [
+            "feature",
+            "bugfix",
+            "hotfix",
+            "release",
+            "chore",
+            "refactor"
+        ],
+        "suggestions": {
+            "features": "feature",
+            "feat": "feature",
+            "fix": "bugfix / hotfix",
+            "releases": "release"
+        },
+        "banned": [
+            "wip"
+        ],
+        "skip": [
+            "skip-ci"
+        ],
+        "disallowed": [
+            "main"
+        ],
+        "msgBranchDisallowed": "Pushing to \"%s\" is not allowed.",
+        "regex": "^[a-z]+/[A-Z0-9-]+$",
+        "regexOptions": "i",
+        "msgPrefixNotAllowed": "Branch prefix \"%s\" is not allowed. Allowed prefixes: feature, bugfix, hotfix, release, chore, refactor"
+    }
+}

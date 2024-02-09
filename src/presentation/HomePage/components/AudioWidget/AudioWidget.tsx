@@ -10,6 +10,7 @@ const AudioWidget: React.FC = () => {
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const playSoundTrack = (): void => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     audioState ? audioRef.current.pause() : audioRef.current.play();
 
     setAudioState(!audioState);

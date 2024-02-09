@@ -16,16 +16,16 @@ import { FaPencilAlt, FaTrash } from 'react-icons/fa';
 
 import AppModal from '../../../../_utils/globals/components/Modal/Modal';
 import AppendixForm from '../AppendixForm/AppendixForm';
-import useAppendixTableModel, { I_AppendixData, I_AppendixTableModel } from './use-appendix-table.view-model';
+import useAppendixTableModel, { IntAppendixData, IntAppendixTableModel } from './use-appendix-table.view-model';
 
 const AppendixTable: React.FC = () => {
   const [showIconId, setshowIconId] = useState(-1);
   const [showModal, setShowModal] = useState(false);
   const [formType, setformType] = useState<'Create' | 'Update'>('Create');
   const [nextId, setNextId] = useState(0);
-  const [formData, setFormData] = useState<I_AppendixData>(null);
+  const [formData, setFormData] = useState<IntAppendixData>(null);
 
-  const vm: I_AppendixTableModel = useAppendixTableModel();
+  const vm: IntAppendixTableModel = useAppendixTableModel();
 
   const openModal = (type, rowData) => {
     if (type === 'Update') {
@@ -73,9 +73,7 @@ const AppendixTable: React.FC = () => {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              {vm.columns?.map((col, i) => (
-                <TableCell key={`appendix_th_${i}`}>{col}</TableCell>
-              ))}
+              {vm.columns?.map((col, i) => <TableCell key={`appendix_th_${i}`}>{col}</TableCell>)}
               <TableCell width={75}></TableCell>
             </TableRow>
           </TableHead>

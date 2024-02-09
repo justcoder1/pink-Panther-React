@@ -6,7 +6,6 @@ import { ErrorHandler, SkeletonNavBar } from '../../../../_utils/globals/compone
 import './navBar.css';
 import { NavBarItems } from './NavBarItems';
 
-
 const NavBar: React.FC = () => {
   return (
     <Stack id="navBar-Main" direction={'row'} justifyContent={'space-between'} alignItems={'center'}>

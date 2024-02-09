@@ -5,10 +5,10 @@ import { NavLink } from 'react-router-dom';
 import * as yup from 'yup';
 import YupPassword from 'yup-password';
 
-import { I_UserLogin } from '../../pages/use-landing-page.view-model';
+import { IntUserLogin } from '../../pages/use-landing-page.view-model';
 import './UserLogin.css';
 
-const UserLogin: React.FC<I_UserLogin> = ({
+const UserLogin: React.FC<IntUserLogin> = ({
   title,
   email,
   password,
@@ -44,7 +44,9 @@ const UserLogin: React.FC<I_UserLogin> = ({
 
   return (
     <Box id="landingPageRight">
-      <Typography id="lp_h6" sx={{marginBottom: '20px'}}>{title}</Typography>
+      <Typography id="lp_h6" sx={{ marginBottom: '20px' }}>
+        {title}
+      </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <TextField
           style={inputFull}
@@ -52,7 +54,7 @@ const UserLogin: React.FC<I_UserLogin> = ({
           label={email}
           variant="outlined"
           autoFocus
-          autoComplete='off'
+          autoComplete="off"
           {...register('email')}
           defaultValue=""
           error={errors.hasOwnProperty('email')}
@@ -68,8 +70,8 @@ const UserLogin: React.FC<I_UserLogin> = ({
           error={errors.hasOwnProperty('password')}
           helperText={errors.hasOwnProperty('password') ? errors.password.message : ''}
         />
-        <hr style={{marginTop: '10px'}}/>
-        <Button type="submit" id='formButton' variant="contained" color="secondary" sx={{ width: '100%' }}>
+        <hr style={{ marginTop: '10px' }} />
+        <Button type="submit" id="formButton" variant="contained" color="secondary" sx={{ width: '100%' }}>
           {loginLabel}
         </Button>
       </form>

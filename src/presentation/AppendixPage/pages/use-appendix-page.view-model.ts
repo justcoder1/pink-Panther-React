@@ -2,11 +2,11 @@ import { useErrorHandler } from 'react-error-boundary';
 import { useIntl } from 'react-intl';
 import { ViewModelHook } from '../../../_utils/types/index';
 
-export interface I_AppendixModel {
+export interface IntAppendixModel {
   title: string;
 }
 
-const useAppendixModel: ViewModelHook<I_AppendixModel> = () => {
+const useAppendixModel: ViewModelHook<IntAppendixModel> = () => {
   const handleError = useErrorHandler();
   const intl = useIntl();
 

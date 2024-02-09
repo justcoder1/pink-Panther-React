@@ -7,7 +7,7 @@ import { noop } from '../../../../_utils/hooks/functions';
 import { ViewModelHook } from '../../../../_utils/types/index';
 import { createAppendix, deleteAppendix, getAppendixs, updateAppendix } from '../../_connections/connections';
 
-export interface I_AppendixData {
+export interface IntAppendixData {
   _id?: string;
   id: Number;
   reference: string;
@@ -17,16 +17,16 @@ export interface I_AppendixData {
   comments?: string;
 }
 
-export interface I_AppendixTableModel {
+export interface IntAppendixTableModel {
   columns: string[];
   rows: any;
   types: string[];
   topics: string[];
   onDeleteClick: (_id: string, id: string) => void;
-  onFormClick: (data: I_AppendixData) => void;
+  onFormClick: (data: IntAppendixData) => void;
 }
 
-const useAppendixTableModel: ViewModelHook<I_AppendixTableModel> = () => {
+const useAppendixTableModel: ViewModelHook<IntAppendixTableModel> = () => {
   const handleError = useErrorHandler();
   const intl = useIntl();
   const queryClient = useQueryClient();
@@ -34,7 +34,7 @@ const useAppendixTableModel: ViewModelHook<I_AppendixTableModel> = () => {
   const { enqueueSnackbar } = useSnackbar();
 
   // ---- API data ---- \\
-  const { data: appendixsData } = useSuspenseQuery ({
+  const { data: appendixsData } = useSuspenseQuery({
     queryKey: ['appendix'],
     queryFn: getAppendixs,
   });
@@ -47,7 +47,7 @@ const useAppendixTableModel: ViewModelHook<I_AppendixTableModel> = () => {
   });
 
   const { mutate: onFormClick } = useMutation({
-    mutationFn: (data: I_AppendixData) => (data._id ? updateAppendix(data) : createAppendix(data)),
+    mutationFn: (data: IntAppendixData) => (data._id ? updateAppendix(data) : createAppendix(data)),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['appendix'], exact: true });
     },
@@ -64,15 +64,25 @@ const useAppendixTableModel: ViewModelHook<I_AppendixTableModel> = () => {
   };
 
   // FIX - change this to a hook - Issue 27
-  const intlStrings = (list: string[]) => list.map((l) => intl.formatMessage({ id: l, defaultMessage: l }))
+  const intlStrings = (list: string[]) => list.map((l) => intl.formatMessage({ id: l, defaultMessage: l }));
 
   try {
     const types = intlStrings(['Documentation', 'Reference', 'Video']);
-    const topics = intlStrings(['Angular', 'Data', 'JavaScript', 'MongoDB', 'Node', 'React', 'SQL', 'Testing', 'TypeScript']);
+    const topics = intlStrings([
+      'Angular',
+      'Data',
+      'JavaScript',
+      'MongoDB',
+      'Node',
+      'React',
+      'SQL',
+      'Testing',
+      'TypeScript',
+    ]);
 
     // ---- Restructure to display in table ---- \\
     const columns = intlStrings(['id', 'Reference', 'Topic', 'type', 'Comments']);
-    
+
     const rows = [];
     columns.map((c) => intl.formatMessage({ id: c, defaultMessage: c }));
     if (appendixsData) {
@@ -89,7 +99,7 @@ const useAppendixTableModel: ViewModelHook<I_AppendixTableModel> = () => {
       });
     }
     // ------------------------------------------- \\
-    
+
     return {
       columns: columns,
       rows: rows,

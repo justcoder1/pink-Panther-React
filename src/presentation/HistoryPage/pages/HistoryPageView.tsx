@@ -4,9 +4,9 @@ import { ErrorHandler, SkeletonMain } from '../../../_utils/globals/components/F
 import AuthenticatedLayout from '../../_AuthenticatedLayout/pages/Authenticated/AuthenticatedLayoutView';
 import HistoryPageLayout from '../components/HistoryPageLayout/HistoryPageLayout';
 
-interface I_HistoryPage {}
+interface IntHistoryPage {}
 
-const HistoryPage: React.FC<React.PropsWithChildren<I_HistoryPage>> = () => {
+const HistoryPage: React.FC<React.PropsWithChildren<IntHistoryPage>> = () => {
   return (
     <AuthenticatedLayout>
       <ErrorBoundary fallback={<ErrorHandler />}>

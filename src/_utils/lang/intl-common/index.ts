@@ -69,7 +69,6 @@ export const useIntlCommon = () => {
     defaultMessage: 'Register',
   });
 
-  
   return {
     siteLabel,
     homeLabel,
@@ -81,6 +80,6 @@ export const useIntlCommon = () => {
     emailLabel,
     passwordLabel,
     loginLabel,
-    registerLabel
+    registerLabel,
   };
 };

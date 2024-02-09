@@ -5,9 +5,9 @@ import { ErrorHandler, SkeletonMain } from '../../../_utils/globals/components/F
 import AuthenticatedLayout from '../../_AuthenticatedLayout/pages/Authenticated/AuthenticatedLayoutView';
 import AboutPageLayout from '../components/AboutPageLayout/AboutPageLayout';
 
-interface I_AboutPage {}
+interface IntAboutPage {}
 
-const AboutPage: React.FC<React.PropsWithChildren<I_AboutPage>> = () => {
+const AboutPage: React.FC<React.PropsWithChildren<IntAboutPage>> = () => {
   return (
     <AuthenticatedLayout>
       <ErrorBoundary fallback={<ErrorHandler />}>

@@ -13,10 +13,10 @@ import {
 import React from 'react';
 
 import './HistoryPageLayout.css';
-import useHistoryPageLayoutModel, { I_HistoryPageLayoutModel } from './use-history-page-layout.view-model';
+import useHistoryPageLayoutModel, { IntHistoryPageLayoutModel } from './use-history-page-layout.view-model';
 
 const HistoryPageLayout: React.FC = () => {
-  const vm: I_HistoryPageLayoutModel = useHistoryPageLayoutModel();
+  const vm: IntHistoryPageLayoutModel = useHistoryPageLayoutModel();
 
   return (
     <Stack justifyContent={'center'} alignItems={'center'}>
@@ -31,9 +31,7 @@ const HistoryPageLayout: React.FC = () => {
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
-                {vm.content.data.columns?.map((col, i) => (
-                  <TableCell key={`history_th_${i}`}>{col}</TableCell>
-                ))}
+                {vm.content.data.columns?.map((col, i) => <TableCell key={`history_th_${i}`}>{col}</TableCell>)}
               </TableRow>
             </TableHead>
             <TableBody>
