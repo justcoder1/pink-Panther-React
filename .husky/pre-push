@@ -1,0 +1,7 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo
+echo Linting branch name...
+echo
+npx branch-name-lint .branchnamelintrc
