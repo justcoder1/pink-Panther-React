@@ -21,7 +21,7 @@ const UserLogin: React.FC<IntUserLogin> = ({
   const inputFull = { width: "100%", margin: "10px 0px" };
 
   // form Schema ----------------
-  let appendixSchema = yup
+  let loginSchema = yup
     .object({
       email: yup.string().email().required("Missing Email"),
       password: yup.string().password().required("Missing Password"),
@@ -34,7 +34,7 @@ const UserLogin: React.FC<IntUserLogin> = ({
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(appendixSchema),
+    resolver: yupResolver(loginSchema),
   });
   // ----------------------------
 
