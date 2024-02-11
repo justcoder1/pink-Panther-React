@@ -8,27 +8,27 @@ import {
   Stack,
   SwipeableDrawer,
   useMediaQuery,
-} from '@mui/material';
-import React, { useState } from 'react';
-import { FaBars, FaPaw } from 'react-icons/fa';
-import { Link, NavLink } from 'react-router-dom';
+} from "@mui/material";
+import React, { useState } from "react";
+import { FaBars, FaPaw } from "react-icons/fa";
+import { Link, NavLink } from "react-router-dom";
 
-import useNavBarViewModel from './use-navbar.view-model';
-import { IntNavBar } from './use-navbar.view-model';
+import useNavBarViewModel from "./use-navbar.view-model";
+import { IntNavBar } from "./use-navbar.view-model";
 
 export const NavBarItems: React.FC = () => {
   const vm: IntNavBar = useNavBarViewModel();
-  const showMobile = useMediaQuery('(max-width: 900px)');
+  const showMobile = useMediaQuery("(max-width: 900px)");
 
   return (
     <>
-      <NavLink id="navBar-Left" to={'/home'}>
+      <NavLink id="navBar-Left" to={"/home"}>
         {vm.header}
       </NavLink>
-      <Stack id="navBar-Right" direction={'row'} alignItems={'center'}>
+      <Stack id="navBar-Right" direction={"row"} alignItems={"center"}>
         {!showMobile && <NavFullScreen headerItems={vm.headerItems} />}
         {showMobile && <NavMobile headerItems={vm.headerItems} />}
-        <NavLink className={({ isActive }) => (isActive ? 'activeLink' : '')} to={'/user'}>
+        <NavLink className={({ isActive }) => (isActive ? "activeLink" : "")} to={"/user"}>
           <FaPaw id="pawIcon" />
         </NavLink>
       </Stack>
@@ -42,7 +42,7 @@ const NavFullScreen: React.FC<Partial<IntNavBar>> = ({ headerItems }) => {
       {headerItems?.map((item) => (
         <NavLink
           key={`navBarFull_${item.title}`}
-          className={({ isActive }) => (isActive ? 'activeLink' : '')}
+          className={({ isActive }) => (isActive ? "activeLink" : "")}
           to={item.link}
         >
           {item.title}
@@ -58,8 +58,8 @@ const NavMobile: React.FC<Partial<IntNavBar>> = ({ headerItems }) => {
   const toggleDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
     if (
       event &&
-      event.type === 'keydown' &&
-      ((event as React.KeyboardEvent).key === 'Tab' || (event as React.KeyboardEvent).key === 'Shift')
+      event.type === "keydown" &&
+      ((event as React.KeyboardEvent).key === "Tab" || (event as React.KeyboardEvent).key === "Shift")
     ) {
       return;
     }
@@ -86,7 +86,7 @@ const NavMobile: React.FC<Partial<IntNavBar>> = ({ headerItems }) => {
       <Button onClick={toggleDrawer(true)}>
         <FaBars id="barsIcon" />
       </Button>
-      <SwipeableDrawer anchor={'right'} open={drawState} onClose={toggleDrawer(false)} onOpen={toggleDrawer(true)}>
+      <SwipeableDrawer anchor={"right"} open={drawState} onClose={toggleDrawer(false)} onOpen={toggleDrawer(true)}>
         {list}
       </SwipeableDrawer>
     </>

@@ -1,8 +1,8 @@
-import { IconButton, Stack, Typography } from '@mui/material';
-import React from 'react';
-import { MdClose } from 'react-icons/md';
+import { IconButton, Stack, Typography } from "@mui/material";
+import React from "react";
+import { MdClose } from "react-icons/md";
 
-import './Modal.css';
+import "./Modal.css";
 
 interface IntModal {
   show: boolean;
@@ -23,7 +23,7 @@ const AppModal: React.FC<React.PropsWithChildren<IntModal>> = ({
   return (
     <>
       {show ? (
-        <Stack justifyContent={'center'} alignItems={'center'} id="modalBackground">
+        <Stack justifyContent={"center"} alignItems={"center"} id="modalBackground">
           <Stack
             id="modalPanel"
             sx={{
@@ -31,7 +31,7 @@ const AppModal: React.FC<React.PropsWithChildren<IntModal>> = ({
               maxWidth: modalMaxWidth,
             }}
           >
-            <Stack direction={'row'} justifyContent={'space-between'} alignItems={'center'} sx={{ height: 40 }}>
+            <Stack direction={"row"} justifyContent={"space-between"} alignItems={"center"} sx={{ height: 40 }}>
               <Typography variant="h6">{title}</Typography>
               <IconButton onClick={hide}>
                 <MdClose />

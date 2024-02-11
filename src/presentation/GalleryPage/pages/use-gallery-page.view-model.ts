@@ -1,7 +1,7 @@
-import { useErrorHandler } from 'react-error-boundary';
-import { useIntl } from 'react-intl';
+import { useErrorHandler } from "react-error-boundary";
+import { useIntl } from "react-intl";
 
-import { ViewModelHook } from '../../../_utils/types/index';
+import { ViewModelHook } from "../../../_utils/types/index";
 
 export interface IntGalleryModel {
   title: string;
@@ -12,7 +12,7 @@ const useGalleryModel: ViewModelHook<IntGalleryModel> = () => {
   const intl = useIntl();
 
   try {
-    const title = intl.formatMessage({ id: 'title', defaultMessage: 'Gallery Page - State Management' });
+    const title = intl.formatMessage({ id: "title", defaultMessage: "Gallery Page - State Management" });
 
     return {
       title,

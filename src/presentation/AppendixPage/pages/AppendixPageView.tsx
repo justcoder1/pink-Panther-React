@@ -1,10 +1,10 @@
-import React, { Suspense } from 'react';
-import { ErrorBoundary } from 'react-error-boundary';
+import React, { Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
 
-import { ErrorHandler, SkeletonMain } from '../../../_utils/globals/components/Fallbacks/Fallbacks';
-import AuthenticatedLayout from '../../_AuthenticatedLayout/pages/Authenticated/AuthenticatedLayoutView';
-import AppendixPageLayout from '../components/AppendixPageLayout/AppendixPageLayout';
-import useAppendixModel from './use-appendix-page.view-model';
+import { ErrorHandler, SkeletonMain } from "../../../_utils/globals/components/Fallbacks/Fallbacks";
+import AuthenticatedLayout from "../../_AuthenticatedLayout/pages/Authenticated/AuthenticatedLayoutView";
+import AppendixPageLayout from "../components/AppendixPageLayout/AppendixPageLayout";
+import useAppendixModel from "./use-appendix-page.view-model";
 
 interface IntAppendixPage {}
 

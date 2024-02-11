@@ -1,7 +1,7 @@
-import { useSuspenseQuery } from '@tanstack/react-query';
-import { useErrorHandler } from 'react-error-boundary';
-import { ViewModelHook } from '../../../../_utils/types/index';
-import { getPictures, getVideos } from '../../_connections/connections';
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { useErrorHandler } from "react-error-boundary";
+import { ViewModelHook } from "../../../../_utils/types/index";
+import { getPictures, getVideos } from "../../_connections/connections";
 
 export interface IntGalleryPicture {
   _id: string;
@@ -31,12 +31,12 @@ const useGalleryPageLayoutModel: ViewModelHook<IntGalleryPageLayoutModel> = () =
 
   // API data
   const { data: picturesData } = useSuspenseQuery({
-    queryKey: ['pictures'],
+    queryKey: ["pictures"],
     queryFn: getPictures,
   });
 
   const { data: videosData } = useSuspenseQuery({
-    queryKey: ['videos'],
+    queryKey: ["videos"],
     queryFn: getVideos,
   });
 

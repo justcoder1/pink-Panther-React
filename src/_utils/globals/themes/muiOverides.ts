@@ -1,12 +1,12 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme } from "@mui/material/styles";
 
 const themeOverides = createTheme({
   palette: {
     primary: {
-      main: '#fa8ab0',
+      main: "#fa8ab0",
     },
     secondary: {
-      main: '#b61588',
+      main: "#b61588",
     },
   },
 });

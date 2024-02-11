@@ -1,9 +1,9 @@
-import { Button } from '@mui/material';
-import React, { useRef, useState } from 'react';
-import { FaVolumeUp } from 'react-icons/fa';
-import sound from '../../../../assets/HomePage.mp3';
+import { Button } from "@mui/material";
+import React, { useRef, useState } from "react";
+import { FaVolumeUp } from "react-icons/fa";
+import sound from "../../../../assets/HomePage.mp3";
 
-import './AudioWidget.css';
+import "./AudioWidget.css";
 
 const AudioWidget: React.FC = () => {
   const [audioState, setAudioState] = useState(false);
@@ -19,7 +19,7 @@ const AudioWidget: React.FC = () => {
   return (
     <>
       <Button id="audioButton" onClick={playSoundTrack} disableRipple>
-        <FaVolumeUp id="audioIcon" style={{ color: audioState ? '#b61588' : 'grey', opacity: audioState ? 1 : 0.5 }} />
+        <FaVolumeUp id="audioIcon" style={{ color: audioState ? "#b61588" : "grey", opacity: audioState ? 1 : 0.5 }} />
       </Button>
       <audio ref={audioRef} src={sound} hidden />
     </>

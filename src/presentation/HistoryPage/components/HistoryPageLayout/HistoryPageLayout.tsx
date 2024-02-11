@@ -9,18 +9,18 @@ import {
   TableHead,
   TableRow,
   Typography,
-} from '@mui/material';
-import React from 'react';
+} from "@mui/material";
+import React from "react";
 
-import './HistoryPageLayout.css';
-import useHistoryPageLayoutModel, { IntHistoryPageLayoutModel } from './use-history-page-layout.view-model';
+import "./HistoryPageLayout.css";
+import useHistoryPageLayoutModel, { IntHistoryPageLayoutModel } from "./use-history-page-layout.view-model";
 
 const HistoryPageLayout: React.FC = () => {
   const vm: IntHistoryPageLayoutModel = useHistoryPageLayoutModel();
 
   return (
-    <Stack justifyContent={'center'} alignItems={'center'}>
-      <Box maxWidth={1000} margin={10} sx={{ textAlign: 'center' }}>
+    <Stack justifyContent={"center"} alignItems={"center"}>
+      <Box maxWidth={1000} margin={10} sx={{ textAlign: "center" }}>
         <Typography variant="h2" id="history_h2">
           {vm.title}
         </Typography>
@@ -36,10 +36,10 @@ const HistoryPageLayout: React.FC = () => {
             </TableHead>
             <TableBody>
               {vm.content.data.rows?.map((row, i) => (
-                <TableRow key={`historyTable_${i}`} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                <TableRow key={`historyTable_${i}`} sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
                   {row?.map((r, id) => (
                     <TableCell key={`history_td_${i}_${id}`}>
-                      {r.type === 'string' ? r.value : <div dangerouslySetInnerHTML={{ __html: r.value }} />}
+                      {r.type === "string" ? r.value : <div dangerouslySetInnerHTML={{ __html: r.value }} />}
                     </TableCell>
                   ))}
                 </TableRow>

@@ -1,6 +1,6 @@
-import { Box, Link } from '@mui/material';
-import React from 'react';
-import './footer.css';
+import { Box, Link } from "@mui/material";
+import React from "react";
+import "./footer.css";
 
 interface IntFooter {
   link: string;
@@ -10,9 +10,9 @@ interface IntFooter {
 const Footer: React.FC<IntFooter> = ({ footer, link }) => {
   return (
     <Box id="footer_box">
-      Copyright &copy;{' '}
+      Copyright &copy;{" "}
       <Link href={link} id="footer_a" rel="noreferrer" target="_blank">
-        {footer || 'Footer'}
+        {footer || "Footer"}
       </Link>
     </Box>
   );

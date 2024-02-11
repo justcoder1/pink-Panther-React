@@ -10,25 +10,25 @@ import {
   TableContainer,
   TableHead,
   TableRow,
-} from '@mui/material';
-import React, { useEffect, useState } from 'react';
-import { FaPencilAlt, FaTrash } from 'react-icons/fa';
+} from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { FaPencilAlt, FaTrash } from "react-icons/fa";
 
-import AppModal from '../../../../_utils/globals/components/Modal/Modal';
-import AppendixForm from '../AppendixForm/AppendixForm';
-import useAppendixTableModel, { IntAppendixData, IntAppendixTableModel } from './use-appendix-table.view-model';
+import AppModal from "../../../../_utils/globals/components/Modal/Modal";
+import AppendixForm from "../AppendixForm/AppendixForm";
+import useAppendixTableModel, { IntAppendixData, IntAppendixTableModel } from "./use-appendix-table.view-model";
 
 const AppendixTable: React.FC = () => {
   const [showIconId, setshowIconId] = useState(-1);
   const [showModal, setShowModal] = useState(false);
-  const [formType, setformType] = useState<'Create' | 'Update'>('Create');
+  const [formType, setformType] = useState<"Create" | "Update">("Create");
   const [nextId, setNextId] = useState(0);
   const [formData, setFormData] = useState<IntAppendixData>(null);
 
   const vm: IntAppendixTableModel = useAppendixTableModel();
 
   const openModal = (type, rowData) => {
-    if (type === 'Update') {
+    if (type === "Update") {
       setFormData(rowData);
     }
     setformType(type);
@@ -36,7 +36,7 @@ const AppendixTable: React.FC = () => {
   };
 
   const onFormSubmit = (data) => {
-    if (formType === 'Create') {
+    if (formType === "Create") {
       setNextId(data.id + 1);
     }
     setShowModal(false);
@@ -63,8 +63,8 @@ const AppendixTable: React.FC = () => {
         />
       </AppModal>
 
-      <Stack alignItems={'end'} sx={{ margin: '20px 0px' }}>
-        <Button color="secondary" variant="contained" onClick={() => openModal('Create', null)}>
+      <Stack alignItems={"end"} sx={{ margin: "20px 0px" }}>
+        <Button color="secondary" variant="contained" onClick={() => openModal("Create", null)}>
           Add Reference
         </Button>
       </Stack>
@@ -85,7 +85,7 @@ const AppendixTable: React.FC = () => {
                   setshowIconId(row[1]);
                 }}
                 onMouseLeave={() => setshowIconId(-1)}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 className="appendixTable_row"
               >
                 {row?.map((r, id) =>
@@ -111,16 +111,16 @@ const AppendixTable: React.FC = () => {
                     onClick={() => vm.onDeleteClick(row[1], row[2])}
                     className="tableIcon"
                     color="primary"
-                    sx={{ display: row[1] === showIconId ? 'inline' : 'none' }}
+                    sx={{ display: row[1] === showIconId ? "inline" : "none" }}
                   >
                     <FaTrash key={`appendix_t_${i}`} title="delete" id="trashIcon" />
                   </IconButton>
                   <IconButton
                     key={`appendix_e_btn_${i}`}
-                    onClick={() => openModal('Update', row[0])}
+                    onClick={() => openModal("Update", row[0])}
                     className="tableIcon"
                     color="primary"
-                    sx={{ display: row[1] === showIconId ? 'inline' : 'none' }}
+                    sx={{ display: row[1] === showIconId ? "inline" : "none" }}
                   >
                     <FaPencilAlt key={`appendix_e_${i}`} title="edit" id="pencilIcon" />
                   </IconButton>

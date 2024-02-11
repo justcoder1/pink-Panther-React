@@ -1,8 +1,8 @@
-import React, { Suspense } from 'react';
-import { ErrorBoundary } from 'react-error-boundary';
-import { ErrorHandler, SkeletonMain } from '../../../_utils/globals/components/Fallbacks/Fallbacks';
-import AuthenticatedLayout from '../../_AuthenticatedLayout/pages/Authenticated/AuthenticatedLayoutView';
-import HistoryPageLayout from '../components/HistoryPageLayout/HistoryPageLayout';
+import React, { Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
+import { ErrorHandler, SkeletonMain } from "../../../_utils/globals/components/Fallbacks/Fallbacks";
+import AuthenticatedLayout from "../../_AuthenticatedLayout/pages/Authenticated/AuthenticatedLayoutView";
+import HistoryPageLayout from "../components/HistoryPageLayout/HistoryPageLayout";
 
 interface IntHistoryPage {}
 

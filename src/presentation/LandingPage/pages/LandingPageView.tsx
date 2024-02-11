@@ -1,6 +1,6 @@
-import React from 'react';
-import LandingPageLayout from '../components/LandingPageLayout/LandingPageLayout';
-import useLandingPageModel from './use-landing-page.view-model';
+import React from "react";
+import LandingPageLayout from "../components/LandingPageLayout/LandingPageLayout";
+import useLandingPageModel from "./use-landing-page.view-model";
 
 interface IntLandingPage {}
 

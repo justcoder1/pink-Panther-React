@@ -1,14 +1,14 @@
-import { yupResolver } from '@hookform/resolvers/yup';
-import { Button, MenuItem, Stack, TextField, Typography } from '@mui/material';
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import { object, string } from 'yup';
-import { IntAppendixData } from '../../components/AppendixTable/use-appendix-table.view-model';
+import { yupResolver } from "@hookform/resolvers/yup";
+import { Button, MenuItem, Stack, TextField, Typography } from "@mui/material";
+import React from "react";
+import { useForm } from "react-hook-form";
+import { object, string } from "yup";
+import { IntAppendixData } from "../../components/AppendixTable/use-appendix-table.view-model";
 
-import './AppendixForm.css';
+import "./AppendixForm.css";
 
 interface IntAppendixForm {
-  type: 'Create' | 'Update';
+  type: "Create" | "Update";
   nextId?: number;
   topics: string[];
   types: string[];
@@ -18,16 +18,16 @@ interface IntAppendixForm {
 
 const AppendixForm: React.FC<IntAppendixForm> = ({ type, nextId, types, topics, formData, onFormSubmit }) => {
   // Styles ---------------------
-  const inputLeft = { width: '300px', margin: '10px 10px 10px 0px' };
-  const inputRight = { width: '300px', margin: '10px 0px' };
-  const inputFull = { width: '100%', margin: '10px 0px' };
+  const inputLeft = { width: "300px", margin: "10px 10px 10px 0px" };
+  const inputRight = { width: "300px", margin: "10px 0px" };
+  const inputFull = { width: "100%", margin: "10px 0px" };
 
   // form Schema ----------------
   let appendixSchema = object({
-    reference: string().required('Missing Reference'),
-    link: string().url().required('Missing Link'),
-    type: string().required('Missing Type'),
-    topic: string().required('Missing Topic'),
+    reference: string().required("Missing Reference"),
+    link: string().url().required("Missing Link"),
+    type: string().required("Missing Type"),
+    topic: string().required("Missing Topic"),
     comments: string(),
   }).required();
 
@@ -42,7 +42,7 @@ const AppendixForm: React.FC<IntAppendixForm> = ({ type, nextId, types, topics, 
   // ----------------------------
 
   const onSubmit = (data): void => {
-    if (type === 'Update') {
+    if (type === "Update") {
       onFormSubmit({ ...data, id: formData.id, _id: formData._id });
     } else {
       onFormSubmit({ ...data, id: nextId });
@@ -51,40 +51,40 @@ const AppendixForm: React.FC<IntAppendixForm> = ({ type, nextId, types, topics, 
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Typography variant="h6">{`ID: ${type === 'Update' ? formData.id : nextId}`}</Typography>
-      <Stack direction={'row'}>
+      <Typography variant="h6">{`ID: ${type === "Update" ? formData.id : nextId}`}</Typography>
+      <Stack direction={"row"}>
         <TextField
           style={inputLeft}
           type="text"
           label="Reference"
           variant="outlined"
           className="inputLeft"
-          {...register('reference')}
-          defaultValue={type === 'Update' ? formData.reference : ''}
-          error={errors.hasOwnProperty('reference')}
-          helperText={errors.hasOwnProperty('reference') ? errors.reference.message : ''}
+          {...register("reference")}
+          defaultValue={type === "Update" ? formData.reference : ""}
+          error={errors.hasOwnProperty("reference")}
+          helperText={errors.hasOwnProperty("reference") ? errors.reference.message : ""}
         />
         <TextField
           style={inputRight}
           type="text"
           label="Link"
           variant="outlined"
-          {...register('link')}
-          defaultValue={type === 'Update' ? formData.link : ''}
-          error={errors.hasOwnProperty('link')}
-          helperText={errors.hasOwnProperty('link') ? errors.link.message : ''}
+          {...register("link")}
+          defaultValue={type === "Update" ? formData.link : ""}
+          error={errors.hasOwnProperty("link")}
+          helperText={errors.hasOwnProperty("link") ? errors.link.message : ""}
         />
       </Stack>
-      <Stack direction={'row'}>
+      <Stack direction={"row"}>
         <TextField
           style={inputLeft}
           select
           label="Type"
           variant="outlined"
-          defaultValue={type === 'Update' ? formData.type : ''}
-          {...register('type')}
-          error={errors.hasOwnProperty('type')}
-          helperText={errors.hasOwnProperty('type') ? errors.type.message : ''}
+          defaultValue={type === "Update" ? formData.type : ""}
+          {...register("type")}
+          error={errors.hasOwnProperty("type")}
+          helperText={errors.hasOwnProperty("type") ? errors.type.message : ""}
         >
           {types.map((mItem) => (
             <MenuItem key={`form_type_${mItem}`} value={mItem}>
@@ -97,10 +97,10 @@ const AppendixForm: React.FC<IntAppendixForm> = ({ type, nextId, types, topics, 
           select
           label="Topic"
           variant="outlined"
-          defaultValue={type === 'Update' ? formData.topic : ''}
-          {...register('topic')}
-          error={errors.hasOwnProperty('topic')}
-          helperText={errors.hasOwnProperty('topic') ? errors.topic.message : ''}
+          defaultValue={type === "Update" ? formData.topic : ""}
+          {...register("topic")}
+          error={errors.hasOwnProperty("topic")}
+          helperText={errors.hasOwnProperty("topic") ? errors.topic.message : ""}
         >
           {topics.map((topic) => (
             <MenuItem key={`form_topic_${topic}`} value={topic}>
@@ -114,10 +114,10 @@ const AppendixForm: React.FC<IntAppendixForm> = ({ type, nextId, types, topics, 
         type="text"
         label="Comments"
         variant="outlined"
-        {...register('comments')}
-        defaultValue={type === 'Update' ? formData.comments : ''}
+        {...register("comments")}
+        defaultValue={type === "Update" ? formData.comments : ""}
       />
-      <Stack direction={'row'} justifyContent={'end'} id="formButton">
+      <Stack direction={"row"} justifyContent={"end"} id="formButton">
         <Button type="submit" disabled={!isValid} variant="contained" color="primary" sx={{ width: 125 }}>
           {type}
         </Button>

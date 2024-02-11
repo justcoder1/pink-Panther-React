@@ -1,10 +1,10 @@
-import React, { Suspense } from 'react';
-import { ErrorBoundary } from 'react-error-boundary';
+import React, { Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
 
-import { ErrorHandler, Spinner } from '../../../_utils/globals/components/Fallbacks/Fallbacks';
-import AuthenticatedLayout from '../../_AuthenticatedLayout/pages/Authenticated/AuthenticatedLayoutView';
-import HomePageLayout from '../components/HomePageLayout/HomePageLayout';
-import useHomePageModel from './use-home-page.view-model';
+import { ErrorHandler, Spinner } from "../../../_utils/globals/components/Fallbacks/Fallbacks";
+import AuthenticatedLayout from "../../_AuthenticatedLayout/pages/Authenticated/AuthenticatedLayoutView";
+import HomePageLayout from "../components/HomePageLayout/HomePageLayout";
+import useHomePageModel from "./use-home-page.view-model";
 
 interface IntHomePage {}
 

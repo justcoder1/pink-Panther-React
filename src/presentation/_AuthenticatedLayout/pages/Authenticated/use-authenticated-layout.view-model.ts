@@ -1,7 +1,7 @@
-import { useErrorHandler } from 'react-error-boundary';
-import { useIntl } from 'react-intl';
+import { useErrorHandler } from "react-error-boundary";
+import { useIntl } from "react-intl";
 
-import { ViewModelHook } from '../../../../_utils/types/index';
+import { ViewModelHook } from "../../../../_utils/types/index";
 
 interface IntAuthenticatedLayoutModel {
   footer: string;
@@ -14,13 +14,13 @@ const useAuthenticatedLayoutModel: ViewModelHook<IntAuthenticatedLayoutModel> = 
 
   try {
     const footer: string = intl.formatMessage({
-      id: 'footer',
+      id: "footer",
       defaultMessage: `justCoder ${new Date().getFullYear()}`,
     });
 
     return {
       footer,
-      footerLink: 'http://www.justcoder.co.uk',
+      footerLink: "http://www.justcoder.co.uk",
     };
   } catch (error) {
     handleError(error);

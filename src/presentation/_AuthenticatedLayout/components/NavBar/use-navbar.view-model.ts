@@ -1,9 +1,9 @@
-import { useSuspenseQuery } from '@tanstack/react-query';
-import { useErrorHandler } from 'react-error-boundary';
-import { useIntl } from 'react-intl';
-import { useIntlCommon } from '../../../../_utils/lang/intl-common';
-import { ViewModelHook } from '../../../../_utils/types/index';
-import { getNavBar } from '../../_connections/connections';
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { useErrorHandler } from "react-error-boundary";
+import { useIntl } from "react-intl";
+import { useIntlCommon } from "../../../../_utils/lang/intl-common";
+import { ViewModelHook } from "../../../../_utils/types/index";
+import { getNavBar } from "../../_connections/connections";
 
 export interface IntNavBarItem {
   _id: string;
@@ -23,7 +23,7 @@ const useNavBarViewModel: ViewModelHook<IntNavBar> = () => {
 
   // API data
   const { data: navBarData } = useSuspenseQuery({
-    queryKey: ['navBar'],
+    queryKey: ["navBar"],
     queryFn: getNavBar,
   });
 

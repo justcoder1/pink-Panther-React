@@ -1,8 +1,8 @@
-import { useSuspenseQuery } from '@tanstack/react-query';
-import { useErrorHandler } from 'react-error-boundary';
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { useErrorHandler } from "react-error-boundary";
 
-import { ViewModelHook } from '../../../../_utils/types/index';
-import { getSocials } from '../../_connections/connections';
+import { ViewModelHook } from "../../../../_utils/types/index";
+import { getSocials } from "../../_connections/connections";
 
 export interface IntSocialData {
   _id: string;
@@ -20,7 +20,7 @@ const useSocialsModel: ViewModelHook<IntSocialsModel> = () => {
 
   // API data
   const { data: socialsData } = useSuspenseQuery({
-    queryKey: ['socials'],
+    queryKey: ["socials"],
     queryFn: getSocials,
   });
 

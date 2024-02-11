@@ -1,9 +1,9 @@
-import React, { Suspense } from 'react';
-import { ErrorBoundary } from 'react-error-boundary';
-import { ErrorHandler, SkeletonMain } from '../../../_utils/globals/components/Fallbacks/Fallbacks';
-import AuthenticatedLayout from '../../_AuthenticatedLayout/pages/Authenticated/AuthenticatedLayoutView';
-import GalleryPageLayout from '../components/GalleryPageLayout/GalleryPageLayout';
-import useGalleryModel from './use-gallery-page.view-model';
+import React, { Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
+import { ErrorHandler, SkeletonMain } from "../../../_utils/globals/components/Fallbacks/Fallbacks";
+import AuthenticatedLayout from "../../_AuthenticatedLayout/pages/Authenticated/AuthenticatedLayoutView";
+import GalleryPageLayout from "../components/GalleryPageLayout/GalleryPageLayout";
+import useGalleryModel from "./use-gallery-page.view-model";
 
 interface IntGalleryPage {}
 

@@ -1,15 +1,15 @@
-import { Box, Button, Stack, Typography } from '@mui/material';
-import React, { useCallback, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Box, Button, Stack, Typography } from "@mui/material";
+import React, { useCallback, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-import { IntGalleryModel } from '../../pages/use-gallery-page.view-model';
-import GalleryCarousel from '../GalleryCarousel/GalleryCarousel';
-import './GalleryPageLayout.css';
-import useGalleryPageLayoutModel, { IntGalleryPageLayoutModel } from './use-gallery-page-layout.view-model';
+import { IntGalleryModel } from "../../pages/use-gallery-page.view-model";
+import GalleryCarousel from "../GalleryCarousel/GalleryCarousel";
+import "./GalleryPageLayout.css";
+import useGalleryPageLayoutModel, { IntGalleryPageLayoutModel } from "./use-gallery-page-layout.view-model";
 
 const GalleryPageLayout: React.FC<IntGalleryModel> = ({ title }) => {
   const [imageType, setImageType] = useState(
-    `${window.location.href.substring(window.location.href.lastIndexOf('/') + 1)}`
+    `${window.location.href.substring(window.location.href.lastIndexOf("/") + 1)}`
   );
   const [imageId, setImageId] = useState(0);
   const [imageMaxId, setImageMaxId] = useState(0);
@@ -30,7 +30,7 @@ const GalleryPageLayout: React.FC<IntGalleryModel> = ({ title }) => {
   const handleNextButton = useCallback(() => {
     if (vm.pictures.length) {
       setImageId(imageMaxId < 0 ? 0 : imageId + 1 > imageMaxId ? 0 : imageId + 1);
-      updateDetails({ ...(imageType === 'picture' ? vm.pictures[imageId] : vm.videos[imageId]), id: imageId + 1 });
+      updateDetails({ ...(imageType === "picture" ? vm.pictures[imageId] : vm.videos[imageId]), id: imageId + 1 });
     } else {
       setImageMaxId(imageMaxId - 1);
     }
@@ -38,11 +38,11 @@ const GalleryPageLayout: React.FC<IntGalleryModel> = ({ title }) => {
 
   const handleBackButton = () => {
     setImageId(imageId - 1 < 0 ? imageMaxId : imageId - 1);
-    updateDetails({ ...(imageType === 'picture' ? vm.pictures[imageId] : vm.videos[imageId]), id: imageId + 1 });
+    updateDetails({ ...(imageType === "picture" ? vm.pictures[imageId] : vm.videos[imageId]), id: imageId + 1 });
   };
 
   const handleRoute = () => {
-    const address = imageType === 'picture' ? 'video' : 'picture';
+    const address = imageType === "picture" ? "video" : "picture";
     setImageType(address);
     setImageId(0);
     setImageMaxId(0);
@@ -51,8 +51,8 @@ const GalleryPageLayout: React.FC<IntGalleryModel> = ({ title }) => {
   };
 
   useEffect(() => {
-    setImageMaxId((imageType === 'picture' ? vm.pictures.length : vm.videos.length) - 1);
-    if (imageType === 'picture') {
+    setImageMaxId((imageType === "picture" ? vm.pictures.length : vm.videos.length) - 1);
+    if (imageType === "picture") {
       const interval = setTimeout(
         () => {
           handleNextButton();
@@ -72,11 +72,11 @@ const GalleryPageLayout: React.FC<IntGalleryModel> = ({ title }) => {
   }, [handleNextButton, imageDetails, imageType, vm.pictures.length, vm.videos.length]);
 
   return (
-    <Stack justifyContent={'center'} alignItems={'center'}>
-      <Box maxWidth={1200} margin={1} sx={{ textAlign: 'center' }}>
-        <Stack direction={'row'} justifyContent={'end'}>
+    <Stack justifyContent={"center"} alignItems={"center"}>
+      <Box maxWidth={1200} margin={1} sx={{ textAlign: "center" }}>
+        <Stack direction={"row"} justifyContent={"end"}>
           <Button color="secondary" variant="contained" onClick={handleRoute}>{`Show ${
-            imageType === 'picture' ? 'Videos' : 'Pictures'
+            imageType === "picture" ? "Videos" : "Pictures"
           }`}</Button>
         </Stack>
         <Typography variant="h2" id="history_h2">

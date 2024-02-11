@@ -1,6 +1,6 @@
-import React from 'react';
-import AuthenticatedLayout from '../../_AuthenticatedLayout/pages/Authenticated/AuthenticatedLayoutView';
-import useUserModel from './use-user-page.view-model';
+import React from "react";
+import AuthenticatedLayout from "../../_AuthenticatedLayout/pages/Authenticated/AuthenticatedLayoutView";
+import useUserModel from "./use-user-page.view-model";
 
 interface IntUserPage {}
 
