@@ -1,5 +1,4 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { useErrorHandler } from "react-error-boundary";
 import { useIntlCommon } from "../../../_utils/lang/intl-common";
 import { ViewModelHook } from "../../../_utils/types/index";
 import { getUsers } from "../_connections/connections";
@@ -9,7 +8,6 @@ interface IntUserModel {
 }
 
 const useUserModel: ViewModelHook<IntUserModel> = () => {
-  const handleError = useErrorHandler();
   const { userLabel } = useIntlCommon();
 
   // API data
@@ -25,7 +23,7 @@ const useUserModel: ViewModelHook<IntUserModel> = () => {
       title: userLabel,
     };
   } catch (error) {
-    handleError(error);
+    return error;
   }
 };
 

@@ -1,4 +1,3 @@
-import { useErrorHandler } from "react-error-boundary";
 import { useIntl } from "react-intl";
 
 import { ViewModelHook } from "../../../../_utils/types/index";
@@ -9,7 +8,6 @@ interface IntAuthenticatedLayoutModel {
 }
 
 const useAuthenticatedLayoutModel: ViewModelHook<IntAuthenticatedLayoutModel> = () => {
-  const handleError = useErrorHandler();
   const intl = useIntl();
 
   try {
@@ -23,7 +21,7 @@ const useAuthenticatedLayoutModel: ViewModelHook<IntAuthenticatedLayoutModel> = 
       footerLink: "http://www.justcoder.co.uk",
     };
   } catch (error) {
-    handleError(error);
+    return error;
   }
 };
 

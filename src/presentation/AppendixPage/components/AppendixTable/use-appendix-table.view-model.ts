@@ -1,7 +1,6 @@
 import { useMutation, useQueryClient, useSuspenseQuery } from "@tanstack/react-query";
 import { useConfirm } from "material-ui-confirm";
 import { useSnackbar } from "notistack";
-import { useErrorHandler } from "react-error-boundary";
 import { useIntl } from "react-intl";
 import { noop } from "../../../../_utils/hooks/functions";
 import { ViewModelHook } from "../../../../_utils/types/index";
@@ -27,7 +26,6 @@ export interface IntAppendixTableModel {
 }
 
 const useAppendixTableModel: ViewModelHook<IntAppendixTableModel> = () => {
-  const handleError = useErrorHandler();
   const intl = useIntl();
   const queryClient = useQueryClient();
   const confirm = useConfirm();
@@ -109,7 +107,7 @@ const useAppendixTableModel: ViewModelHook<IntAppendixTableModel> = () => {
       onFormClick,
     };
   } catch (error) {
-    handleError(error);
+    return error;
   }
 };
 

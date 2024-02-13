@@ -1,4 +1,3 @@
-import { useErrorHandler } from "react-error-boundary";
 import { useIntl } from "react-intl";
 
 import { ViewModelHook } from "../../../_utils/types/index";
@@ -8,7 +7,6 @@ export interface IntGalleryModel {
 }
 
 const useGalleryModel: ViewModelHook<IntGalleryModel> = () => {
-  const handleError = useErrorHandler();
   const intl = useIntl();
 
   try {
@@ -18,7 +16,7 @@ const useGalleryModel: ViewModelHook<IntGalleryModel> = () => {
       title,
     };
   } catch (error) {
-    handleError(error);
+    return error;
   }
 };
 

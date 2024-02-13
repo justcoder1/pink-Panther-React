@@ -1,5 +1,4 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { useErrorHandler } from "react-error-boundary";
 import { useIntl } from "react-intl";
 import { ViewModelHook, TableTypes } from "../../../../_utils/types/index";
 import { getHistory } from "../../_connections/connections";
@@ -10,7 +9,7 @@ interface IntHistoryData {
     {
       type?: TableTypes;
       value?: TableTypes;
-    }[]?,
+    }[]?
   ];
 }
 
@@ -25,7 +24,6 @@ export interface IntHistoryPageLayoutModel {
 }
 
 const useHistoryPageLayoutModel: ViewModelHook<IntHistoryPageLayoutModel> = () => {
-  const handleError = useErrorHandler();
   const intl = useIntl();
   const content: IntHistoryContent = { title: "", data: { columns: [], rows: [] } };
 
@@ -50,7 +48,7 @@ const useHistoryPageLayoutModel: ViewModelHook<IntHistoryPageLayoutModel> = () =
       content,
     };
   } catch (error) {
-    handleError(error);
+    return error;
   }
 };
 

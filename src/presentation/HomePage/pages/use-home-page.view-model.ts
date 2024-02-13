@@ -1,4 +1,3 @@
-import { useErrorHandler } from "react-error-boundary";
 import { useIntl } from "react-intl";
 import { useIntlCommon } from "../../../_utils/lang/intl-common";
 import { ViewModelHook } from "../../../_utils/types/index";
@@ -13,7 +12,6 @@ export interface IntHomePageModel {
 }
 
 const useHomePageModel: ViewModelHook<IntHomePageModel> = () => {
-  const handleError = useErrorHandler();
   const intl = useIntl();
   const { siteLabel } = useIntlCommon();
 
@@ -31,7 +29,7 @@ const useHomePageModel: ViewModelHook<IntHomePageModel> = () => {
       imageMobile,
     };
   } catch (error) {
-    handleError(error);
+    return error;
   }
 };
 

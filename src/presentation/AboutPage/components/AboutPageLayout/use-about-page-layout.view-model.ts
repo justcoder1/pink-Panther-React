@@ -1,5 +1,4 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { useErrorHandler } from "react-error-boundary";
 import { useIntl } from "react-intl";
 import { ViewModelHook } from "../../../../_utils/types/index";
 import { getAbout } from "../../_connections/connections";
@@ -11,7 +10,6 @@ export interface IntAboutPageLayout {
 }
 
 const useAboutPageLayoutModel: ViewModelHook<IntAboutPageLayout> = () => {
-  const handleError = useErrorHandler();
   const intl = useIntl();
 
   // API data
@@ -40,7 +38,7 @@ const useAboutPageLayoutModel: ViewModelHook<IntAboutPageLayout> = () => {
       contents,
     };
   } catch (error) {
-    handleError(error);
+    return error;
   }
 };
 

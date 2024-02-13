@@ -1,4 +1,3 @@
-import { useErrorHandler } from "react-error-boundary";
 import { useIntl } from "react-intl";
 import { useNavigate } from "react-router-dom";
 
@@ -24,7 +23,6 @@ export interface IntLandingPageModel {
 }
 
 const useLandingPageModel: ViewModelHook<IntLandingPageModel> = () => {
-  const handleError = useErrorHandler();
   const navigate = useNavigate();
   const intl = useIntl();
   const { siteLabel, emailLabel, passwordLabel, loginLabel, registerLabel } = useIntlCommon();
@@ -56,7 +54,7 @@ const useLandingPageModel: ViewModelHook<IntLandingPageModel> = () => {
       },
     };
   } catch (error) {
-    handleError(error);
+    return error;
   }
 };
 

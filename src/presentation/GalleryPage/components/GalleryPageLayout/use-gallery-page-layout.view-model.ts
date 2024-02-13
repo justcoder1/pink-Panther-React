@@ -1,5 +1,4 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { useErrorHandler } from "react-error-boundary";
 import { ViewModelHook } from "../../../../_utils/types/index";
 import { getPictures, getVideos } from "../../_connections/connections";
 
@@ -27,8 +26,6 @@ export interface IntGalleryPageLayoutModel {
 }
 
 const useGalleryPageLayoutModel: ViewModelHook<IntGalleryPageLayoutModel> = () => {
-  const handleError = useErrorHandler();
-
   // API data
   const { data: picturesData } = useSuspenseQuery({
     queryKey: ["pictures"],
@@ -46,7 +43,7 @@ const useGalleryPageLayoutModel: ViewModelHook<IntGalleryPageLayoutModel> = () =
       videos: videosData,
     };
   } catch (error) {
-    handleError(error);
+    return error;
   }
 };
 
