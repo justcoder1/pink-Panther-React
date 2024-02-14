@@ -135,3 +135,4 @@
 - eslint and prettier added back to the project.
 - Changed interfaces for types to add consistancy
   <r>FE - Merged 50 into main - Linting</r>
+- bug fix in History page pushed staright to main
