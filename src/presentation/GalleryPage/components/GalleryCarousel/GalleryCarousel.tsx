@@ -4,15 +4,15 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 import "./GalleryCarousel.css";
 
-interface IntGalleryCarousel {
+type T_GalleryCarousel = {
   type: string;
   title: string;
   image: string;
   nextButton: () => void;
   backButton: () => void;
-}
+};
 
-const GalleryCarousel: React.FC<IntGalleryCarousel> = ({ type, title, image, nextButton, backButton }) => {
+const GalleryCarousel: React.FC<T_GalleryCarousel> = ({ type, title, image, nextButton, backButton }) => {
   return (
     <Stack justifyContent={"center"} alignItems={"center"}>
       {type === "picture" && <img src={image} alt={title} className="galleryPicture" />}

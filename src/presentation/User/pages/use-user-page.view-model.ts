@@ -3,11 +3,11 @@ import { useIntlCommon } from "../../../_utils/lang/intl-common";
 import { type ViewModelHook } from "../../../_utils/types/index";
 import { getUsers } from "../_connections/connections";
 
-interface IntUserModel {
+type T_UserModel = {
   title: string;
-}
+};
 
-const useUserModel: ViewModelHook<IntUserModel> = () => {
+const useUserModel: ViewModelHook<T_UserModel> = () => {
   const { userLabel } = useIntlCommon();
 
   // API data

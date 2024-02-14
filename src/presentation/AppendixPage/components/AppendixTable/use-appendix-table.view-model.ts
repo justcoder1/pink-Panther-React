@@ -6,7 +6,7 @@ import { noop } from "../../../../_utils/hooks/functions";
 import { type ViewModelHook } from "../../../../_utils/types/index";
 import { createAppendix, deleteAppendix, getAppendixs, updateAppendix } from "../../_connections/connections";
 
-export interface IntAppendixData {
+export type T_AppendixData = {
   _id?: string;
   id: number;
   reference: string;
@@ -14,18 +14,18 @@ export interface IntAppendixData {
   type: "Documentation" | "Video" | "Reference";
   topic: "TypeScript" | "Testing" | "JavaScript" | "Data" | "Angular" | "React" | "Node" | "SQL" | "MongoDB";
   comments?: string;
-}
+};
 
-export interface IntAppendixTableModel {
+export type T_AppendixTableModel = {
   columns: string[];
   rows: any;
   types: string[];
   topics: string[];
   onDeleteClick: (_id: string, id: string) => void;
-  onFormClick: (data: IntAppendixData) => void;
-}
+  onFormClick: (data: T_AppendixData) => void;
+};
 
-const useAppendixTableModel: ViewModelHook<IntAppendixTableModel> = () => {
+const useAppendixTableModel: ViewModelHook<T_AppendixTableModel> = () => {
   const intl = useIntl();
   const queryClient = useQueryClient();
   const confirm = useConfirm();
@@ -45,7 +45,7 @@ const useAppendixTableModel: ViewModelHook<IntAppendixTableModel> = () => {
   });
 
   const { mutate: onFormClick } = useMutation({
-    mutationFn: async (data: IntAppendixData) => (data._id ? await updateAppendix(data) : await createAppendix(data)),
+    mutationFn: async (data: T_AppendixData) => (data._id ? await updateAppendix(data) : await createAppendix(data)),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["appendix"], exact: true });
     },

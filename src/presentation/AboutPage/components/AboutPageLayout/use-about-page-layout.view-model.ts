@@ -3,13 +3,13 @@ import { useIntl } from "react-intl";
 import { type ViewModelHook } from "../../../../_utils/types/index";
 import { getAbout } from "../../_connections/connections";
 
-export interface IntAboutPageLayout {
+export type T_AboutPageLayout = {
   title: string;
   subTitle: string;
   contents: string;
-}
+};
 
-const useAboutPageLayoutModel: ViewModelHook<IntAboutPageLayout> = () => {
+const useAboutPageLayoutModel: ViewModelHook<T_AboutPageLayout> = () => {
   const intl = useIntl();
 
   // API data

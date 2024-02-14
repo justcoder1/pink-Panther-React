@@ -3,7 +3,7 @@ import { useIntl } from "react-intl";
 import { type ViewModelHook, type TableTypes } from "../../../../_utils/types/index";
 import { getHistory } from "../../_connections/connections";
 
-interface IntHistoryData {
+type T_HistoryData = {
   columns: string[];
   rows: [
     Array<{
@@ -11,21 +11,21 @@ interface IntHistoryData {
       value?: TableTypes;
     }>?,
   ];
-}
+};
 
-interface IntHistoryContent {
+type T_HistoryContent = {
   title: string;
-  data: IntHistoryData;
-}
+  data: T_HistoryData;
+};
 
-export interface IntHistoryPageLayoutModel {
+export type T_HistoryPageLayoutModel = {
   title: string;
-  content: IntHistoryContent;
-}
+  content: T_HistoryContent;
+};
 
-const useHistoryPageLayoutModel: ViewModelHook<IntHistoryPageLayoutModel> = () => {
+const useHistoryPageLayoutModel: ViewModelHook<T_HistoryPageLayoutModel> = () => {
   const intl = useIntl();
-  const content: IntHistoryContent = { title: "", data: { columns: [], rows: [] } };
+  const content: T_HistoryContent = { title: "", data: { columns: [], rows: [] } };
 
   // API data
   const { data: historyData } = useSuspenseQuery({

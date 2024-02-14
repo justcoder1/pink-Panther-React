@@ -16,19 +16,16 @@ import { FaPencilAlt, FaTrash } from "react-icons/fa";
 
 import AppModal from "../../../../_utils/globals/components/Modal/Modal";
 import AppendixForm from "../AppendixForm/AppendixForm";
-import useAppendixTableModel, {
-  type IntAppendixData,
-  type IntAppendixTableModel,
-} from "./use-appendix-table.view-model";
+import useAppendixTableModel, { type T_AppendixData, type T_AppendixTableModel } from "./use-appendix-table.view-model";
 
 const AppendixTable: React.FC = () => {
   const [showIconId, setshowIconId] = useState(-1);
   const [showModal, setShowModal] = useState(false);
   const [formType, setformType] = useState<"Create" | "Update">("Create");
   const [nextId, setNextId] = useState(0);
-  const [formData, setFormData] = useState<IntAppendixData>(null);
+  const [formData, setFormData] = useState<T_AppendixData>(null);
 
-  const vm: IntAppendixTableModel = useAppendixTableModel();
+  const vm: T_AppendixTableModel = useAppendixTableModel();
 
   const openModal = (type, rowData): void => {
     if (type === "Update") {
@@ -38,7 +35,7 @@ const AppendixTable: React.FC = () => {
     setShowModal(true);
   };
 
-  const onFormSubmit = (data: IntAppendixData): void => {
+  const onFormSubmit = (data: T_AppendixData): void => {
     if (formType === "Create") {
       setNextId(data.id + 1);
     }

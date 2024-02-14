@@ -1,11 +1,11 @@
 import { Box, Stack, Typography } from "@mui/material";
 import React from "react";
 
-import { type IntAppendixModel } from "../../pages/use-appendix-page.view-model";
+import { type T_AppendixModel } from "../../pages/use-appendix-page.view-model";
 import AppendixTable from "../AppendixTable/AppendixTable";
 import "./AppendixPageLayout.css";
 
-const AppendixPageLayout: React.FC<IntAppendixModel> = ({ title }) => {
+const AppendixPageLayout: React.FC<T_AppendixModel> = ({ title }) => {
   return (
     <Stack justifyContent={"center"} alignItems={"center"}>
       <Box margin={10} sx={{ textAlign: "center" }}>

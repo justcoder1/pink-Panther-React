@@ -3,20 +3,20 @@ import { Button, MenuItem, Stack, TextField, Typography } from "@mui/material";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { object, string } from "yup";
-import { type IntAppendixData } from "../../components/AppendixTable/use-appendix-table.view-model";
+import { type T_AppendixData } from "../../components/AppendixTable/use-appendix-table.view-model";
 
 import "./AppendixForm.css";
 
-interface IntAppendixForm {
+type T_AppendixForm = {
   type: "Create" | "Update";
   nextId?: number;
   topics: string[];
   types: string[];
-  formData?: IntAppendixData;
-  onFormSubmit?: (data: IntAppendixData) => void;
-}
+  formData?: T_AppendixData;
+  onFormSubmit?: (data: T_AppendixData) => void;
+};
 
-const AppendixForm: React.FC<IntAppendixForm> = ({ type, nextId, types, topics, formData, onFormSubmit }) => {
+const AppendixForm: React.FC<T_AppendixForm> = ({ type, nextId, types, topics, formData, onFormSubmit }) => {
   // Styles ---------------------
   const inputLeft = { width: "300px", margin: "10px 10px 10px 0px" };
   const inputRight = { width: "300px", margin: "10px 0px" };

@@ -1,11 +1,11 @@
 import { useIntl } from "react-intl";
 import { type ViewModelHook } from "../../../_utils/types/index";
 
-export interface IntAppendixModel {
+export type T_AppendixModel = {
   title: string;
-}
+};
 
-const useAppendixModel: ViewModelHook<IntAppendixModel> = () => {
+const useAppendixModel: ViewModelHook<T_AppendixModel> = () => {
   const intl = useIntl();
 
   try {

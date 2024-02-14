@@ -4,18 +4,18 @@ import { useIntlCommon } from "../../../../_utils/lang/intl-common";
 import { type ViewModelHook } from "../../../../_utils/types/index";
 import { getNavBar } from "../../_connections/connections";
 
-export interface IntNavBarItem {
+export type T_NavBarItem = {
   _id: string;
   title: string;
   link: string;
-}
+};
 
-export interface IntNavBar {
+export type T_NavBar = {
   header: string;
-  headerItems: IntNavBarItem[];
-}
+  headerItems: T_NavBarItem[];
+};
 
-const useNavBarViewModel: ViewModelHook<IntNavBar> = () => {
+const useNavBarViewModel: ViewModelHook<T_NavBar> = () => {
   const { siteLabel } = useIntlCommon();
   const intl = useIntl();
 

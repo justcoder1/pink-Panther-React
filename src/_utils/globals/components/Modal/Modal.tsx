@@ -4,15 +4,15 @@ import { MdClose } from "react-icons/md";
 
 import "./Modal.css";
 
-interface IntModal {
+type T_Modal = {
   show: boolean;
   hide?: () => void;
   title?: string;
   modalMinWidth?: number;
   modalMaxWidth?: number;
-}
+};
 
-const AppModal: React.FC<React.PropsWithChildren<IntModal>> = ({
+const AppModal: React.FC<React.PropsWithChildren<T_Modal>> = ({
   show,
   hide,
   title,

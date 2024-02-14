@@ -5,7 +5,7 @@ import landingImage from "../../../assets/PP_404.png";
 import { useIntlCommon } from "../../../_utils/lang/intl-common";
 import { type ViewModelHook } from "../../../_utils/types/index";
 
-export interface IntUserLogin {
+export type T_UserLogin = {
   title: string;
   email: string;
   password: string;
@@ -13,16 +13,16 @@ export interface IntUserLogin {
   createText: string;
   registerLabel: string;
   onLoginClick: (email: string, password: string) => void;
-}
+};
 
-export interface IntLandingPageModel {
+export type T_LandingPageModel = {
   title: string;
   subTitle: string;
   landingImage: string;
-  LoginData: IntUserLogin;
-}
+  LoginData: T_UserLogin;
+};
 
-const useLandingPageModel: ViewModelHook<IntLandingPageModel> = () => {
+const useLandingPageModel: ViewModelHook<T_LandingPageModel> = () => {
   const navigate = useNavigate();
   const intl = useIntl();
   const { siteLabel, emailLabel, passwordLabel, loginLabel, registerLabel } = useIntlCommon();
