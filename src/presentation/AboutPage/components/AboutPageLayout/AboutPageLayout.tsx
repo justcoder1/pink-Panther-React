@@ -2,10 +2,10 @@ import { Box, Stack, Typography } from "@mui/material";
 import React from "react";
 
 import "./AboutPageLayout.css";
-import useAboutPageLayoutModel, { IntAboutPageLayout } from "./use-about-page-layout.view-model";
+import useAboutPageLayoutModel, { type T_AboutPageLayout } from "./use-about-page-layout.view-model";
 
 const AboutPageLayout: React.FC = () => {
-  const vm: IntAboutPageLayout = useAboutPageLayoutModel();
+  const vm: T_AboutPageLayout = useAboutPageLayoutModel();
 
   return (
     <Stack justifyContent={"center"} alignItems={"center"}>

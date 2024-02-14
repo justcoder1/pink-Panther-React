@@ -13,11 +13,10 @@ import React, { useState } from "react";
 import { FaBars, FaPaw } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 
-import useNavBarViewModel from "./use-navbar.view-model";
-import { IntNavBar } from "./use-navbar.view-model";
+import useNavBarViewModel, { type T_NavBar } from "./use-navbar.view-model";
 
 export const NavBarItems: React.FC = () => {
-  const vm: IntNavBar = useNavBarViewModel();
+  const vm: T_NavBar = useNavBarViewModel();
   const showMobile = useMediaQuery("(max-width: 900px)");
 
   return (
@@ -36,7 +35,7 @@ export const NavBarItems: React.FC = () => {
   );
 };
 
-const NavFullScreen: React.FC<Partial<IntNavBar>> = ({ headerItems }) => {
+const NavFullScreen: React.FC<Partial<T_NavBar>> = ({ headerItems }) => {
   return (
     <>
       {headerItems?.map((item) => (
@@ -52,7 +51,7 @@ const NavFullScreen: React.FC<Partial<IntNavBar>> = ({ headerItems }) => {
   );
 };
 
-const NavMobile: React.FC<Partial<IntNavBar>> = ({ headerItems }) => {
+const NavMobile: React.FC<Partial<T_NavBar>> = ({ headerItems }) => {
   const [drawState, setDrawState] = useState(false);
 
   const toggleDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {

@@ -1,14 +1,15 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Box, Button, TextField, Typography } from "@mui/material";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { NavLink } from "react-router-dom";
 import * as yup from "yup";
 import YupPassword from "yup-password";
 
-import { IntUserLogin } from "../../pages/use-landing-page.view-model";
+import { type T_UserLogin } from "../../pages/use-landing-page.view-model";
 import "./UserLogin.css";
 
-const UserLogin: React.FC<IntUserLogin> = ({
+const UserLogin: React.FC<T_UserLogin> = ({
   title,
   email,
   password,
@@ -21,7 +22,7 @@ const UserLogin: React.FC<IntUserLogin> = ({
   const inputFull = { width: "100%", margin: "10px 0px" };
 
   // form Schema ----------------
-  let loginSchema = yup
+  const loginSchema = yup
     .object({
       email: yup.string().email().required("Missing Email"),
       password: yup.string().password().required("Missing Password"),

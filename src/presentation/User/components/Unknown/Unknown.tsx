@@ -1,10 +1,11 @@
+import React from "react";
 import { Box } from "@mui/material";
 
-interface IntUnknown {
+type T_Unknown = {
   reference?: string;
-}
+};
 
-const Unknown: React.FC<IntUnknown> = ({ reference }) => {
+const Unknown: React.FC<T_Unknown> = ({ reference }) => {
   return <Box>{reference || "NavBar"}</Box>;
 };
 

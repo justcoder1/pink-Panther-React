@@ -2,24 +2,27 @@ import { Box, Button, Stack, Typography } from "@mui/material";
 import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { IntGalleryModel } from "../../pages/use-gallery-page.view-model";
+import { type T_GalleryModel } from "../../pages/use-gallery-page.view-model";
 import GalleryCarousel from "../GalleryCarousel/GalleryCarousel";
 import "./GalleryPageLayout.css";
-import useGalleryPageLayoutModel, { IntGalleryPageLayoutModel } from "./use-gallery-page-layout.view-model";
+import useGalleryPageLayoutModel, {
+  type T_GalleryPageLayoutModel,
+  type T_UpdatedImage,
+} from "./use-gallery-page-layout.view-model";
 
-const GalleryPageLayout: React.FC<IntGalleryModel> = ({ title }) => {
+const GalleryPageLayout: React.FC<T_GalleryModel> = ({ title }) => {
   const [imageType, setImageType] = useState(
     `${window.location.href.substring(window.location.href.lastIndexOf("/") + 1)}`
   );
   const [imageId, setImageId] = useState(0);
   const [imageMaxId, setImageMaxId] = useState(0);
-  const [imageDetails, setImageDetails] = useState(null);
+  const [imageDetails, setImageDetails] = useState<T_UpdatedImage>(null);
 
-  const vm: IntGalleryPageLayoutModel = useGalleryPageLayoutModel();
+  const vm: T_GalleryPageLayoutModel = useGalleryPageLayoutModel();
 
   const navigate = useNavigate();
 
-  const updateDetails = (images) => {
+  const updateDetails = (images): void => {
     setImageDetails({
       title: images.title,
       image: images.url,
@@ -28,7 +31,7 @@ const GalleryPageLayout: React.FC<IntGalleryModel> = ({ title }) => {
   };
 
   const handleNextButton = useCallback(() => {
-    if (vm.pictures.length) {
+    if (vm.pictures.length > 0) {
       setImageId(imageMaxId < 0 ? 0 : imageId + 1 > imageMaxId ? 0 : imageId + 1);
       updateDetails({ ...(imageType === "picture" ? vm.pictures[imageId] : vm.videos[imageId]), id: imageId + 1 });
     } else {
@@ -36,12 +39,12 @@ const GalleryPageLayout: React.FC<IntGalleryModel> = ({ title }) => {
     }
   }, [imageId, imageMaxId, imageType, vm.pictures, vm.videos]);
 
-  const handleBackButton = () => {
+  const handleBackButton = (): void => {
     setImageId(imageId - 1 < 0 ? imageMaxId : imageId - 1);
     updateDetails({ ...(imageType === "picture" ? vm.pictures[imageId] : vm.videos[imageId]), id: imageId + 1 });
   };
 
-  const handleRoute = () => {
+  const handleRoute = (): void => {
     const address = imageType === "picture" ? "video" : "picture";
     setImageType(address);
     setImageId(0);
@@ -59,7 +62,9 @@ const GalleryPageLayout: React.FC<IntGalleryModel> = ({ title }) => {
         },
         imageDetails ? 2000 : 0
       );
-      return () => clearTimeout(interval);
+      return () => {
+        clearTimeout(interval);
+      };
     } else {
       const interval = setTimeout(
         () => {
@@ -67,7 +72,9 @@ const GalleryPageLayout: React.FC<IntGalleryModel> = ({ title }) => {
         },
         imageDetails ? 100000000 : 0
       );
-      return () => clearTimeout(interval);
+      return () => {
+        clearTimeout(interval);
+      };
     }
   }, [handleNextButton, imageDetails, imageType, vm.pictures.length, vm.videos.length]);
 

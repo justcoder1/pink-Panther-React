@@ -3,29 +3,29 @@ import { useConfirm } from "material-ui-confirm";
 import { useSnackbar } from "notistack";
 import { useIntl } from "react-intl";
 import { noop } from "../../../../_utils/hooks/functions";
-import { ViewModelHook } from "../../../../_utils/types/index";
+import { type ViewModelHook } from "../../../../_utils/types/index";
 import { createAppendix, deleteAppendix, getAppendixs, updateAppendix } from "../../_connections/connections";
 
-export interface IntAppendixData {
+export type T_AppendixData = {
   _id?: string;
-  id: Number;
+  id: number;
   reference: string;
   link: string;
   type: "Documentation" | "Video" | "Reference";
   topic: "TypeScript" | "Testing" | "JavaScript" | "Data" | "Angular" | "React" | "Node" | "SQL" | "MongoDB";
   comments?: string;
-}
+};
 
-export interface IntAppendixTableModel {
+export type T_AppendixTableModel = {
   columns: string[];
   rows: any;
   types: string[];
   topics: string[];
   onDeleteClick: (_id: string, id: string) => void;
-  onFormClick: (data: IntAppendixData) => void;
-}
+  onFormClick: (data: T_AppendixData) => void;
+};
 
-const useAppendixTableModel: ViewModelHook<IntAppendixTableModel> = () => {
+const useAppendixTableModel: ViewModelHook<T_AppendixTableModel> = () => {
   const intl = useIntl();
   const queryClient = useQueryClient();
   const confirm = useConfirm();
@@ -45,7 +45,7 @@ const useAppendixTableModel: ViewModelHook<IntAppendixTableModel> = () => {
   });
 
   const { mutate: onFormClick } = useMutation({
-    mutationFn: (data: IntAppendixData) => (data._id ? updateAppendix(data) : createAppendix(data)),
+    mutationFn: async (data: T_AppendixData) => (data._id ? await updateAppendix(data) : await createAppendix(data)),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["appendix"], exact: true });
     },
@@ -62,7 +62,7 @@ const useAppendixTableModel: ViewModelHook<IntAppendixTableModel> = () => {
   };
 
   // FIX - change this to a hook - Issue 27
-  const intlStrings = (list: string[]) => list.map((l) => intl.formatMessage({ id: l, defaultMessage: l }));
+  const intlStrings = (list: string[]): string[] => list.map((l) => intl.formatMessage({ id: l, defaultMessage: l }));
 
   try {
     const types = intlStrings(["Documentation", "Reference", "Video"]);
@@ -99,10 +99,10 @@ const useAppendixTableModel: ViewModelHook<IntAppendixTableModel> = () => {
     // ------------------------------------------- \\
 
     return {
-      columns: columns,
-      rows: rows,
-      types: types,
-      topics: topics,
+      columns,
+      rows,
+      types,
+      topics,
       onDeleteClick,
       onFormClick,
     };

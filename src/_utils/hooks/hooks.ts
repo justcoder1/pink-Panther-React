@@ -1,1 +1,1 @@
-export const CustomHooks = () => {};
+export const CustomHooks = (): void => {};

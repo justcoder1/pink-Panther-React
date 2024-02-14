@@ -1,13 +1,13 @@
 import { useIntl } from "react-intl";
 
-import { ViewModelHook } from "../../../../_utils/types/index";
+import { type ViewModelHook } from "../../../../_utils/types/index";
 
-interface IntAuthenticatedLayoutModel {
+type T_AuthenticatedLayoutModel = {
   footer: string;
   footerLink: string;
-}
+};
 
-const useAuthenticatedLayoutModel: ViewModelHook<IntAuthenticatedLayoutModel> = () => {
+const useAuthenticatedLayoutModel: ViewModelHook<T_AuthenticatedLayoutModel> = () => {
   const intl = useIntl();
 
   try {

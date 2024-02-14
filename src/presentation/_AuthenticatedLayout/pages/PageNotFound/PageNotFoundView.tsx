@@ -6,9 +6,7 @@ import { Link } from "react-router-dom";
 import logo from "../../../../assets/PP_404.png";
 import "./PageNotFoundView.css";
 
-interface IntPageNotFound {}
-
-const PageNotFoundView: React.FC<IntPageNotFound> = () => {
+const PageNotFoundView: React.FC = () => {
   const intl = useIntl();
   const header: string = intl.formatMessage({ id: "header", defaultMessage: "404 - PAGE NOT FOUND" });
   const message: string = intl.formatMessage({

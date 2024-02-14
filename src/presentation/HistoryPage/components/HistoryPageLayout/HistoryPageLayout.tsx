@@ -13,10 +13,10 @@ import {
 import React from "react";
 
 import "./HistoryPageLayout.css";
-import useHistoryPageLayoutModel, { IntHistoryPageLayoutModel } from "./use-history-page-layout.view-model";
+import useHistoryPageLayoutModel, { type T_HistoryPageLayoutModel } from "./use-history-page-layout.view-model";
 
 const HistoryPageLayout: React.FC = () => {
-  const vm: IntHistoryPageLayoutModel = useHistoryPageLayoutModel();
+  const vm: T_HistoryPageLayoutModel = useHistoryPageLayoutModel();
 
   return (
     <Stack justifyContent={"center"} alignItems={"center"}>

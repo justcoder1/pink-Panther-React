@@ -16,18 +16,18 @@ import { FaPencilAlt, FaTrash } from "react-icons/fa";
 
 import AppModal from "../../../../_utils/globals/components/Modal/Modal";
 import AppendixForm from "../AppendixForm/AppendixForm";
-import useAppendixTableModel, { IntAppendixData, IntAppendixTableModel } from "./use-appendix-table.view-model";
+import useAppendixTableModel, { type T_AppendixData, type T_AppendixTableModel } from "./use-appendix-table.view-model";
 
 const AppendixTable: React.FC = () => {
   const [showIconId, setshowIconId] = useState(-1);
   const [showModal, setShowModal] = useState(false);
   const [formType, setformType] = useState<"Create" | "Update">("Create");
   const [nextId, setNextId] = useState(0);
-  const [formData, setFormData] = useState<IntAppendixData>(null);
+  const [formData, setFormData] = useState<T_AppendixData>(null);
 
-  const vm: IntAppendixTableModel = useAppendixTableModel();
+  const vm: T_AppendixTableModel = useAppendixTableModel();
 
-  const openModal = (type, rowData) => {
+  const openModal = (type, rowData): void => {
     if (type === "Update") {
       setFormData(rowData);
     }
@@ -35,7 +35,7 @@ const AppendixTable: React.FC = () => {
     setShowModal(true);
   };
 
-  const onFormSubmit = (data) => {
+  const onFormSubmit = (data: T_AppendixData): void => {
     if (formType === "Create") {
       setNextId(data.id + 1);
     }
@@ -46,13 +46,19 @@ const AppendixTable: React.FC = () => {
 
   useEffect(() => {
     if (vm.rows.length) {
-      setNextId(vm.rows[vm.rows.length - 1][2] + 1);
+      setNextId(+vm.rows[vm.rows.length - 1][2] + 1);
     }
   }, [vm.rows]);
 
   return (
     <>
-      <AppModal show={showModal} hide={() => setShowModal(false)} title={`${formType} Reference`}>
+      <AppModal
+        show={showModal}
+        hide={() => {
+          setShowModal(false);
+        }}
+        title={`${formType} Reference`}
+      >
         <AppendixForm
           type={formType}
           nextId={nextId}
@@ -64,7 +70,13 @@ const AppendixTable: React.FC = () => {
       </AppModal>
 
       <Stack alignItems={"end"} sx={{ margin: "20px 0px" }}>
-        <Button color="secondary" variant="contained" onClick={() => openModal("Create", null)}>
+        <Button
+          color="secondary"
+          variant="contained"
+          onClick={() => {
+            openModal("Create", null);
+          }}
+        >
           Add Reference
         </Button>
       </Stack>
@@ -78,17 +90,19 @@ const AppendixTable: React.FC = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {vm.rows?.map((row, i) => (
+            {vm.rows?.map((row, i: number) => (
               <TableRow
                 key={`appendixTable_${i}`}
                 onMouseEnter={() => {
                   setshowIconId(row[1]);
                 }}
-                onMouseLeave={() => setshowIconId(-1)}
+                onMouseLeave={() => {
+                  setshowIconId(-1);
+                }}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 className="appendixTable_row"
               >
-                {row?.map((r, id) =>
+                {row?.map((r, id: number) =>
                   id === 3 ? (
                     <TableCell key={`appendix_td_${i}_${id}`}>
                       <Link
@@ -108,7 +122,9 @@ const AppendixTable: React.FC = () => {
                 <TableCell key={`appendix_td_${i}_end`}>
                   <IconButton
                     key={`appendix_t_btn_${i}`}
-                    onClick={() => vm.onDeleteClick(row[1], row[2])}
+                    onClick={() => {
+                      vm.onDeleteClick(row[1], row[2]);
+                    }}
                     className="tableIcon"
                     color="primary"
                     sx={{ display: row[1] === showIconId ? "inline" : "none" }}
@@ -117,7 +133,9 @@ const AppendixTable: React.FC = () => {
                   </IconButton>
                   <IconButton
                     key={`appendix_e_btn_${i}`}
-                    onClick={() => openModal("Update", row[0])}
+                    onClick={() => {
+                      openModal("Update", row[0]);
+                    }}
                     className="tableIcon"
                     color="primary"
                     sx={{ display: row[1] === showIconId ? "inline" : "none" }}

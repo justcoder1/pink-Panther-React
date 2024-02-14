@@ -1,12 +1,12 @@
 import { useIntl } from "react-intl";
 
-import { ViewModelHook } from "../../../_utils/types/index";
+import { type ViewModelHook } from "../../../_utils/types/index";
 
-export interface IntGalleryModel {
+export type T_GalleryModel = {
   title: string;
-}
+};
 
-const useGalleryModel: ViewModelHook<IntGalleryModel> = () => {
+const useGalleryModel: ViewModelHook<T_GalleryModel> = () => {
   const intl = useIntl();
 
   try {

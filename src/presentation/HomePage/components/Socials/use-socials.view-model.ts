@@ -1,20 +1,20 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 
-import { ViewModelHook } from "../../../../_utils/types/index";
+import { type ViewModelHook } from "../../../../_utils/types/index";
 import { getSocials } from "../../_connections/connections";
 
-export interface IntSocialData {
+export type T_SocialData = {
   _id: string;
   social?: string;
   icon: string;
   link: string;
-}
+};
 
-export interface IntSocialsModel {
-  socials: IntSocialData[];
-}
+export type T_SocialsModel = {
+  socials: T_SocialData[];
+};
 
-const useSocialsModel: ViewModelHook<IntSocialsModel> = () => {
+const useSocialsModel: ViewModelHook<T_SocialsModel> = () => {
   // API data
   const { data: socialsData } = useSuspenseQuery({
     queryKey: ["socials"],

@@ -1,6 +1,6 @@
 import { useIntl } from "react-intl";
 
-export const useIntlCommon = () => {
+export const useIntlCommon = (): any => {
   const intl = useIntl();
 
   const siteLabel = intl.formatMessage({

@@ -3,10 +3,10 @@ import React from "react";
 import { FaFacebookF, FaTwitter, FaWikipediaW, FaYoutube } from "react-icons/fa";
 
 import "./Socials.css";
-import useSocialsModel, { IntSocialsModel } from "./use-socials.view-model";
+import useSocialsModel, { type T_SocialsModel } from "./use-socials.view-model";
 
 const Socials: React.FC = () => {
-  const vm: IntSocialsModel = useSocialsModel();
+  const vm: T_SocialsModel = useSocialsModel();
 
   return (
     <Stack id="soc_container" direction={"row"}>

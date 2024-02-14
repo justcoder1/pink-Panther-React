@@ -2,9 +2,7 @@ import React from "react";
 import LandingPageLayout from "../components/LandingPageLayout/LandingPageLayout";
 import useLandingPageModel from "./use-landing-page.view-model";
 
-interface IntLandingPage {}
-
-const LandingPage: React.FC<React.PropsWithChildren<IntLandingPage>> = () => {
+const LandingPage: React.FC<React.PropsWithChildren> = () => {
   const vm = useLandingPageModel();
 
   return (

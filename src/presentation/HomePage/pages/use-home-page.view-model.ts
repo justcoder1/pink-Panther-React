@@ -1,17 +1,17 @@
 import { useIntl } from "react-intl";
 import { useIntlCommon } from "../../../_utils/lang/intl-common";
-import { ViewModelHook } from "../../../_utils/types/index";
+import { type ViewModelHook } from "../../../_utils/types/index";
 import imageDesktop from "../../../assets/PP_MainImage.png";
 import imageMobile from "../../../assets/PP_MainImage_Small.png";
 
-export interface IntHomePageModel {
+export type T_HomePageModel = {
   titleOne: string;
   titleTwo: string;
   imageDesktop: string;
   imageMobile: string;
-}
+};
 
-const useHomePageModel: ViewModelHook<IntHomePageModel> = () => {
+const useHomePageModel: ViewModelHook<T_HomePageModel> = () => {
   const intl = useIntl();
   const { siteLabel } = useIntlCommon();
 
