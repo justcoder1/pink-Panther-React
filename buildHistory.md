@@ -133,4 +133,5 @@
 
 - removed precommits as they were not working.
 - eslint and prettier added back to the project.
+- Changed interfaces for types to add consistancy
   <r>FE - Merged 50 into main - Linting</r>

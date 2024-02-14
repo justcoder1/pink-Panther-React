@@ -1,8 +1,9 @@
 import { Button } from "@mui/material";
 import React, { useRef, useState } from "react";
 import { FaVolumeUp } from "react-icons/fa";
-import sound from "../../../../assets/HomePage.mp3";
 
+// @ts-expect-error
+import sound from "../../../../assets/HomePage.mp3";
 import "./AudioWidget.css";
 
 const AudioWidget: React.FC = () => {
