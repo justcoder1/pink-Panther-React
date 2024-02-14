@@ -1,6 +1,6 @@
 import { useIntl } from "react-intl";
 
-import { ViewModelHook } from "../../../_utils/types/index";
+import { type ViewModelHook } from "../../../_utils/types/index";
 
 export interface IntGalleryModel {
   title: string;

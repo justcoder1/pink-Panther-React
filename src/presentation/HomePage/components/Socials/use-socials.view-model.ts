@@ -1,6 +1,6 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 
-import { ViewModelHook } from "../../../../_utils/types/index";
+import { type ViewModelHook } from "../../../../_utils/types/index";
 import { getSocials } from "../../_connections/connections";
 
 export interface IntSocialData {

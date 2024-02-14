@@ -1,6 +1,12 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
-import { ViewModelHook } from "../../../../_utils/types/index";
+import { type ViewModelHook } from "../../../../_utils/types/index";
 import { getPictures, getVideos } from "../../_connections/connections";
+
+export interface IUpdatedImage {
+  title: string;
+  image: string;
+  imageId: number;
+}
 
 export interface IntGalleryPicture {
   _id: string;

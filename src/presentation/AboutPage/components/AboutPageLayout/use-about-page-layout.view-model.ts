@@ -1,6 +1,6 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { useIntl } from "react-intl";
-import { ViewModelHook } from "../../../../_utils/types/index";
+import { type ViewModelHook } from "../../../../_utils/types/index";
 import { getAbout } from "../../_connections/connections";
 
 export interface IntAboutPageLayout {

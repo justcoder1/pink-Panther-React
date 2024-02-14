@@ -6,9 +6,7 @@ import AuthenticatedLayout from "../../_AuthenticatedLayout/pages/Authenticated/
 import AppendixPageLayout from "../components/AppendixPageLayout/AppendixPageLayout";
 import useAppendixModel from "./use-appendix-page.view-model";
 
-interface IntAppendixPage {}
-
-const AppendixPage: React.FC<React.PropsWithChildren<IntAppendixPage>> = () => {
+const AppendixPage: React.FC<React.PropsWithChildren> = () => {
   const vm = useAppendixModel();
 
   return (

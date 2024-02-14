@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import landingImage from "../../../assets/PP_404.png";
 import { useIntlCommon } from "../../../_utils/lang/intl-common";
-import { ViewModelHook } from "../../../_utils/types/index";
+import { type ViewModelHook } from "../../../_utils/types/index";
 
 export interface IntUserLogin {
   title: string;
@@ -27,7 +27,7 @@ const useLandingPageModel: ViewModelHook<IntLandingPageModel> = () => {
   const intl = useIntl();
   const { siteLabel, emailLabel, passwordLabel, loginLabel, registerLabel } = useIntlCommon();
 
-  const onLoginClick = () => {
+  const onLoginClick = (): void => {
     navigate("/home");
   };
 
@@ -41,14 +41,14 @@ const useLandingPageModel: ViewModelHook<IntLandingPageModel> = () => {
 
     return {
       title: siteLabel,
-      subTitle: subTitle,
+      subTitle,
       landingImage,
       LoginData: {
         title: loginTitle,
         email: emailLabel,
         password: passwordLabel,
         loginLabel,
-        createText: createText,
+        createText,
         registerLabel,
         onLoginClick,
       },

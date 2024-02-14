@@ -1,7 +1,7 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { useIntl } from "react-intl";
 import { useIntlCommon } from "../../../../_utils/lang/intl-common";
-import { ViewModelHook } from "../../../../_utils/types/index";
+import { type ViewModelHook } from "../../../../_utils/types/index";
 import { getNavBar } from "../../_connections/connections";
 
 export interface IntNavBarItem {

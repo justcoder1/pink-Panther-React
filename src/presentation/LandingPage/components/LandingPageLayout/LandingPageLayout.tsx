@@ -1,6 +1,6 @@
 import { Box, Stack, Typography } from "@mui/material";
 import React from "react";
-import { IntLandingPageModel } from "../../pages/use-landing-page.view-model";
+import { type IntLandingPageModel } from "../../pages/use-landing-page.view-model";
 
 import "./LandingPageLayout.css";
 import UserLogin from "../UserLogin/UserLogin";

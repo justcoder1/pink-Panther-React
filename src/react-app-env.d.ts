@@ -1,4 +1,4 @@
-/// <reference types="react-scripts" />
+import "react-scripts";
 declare module "*.json";
 declare module "*.png";
 declare module "*.svg";

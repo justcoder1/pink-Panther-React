@@ -128,3 +128,9 @@
 - Added a '\_redirects' file in the public folder, this resolves routing issues on Netlify
 - Renamed app in GITHub from '03-PinkPantherReact' to 'pink-Panther-React'
   <r>FE - Merged into main - Rebuild</r>
+
+## 14-02-2024
+
+- removed precommits as they were not working.
+- eslint and prettier added back to the project.
+  <r>FE - Merged 50 into main - Linting</r>

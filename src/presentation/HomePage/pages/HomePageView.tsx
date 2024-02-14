@@ -6,9 +6,7 @@ import AuthenticatedLayout from "../../_AuthenticatedLayout/pages/Authenticated/
 import HomePageLayout from "../components/HomePageLayout/HomePageLayout";
 import useHomePageModel from "./use-home-page.view-model";
 
-interface IntHomePage {}
-
-const HomePage: React.FC<React.PropsWithChildren<IntHomePage>> = () => {
+const HomePage: React.FC<React.PropsWithChildren> = () => {
   const vm = useHomePageModel();
 
   return (

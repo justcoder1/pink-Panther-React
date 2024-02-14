@@ -2,7 +2,7 @@ import { Box, Stack, Typography } from "@mui/material";
 import React from "react";
 
 import "./AboutPageLayout.css";
-import useAboutPageLayoutModel, { IntAboutPageLayout } from "./use-about-page-layout.view-model";
+import useAboutPageLayoutModel, { type IntAboutPageLayout } from "./use-about-page-layout.view-model";
 
 const AboutPageLayout: React.FC = () => {
   const vm: IntAboutPageLayout = useAboutPageLayoutModel();

@@ -13,7 +13,7 @@ import {
 import React from "react";
 
 import "./HistoryPageLayout.css";
-import useHistoryPageLayoutModel, { IntHistoryPageLayoutModel } from "./use-history-page-layout.view-model";
+import useHistoryPageLayoutModel, { type IntHistoryPageLayoutModel } from "./use-history-page-layout.view-model";
 
 const HistoryPageLayout: React.FC = () => {
   const vm: IntHistoryPageLayoutModel = useHistoryPageLayoutModel();

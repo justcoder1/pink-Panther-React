@@ -5,9 +5,7 @@ import Footer from "../../components/Footer/Footer";
 import NavBar from "../../components/NavBar/NavBar";
 import useAuthenticatedLayoutModel from "./use-authenticated-layout.view-model";
 
-interface IntAuthenticatedLayout {}
-
-const AuthenticatedLayout: React.FC<React.PropsWithChildren<IntAuthenticatedLayout>> = ({ children }) => {
+const AuthenticatedLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
   const vm = useAuthenticatedLayoutModel();
 
   return (

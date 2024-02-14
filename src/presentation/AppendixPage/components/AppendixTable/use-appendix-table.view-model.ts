@@ -3,12 +3,12 @@ import { useConfirm } from "material-ui-confirm";
 import { useSnackbar } from "notistack";
 import { useIntl } from "react-intl";
 import { noop } from "../../../../_utils/hooks/functions";
-import { ViewModelHook } from "../../../../_utils/types/index";
+import { type ViewModelHook } from "../../../../_utils/types/index";
 import { createAppendix, deleteAppendix, getAppendixs, updateAppendix } from "../../_connections/connections";
 
 export interface IntAppendixData {
   _id?: string;
-  id: Number;
+  id: number;
   reference: string;
   link: string;
   type: "Documentation" | "Video" | "Reference";
@@ -45,7 +45,7 @@ const useAppendixTableModel: ViewModelHook<IntAppendixTableModel> = () => {
   });
 
   const { mutate: onFormClick } = useMutation({
-    mutationFn: (data: IntAppendixData) => (data._id ? updateAppendix(data) : createAppendix(data)),
+    mutationFn: async (data: IntAppendixData) => (data._id ? await updateAppendix(data) : await createAppendix(data)),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["appendix"], exact: true });
     },
@@ -62,7 +62,7 @@ const useAppendixTableModel: ViewModelHook<IntAppendixTableModel> = () => {
   };
 
   // FIX - change this to a hook - Issue 27
-  const intlStrings = (list: string[]) => list.map((l) => intl.formatMessage({ id: l, defaultMessage: l }));
+  const intlStrings = (list: string[]): string[] => list.map((l) => intl.formatMessage({ id: l, defaultMessage: l }));
 
   try {
     const types = intlStrings(["Documentation", "Reference", "Video"]);
@@ -99,10 +99,10 @@ const useAppendixTableModel: ViewModelHook<IntAppendixTableModel> = () => {
     // ------------------------------------------- \\
 
     return {
-      columns: columns,
-      rows: rows,
-      types: types,
-      topics: topics,
+      columns,
+      rows,
+      types,
+      topics,
       onDeleteClick,
       onFormClick,
     };

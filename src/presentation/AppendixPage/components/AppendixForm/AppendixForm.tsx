@@ -3,7 +3,7 @@ import { Button, MenuItem, Stack, TextField, Typography } from "@mui/material";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { object, string } from "yup";
-import { IntAppendixData } from "../../components/AppendixTable/use-appendix-table.view-model";
+import { type IntAppendixData } from "../../components/AppendixTable/use-appendix-table.view-model";
 
 import "./AppendixForm.css";
 
@@ -23,7 +23,7 @@ const AppendixForm: React.FC<IntAppendixForm> = ({ type, nextId, types, topics, 
   const inputFull = { width: "100%", margin: "10px 0px" };
 
   // form Schema ----------------
-  let appendixSchema = object({
+  const appendixSchema = object({
     reference: string().required("Missing Reference"),
     link: string().url().required("Missing Link"),
     type: string().required("Missing Type"),

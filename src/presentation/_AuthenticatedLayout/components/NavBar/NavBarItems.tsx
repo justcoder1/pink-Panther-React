@@ -13,8 +13,7 @@ import React, { useState } from "react";
 import { FaBars, FaPaw } from "react-icons/fa";
 import { Link, NavLink } from "react-router-dom";
 
-import useNavBarViewModel from "./use-navbar.view-model";
-import { IntNavBar } from "./use-navbar.view-model";
+import useNavBarViewModel, { type IntNavBar } from "./use-navbar.view-model";
 
 export const NavBarItems: React.FC = () => {
   const vm: IntNavBar = useNavBarViewModel();

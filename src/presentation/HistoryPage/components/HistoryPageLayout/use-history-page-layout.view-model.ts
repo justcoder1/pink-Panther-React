@@ -1,15 +1,15 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { useIntl } from "react-intl";
-import { ViewModelHook, TableTypes } from "../../../../_utils/types/index";
+import { type ViewModelHook, type TableTypes } from "../../../../_utils/types/index";
 import { getHistory } from "../../_connections/connections";
 
 interface IntHistoryData {
   columns: string[];
   rows: [
-    {
+    Array<{
       type?: TableTypes;
       value?: TableTypes;
-    }[]?
+    }>?,
   ];
 }
 

@@ -1,7 +1,7 @@
 import { Box, Stack, Typography } from "@mui/material";
 import React from "react";
 
-import { IntAppendixModel } from "../../pages/use-appendix-page.view-model";
+import { type IntAppendixModel } from "../../pages/use-appendix-page.view-model";
 import AppendixTable from "../AppendixTable/AppendixTable";
 import "./AppendixPageLayout.css";
 
