@@ -1,4 +1,4 @@
-import { DB_API } from "../../../_utils/hooks/functions";
+import { DB_API } from "../../../_utils/http/paths";
 import {
   type T_GalleryPicture,
   type T_GalleryVideo,
