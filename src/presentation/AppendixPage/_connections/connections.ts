@@ -1,8 +1,8 @@
 import { type AxiosResponse } from "axios";
-import { DB_API } from "../../../_utils/hooks/functions";
+import { DB_API } from "../../../_utils/http/paths";
 import { type T_AppendixData } from "../components/AppendixTable/use-appendix-table.view-model";
 
-export const getAppendixs = async (): Promise<T_AppendixData[]> => {
+export const getAppendices = async (): Promise<T_AppendixData[]> => {
   return await DB_API.get("/pinkpanther/appendix").then((res) => res.data.data);
 };
 

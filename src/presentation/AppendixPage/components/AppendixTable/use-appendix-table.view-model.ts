@@ -4,7 +4,7 @@ import { useSnackbar } from "notistack";
 import { useIntl } from "react-intl";
 import { noop } from "../../../../_utils/hooks/functions";
 import { type ViewModelHook } from "../../../../_utils/types/index";
-import { createAppendix, deleteAppendix, getAppendixs, updateAppendix } from "../../_connections/connections";
+import { createAppendix, deleteAppendix, getAppendices, updateAppendix } from "../../_connections/connections";
 
 export type T_AppendixData = {
   _id?: string;
@@ -34,7 +34,7 @@ const useAppendixTableModel: ViewModelHook<T_AppendixTableModel> = () => {
   // ---- API data ---- \\
   const { data: appendixsData } = useSuspenseQuery({
     queryKey: ["appendix"],
-    queryFn: getAppendixs,
+    queryFn: getAppendices,
   });
 
   const { mutate: deleteFunc } = useMutation({
