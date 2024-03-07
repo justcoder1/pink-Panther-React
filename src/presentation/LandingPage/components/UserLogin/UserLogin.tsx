@@ -4,7 +4,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import YupPassword from "yup-password";
-// import useSignIn from "react-auth-kit/hooks/useSignIn";
+import { useNavigate } from "react-router-dom";
 
 import { type T_UserLogin, type T_LoginData } from "../../pages/use-landing-page.view-model";
 
@@ -27,7 +27,7 @@ const UserLogin: React.FC<T_UserLogin> = ({
   onRegisterClick,
   onForgotClick,
 }) => {
-  // const signIn = useSignIn();
+  const navigate = useNavigate();
   YupPassword(yup);
   const inputFull = { width: "100%", margin: "10px 0px" };
 
@@ -54,8 +54,8 @@ const UserLogin: React.FC<T_UserLogin> = ({
     try {
       // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
       // const res = onLoginClick(data);
-      const res = await DB_API.post("/authentication/login", data, { withCredentials: true });
-      console.log(res);
+      await DB_API.post("/authentication/login", data, { withCredentials: true });
+      navigate("/home");
     } catch (err) {
       console.log(err);
     }
@@ -96,13 +96,13 @@ const UserLogin: React.FC<T_UserLogin> = ({
       </form>
       <Typography>
         {`${createText} `}
-        <Link component="button" onClick={onRegisterClick} id="lp_register">
+        <Link component="button" onClick={onRegisterClick} id="lp_register" disabled>
           {registerLabel}
         </Link>
       </Typography>
       <Typography>
         {`${forgotText} `}
-        <Link component="button" onClick={onForgotClick} id="lp_forgot">
+        <Link component="button" onClick={onForgotClick} id="lp_forgot" disabled>
           {forgotLabel}
         </Link>
       </Typography>
@@ -112,6 +112,7 @@ const UserLogin: React.FC<T_UserLogin> = ({
         color="secondary"
         sx={{ width: "100%", height: "40px" }}
         onClick={onGuestClick}
+        disabled={true}
       >
         {guestLabel}
       </Button>
