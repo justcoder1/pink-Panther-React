@@ -1,5 +1,6 @@
 import { useIntl } from "react-intl";
 import { useNavigate } from "react-router-dom";
+import { login } from "../_connections/connections";
 
 import landingImage from "../../../assets/PP_404.png";
 import { useIntlCommon } from "../../../_utils/lang/intl-common";
@@ -10,9 +11,15 @@ export type T_UserLogin = {
   email: string;
   password: string;
   loginLabel: string;
+  guestLabel: string;
   createText: string;
+  forgotText: string;
   registerLabel: string;
-  onLoginClick: (email: string, password: string) => void;
+  forgotLabel: string;
+  onLoginClick: (data: T_LoginData) => void;
+  onGuestClick: () => void;
+  onRegisterClick: () => void;
+  onForgotClick: () => void;
 };
 
 export type T_LandingPageModel = {
@@ -22,12 +29,29 @@ export type T_LandingPageModel = {
   LoginData: T_UserLogin;
 };
 
+export type T_LoginData = {
+  emailAddress: string;
+  password: string;
+};
+
 const useLandingPageModel: ViewModelHook<T_LandingPageModel> = () => {
   const navigate = useNavigate();
   const intl = useIntl();
-  const { siteLabel, emailLabel, passwordLabel, loginLabel, registerLabel } = useIntlCommon();
+  const { siteLabel, emailLabel, passwordLabel, loginLabel, registerLabel, guestLabel, forgotLabel } = useIntlCommon();
 
-  const onLoginClick = (): void => {
+  const onLoginClick = (data: T_LoginData): void => {
+    login(data);
+  };
+
+  const onGuestClick = (): void => {
+    navigate("/home");
+  };
+
+  const onRegisterClick = (): void => {
+    navigate("/home");
+  };
+
+  const onForgotClick = (): void => {
     navigate("/home");
   };
 
@@ -38,6 +62,7 @@ const useLandingPageModel: ViewModelHook<T_LandingPageModel> = () => {
     });
     const loginTitle = intl.formatMessage({ id: "title.login", defaultMessage: "User Login" });
     const createText = intl.formatMessage({ id: "text.create", defaultMessage: "Create an account:" });
+    const forgotText = intl.formatMessage({ id: "text.forgot", defaultMessage: "Forgot account details:" });
 
     return {
       title: siteLabel,
@@ -48,9 +73,15 @@ const useLandingPageModel: ViewModelHook<T_LandingPageModel> = () => {
         email: emailLabel,
         password: passwordLabel,
         loginLabel,
+        guestLabel,
         createText,
+        forgotText,
         registerLabel,
+        forgotLabel,
         onLoginClick,
+        onGuestClick,
+        onRegisterClick,
+        onForgotClick,
       },
     };
   } catch (error) {

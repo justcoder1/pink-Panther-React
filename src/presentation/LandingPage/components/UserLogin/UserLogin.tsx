@@ -1,30 +1,40 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Box, Button, TextField, Typography } from "@mui/material";
+import { Box, Button, Link, TextField, Typography } from "@mui/material";
 import React from "react";
 import { useForm } from "react-hook-form";
-import { NavLink } from "react-router-dom";
 import * as yup from "yup";
 import YupPassword from "yup-password";
+import { useNavigate } from "react-router-dom";
 
-import { type T_UserLogin } from "../../pages/use-landing-page.view-model";
+import { type T_UserLogin, type T_LoginData } from "../../pages/use-landing-page.view-model";
+
 import "./UserLogin.css";
+
+import { DB_API } from "../../../../_utils/http/paths";
 
 const UserLogin: React.FC<T_UserLogin> = ({
   title,
   email,
   password,
   loginLabel,
+  guestLabel,
   createText,
+  forgotText,
   registerLabel,
+  forgotLabel,
   onLoginClick,
+  onGuestClick,
+  onRegisterClick,
+  onForgotClick,
 }) => {
+  const navigate = useNavigate();
   YupPassword(yup);
   const inputFull = { width: "100%", margin: "10px 0px" };
 
   // form Schema ----------------
   const loginSchema = yup
     .object({
-      email: yup.string().email().required("Missing Email"),
+      emailAddress: yup.string().email().required("Missing Email"),
       password: yup.string().password().required("Missing Password"),
     })
     .required();
@@ -39,8 +49,16 @@ const UserLogin: React.FC<T_UserLogin> = ({
   });
   // ----------------------------
 
-  const onSubmit = (data): void => {
-    onLoginClick(data.email, data.password);
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+  const onSubmit = async (data: T_LoginData) => {
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
+      // const res = onLoginClick(data);
+      await DB_API.post("/authentication/login", data, { withCredentials: true });
+      navigate("/home");
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -56,10 +74,10 @@ const UserLogin: React.FC<T_UserLogin> = ({
           variant="outlined"
           autoFocus
           autoComplete="off"
-          {...register("email")}
+          {...register("emailAddress")}
           defaultValue=""
           error={errors.hasOwnProperty("email")}
-          helperText={errors.hasOwnProperty("email") ? errors.email.message : ""}
+          helperText={errors.hasOwnProperty("email") ? errors.emailAddress.message : ""}
         />
         <TextField
           style={inputFull}
@@ -78,10 +96,26 @@ const UserLogin: React.FC<T_UserLogin> = ({
       </form>
       <Typography>
         {`${createText} `}
-        <NavLink to={"/home"} id="lp_register">
+        <Link component="button" onClick={onRegisterClick} id="lp_register" disabled>
           {registerLabel}
-        </NavLink>
+        </Link>
       </Typography>
+      <Typography>
+        {`${forgotText} `}
+        <Link component="button" onClick={onForgotClick} id="lp_forgot" disabled>
+          {forgotLabel}
+        </Link>
+      </Typography>
+      <Button
+        id="guestButton"
+        variant="contained"
+        color="secondary"
+        sx={{ width: "100%", height: "40px" }}
+        onClick={onGuestClick}
+        disabled={true}
+      >
+        {guestLabel}
+      </Button>
     </Box>
   );
 };

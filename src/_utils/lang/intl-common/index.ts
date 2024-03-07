@@ -63,10 +63,22 @@ export const useIntlCommon = (): any => {
     defaultMessage: "Login",
   });
 
+  const guestLabel = intl.formatMessage({
+    id: "common.intl.guest.label",
+    description: "internationalised label for guest",
+    defaultMessage: "Guest",
+  });
+
   const registerLabel = intl.formatMessage({
     id: "common.intl.register.label",
     description: "internationalised label for register",
     defaultMessage: "Register",
+  });
+
+  const forgotLabel = intl.formatMessage({
+    id: "common.intl.forgot.label",
+    description: "internationalised label for forgot",
+    defaultMessage: "Forgot",
   });
 
   return {
@@ -80,6 +92,8 @@ export const useIntlCommon = (): any => {
     emailLabel,
     passwordLabel,
     loginLabel,
+    guestLabel,
     registerLabel,
+    forgotLabel,
   };
 };
