@@ -136,3 +136,8 @@
 - Changed interfaces for types to add consistancy
   <r>FE - Merged 50 into main - Linting</r>
 - bug fix in History page pushed staright to main
+
+## 07-03-2024
+
+- Added the authencation on signin
+  <c>Unfortunately there are still issues as I working with Cookies that I have not done before</c>
