@@ -48,6 +48,7 @@
     "material-ui-confirm": "^3.0.11",
     "notistack": "^3.0.1",
     "react": "^18.2.0",
+    "react-auth-kit": "^3.1.2",
     "react-dom": "^18.2.0",
     "react-error-boundary": "^4.0.12",
     "react-hook-form": "^7.50.1",
