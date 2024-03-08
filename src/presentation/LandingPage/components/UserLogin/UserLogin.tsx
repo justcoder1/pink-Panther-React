@@ -112,7 +112,6 @@ const UserLogin: React.FC<T_UserLogin> = ({
         color="secondary"
         sx={{ width: "100%", height: "40px" }}
         onClick={onGuestClick}
-        disabled={true}
       >
         {guestLabel}
       </Button>
