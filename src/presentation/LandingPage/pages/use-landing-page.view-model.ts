@@ -1,10 +1,9 @@
 import { useIntl } from "react-intl";
 import { useNavigate } from "react-router-dom";
-import { login } from "../_connections/connections";
 
-import landingImage from "../../../assets/PP_404.png";
 import { useIntlCommon } from "../../../_utils/lang/intl-common";
 import { type ViewModelHook } from "../../../_utils/types/index";
+import landingImage from "../../../assets/PP_404.png";
 
 export type T_UserLogin = {
   title: string;
@@ -16,8 +15,6 @@ export type T_UserLogin = {
   forgotText: string;
   registerLabel: string;
   forgotLabel: string;
-  onLoginClick: (data: T_LoginData) => void;
-  onGuestClick: () => void;
   onRegisterClick: () => void;
   onForgotClick: () => void;
 };
@@ -38,14 +35,6 @@ const useLandingPageModel: ViewModelHook<T_LandingPageModel> = () => {
   const navigate = useNavigate();
   const intl = useIntl();
   const { siteLabel, emailLabel, passwordLabel, loginLabel, registerLabel, guestLabel, forgotLabel } = useIntlCommon();
-
-  const onLoginClick = (data: T_LoginData): void => {
-    login(data);
-  };
-
-  const onGuestClick = (): void => {
-    navigate("/home");
-  };
 
   const onRegisterClick = (): void => {
     navigate("/home");
@@ -78,8 +67,6 @@ const useLandingPageModel: ViewModelHook<T_LandingPageModel> = () => {
         forgotText,
         registerLabel,
         forgotLabel,
-        onLoginClick,
-        onGuestClick,
         onRegisterClick,
         onForgotClick,
       },
