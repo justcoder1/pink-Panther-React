@@ -2,7 +2,7 @@ import { Box, Button, Stack, Typography } from "@mui/material";
 import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { type T_GalleryModel } from "../../pages/use-gallery-page.view-model";
+import type { T_GalleryModel } from "../../pages/use-gallery-page.view-model";
 import GalleryCarousel from "../GalleryCarousel/GalleryCarousel";
 import "./GalleryPageLayout.css";
 import useGalleryPageLayoutModel, {

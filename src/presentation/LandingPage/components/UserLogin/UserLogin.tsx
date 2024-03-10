@@ -1,29 +1,28 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Box, Button, Link, TextField, Typography } from "@mui/material";
+import { useMutation } from "@tanstack/react-query";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import YupPassword from "yup-password";
-import { useNavigate } from "react-router-dom";
 
-import { type T_UserLogin, type T_LoginData } from "../../pages/use-landing-page.view-model";
-
+import { setGlobals } from "../../../../_utils/hooks/functions";
+import type { T_Response, T_ResponseUser } from "../../../../_utils/types";
+import { login } from "../../_connections/connections";
+import type { T_LoginData, T_UserForm } from "../../pages/use-landing-page.view-model";
 import "./UserLogin.css";
 
-import { DB_API } from "../../../../_utils/http/paths";
-
-const UserLogin: React.FC<T_UserLogin> = ({
-  title,
-  email,
-  password,
-  loginLabel,
+const UserLogin: React.FC<T_UserForm> = ({
+  emailLabel,
+  passwordLabel,
+  titleLabel,
+  mainLabel,
   guestLabel,
   createText,
   forgotText,
   registerLabel,
   forgotLabel,
-  onLoginClick,
-  onGuestClick,
   onRegisterClick,
   onForgotClick,
 }) => {
@@ -49,28 +48,31 @@ const UserLogin: React.FC<T_UserLogin> = ({
   });
   // ----------------------------
 
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  const onSubmit = async (data: T_LoginData) => {
-    try {
-      // eslint-disable-next-line @typescript-eslint/no-confusing-void-expression
-      // const res = onLoginClick(data);
-      await DB_API.post("/authentication/login", data, { withCredentials: true });
-      navigate("/home");
-    } catch (err) {
-      console.log(err);
-    }
+  const onSubmit = (data: T_LoginData): void => {
+    onLoginClick(data);
   };
+
+  const { mutate: onLoginClick } = useMutation({
+    mutationFn: async (data: T_LoginData): Promise<T_Response> => await login(data),
+    onSuccess: (res) => {
+      setGlobals(res.data as T_ResponseUser);
+      navigate("/home");
+    },
+    onError: (err) => {
+      console.error(err);
+    },
+  });
 
   return (
     <Box id="landingPageRight">
       <Typography id="lp_h6" sx={{ marginBottom: "20px" }}>
-        {title}
+        {titleLabel}
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <TextField
           style={inputFull}
           type="email"
-          label={email}
+          label={emailLabel}
           variant="outlined"
           autoFocus
           autoComplete="off"
@@ -82,7 +84,7 @@ const UserLogin: React.FC<T_UserLogin> = ({
         <TextField
           style={inputFull}
           type="password"
-          label={password}
+          label={passwordLabel}
           variant="outlined"
           {...register("password")}
           defaultValue=""
@@ -91,12 +93,12 @@ const UserLogin: React.FC<T_UserLogin> = ({
         />
         <hr style={{ marginTop: "10px" }} />
         <Button type="submit" id="formButton" variant="contained" color="secondary" sx={{ width: "100%" }}>
-          {loginLabel}
+          {mainLabel}
         </Button>
       </form>
       <Typography>
         {`${createText} `}
-        <Link component="button" onClick={onRegisterClick} id="lp_register" disabled>
+        <Link component="button" onClick={onRegisterClick} id="lp_register">
           {registerLabel}
         </Link>
       </Typography>
@@ -111,7 +113,9 @@ const UserLogin: React.FC<T_UserLogin> = ({
         variant="contained"
         color="secondary"
         sx={{ width: "100%", height: "40px" }}
-        onClick={onGuestClick}
+        onClick={() => {
+          onLoginClick({ emailAddress: "guest@guest.com", password: "Guest_Access" });
+        }}
       >
         {guestLabel}
       </Button>

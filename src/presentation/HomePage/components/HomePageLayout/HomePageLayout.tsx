@@ -1,7 +1,7 @@
 import { Stack, Typography, useMediaQuery } from "@mui/material";
 import React from "react";
 
-import { type T_HomePageModel } from "../../pages/use-home-page.view-model";
+import type { T_HomePageModel } from "../../pages/use-home-page.view-model";
 import AudioWidget from "../AudioWidget/AudioWidget";
 import Socials from "../Socials/Socials";
 import "./HomePageLayout.css";

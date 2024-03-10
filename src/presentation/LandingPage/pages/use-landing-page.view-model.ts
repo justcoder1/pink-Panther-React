@@ -1,24 +1,28 @@
 import { useIntl } from "react-intl";
 import { useNavigate } from "react-router-dom";
-import { login } from "../_connections/connections";
 
-import landingImage from "../../../assets/PP_404.png";
 import { useIntlCommon } from "../../../_utils/lang/intl-common";
-import { type ViewModelHook } from "../../../_utils/types/index";
+import type { ViewModelHook, T_Response } from "../../../_utils/types/index";
+import landingImage from "../../../assets/PP_404.png";
+import { useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { registerUser } from "../_connections/connections";
 
-export type T_UserLogin = {
-  title: string;
-  email: string;
-  password: string;
-  loginLabel: string;
+export type T_UserForm = {
+  emailLabel: string;
+  passwordLabel: string;
+  confirmPasswordLabel: string;
+  titleLabel: string;
+  mainLabel: string;
   guestLabel: string;
   createText: string;
   forgotText: string;
   registerLabel: string;
   forgotLabel: string;
-  onLoginClick: (data: T_LoginData) => void;
-  onGuestClick: () => void;
+  firstNameLabel: string;
+  lastNameLabel: string;
   onRegisterClick: () => void;
+  onCreateClick: (data: T_LoginData) => void;
   onForgotClick: () => void;
 };
 
@@ -26,7 +30,8 @@ export type T_LandingPageModel = {
   title: string;
   subTitle: string;
   landingImage: string;
-  LoginData: T_UserLogin;
+  formData: T_UserForm;
+  createUser: boolean;
 };
 
 export type T_LoginData = {
@@ -34,25 +39,48 @@ export type T_LoginData = {
   password: string;
 };
 
+export type T_CreateData = {
+  firstName: string;
+  lastName: string;
+  emailAddress: string;
+  password: string;
+};
+
 const useLandingPageModel: ViewModelHook<T_LandingPageModel> = () => {
+  const [createUser, setCreateUser] = useState(false);
   const navigate = useNavigate();
   const intl = useIntl();
-  const { siteLabel, emailLabel, passwordLabel, loginLabel, registerLabel, guestLabel, forgotLabel } = useIntlCommon();
-
-  const onLoginClick = (data: T_LoginData): void => {
-    login(data);
-  };
-
-  const onGuestClick = (): void => {
-    navigate("/home");
-  };
+  const {
+    siteLabel,
+    emailLabel,
+    passwordLabel,
+    confirmPasswordLabel,
+    loginLabel,
+    registerLabel,
+    guestLabel,
+    forgotLabel,
+    createLabel,
+    firstNameLabel,
+    lastNameLabel,
+  } = useIntlCommon();
 
   const onRegisterClick = (): void => {
-    navigate("/home");
+    setCreateUser(true);
+    navigate("/");
   };
 
+  const { mutate: onCreateClick } = useMutation({
+    mutationFn: async (data: T_CreateData): Promise<T_Response> => await registerUser(data),
+    onSuccess: () => {
+      location.reload();
+    },
+    onError: (err) => {
+      console.error(err);
+    },
+  });
+
   const onForgotClick = (): void => {
-    navigate("/home");
+    navigate("/");
   };
 
   try {
@@ -60,7 +88,8 @@ const useLandingPageModel: ViewModelHook<T_LandingPageModel> = () => {
       id: "title.one",
       defaultMessage: "Showcase Justin Heath's skills in React and Full-Stack Development",
     });
-    const loginTitle = intl.formatMessage({ id: "title.login", defaultMessage: "User Login" });
+    const loginTitle = intl.formatMessage({ id: "title.login", defaultMessage: "Account Login" });
+    const createTitle = intl.formatMessage({ id: "title.create", defaultMessage: "Create Account" });
     const createText = intl.formatMessage({ id: "text.create", defaultMessage: "Create an account:" });
     const forgotText = intl.formatMessage({ id: "text.forgot", defaultMessage: "Forgot account details:" });
 
@@ -68,21 +97,24 @@ const useLandingPageModel: ViewModelHook<T_LandingPageModel> = () => {
       title: siteLabel,
       subTitle,
       landingImage,
-      LoginData: {
-        title: loginTitle,
-        email: emailLabel,
-        password: passwordLabel,
-        loginLabel,
+      formData: {
+        emailLabel,
+        passwordLabel,
+        confirmPasswordLabel,
+        titleLabel: createUser ? createTitle : loginTitle,
+        mainLabel: createUser ? createLabel : loginLabel,
         guestLabel,
         createText,
         forgotText,
         registerLabel,
         forgotLabel,
-        onLoginClick,
-        onGuestClick,
+        firstNameLabel,
+        lastNameLabel,
         onRegisterClick,
+        onCreateClick,
         onForgotClick,
       },
+      createUser,
     };
   } catch (error) {
     return error;

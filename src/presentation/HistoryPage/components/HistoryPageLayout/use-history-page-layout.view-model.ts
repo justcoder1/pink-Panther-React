@@ -1,6 +1,6 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { useIntl } from "react-intl";
-import { type ViewModelHook } from "../../../../_utils/types/index";
+import type { ViewModelHook } from "../../../../_utils/types/index";
 import { getHistory } from "../../_connections/connections";
 
 type T_HistoryData = {
@@ -23,7 +23,7 @@ const useHistoryPageLayoutModel: ViewModelHook<T_HistoryPageLayoutModel> = () =>
   const content: T_HistoryContent = { title: "", data: { columns: [], rows: [] } };
 
   // API data
-  const { data: historyData } = useSuspenseQuery({
+  const { data: historyData }: { data: T_HistoryPageLayoutModel } = useSuspenseQuery({
     queryKey: ["history"],
     queryFn: getHistory,
   });

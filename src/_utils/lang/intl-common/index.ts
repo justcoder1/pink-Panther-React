@@ -57,6 +57,12 @@ export const useIntlCommon = (): any => {
     defaultMessage: "Password",
   });
 
+  const confirmPasswordLabel = intl.formatMessage({
+    id: "common.intl.confirmPassword.label",
+    description: "internationalised label for confirmPassword",
+    defaultMessage: "Confirm Password",
+  });
+
   const loginLabel = intl.formatMessage({
     id: "common.intl.login.label",
     description: "internationalised label for login",
@@ -81,6 +87,24 @@ export const useIntlCommon = (): any => {
     defaultMessage: "Forgot",
   });
 
+  const createLabel = intl.formatMessage({
+    id: "common.intl.create.label",
+    description: "internationalised label for create",
+    defaultMessage: "Create",
+  });
+
+  const firstNameLabel = intl.formatMessage({
+    id: "common.intl.firstName.label",
+    description: "internationalised label for firstName",
+    defaultMessage: "First Name",
+  });
+
+  const lastNameLabel = intl.formatMessage({
+    id: "common.intl.lastName.label",
+    description: "internationalised label for lastName",
+    defaultMessage: "Last Name",
+  });
+
   return {
     siteLabel,
     homeLabel,
@@ -91,9 +115,13 @@ export const useIntlCommon = (): any => {
     userLabel,
     emailLabel,
     passwordLabel,
+    confirmPasswordLabel,
     loginLabel,
     guestLabel,
     registerLabel,
     forgotLabel,
+    createLabel,
+    firstNameLabel,
+    lastNameLabel,
   };
 };

@@ -1,5 +1,5 @@
 import { useIntl } from "react-intl";
-import { type ViewModelHook } from "../../../_utils/types/index";
+import type { ViewModelHook } from "../../../_utils/types/index";
 
 export type T_AppendixModel = {
   title: string;
