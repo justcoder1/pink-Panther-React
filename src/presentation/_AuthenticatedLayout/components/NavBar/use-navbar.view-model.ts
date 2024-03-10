@@ -3,6 +3,7 @@ import { useIntl } from "react-intl";
 import { useIntlCommon } from "../../../../_utils/lang/intl-common";
 import { type ViewModelHook } from "../../../../_utils/types/index";
 import { getNavBar } from "../../_connections/connections";
+import { getGlobals } from "../../../../_utils/hooks/functions";
 
 export type T_NavBarItem = {
   _id: string;
@@ -20,9 +21,10 @@ const useNavBarViewModel: ViewModelHook<T_NavBar> = () => {
   const intl = useIntl();
 
   // API data
+
   const { data: navBarData }: { data: T_NavBarItem[] } = useSuspenseQuery({
     queryKey: ["navBar"],
-    queryFn: getNavBar,
+    queryFn: async () => await getNavBar(getGlobals().roleId),
   });
 
   try {

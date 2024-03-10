@@ -27,9 +27,11 @@ export const NavBarItems: React.FC = () => {
       <Stack id="navBar-Right" direction={"row"} alignItems={"center"}>
         {!showMobile && <NavFullScreen headerItems={vm.headerItems} />}
         {showMobile && <NavMobile headerItems={vm.headerItems} />}
-        <NavLink className={({ isActive }) => (isActive ? "activeLink" : "")} to={"/user"}>
-          <FaPaw id="pawIcon" />
-        </NavLink>
+        {!vm.headerItems.some((it) => it.title === "Login") && (
+          <NavLink className={({ isActive }) => (isActive ? "activeLink" : "")} to={"/user"}>
+            <FaPaw id="pawIcon" />
+          </NavLink>
+        )}
       </Stack>
     </>
   );
