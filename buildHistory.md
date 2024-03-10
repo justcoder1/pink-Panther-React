@@ -141,3 +141,11 @@
 
 - Added the authencation on signin
   <c>Unfortunately there are still issues as I working with Cookies that I have not done before</c>
+
+## 10-03-2024
+
+- Added guest functionality
+- Completed Login
+- Started Logout
+  <r>FE - Merged issue 6 into main - Authentication</r>
+  <c>biggest challenge with this work was getting all the TS correct and inline.</c>
