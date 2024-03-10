@@ -1,6 +1,6 @@
 import { useIntl } from "react-intl";
 import { useIntlCommon } from "../../../_utils/lang/intl-common";
-import { type ViewModelHook } from "../../../_utils/types/index";
+import type { ViewModelHook } from "../../../_utils/types/index";
 import imageDesktop from "../../../assets/PP_MainImage.png";
 import imageMobile from "../../../assets/PP_MainImage_Small.png";
 

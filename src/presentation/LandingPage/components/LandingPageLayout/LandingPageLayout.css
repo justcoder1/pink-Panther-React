@@ -8,8 +8,11 @@
   grid-template-columns: 1fr 1fr;
   background-color: white;
   width: 50dvw;
-  height: 65dvh;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 11px 15px -7px, rgba(0, 0, 0, 0.14) 0px 24px 38px 3px,rgba(0, 0, 0, 0.12) 0px 9px 46px 8px;
+  height: 75dvh;
+  box-shadow:
+    rgba(0, 0, 0, 0.2) 0px 11px 15px -7px,
+    rgba(0, 0, 0, 0.14) 0px 24px 38px 3px,
+    rgba(0, 0, 0, 0.12) 0px 9px 46px 8px;
 }
 
 #landingPageLeft {
@@ -20,7 +23,7 @@
 
 #lp_h2 {
   font-size: clamp(1.25rem, 50vw, 2.5rem);
-  font-family: 'cooper black';
+  font-family: "cooper black";
   color: #fa8ab0;
   text-align: center;
   padding: 1.5rem;

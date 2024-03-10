@@ -3,7 +3,7 @@ import { Button, MenuItem, Stack, TextField, Typography } from "@mui/material";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { object, string } from "yup";
-import { type T_AppendixData } from "../../components/AppendixTable/use-appendix-table.view-model";
+import type { T_AppendixData } from "../../components/AppendixTable/use-appendix-table.view-model";
 
 import "./AppendixForm.css";
 

@@ -1,6 +1,6 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { useIntl } from "react-intl";
-import { type ViewModelHook } from "../../../../_utils/types/index";
+import type { ViewModelHook } from "../../../../_utils/types/index";
 import { getHistory } from "../../_connections/connections";
 
 type T_HistoryData = {

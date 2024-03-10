@@ -6,7 +6,7 @@ import type {
 } from "../../presentation/GalleryPage/components/GalleryPageLayout/use-gallery-page-layout.view-model";
 import type { T_HistoryPageLayoutModel } from "../../presentation/HistoryPage/components/HistoryPageLayout/use-history-page-layout.view-model";
 import type { T_SocialData } from "../../presentation/HomePage/components/Socials/use-socials.view-model";
-import { type T_NavBarItem } from "../../presentation/_AuthenticatedLayout/components/NavBar/use-navbar.view-model";
+import type { T_NavBarItem } from "../../presentation/_AuthenticatedLayout/components/NavBar/use-navbar.view-model";
 
 export type ViewModelHook<TModel, TOptions = void> = (options: TOptions) => TModel;
 

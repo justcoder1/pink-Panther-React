@@ -11,7 +11,8 @@ const LandingPage: React.FC<React.PropsWithChildren> = () => {
         title={vm.title}
         subTitle={vm.subTitle}
         landingImage={vm.landingImage}
-        LoginData={vm.LoginData}
+        formData={vm.formData}
+        createUser={vm.createUser}
       />
     </>
   );

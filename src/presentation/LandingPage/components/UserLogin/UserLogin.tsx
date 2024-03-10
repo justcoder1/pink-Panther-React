@@ -10,14 +10,14 @@ import YupPassword from "yup-password";
 import { setGlobals } from "../../../../_utils/hooks/functions";
 import type { T_Response, T_ResponseUser } from "../../../../_utils/types";
 import { login } from "../../_connections/connections";
-import { type T_LoginData, type T_UserLogin } from "../../pages/use-landing-page.view-model";
+import type { T_LoginData, T_UserForm } from "../../pages/use-landing-page.view-model";
 import "./UserLogin.css";
 
-const UserLogin: React.FC<T_UserLogin> = ({
-  title,
-  email,
-  password,
-  loginLabel,
+const UserLogin: React.FC<T_UserForm> = ({
+  emailLabel,
+  passwordLabel,
+  titleLabel,
+  mainLabel,
   guestLabel,
   createText,
   forgotText,
@@ -66,13 +66,13 @@ const UserLogin: React.FC<T_UserLogin> = ({
   return (
     <Box id="landingPageRight">
       <Typography id="lp_h6" sx={{ marginBottom: "20px" }}>
-        {title}
+        {titleLabel}
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <TextField
           style={inputFull}
           type="email"
-          label={email}
+          label={emailLabel}
           variant="outlined"
           autoFocus
           autoComplete="off"
@@ -84,7 +84,7 @@ const UserLogin: React.FC<T_UserLogin> = ({
         <TextField
           style={inputFull}
           type="password"
-          label={password}
+          label={passwordLabel}
           variant="outlined"
           {...register("password")}
           defaultValue=""
@@ -93,12 +93,12 @@ const UserLogin: React.FC<T_UserLogin> = ({
         />
         <hr style={{ marginTop: "10px" }} />
         <Button type="submit" id="formButton" variant="contained" color="secondary" sx={{ width: "100%" }}>
-          {loginLabel}
+          {mainLabel}
         </Button>
       </form>
       <Typography>
         {`${createText} `}
-        <Link component="button" onClick={onRegisterClick} id="lp_register" disabled>
+        <Link component="button" onClick={onRegisterClick} id="lp_register">
           {registerLabel}
         </Link>
       </Typography>

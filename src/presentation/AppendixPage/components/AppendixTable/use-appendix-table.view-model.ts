@@ -3,7 +3,7 @@ import { useConfirm } from "material-ui-confirm";
 import { useSnackbar } from "notistack";
 import { useIntl } from "react-intl";
 import { noop } from "../../../../_utils/hooks/functions";
-import { type ViewModelHook } from "../../../../_utils/types/index";
+import type { ViewModelHook } from "../../../../_utils/types/index";
 import { createAppendix, deleteAppendix, getAppendices, updateAppendix } from "../../_connections/connections";
 
 export type T_AppendixData = {

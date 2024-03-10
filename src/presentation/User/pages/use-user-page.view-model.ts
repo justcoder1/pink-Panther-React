@@ -1,6 +1,6 @@
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { useIntlCommon } from "../../../_utils/lang/intl-common";
-import { type ViewModelHook } from "../../../_utils/types/index";
+import type { ViewModelHook } from "../../../_utils/types/index";
 import { getUsers } from "../_connections/connections";
 
 type T_UserModel = {

@@ -1,11 +1,12 @@
 import { Box, Stack, Typography } from "@mui/material";
 import React from "react";
-import { type T_LandingPageModel } from "../../pages/use-landing-page.view-model";
+import type { T_LandingPageModel } from "../../pages/use-landing-page.view-model";
 
 import "./LandingPageLayout.css";
 import UserLogin from "../UserLogin/UserLogin";
+import UserCreate from "../UserCreate/UserCreate";
 
-const LandingPageLayout: React.FC<T_LandingPageModel> = ({ title, subTitle, landingImage, LoginData }) => {
+const LandingPageLayout: React.FC<T_LandingPageModel> = ({ title, subTitle, landingImage, formData, createUser }) => {
   return (
     <Stack justifyContent={"center"} alignItems={"center"} id="landingPage">
       <Box id="landingPageInner">
@@ -20,7 +21,7 @@ const LandingPageLayout: React.FC<T_LandingPageModel> = ({ title, subTitle, land
             {subTitle}
           </Typography>
         </Box>
-        <UserLogin {...LoginData} />
+        {createUser ? <UserCreate {...formData} /> : <UserLogin {...formData} />}
       </Box>
     </Stack>
   );
