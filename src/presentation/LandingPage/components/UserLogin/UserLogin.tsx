@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import YupPassword from "yup-password";
 
-import { setGlobals } from "../../../../_utils/hooks/functions";
-import type { T_Response } from "../../../../_utils/types";
+import { getGlobals, setGlobals } from "../../../../_utils/hooks/functions";
+import type { T_Response, T_ResponseUser } from "../../../../_utils/types";
 import { login } from "../../_connections/connections";
 import { type T_LoginData, type T_UserLogin } from "../../pages/use-landing-page.view-model";
 import "./UserLogin.css";
@@ -55,9 +55,9 @@ const UserLogin: React.FC<T_UserLogin> = ({
   const { mutate: onLoginClick } = useMutation({
     mutationFn: async (data: T_LoginData): Promise<T_Response> => await login(data),
     onSuccess: (res) => {
-      console.log(res);
-      setGlobals(res.data);
-      navigate("/home");
+      setGlobals(res.data as T_ResponseUser);
+      console.log(getGlobals());
+      navigate("/");
     },
     onError: (err) => {
       console.error(err);

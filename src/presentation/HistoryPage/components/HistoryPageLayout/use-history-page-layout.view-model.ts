@@ -23,7 +23,7 @@ const useHistoryPageLayoutModel: ViewModelHook<T_HistoryPageLayoutModel> = () =>
   const content: T_HistoryContent = { title: "", data: { columns: [], rows: [] } };
 
   // API data
-  const { data: historyData } = useSuspenseQuery({
+  const { data: historyData }: { data: T_HistoryPageLayoutModel } = useSuspenseQuery({
     queryKey: ["history"],
     queryFn: getHistory,
   });

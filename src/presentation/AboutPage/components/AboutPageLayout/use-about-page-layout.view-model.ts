@@ -13,7 +13,7 @@ const useAboutPageLayoutModel: ViewModelHook<T_AboutPageLayout> = () => {
   const intl = useIntl();
 
   // API data
-  const { data: aboutData } = useSuspenseQuery({
+  const { data: aboutData }: { data: T_AboutPageLayout } = useSuspenseQuery({
     queryKey: ["about"],
     queryFn: getAbout,
   });

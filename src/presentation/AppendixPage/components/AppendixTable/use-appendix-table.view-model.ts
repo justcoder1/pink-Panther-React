@@ -32,7 +32,7 @@ const useAppendixTableModel: ViewModelHook<T_AppendixTableModel> = () => {
   const { enqueueSnackbar } = useSnackbar();
 
   // ---- API data ---- \\
-  const { data: appendixsData } = useSuspenseQuery({
+  const { data: appendixsData }: { data: T_AppendixData[] } = useSuspenseQuery({
     queryKey: ["appendix"],
     queryFn: getAppendices,
   });

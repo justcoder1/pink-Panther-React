@@ -20,7 +20,7 @@ const useNavBarViewModel: ViewModelHook<T_NavBar> = () => {
   const intl = useIntl();
 
   // API data
-  const { data: navBarData } = useSuspenseQuery({
+  const { data: navBarData }: { data: T_NavBarItem[] } = useSuspenseQuery({
     queryKey: ["navBar"],
     queryFn: getNavBar,
   });

@@ -4,5 +4,5 @@ import type { T_LoginData } from "../pages/use-landing-page.view-model";
 
 // FIX - Not created yet
 export const login = async (data: T_LoginData): Promise<T_Response> => {
-  return await DB_API.post("/authentication/login", data, { withCredentials: true });
+  return await DB_API.post("/authentication/login", data, { withCredentials: true }).then((res) => res.data);
 };
