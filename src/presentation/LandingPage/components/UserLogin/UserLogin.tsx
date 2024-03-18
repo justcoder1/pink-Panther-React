@@ -11,7 +11,6 @@ import { setGlobals } from "../../../../_utils/hooks/functions";
 import type { T_Response, T_ResponseUser } from "../../../../_utils/types";
 import { login } from "../../_connections/connections";
 import type { T_LoginData, T_UserForm } from "../../pages/use-landing-page.view-model";
-import "./UserLogin.css";
 
 const UserLogin: React.FC<T_UserForm> = ({
   emailLabel,
@@ -65,7 +64,7 @@ const UserLogin: React.FC<T_UserForm> = ({
 
   return (
     <Box id="landingPageRight">
-      <Typography id="lp_h6" sx={{ marginBottom: "20px" }}>
+      <Typography id="lpr_h5" variant="h5" sx={{ marginBottom: "20px" }}>
         {titleLabel}
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -92,22 +91,24 @@ const UserLogin: React.FC<T_UserForm> = ({
           helperText={errors.hasOwnProperty("password") ? errors.password.message : ""}
         />
         <hr style={{ marginTop: "10px" }} />
-        <Button type="submit" id="formButton" variant="contained" color="secondary" sx={{ width: "100%" }}>
+        <Button type="submit" id="formLoginButton" variant="contained" color="secondary" sx={{ width: "100%" }}>
           {mainLabel}
         </Button>
       </form>
-      <Typography>
-        {`${createText} `}
-        <Link component="button" onClick={onRegisterClick} id="lp_register">
-          {registerLabel}
-        </Link>
-      </Typography>
-      <Typography>
-        {`${forgotText} `}
-        <Link component="button" onClick={onForgotClick} id="lp_forgot" disabled>
-          {forgotLabel}
-        </Link>
-      </Typography>
+      <Box sx={{ margin: "20px 0px" }}>
+        <Typography>
+          {`${createText} `}
+          <Link component="button" onClick={onRegisterClick} id="lpr_register">
+            {registerLabel}
+          </Link>
+        </Typography>
+        <Typography sx={{ marginTop: "5px" }}>
+          {`${forgotText} `}
+          <Link component="button" onClick={onForgotClick} id="lpr_forgot">
+            {forgotLabel}
+          </Link>
+        </Typography>
+      </Box>
       <Button
         id="guestButton"
         variant="contained"

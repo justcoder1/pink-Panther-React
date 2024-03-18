@@ -11,13 +11,13 @@ const LandingPageLayout: React.FC<T_LandingPageModel> = ({ title, subTitle, land
     <Stack justifyContent={"center"} alignItems={"center"} id="landingPage">
       <Box id="landingPageInner">
         <Box id="landingPageLeft">
-          <Typography id="lp_h2" variant="h2">
+          <Typography id="lpl_h2" variant="h2">
             {title}
           </Typography>
           <Stack alignItems={"end"}>
-            <img id="lp_img" src={landingImage} alt="PinkPanther" />
+            <img id="lpl_img" src={landingImage} alt="PinkPanther" />
           </Stack>
-          <Typography id="lp_h6" variant="h6">
+          <Typography id="lpl_h6" variant="h6">
             {subTitle}
           </Typography>
         </Box>

@@ -21,7 +21,14 @@
   border-right: 3px solid #b61588;
 }
 
-#lp_h2 {
+#landingPageRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px !important;
+}
+
+#lpl_h2 {
   font-size: clamp(1.25rem, 50vw, 2.5rem);
   font-family: "cooper black";
   color: #fa8ab0;
@@ -30,7 +37,7 @@
   -webkit-text-stroke: 2.5px #b61588;
 }
 
-#lp_h6 {
+#lpl_h6 {
   font-size: clamp(0.75rem, 50vw, 1.25rem);
   text-align: center;
   font-weight: bold;
@@ -39,6 +46,26 @@
   padding: 1.5rem;
 }
 
-#lp_img {
+#lpl_img {
   height: 40dvh;
+}
+
+#lpr_h5 {
+  font-size: clamp(0.75rem, 50vw, 1.25rem);
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+  width: 95%;
+  padding: 1.5rem;
+}
+
+#formRegisterButton,
+#cancelButton {
+  flex-grow: 1;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+#cancelButton {
+  margin-left: 10px;
 }
