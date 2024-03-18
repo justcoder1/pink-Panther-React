@@ -125,7 +125,7 @@ const UserCreate: React.FC<T_UserForm> = ({
           error={errors.hasOwnProperty("passwordConfirmation")}
           helperText={errors.hasOwnProperty("passwordConfirmation") ? errors.passwordConfirmation.message : ""}
         />
-        <hr style={{ marginTop: "10px" }} />
+        <hr className="lp_hr" />
         <Stack direction={"row"}>
           <Button type="submit" id="formRegisterButton" variant="contained" color="secondary">
             {mainLabel}

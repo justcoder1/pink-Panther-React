@@ -62,10 +62,14 @@
 #formRegisterButton,
 #cancelButton {
   flex-grow: 1;
-  margin-top: 10px;
   gap: 10px;
 }
 
 #cancelButton {
   margin-left: 10px;
+}
+
+.lp_hr {
+  margin-top: 10px;
+  margin-bottom: 20px;
 }

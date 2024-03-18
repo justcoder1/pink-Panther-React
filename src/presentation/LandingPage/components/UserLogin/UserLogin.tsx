@@ -90,7 +90,7 @@ const UserLogin: React.FC<T_UserForm> = ({
           error={errors.hasOwnProperty("password")}
           helperText={errors.hasOwnProperty("password") ? errors.password.message : ""}
         />
-        <hr style={{ marginTop: "10px" }} />
+        <hr className="lp_hr" />
         <Button type="submit" id="formLoginButton" variant="contained" color="secondary" sx={{ width: "100%" }}>
           {mainLabel}
         </Button>
