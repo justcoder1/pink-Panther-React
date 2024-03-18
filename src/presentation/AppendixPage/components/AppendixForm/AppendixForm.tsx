@@ -117,7 +117,7 @@ const AppendixForm: React.FC<T_AppendixForm> = ({ type, nextId, types, topics, f
         {...register("comments")}
         defaultValue={type === "Update" ? formData.comments : ""}
       />
-      <Stack direction={"row"} justifyContent={"end"} id="formButton">
+      <Stack direction={"row"} justifyContent={"end"} id="formAppendixButton">
         <Button type="submit" disabled={!isValid} variant="contained" color="primary" sx={{ width: 125 }}>
           {type}
         </Button>

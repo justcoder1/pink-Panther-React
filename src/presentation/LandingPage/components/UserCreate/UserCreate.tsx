@@ -1,12 +1,11 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Box, Button, TextField, Typography } from "@mui/material";
+import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import React from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import YupPassword from "yup-password";
 
 import type { T_CreateData, T_UserForm } from "../../pages/use-landing-page.view-model";
-import "./UserCreate.css";
 
 const UserCreate: React.FC<T_UserForm> = ({
   emailLabel,
@@ -14,9 +13,11 @@ const UserCreate: React.FC<T_UserForm> = ({
   confirmPasswordLabel,
   titleLabel,
   mainLabel,
+  cancelLabel,
   firstNameLabel,
   lastNameLabel,
   onCreateClick,
+  onCancelClick,
 }) => {
   YupPassword(yup);
   const inputFull = { width: "100%", margin: "10px 0px" };
@@ -58,9 +59,13 @@ const UserCreate: React.FC<T_UserForm> = ({
     onCreateClick(data);
   };
 
+  const onCancel = (): void => {
+    onCancelClick();
+  };
+
   return (
     <Box id="landingPageRight">
-      <Typography id="lp_h6" sx={{ marginBottom: "20px" }}>
+      <Typography id="lpr_h5" variant="h5" sx={{ marginBottom: "20px" }}>
         {titleLabel}
       </Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -120,10 +125,15 @@ const UserCreate: React.FC<T_UserForm> = ({
           error={errors.hasOwnProperty("passwordConfirmation")}
           helperText={errors.hasOwnProperty("passwordConfirmation") ? errors.passwordConfirmation.message : ""}
         />
-        <hr style={{ marginTop: "10px" }} />
-        <Button type="submit" id="formButton" variant="contained" color="secondary" sx={{ width: "100%" }}>
-          {mainLabel}
-        </Button>
+        <hr className="lp_hr" />
+        <Stack direction={"row"}>
+          <Button type="submit" id="formRegisterButton" variant="contained" color="secondary">
+            {mainLabel}
+          </Button>
+          <Button id="cancelButton" variant="contained" color="primary" onClick={onCancel}>
+            {cancelLabel}
+          </Button>
+        </Stack>
       </form>
     </Box>
   );

@@ -23,6 +23,8 @@ const App: React.FC = () => {
       <Routes>
         <Route path="*" element={<PageNotFoundView />} />
         <Route path="/" element={<LandingPageView />} />
+        <Route path="/login" element={<LandingPageView />} />
+        <Route path="/register" element={<LandingPageView />} />
         <Route path="/home" element={<HomePageView />} />
         <Route path="/about" element={<AboutPageView />} />
         <Route path="/appendix" element={<AppendixPageView />} />

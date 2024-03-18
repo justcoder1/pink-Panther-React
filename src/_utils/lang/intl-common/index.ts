@@ -93,6 +93,12 @@ export const useIntlCommon = (): any => {
     defaultMessage: "Create",
   });
 
+  const cancelLabel = intl.formatMessage({
+    id: "common.intl.cancel.label",
+    description: "internationalised label for cancel",
+    defaultMessage: "Cancel",
+  });
+
   const firstNameLabel = intl.formatMessage({
     id: "common.intl.firstName.label",
     description: "internationalised label for firstName",
@@ -121,6 +127,7 @@ export const useIntlCommon = (): any => {
     registerLabel,
     forgotLabel,
     createLabel,
+    cancelLabel,
     firstNameLabel,
     lastNameLabel,
   };

@@ -8,13 +8,31 @@ export const getAppendices = async (): Promise<T_Response> => {
 };
 
 export const createAppendix = async (data: T_AppendixData): Promise<AxiosResponse> => {
-  return await DB_API.post("/appendix", data, { withCredentials: true });
+  return await DB_API.post("/appendix", data, {
+    withCredentials: true,
+    headers: {
+      "Content-Type": "application/json",
+      userCsrf: window.CSRF_TOKEN,
+    },
+  });
 };
 
 export const updateAppendix = async (data: T_AppendixData): Promise<AxiosResponse> => {
-  return await DB_API.put("/appendix", data, { withCredentials: true });
+  return await DB_API.put("/appendix", data, {
+    withCredentials: true,
+    headers: {
+      "Content-Type": "application/json",
+      userCsrf: window.CSRF_TOKEN,
+    },
+  });
 };
 
 export const deleteAppendix = async (id: string): Promise<AxiosResponse> => {
-  return await DB_API.delete(`/appendix?id=${id}`, { withCredentials: true });
+  return await DB_API.delete(`/appendix?id=${id}`, {
+    withCredentials: true,
+    headers: {
+      "Content-Type": "application/json",
+      userCsrf: window.CSRF_TOKEN,
+    },
+  });
 };

@@ -8,6 +8,13 @@ import type { T_HistoryPageLayoutModel } from "../../presentation/HistoryPage/co
 import type { T_SocialData } from "../../presentation/HomePage/components/Socials/use-socials.view-model";
 import type { T_NavBarItem } from "../../presentation/_AuthenticatedLayout/components/NavBar/use-navbar.view-model";
 
+// mutating the window object to access CSRF token
+declare global {
+  interface Window {
+    CSRF_TOKEN: string;
+  }
+}
+
 export type ViewModelHook<TModel, TOptions = void> = (options: TOptions) => TModel;
 
 export type T_ResponseUser = {
