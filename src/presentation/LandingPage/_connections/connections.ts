@@ -3,7 +3,10 @@ import type { T_Response } from "../../../_utils/types";
 import type { T_LoginData } from "../pages/use-landing-page.view-model";
 
 export const login = async (data: T_LoginData): Promise<T_Response> => {
-  return await DB_API.post("/authentication/login", data, { withCredentials: true }).then((res) => res.data);
+  return await DB_API.post("/authentication/login", data, { withCredentials: true }).then((res) => {
+    window.CSRF_TOKEN = res.headers.usercsrf;
+    return res.data;
+  });
 };
 
 export const registerUser = async (data: T_LoginData): Promise<T_Response> => {
