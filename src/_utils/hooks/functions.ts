@@ -1,3 +1,4 @@
+import { QueryClient } from "@tanstack/react-query";
 import type { T_ResponseUser } from "../types/index";
 export const noop = (): void => {};
 
@@ -12,4 +13,19 @@ export function getGlobals(): T_ResponseUser {
 
 export function deleteGlobals(): void {
   sessionStorage.removeItem("responseUser");
+}
+
+export function clearUser(): void {
+  // This clears React Query cached data
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: Infinity,
+      },
+    },
+  });
+
+  queryClient.removeQueries();
+  // Removes user from session storage
+  sessionStorage.clear();
 }

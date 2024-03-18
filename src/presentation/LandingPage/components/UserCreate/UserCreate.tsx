@@ -14,9 +14,11 @@ const UserCreate: React.FC<T_UserForm> = ({
   confirmPasswordLabel,
   titleLabel,
   mainLabel,
+  cancelLabel,
   firstNameLabel,
   lastNameLabel,
   onCreateClick,
+  onCancelClick,
 }) => {
   YupPassword(yup);
   const inputFull = { width: "100%", margin: "10px 0px" };
@@ -56,6 +58,10 @@ const UserCreate: React.FC<T_UserForm> = ({
 
   const onSubmit = (data: T_CreateData): void => {
     onCreateClick(data);
+  };
+
+  const onCancel = (): void => {
+    onCancelClick();
   };
 
   return (
@@ -121,8 +127,11 @@ const UserCreate: React.FC<T_UserForm> = ({
           helperText={errors.hasOwnProperty("passwordConfirmation") ? errors.passwordConfirmation.message : ""}
         />
         <hr style={{ marginTop: "10px" }} />
-        <Button type="submit" id="formButton" variant="contained" color="secondary" sx={{ width: "100%" }}>
+        <Button type="submit" id="formButton" variant="contained" color="secondary">
           {mainLabel}
+        </Button>
+        <Button id="cancelButton" variant="contained" color="primary" onClick={onCancel}>
+          {cancelLabel}
         </Button>
       </form>
     </Box>

@@ -4,9 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { useIntlCommon } from "../../../_utils/lang/intl-common";
 import type { ViewModelHook, T_Response } from "../../../_utils/types/index";
 import landingImage from "../../../assets/PP_404.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { registerUser } from "../_connections/connections";
+import { userLogout } from "../../../_utils/http/paths";
+import { clearUser } from "../../../_utils/hooks/functions";
 
 export type T_UserForm = {
   emailLabel: string;
@@ -17,12 +19,14 @@ export type T_UserForm = {
   guestLabel: string;
   createText: string;
   forgotText: string;
+  cancelLabel: string;
   registerLabel: string;
   forgotLabel: string;
   firstNameLabel: string;
   lastNameLabel: string;
   onRegisterClick: () => void;
   onCreateClick: (data: T_LoginData) => void;
+  onCancelClick: () => void;
   onForgotClick: () => void;
 };
 
@@ -60,13 +64,14 @@ const useLandingPageModel: ViewModelHook<T_LandingPageModel> = () => {
     guestLabel,
     forgotLabel,
     createLabel,
+    cancelLabel,
     firstNameLabel,
     lastNameLabel,
   } = useIntlCommon();
 
   const onRegisterClick = (): void => {
     setCreateUser(true);
-    navigate("/");
+    navigate("/register");
   };
 
   const { mutate: onCreateClick } = useMutation({
@@ -79,9 +84,28 @@ const useLandingPageModel: ViewModelHook<T_LandingPageModel> = () => {
     },
   });
 
+  const onCancelClick = (): void => {
+    setCreateUser(false);
+    navigate("/login");
+  };
+
   const onForgotClick = (): void => {
     navigate("/");
   };
+
+  const { mutate: onLogout } = useMutation({
+    mutationFn: userLogout,
+    onSuccess: () => {
+      clearUser();
+    },
+    onError: (err) => {
+      console.error(err);
+    },
+  });
+
+  useEffect(() => {
+    onLogout();
+  }, [createUser]);
 
   try {
     const subTitle = intl.formatMessage({
@@ -103,6 +127,7 @@ const useLandingPageModel: ViewModelHook<T_LandingPageModel> = () => {
         confirmPasswordLabel,
         titleLabel: createUser ? createTitle : loginTitle,
         mainLabel: createUser ? createLabel : loginLabel,
+        cancelLabel,
         guestLabel,
         createText,
         forgotText,
@@ -112,6 +137,7 @@ const useLandingPageModel: ViewModelHook<T_LandingPageModel> = () => {
         lastNameLabel,
         onRegisterClick,
         onCreateClick,
+        onCancelClick,
         onForgotClick,
       },
       createUser,
