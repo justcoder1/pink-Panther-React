@@ -149,3 +149,11 @@
 - Started Logout
   <r>FE - Merged issue 6 into main - Authentication</r>
   <c>biggest challenge with this work was getting all the TS correct and inline.</c>
+
+## 18-03-2024
+
+- Implemented the CSRF process on API Endpoint calls.
+- I decided to not do the Refresh Token or protected routes as I felt these were not of benefit for this application.
+- If this was a production app and Authentication was a major part of the app I would look to use a library such as https://auth0.com/ or https://clerk.com/
+- Refactored some styling on the landing page and routing.
+  <r>FE - Merged issue 59 into main - Authentication Part 2</r>
