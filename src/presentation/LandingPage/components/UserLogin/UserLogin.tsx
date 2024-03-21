@@ -98,13 +98,13 @@ const UserLogin: React.FC<T_UserForm> = ({
       <Box sx={{ margin: "20px 0px" }}>
         <Typography>
           {`${createText} `}
-          <Link component="button" onClick={onRegisterClick} id="lpr_register">
+          <Link component="button" onClick={onRegisterClick} id="lpr_register" sx={{ textDecoration: "none" }}>
             {registerLabel}
           </Link>
         </Typography>
         <Typography sx={{ marginTop: "5px" }}>
           {`${forgotText} `}
-          <Link component="button" onClick={onForgotClick} id="lpr_forgot">
+          <Link component="button" onClick={onForgotClick} id="lpr_forgot" sx={{ textDecoration: "none" }}>
             {forgotLabel}
           </Link>
         </Typography>

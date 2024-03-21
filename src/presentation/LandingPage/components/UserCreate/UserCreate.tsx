@@ -1,5 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Box, Button, Stack, TextField, Typography } from "@mui/material";
+import { Alert, Box, Button, Stack, TextField, Typography } from "@mui/material";
 import React from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
@@ -49,7 +49,7 @@ const UserCreate: React.FC<T_UserForm> = ({
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm({
     resolver: yupResolver(createSchema),
   });
@@ -126,6 +126,11 @@ const UserCreate: React.FC<T_UserForm> = ({
           helperText={errors.hasOwnProperty("passwordConfirmation") ? errors.passwordConfirmation.message : ""}
         />
         <hr className="lp_hr" />
+        {isValid && (
+          <Alert severity="warning" sx={{ marginBottom: "20px" }}>
+            No data is kept, App is reset every 12 hours!
+          </Alert>
+        )}
         <Stack direction={"row"}>
           <Button type="submit" id="formRegisterButton" variant="contained" color="secondary">
             {mainLabel}
