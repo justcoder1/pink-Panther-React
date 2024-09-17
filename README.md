@@ -25,6 +25,11 @@ To install the application locally please use this npm command.
 
 The application does utilise an environment file that you will not have access to for connecting to the backend.
 
+#### Logon Details for Testing
+
+- just.coder@outlook.com
+- JustCoder_123
+
 <!-- USAGE EXAMPLES -->
 
 ## Progress
