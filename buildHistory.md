@@ -157,3 +157,6 @@
 - If this was a production app and Authentication was a major part of the app I would look to use a library such as https://auth0.com/ or https://clerk.com/
 - Refactored some styling on the landing page and routing.
   <r>FE - Merged issue 59 into main - Authentication Part 2</r>
+
+## 04-05-2025
+- been some time with nothing done.
